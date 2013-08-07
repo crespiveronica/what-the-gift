@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+rerun.txt
+pickle-email-*.html
