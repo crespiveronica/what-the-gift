@@ -1,7 +1,9 @@
 Dfbengine::Application.routes.draw do
+  get "static_pages/home"
+  get "static_pages/projects"
+  get "static_pages/about"
+
   resources :blogposts
-
-
   resources :users
 
 
