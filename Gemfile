@@ -10,7 +10,7 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'capybara', '1.1.2'
   gem 'guard-rspec', '1.2.1'
-  gem 'guard-spork', '1.2.0'
+  gem 'guard-spork', :github => 'guard/guard-spork'
   gem 'childprocess', '0.3.9'
   gem 'spork', '0.9.2'
 end
