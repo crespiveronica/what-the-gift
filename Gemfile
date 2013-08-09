@@ -5,10 +5,14 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'mongoid', '~> 3.1.0'
-gem 'rspec-rails', '2.11.0'
 
-group :test do
+group :development, :test do
+  gem 'rspec-rails', '2.11.0'
   gem 'capybara', '1.1.2'
+  gem 'guard-rspec', '1.2.1'
+  gem 'guard-spork', '1.2.0'
+  gem 'childprocess', '0.3.9'
+  gem 'spork', '0.9.2'
 end
 
 # Gems used only for assets and not required
