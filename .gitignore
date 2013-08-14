@@ -16,4 +16,3 @@
 /public/system/*
 /coverage/
 /spec/tmp/*
-**.orig

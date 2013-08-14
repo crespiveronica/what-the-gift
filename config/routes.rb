@@ -1,8 +1,7 @@
 Dfbengine::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/projects"
-  get "static_pages/about"
-  get "static_pages/contact"
+  match '/projects', to: 'static_pages#projects', via: 'get'
+  match '/about',    to: 'static_pages#about',    via: 'get'
+  match '/contact',  to: 'static_pages#contact',  via: 'get'
 
   resources :blogposts
   resources :users
@@ -57,7 +56,7 @@ Dfbengine::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
