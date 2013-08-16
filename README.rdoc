@@ -16,9 +16,8 @@ Este es el proyecto que desarrollamos para Proyecto Final, UTN. Los integrantes 
        cd what-the-gift
        bundle install
 
-3. Probar que Rails funciona:
+3. Visitar http://localhost:3000, luego de levantar el web server de Rails:
        rails server
-Y visitar http://localhost:3000
 
 4. El tutorial amigo para desarrollar la aplicación es:
 
