@@ -1,3 +1,30 @@
+== Bienvenidos a What the Gift
+
+Este es el proyecto que desarrollamos para Proyecto Final, UTN. Los integrantes del equipo somos:
+
+* Verónica Crespi
+* Sacha Lifszyc
+* Fernando Niño
+* Joaquin Pérez Bay
+
+== Getting Started
+
+1. Para bajar el respositorio:
+       git clone git@github.com:crespiveronica/what-the-gift.git
+
+2. Descargar los gems con `bundle`:
+       cd what-the-gift
+       bundle install
+
+3. Probar que Rails funciona:
+       rails server
+Y visitar http://localhost:3000
+
+4. El tutorial amigo para desarrollar la aplicación es:
+
+* Ruby on Rails Tutorial Book: http://ruby.railstutorial.org/ruby-on-rails-tutorial-book?version=3.2
+* Guías oficiales: http://guides.rubyonrails.org/v3.2.13/
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
