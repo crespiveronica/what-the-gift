@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Dfbengine::Application.load_tasks
+Wtg::Application.load_tasks

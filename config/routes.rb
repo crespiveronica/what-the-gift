@@ -1,13 +1,10 @@
-Dfbengine::Application.routes.draw do
+Wtg::Application.routes.draw do
   root to: 'static_pages#home'
 
-  match '/projects', to: 'static_pages#projects', via: 'get'
-  match '/about',    to: 'static_pages#about',    via: 'get'
-  match '/contact',  to: 'static_pages#contact',  via: 'get'
-
-  resources :blogposts
   resources :users
-
+  resources :sellers
+  resources :products
+  resources :categories
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
