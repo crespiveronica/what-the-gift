@@ -6,6 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'mongoid', '~> 3.1.0'
 gem 'bootstrap-sass', '~> 2.3.2.1'
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'

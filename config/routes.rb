@@ -1,5 +1,16 @@
 Wtg::Application.routes.draw do
   root to: 'static_pages#home'
+  match '/singup/', to: 'signup#index', via: 'get'
+  match '/friends/', to: 'friends#index', via: 'get'
+  match '/friends/search/', to: 'friends#search', via: 'get'
+  match '/products/recommended/', to: 'products#recommended', via: 'get'
+  match '/products/favorites/', to: 'products#favorites', via: 'get'
+  match '/products/search/', to: 'products#search', via: 'get'
+  match '/my-products/', to: 'products#mine', via: 'get'
+  match '/gifts/', to: 'products#gifts', via: 'get'
+  match '/profile/', to: 'profile#index', via: 'get'
+  match '/about/', to: 'static_pages#about', via: 'get'
+  match '/contact/', to: 'static_pages#contact', via: 'get'
 
   resources :users
   resources :sellers

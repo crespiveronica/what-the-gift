@@ -1,14 +1,62 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "sample app", root_path, id: "logo" %>
+      <!--<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>-->
+      <%= link_to "what the gift?!", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home",    '#' %></li>
-          <li><%= link_to "Help",    '#' %></li>
-          <li><%= link_to "Sign in", '#' %></li>
+          <!--<li><%= link_to "Iniciar sesión", '#' %></li>
+          <li><%= link_to "Registrarse", singup_path %></li>-->
+          <li><%= link_to "John Doe", '/profile' %></li>
+          <li><a href="#">Salir</a></li>
         </ul>
       </nav>
     </div>
   </div>
 </header>
+
+
+<!-- Registered User -->
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner container">
+      <ul class="nav">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Amigos <i class="caret"></i></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li><%= link_to "Mis amigos", friends_path %></li>
+              <li><%= link_to "Buscar", '/friends/search' %></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Productos <i class="caret"></i></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li><%= link_to "Recomendados", '/products/recommended' %></li>
+              <li><%= link_to "Favoritos", '/products/favorites' %></li>
+              <li><%= link_to "Buscar", '/products/search' %></li>
+            </ul>
+        </li>
+        <li><%= link_to "Mis regalos", '/gifts' %></li>
+      </ul>
+  </div>
+</div>
+
+<!-- Admin -->
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner container">
+      <ul class="nav">
+        <li><%= link_to "Vendedores", '/sellers' %></li>
+        <li><%= link_to "Productos", '/products' %></li>
+        <li><%= link_to "Categorías", '/categories' %></li>
+        <li><%= link_to "Usuarios", '/users' %></li>
+      </ul>
+  </div>
+</div>
+
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner container">
+      <ul class="nav">
+        <li><%= link_to "Mis productos", '/my-products' %></li>
+        <li><%= link_to "Productos", '/products/search' %></li>
+      </ul>
+  </div>
+</div>
