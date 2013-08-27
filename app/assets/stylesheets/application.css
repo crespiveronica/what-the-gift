@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+li
+{
+	list-style-type: none;
+}
+
+a.profile-mini:hover
+{
+	color: black;
+}

@@ -1,1 +1,13 @@
-listado de amigos
+<h1>Listado de Amigos</h1>
+
+
+<ul class="row">
+	<% (1..6).each do |i| %>
+	<li class="span2 text-center">
+		<a href="/users/1" class="profile-mini">
+			<%= image_tag "lego#{i}.jpg", size: "80x80", class: "img-circle" %>
+			<p>Lego <%= i %></p>
+		</a>
+	</li>
+	<% end %>
+</ul>

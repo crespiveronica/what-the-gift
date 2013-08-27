@@ -1,15 +1,5 @@
-<p id="notice"><%= notice %></p>
+<%
+	profile = [1, 2, 3, 4, 5, 6].sample
+%>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= image_tag "lego#{profile}.jpg", size: "250x250", class: "img-polaroid", alt: "Lego #{profile}", title: "Lego #{profile}" %>

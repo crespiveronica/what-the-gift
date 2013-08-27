@@ -1,1 +1,7 @@
-listado de productos recomendados
+<h1>listado de productos recomendados</h1>
+
+<ul class="thumbnails">
+	<% (1..10).each do |i| %>
+		<%= render :template => 'products/list-item' %>
+	<% end %>
+</ul>
