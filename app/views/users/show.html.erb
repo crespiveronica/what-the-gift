@@ -1,5 +1,83 @@
-<%
-	profile = [1, 2, 3, 4, 5, 6].sample
-%>
+<% profile = [1, 2, 3, 4, 5, 6].sample %>
 
-<%= image_tag "lego#{profile}.jpg", size: "250x250", class: "img-polaroid", alt: "Lego #{profile}", title: "Lego #{profile}" %>
+<!-- Contenido principal -->
+<div class="container">
+    <div class="page-header">
+        <h1>Nombre y Apellido</h1>
+    </div>
+
+    <div class="tabbable tabs-left">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab"><i class="icon-user"></i> Perfil</a></li>
+            <li><a href="#tab2" data-toggle="tab"><i class="icon-star"></i> Wish-list</a></li>
+            <li><a href="#tab3" data-toggle="tab"><i class="icon-gift"></i> Regalos recibidos</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+                <form>
+                    <fieldset>
+                        <legend>Perfil</legend>
+                        <div class="row">
+                            <div class="span4">
+                                <%= image_tag("lego#{profile}.jpg", size: "250x250", class: "img-polaroid") %>
+                            </div>
+                            <div class="span3"></div>
+                        </div>
+                        <div class="row">
+                            <div class="span9"><h4>Sobre mi</h4></div>
+                        </div>
+                        <div class="row">
+                            <div class="span9">
+                                <div class="row">
+                                    <div class="span4"><strong>Nombre</strong></div>
+                                    <div class="span5"><input type="text" placeholder="Nombre"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="span4"><strong>Apellido</strong></div>
+                                    <div class="span5"><input type="text" placeholder="Apellido"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="span4"><strong>Ocupación</strong></div>
+                                    <div class="span5"><input type="text" placeholder="Ocupación"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="span4"><strong>Pasatiempos</strong></div>
+                                    <div class="span5"><input type="text" placeholder="Pasatiempos y hobbies"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="span4"><strong>E-mail</strong></div>
+                                    <div class="span5"><input type="text" placeholder="nombre@dominio.com"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="span12"><hr></div>
+                                </div>
+                                <div class="row">
+                                    <div class="span9">
+                                        <%= link_to "Eliminar amigo", '#', class: "btn btn-warning" %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="tab-pane" id="tab2">
+                <form>
+                    <fieldset>
+                        <legend>Wish-list</legend>
+                    </fieldset>
+                    <p>Para agregar y borrar items del wishlist.</p>
+                </form>
+            </div>
+            <div class="tab-pane" id="tab3">
+                <form>
+                    <fieldset>
+                        <legend>Regalos recibidos</legend>
+                    </fieldset>
+                    <p>Aqui podria ir una lista de los regalos que ya recibio el usuario.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
