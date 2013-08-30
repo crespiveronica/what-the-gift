@@ -1,0 +1,11 @@
+<div class="center hero-unit">
+  <h1>What The Gift?!</h1>
+
+  <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+  <p>
+    ¿Necesitas hacer un regalo y no sabes qué elegir? ¿Se viene tu cumpleaños y deseas muchas cosas? En <strong>What the Gift?!</strong> tenemos la solución: busca regalos por afinidad, filtra por tus intereses, y elige por ubicación; puedes también armar un <em>wish-list</em> con lo que deseas para que tus amigos sepan qué regalarte.
+  </p>
+  <p>
+                    No pierdas más tiempo, ¡regístrate e invita a tus amigos a paticipar!
+                </p>
+</div>
