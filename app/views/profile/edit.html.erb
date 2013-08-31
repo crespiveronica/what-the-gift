@@ -134,7 +134,7 @@
           </fieldset>
           <p>Para opciones de privacidad, etc.</p>
           <div class="row">
-            <div class="span2"><button class="btn btn-danger btn-block" type="button">Eliminar perfil</button></div>
+            <div class="span2"><a class="btn btn-danger btn-block" href="#deleteProfileModal" role="button" data-toggle="modal">Eliminar perfil</a></div>
           </div>
         </form>
       </div>
@@ -160,5 +160,20 @@
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
     <button class="btn btn-primary">Confirmar</button>
+  </div>
+</div>
+
+<div id="deleteProfileModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="deleteProfileModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="deleteProfileModalLabel">Eliminar perfil</h3>
+  </div>
+  <div class="modal-body">
+    <p>¿Está seguro de eliminar su cuenta?</p>
+    <p>Podrá reactivarla en cualquier momento</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+    <a class="btn btn-danger" href="/profile/delete">Eliminar</a>
   </div>
 </div>
