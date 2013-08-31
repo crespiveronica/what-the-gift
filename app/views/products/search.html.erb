@@ -2,12 +2,49 @@
       <div class="page-header">
         <h2>¡Encuentra tus regalos! <br><small>Aquí podrás buscar regalos por categoría</small></h2>
       </div>
+
+        <button class="btn btn-primary" type="button" id="advanced-search">Busqueda avanzada</button>
+          <div id="advanced-search-form" style="display: none;">
+  <br>
+  <form class="form-inline">
+    <label class="checkbox">
+      <input type="checkbox"> Marca
+    </label>
+    <input type="text" class="input-small">
+  </form>
+  <form class="form-inline">
+    <label class="checkbox">
+      <input type="checkbox"> Vendedor
+    </label>
+    <input type="text" class="input-small">
+  </form>
+  <form class="form-inline">
+    <label class="checkbox">
+      <input type="checkbox"> Categoría
+    </label>
+    <input type="text" class="input-small">
+  </form>
+  <form class="form-inline">
+    <label class="checkbox">
+      <input type="checkbox"> Rango de Precios
+    </label>
+    <input type="text" class="input-small" placeholder="desde">
+    <input type="text" class="input-small" placeholder="hasta">
+  </form>
+  <form class="form-inline">
+    <label class="checkbox">
+      <input type="checkbox"> Palabras clave
+    </label>
+    <input type="text" class="input-small">
+  </form>
+
+      </div>
       <div class="row">
         <div class="span8 offset2">
           <form class="form-search">
             <div class="input-append">
               <input type="text" class="span8 search-query">
-              <button type="submit" class="btn">Search</button>
+              <button type="submit" class="btn">Buscar</button>
             </div>
           </form>
         </div>
@@ -160,3 +197,15 @@
         </div>
       </div>
     </div>
+
+<script>
+  $('#advanced-search').click(
+    function() {
+      if ($('#advanced-search-form').css('display') == 'none') {
+        $('#advanced-search-form').slideDown();
+      } else {
+        $('#advanced-search-form').slideUp();
+      }
+    }
+  );
+</script>
