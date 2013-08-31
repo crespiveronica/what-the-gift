@@ -18,4 +18,5 @@
 /spec/tmp/*
 
 # Ignore OS X hidden files
-/.DS_Store
+.DS_Store
+.DS_Store?

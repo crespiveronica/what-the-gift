@@ -1,0 +1,24 @@
+<%= inside_layout "application" do %>
+	<div class="tabbable tabs-left">
+	    <ul class="nav nav-tabs">
+	      <li <%= yield :activemyfriends %>>
+	      	<a href="/friends">
+      			<i class="icon-user"></i> Mis amigos <span class="badge badge-inverse">6</span>
+      		</a>
+	      </li>
+	      <li <%= yield :activerequests %>>
+	      	<a href="/friends/requests">
+	      		<i class="icon-plus"></i> Solicitudes de amistad <span class="badge badge-info">1</span>
+	      	</a>
+	      </li>
+	      <li <%= yield :activepending %>>
+	      	<a href="/friends/pending">
+	      		<i class="icon-time"></i> Pendientes <span class="badge badge-info">0</span>
+	      	</a>
+	      </li>
+	    </ul>
+	    <div class="tab-content">
+	    	<%= yield %>
+	    </div>
+	</div>
+<% end %>
