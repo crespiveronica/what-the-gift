@@ -1,4 +1,5 @@
 Wtg::Application.routes.draw do
+
   root to: 'static_pages#home'
   match '/singup/', to: 'signup#index', via: 'get'
   match '/friends/', to: 'friends#index', via: 'get'
@@ -14,11 +15,14 @@ Wtg::Application.routes.draw do
   match '/contact/', to: 'static_pages#contact', via: 'get'
   match '/users/confirm/:id/:code/', to: 'users#confirm'
   match '/profile/delete/', to: 'profile#delete'
+  match '/admins/user_edit', to: 'admins#user_edit', via: 'get'
+  match '/admins/product_edit', to: 'admins#product_edit', via: 'get'
 
   resources :users
   resources :sellers
   resources :products
   resources :categories
+  resources :admins
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
