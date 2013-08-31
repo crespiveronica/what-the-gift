@@ -11,6 +11,7 @@ Wtg::Application.routes.draw do
   match '/profile/', to: 'profile#index', via: 'get'
   match '/about/', to: 'static_pages#about', via: 'get'
   match '/contact/', to: 'static_pages#contact', via: 'get'
+  match '/users/confirm/:id/:code', to: 'users#confirm'
 
   resources :users
   resources :sellers
