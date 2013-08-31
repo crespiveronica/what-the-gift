@@ -9,6 +9,7 @@ Wtg::Application.routes.draw do
   match '/my-products/', to: 'products#mine', via: 'get'
   match '/gifts/', to: 'products#gifts', via: 'get'
   match '/profile/', to: 'profile#index', via: 'get'
+  match '/profile/edit', to: 'profile#edit', via: 'get'
   match '/about/', to: 'static_pages#about', via: 'get'
   match '/contact/', to: 'static_pages#contact', via: 'get'
   match '/users/confirm/:id/:code', to: 'users#confirm'

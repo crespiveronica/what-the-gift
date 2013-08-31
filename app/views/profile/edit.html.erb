@@ -16,20 +16,19 @@
       <div class="tab-pane active" id="tab1">
         <form>
           <fieldset>
-            <legend>
-                <div class="row">
-                  <div class="span7">
-                  <h3>
-                    Perfil
-                    <a class="btn btn-success pull-right" href="/profile/edit">Editar perfil</a>
-                  </h3>
-                  </div>
-                </div> 
-            </legend>
+            <legend><h4>Perfil</h4></legend>
             <div class="row">
               <div class="span4">
                 <%= image_tag "lego5.jpg", size: "200x200", class: "img-polaroid img-rounded" %>
               </div>
+              <div class="span3"></div>
+            </div>
+            <div class="row">
+              <div class="span3">
+                <p class="text-center"><button class="btn btn-success btn-block" type="button">Cambiar foto</button>
+                </p>
+              </div>
+              <div class="span3"></div>
             </div>
             <div class="row">
               <div class="span9"><h4>Sobre mi</h4></div>
@@ -38,19 +37,30 @@
               <div class="span9">
                 <div class="row">
                   <div class="span4"><strong>Nombre</strong></div>
-                  <div class="span5">John</div>
+                  <div class="span5"><input type="text" value="John"></div>
                 </div>
                 <div class="row">
                   <div class="span4"><strong>Apellido</strong></div>
-                  <div class="span5">Doe</div>
+                  <div class="span5"><input type="text" value="Doe"></div>
                 </div>
                 <div class="row">
                   <div class="span4"><strong>Ocupación</strong></div>
-                  <div class="span5">Sistemas</div>
+                  <div class="span5"><input type="text" value="Sistemas"></div>
                 </div>
                 <div class="row">
                   <div class="span4"><strong>Pasatiempos</strong></div>
-                  <div class="span5">Fútbol, programación, arte</div>
+                  <div class="span5"><input type="text" value="Fútbol, programación, arte"></div>
+                </div>
+                <div class="row">
+                  <div class="span3"></div>
+                  <div class="span2">
+                    <p class="text-center"><button class="btn btn-success btn-block" type="button">Confirmar cambios</button>
+                    </p>
+                  </div>
+                  <div class="span2">
+                    <p class="text-center"><a class="btn btn-warning btn-block" href="/profile">Cancelar cambios</a>
+                    </p>
+                  </div>
                 </div>
                 <div class="row">
                   <div class="span12"><hr></div>
@@ -62,7 +72,7 @@
                 <div class="row">
                   <div class="span4"></div>
                   <div class="span3">
-                    <p class="text-center"><button class="btn btn-success btn-block" type="button">Cambiar e-mail</button>
+                    <p class="text-center"><a class="btn btn-success btn-block" href="#changeEmailModal" role="button" data-toggle="modal">Cambiar e-mail</a>
                     </p>
                   </div>
                 </div>
@@ -129,5 +139,26 @@
         </form>
       </div>
     </div>
+  </div>
+</div>
+
+<div id="changeEmailModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changeEmailLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="changeEmailLabel">Cambiar e-mail</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="inputEmail">Email</label>
+        <div class="controls">
+          <input type="text" id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+    <button class="btn btn-primary">Confirmar</button>
   </div>
 </div>

@@ -1,6 +1,8 @@
 class ProfileController < ApplicationController
 
-  def index
-     
+  def index     
+  end
+
+  def edit
   end
 end
