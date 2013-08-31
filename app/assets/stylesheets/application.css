@@ -20,3 +20,8 @@ a.profile-mini:hover
 {
 	color: black;
 }
+
+.list-row
+{
+	margin-bottom: 12px;
+}

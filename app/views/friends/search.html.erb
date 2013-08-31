@@ -1,1 +1,49 @@
-buscador de amigos
+<div class="page-header text-center">
+    <h3>John Doe <br><small>johndoe2013 | johndoe@gmail.com</small></h3>
+  </div>
+<div class="row text-center">
+		<fieldset>
+	    	<legend>Buscar amigos</legend>
+	  	</fieldset>
+		<form class="form-search">
+			<div class="input-append">
+			  <input type="text" class="span8 input-medium search-query">
+			  <button type="submit" class="btn">Buscar</button>
+			</div>
+		</form>
+</div>
+<div class="row">
+	<div class="span8 offset2">
+			<table class="table table-hover">
+	          <thead>
+	            <tr>
+	              <th>Nombre</th>
+	              <th><p class="text-right">Foto</p></th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr class="friend-row">
+	              <td>
+	              	Jane Doe <a class="btn btn-primary btn-small" style="display: none"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i></a>
+	              </td>
+	              <td><p class="text-right"><img src="http://lorempixel.com/64/64/people/4" class="img-rounded" /></p></td>
+	            </tr>
+	            <tr class="friend-row">
+	              <td>James Doe <a class="btn btn-primary btn-small" style="display: none"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i></a></td>
+	              <td><p class="text-right"><img src="http://lorempixel.com/64/64/people/2" class="img-rounded" /></p></td>
+	            </tr>
+	          </tbody>
+	        </table>
+	</div>
+</div>
+
+<script>
+$('tr.friend-row').hover(
+	function () {
+		$(this).find('a').show();
+	},
+	function () {
+		$(this).find('a').hide();
+	}
+);
+</script>
