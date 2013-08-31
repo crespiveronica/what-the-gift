@@ -21,12 +21,6 @@ class ProductsController < ApplicationController
   def destroy
   end
 
-  def recommended
-  end
-
-  def favorites
-  end
-
   def search
   end
 
