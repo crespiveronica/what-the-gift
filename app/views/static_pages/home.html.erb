@@ -20,80 +20,141 @@
     <form class="form-horizontal">
       <!-- Tipo de usuario -->
       <div class="control-group">
-        <label class="control-label" for="inputEmail">Tipo</label>
+        <label class="control-label"inputEmail">Tipo</label>
         <div class="controls">
-          <select>
-            <option>Usuario</option>
-            <option>Vendedor</option>
+          <select id="userType">
+            <option value="">Seleccione un tipo de usuario</option>
+            <option value="1">Usuario</option>
+            <option value="2">Vendedor</option>
           </select>
         </div>
       </div>
-      <!-- Nombre de usuario -->
-      <div class="control-group">
-        <label class="control-label" for="inputName">Nombre de usuario</label>
+      <div id="user-form" style="display: none;">
+        <!-- Nombre de usuario -->
+        <div class="control-group">
+        <label class="control-label"inputName">Nombre de usuario</label>
         <div class="controls">
           <input type="text" placeholder="juanperez">
         </div>
-      </div>
-      <!-- Nombre y apellido -->
-      <div class="control-group">
-        <label class="control-label" for="inputName">Nombre</label>
-        <div class="controls">
-          <input type="text" placeholder="Juan">
+        </div>
+        <!-- E-mail -->
+        <div class="control-group">
+          <label class="control-label"inputEmail">E-mail</label>
+          <div class="controls">
+            <input type="text" id="inputEmail" placeholder="nombre@servicio.com">
+          </div>
+        </div>
+        <!-- Contraseña -->
+        <div class="control-group">
+          <label class="control-label"inputPassword">Contraseña</label>
+          <div class="controls">
+            <input type="password" id="inputPassword" placeholder="Al menos 6 letras+números">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label"inputPassword">Repetir contraseña</label>
+          <div class="controls">
+            <input type="password" id="inputPassword" placeholder="Igual a la anterior">
+          </div>
+        </div>
+        <!-- Ocupación -->
+        <div class="control-group">
+          <label class="control-label"inputPassword">Ocupación</label>
+          <div class="controls">
+            <input type="text" placeholder="Estudiante">
+          </div>
+        </div>
+        <!-- Pasatiempos -->
+        <div class="control-group">
+          <label class="control-label"inputPassword">Pasatiempos</label>
+          <div class="controls">
+            <input type="text" placeholder="Deportes, música, marcas de ropa...">
+          </div>
+        </div>
+        <!-- Foto de perfil -->
+        <div class="control-group">
+          <label class="control-label"inputPassword">Foto de perfil</label>
+          <div class="controls">
+            <input type="file">
+          </div>
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="inputName">Apellido</label>
+      <div id="seller-form" style="display: none;">
+        <!-- Nombre de usuario -->
+        <div class="control-group">
+        <label class="control-label"inputName">Nombre de usuario</label>
         <div class="controls">
-           <input type="text" placeholder="Perez">
+          <input type="text" placeholder="juanperez">
         </div>
-      </div>
-      <!-- E-mail -->
-      <div class="control-group">
-        <label class="control-label" for="inputEmail">E-mail</label>
-        <div class="controls">
-          <input type="text" id="inputEmail" placeholder="nombre@servicio.com">
         </div>
-      </div>
-      <!-- Contraseña -->
-      <div class="control-group">
-        <label class="control-label" for="inputPassword">Contraseña</label>
-        <div class="controls">
-          <input type="password" id="inputPassword" placeholder="Al menos 6 letras+números">
+        <!-- E-mail -->
+        <div class="control-group">
+          <label class="control-label"inputEmail">E-mail</label>
+          <div class="controls">
+            <input type="text" id="inputEmail" placeholder="nombre@servicio.com">
+          </div>
         </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label" for="inputPassword">Repetir contraseña</label>
-        <div class="controls">
-          <input type="password" id="inputPassword" placeholder="Igual a la anterior">
+        <!-- Contraseña -->
+        <div class="control-group">
+          <label class="control-label"inputPassword">Contraseña</label>
+          <div class="controls">
+            <input type="password" id="inputPassword" placeholder="Al menos 6 letras+números">
+          </div>
         </div>
-      </div>
-      <!-- Ocupación -->
-      <div class="control-group">
-        <label class="control-label" for="inputPassword">Ocupación</label>
-        <div class="controls">
-          <input type="text" placeholder="Estudiante">
+        <div class="control-group">
+          <label class="control-label"inputPassword">Repetir contraseña</label>
+          <div class="controls">
+            <input type="password" id="inputPassword" placeholder="Igual a la anterior">
+          </div>
         </div>
-      </div>
-      <!-- Pasatiempos -->
-      <div class="control-group">
-        <label class="control-label" for="inputPassword">Pasatiempos</label>
-        <div class="controls">
-          <input type="text" placeholder="Póker">
+        <!-- Razón social -->
+        <div class="control-group">
+          <label class="control-label"inputPassword">Razón social</label>
+          <div class="controls">
+            <input type="text" placeholder="Razón social o nombre completo">
+          </div>
         </div>
-      </div>
-      <!-- Foto de perfil -->
-      <div class="control-group">
-        <label class="control-label" for="inputPassword">Foto de perfil</label>
-        <div class="controls">
-          <input type="text" placeholder="c:\foto.jpg">
+        <!-- Ubicaicón geográfica -->
+        <div class="control-group">
+          <label class="control-label"inputPassword">Ubicación geográfica</label>
+          <div class="controls">
+            <input type="text" placeholder="Calle, altura, depto. y piso">
+          </div>
+        </div>
+        <!-- Foto de perfil -->
+        <div class="control-group">
+          <label class="control-label"inputPassword">Logo</label>
+          <div class="controls">
+            <input type="file">
+          </div>
+        </div>
+        <!-- Página web -->
+        <div class="control-group">
+          <label class="control-label"inputPassword">Página web</label>
+          <div class="controls">
+            <input type="text" placeholder="www.ejemplo.com.ar">
+          </div>
+        </div>
+        <!-- Teléfono -->
+        <div class="control-group">
+          <label class="control-label"inputPassword">Teléfono</label>
+          <div class="controls">
+            <input type="text" placeholder="45678902">
+          </div>
+        </div>
+        <!-- Observaciones -->
+        <div class="control-group">
+          <label class="control-label"inputPassword">Observaciones</label>
+          <div class="controls">
+            <input type="text" placeholder="Datos adicionales que desee añadir">
+          </div>
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-    <button class="btn btn-primary">Enviar</button>
+    <button class="btn btn-primary">Confirmar</button>
   </div>
 </div>
 
@@ -106,4 +167,19 @@
   {
   $('#loginModal').modal('toggle');
   }
+  
+  $('#userType').change(
+    function() {
+      if (this.value == "1") {
+        $('#user-form').slideDown();
+        $('#seller-form').slideUp();
+      } else if (this.value == "2") {
+        $('#user-form').slideUp();
+        $('#seller-form').slideDown();
+      } else {
+        $('#user-form').slideUp();
+        $('#seller-form').slideUp();
+      }
+    }
+  );
 </script>
