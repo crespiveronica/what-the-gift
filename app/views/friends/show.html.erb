@@ -1,0 +1,62 @@
+<% content_for :activefriendprofile do %>
+	class="active"
+<% end %>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+        <form>
+            <fieldset>
+                <legend>Perfil</legend>
+                <div class="row">
+                    <div class="span3">
+                        <%= image_tag("lego1.jpg", size: "250x250", class: "img-polaroid") %>
+                    </div>
+                    <div class="span6">
+                    	<h4>Sobre mi</h4>
+                        <div class="row">
+                            <div class="span2"><strong>Nombre</strong></div>
+                            <div class="span4">Jane Doe</div>
+                        </div>
+                        <div class="row">
+                            <div class="span2"><strong>Ocupación</strong></div>
+                            <div class="span4">Estudiante</div>
+                        </div>
+                        <div class="row">
+                            <div class="span2"><strong>Pasatiempos</strong></div>
+                            <div class="span4">Ropa, maquillaje, bicicletas</div>
+                        </div>
+                        <div class="row">
+                            <div class="span2"><strong>E-mail</strong></div>
+                            <div class="span4">jane.doe@gmail.com</div>
+                        </div>
+                        <div class="row">
+                            <div class="span6"><hr></div>
+                        </div>
+                        <div class="row">
+                            <div class="span6">
+                                <button class="btn btn-danger"><i class="icon-ban-circle icon-white"></i> Eliminar amigo</button>
+                            </div>
+                        </div>
+	                </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="tab-pane" id="tab2">
+        <form>
+            <fieldset>
+                <legend>Wish-list</legend>
+            </fieldset>
+            <p>Para agregar y borrar items del wishlist.</p>
+        </form>
+    </div>
+    <div class="tab-pane" id="tab3">
+        <form>
+            <fieldset>
+                <legend>Regalos recibidos</legend>
+            </fieldset>
+            <p>Aqui podria ir una lista de los regalos que ya recibio el usuario.</p>
+        </form>
+    </div>
+</div>
