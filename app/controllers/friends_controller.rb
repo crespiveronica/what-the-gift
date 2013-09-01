@@ -26,4 +26,9 @@ class FriendsController < ApplicationController
   def gifts
     render 'friends/gifts', layout: 'friend'
   end
+
+  def unfriend
+    flash[:success] = 'Se ha eliminado a Jane Doe de sus amigos'
+    redirect_to action: 'index'
+  end
 end

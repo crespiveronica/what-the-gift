@@ -9,6 +9,7 @@ Wtg::Application.routes.draw do
   match '/friends/:id/', to: 'friends#show', via: 'get'
   match '/friends/:id/wishlist/', to: 'friends#wishlist', via: 'get'
   match '/friends/:id/gifts/', to: 'friends#gifts', via: 'get'
+  match '/friends/:id/unfriend/', to: 'friends#unfriend', via: 'get'
   match '/products/recommended/', to: 'products#recommended', via: 'get'
   match '/products/favorites/', to: 'products#favorites', via: 'get'
   match '/products/search/', to: 'products#search', via: 'get'
