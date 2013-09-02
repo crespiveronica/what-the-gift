@@ -25,3 +25,21 @@ a.profile-mini:hover
 {
 	margin-bottom: 12px;
 }
+
+.thumbnail.gift
+{
+	height: 250px;
+	position: relative;
+}
+
+.thumbnail.gift img
+{
+	height: 100px;
+}
+
+.thumbnail.gift .bottom
+{
+	position: absolute;
+	bottom: 0;
+	right: 6px;
+}

@@ -1,0 +1,20 @@
+<%= inside_layout "application" do %>
+	<div class="page-header">
+	    <h1>Jane Doe</h1>
+	</div>
+
+	<div class="row">
+		<div class="span3">
+			<div class="tabbable tabs-left">
+			    <ul class="nav nav-tabs">
+			        <li <%= yield :activefriendprofile %>><a href="/friends/1"><i class="icon-user"></i> Perfil</a></li>
+			        <li <%= yield :activefriendwishlist %>><a href="/friends/1/wishlist"><i class="icon-star"></i> Wish-list</a></li>
+			        <li <%= yield :activefriendgifts %>><a href="/friends/1/gifts"><i class="icon-gift"></i> Regalos recibidos</a></li>
+			    </ul>
+			</div>
+		</div>
+	    <div class="span9">
+		    <%= yield %>
+		</div>
+	</div>
+<% end %>
