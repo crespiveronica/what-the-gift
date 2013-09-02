@@ -1,0 +1,33 @@
+<h1>Login administradores</h1>
+<p class="text-center"><%= link_to "Iniciar sesión", '#', class: "btn btn-primary", onclick: "adminLoginForm()" %></p>
+
+<div id="adminModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-body">
+    <form class="form-horizontal">
+      <!-- Usuario -->
+      <div class="control-group">
+        <label class="control-label" for="inputEmail">Nombre de usuario</label>
+        <div class="controls">
+          <input type="text">
+        </div>
+      </div>
+      <!-- Contraseña -->
+      <div class="control-group">
+        <label class="control-label" for="inputPassword">Contraseña</label>
+        <div class="controls">
+          <input type="password" id="inputPassword">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary">Iniciar sesión</button>
+  </div>
+</div>
+
+<script>
+  function adminLoginForm()
+  {
+    $('#adminModal').modal('toggle');
+  }
+</script>

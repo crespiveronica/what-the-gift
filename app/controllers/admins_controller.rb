@@ -91,4 +91,7 @@ class AdminsController < ApplicationController
   def user_edit
   end
 
+  def login
+  end
+
 end
