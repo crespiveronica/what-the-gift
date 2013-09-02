@@ -85,6 +85,7 @@ class AdminsController < ApplicationController
   end
 
   def category_edit
+    redirect_to '/categories'
   end
 
   def user_edit

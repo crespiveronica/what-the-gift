@@ -1,1 +1,136 @@
-<h1>Listing categories</h1>
+<h1>Categorías</h1>
+
+<style>
+  .menu {
+  /* dropdown in accordion */ }
+  .menu .accordion-heading {
+    position: relative; }
+    .menu .accordion-heading .edit {
+      position: absolute;
+      top: 8px;
+      right: 30px; }
+  .menu .area {
+    border-left: 4px solid #f38787; }
+  .menu .equipamento {
+    border-left: 4px solid #65c465; }
+  .menu .ponto {
+    border-left: 4px solid #98b3fa; }
+  .menu .collapse.in {
+    overflow: visible; }
+</style>
+
+<div class="menu">
+  <div class="accordion">
+
+    <!-- Áreas -->
+    <div class="accordion-group">
+
+        <!-- Área -->
+
+          <div class="accordion-heading area">
+
+            <a class="accordion-toggle" data-toggle="collapse" href="#area1">Entretenimiento</a>
+              <div class="dropdown edit">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-pencil"></i> </a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <!-- Adicionar equipamento -->
+                    <li><a href="../equipamento/add.php"><i class="icon-plus"></i> Agregar categoría</a></li>
+                    <li class="divider"></li>
+
+                    <!-- Editar área -->
+                    <li><a href="../area/edit.php"><i class="icon-pencil"></i> Editar categoría </a></li>
+                    <li class="divider"></li>
+
+                    <!-- Remover área -->
+                    <li><a href="#remove" class="danger"><i class="icon-remove"></i> Eliminar categoría</a></li>
+                  </ul>
+              </div>
+          </div>
+
+        <!-- /Área -->
+
+        <div id="area1" class="accordion-body collapse">
+          <div class="accordion-inner">
+
+            <div class="accordion" id="equipamento1">
+
+              <!-- Equipamentos -->
+
+              <div class="accordion-group">
+
+                <div class="accordion-heading equipamento">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#equipamento1-1" href="#ponto1-1">Videjuegos</a>
+                    <div class="dropdown edit">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-pencil"></i> </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                          <!-- Agregar categoría -->
+                          <li><a href="../ponto/add.php"><i class="icon-plus"></i> Agregar categoría</a></li>
+                          <li class="divider"></li>
+
+                          <!-- Editar categoría -->
+                          <li><a href="../equipamento/edit.php"><i class="icon-pencil"></i> Editar categoría </a></li>
+                          <li class="divider"></li>
+
+                          <!-- Eliminar categoría -->
+                          <li><a href="#remove" class="danger"><i class="icon-remove"></i> Eliminar categoría</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+              <!-- Pontos -->
+
+              <div id="ponto1-1" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <div class="accordion" id="servico1">
+                    <div class="accordion-group">
+                      <div class="accordion-heading ponto">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#servico1-1-1" href="#servico1-1-1">Playstation</a>
+                        <div class="dropdown edit">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-pencil"></i> </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                              <!-- Adicionar servico -->
+                              <li><a href="../servico/add.php"><i class="icon-plus"></i> Agregar categoría</a></li>
+                              <li class="divider"></li>
+
+                              <!-- Editar ponto -->
+                              <li><a href="../ponto/edit.php"><i class="icon-pencil"></i> Editar categoría</a></li>
+                              <li class="divider"></li>
+
+                              <!-- Remover ponto -->
+                              <li><a href="#remove" class="danger"><i class="icon-remove"></i> Eliminar categoría</a></li>
+                            </ul>
+                        </div>
+                      </div>
+
+              <!-- Serviços -->
+
+                      <div id="servico1-1-1" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                          <ul class="nav nav-list">
+                            <li><a href="#"><i class="icon-chevron-right"></i> Consolas</a></li>
+                            <li><a href="#"><i class="icon-chevron-right"></i> Juegos</a></li>
+                            <li><a href="#"><i class="icon-chevron-right"></i> Joystick</a></li>
+                          </ul>
+                        </div>
+                      </div>
+
+                    <!-- /Serviços -->
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- /Pontos -->
+
+              </div>
+
+          <!-- /Equipamentos -->
+            </div>
+          </div>
+        </div>
+    </div>
+  </div><!-- /accordion -->
+</div>
