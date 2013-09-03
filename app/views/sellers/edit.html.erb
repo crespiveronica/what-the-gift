@@ -16,13 +16,13 @@
             <legend><h4>Perfil</h4></legend>
             <div class="row">
               <div class="span4">
-                <%= image_tag "lego5.jpg", size: "200x200", class: "img-polaroid img-rounded" %>
+                <a href="#changePhotoModal" role="button" data-toggle="modal"><span></span><%= image_tag "lego5.jpg", size: "200x200", class: "img-polaroid img-rounded" %></a>
               </div>
               <div class="span3"></div>
             </div>
             <div class="row">
               <div class="span3">
-                <p class="text-center"><button class="btn btn-success btn-block" type="button">Cambiar foto</button>
+                <p class="text-center"><a class="btn btn-success btn-block" href="#changePhotoModal" role="button" data-toggle="modal">Cambiar foto</a>
                 </p>
               </div>
               <div class="span3"></div>
@@ -110,10 +110,10 @@
           <fieldset>
             <legend>Productos</legend>
           </fieldset>
-          <p>
-            <button class="btn btn-small btn-primary" type="button">Agregar producto</button>
-            <button class="btn btn-small btn-primary" type="button">Modificar producto</button>
-            <button class="btn btn-small btn-primary" type="button">Eliminar producto</button>
+          <p>          
+            <a href="/products/new"><i class="btn btn-small btn-primary">Agregar Producto</i></a>
+            <a href="/products/edit"><i class="btn btn-small btn-primary">Modificar producto</i></a>
+            <button class="btn btn-small btn-primary" type="button" href="#deleteProductModal" role="button" data-toggle="modal">Eliminar producto</i></button>
             <button class="btn btn-small btn-primary" type="button" href="#uploadProductsFromFileModal" role="button" data-toggle="modal">Agregar productos desde archivo</button>
           </p>
 
@@ -240,7 +240,7 @@
 <div id="uploadProductsFromFileModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="uploadProductsFromFileLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="changeEmailLabel">Agregar productos desde archivo</h3>
+    <h3 id="uploadProductsFromFileModal">Agregar productos desde archivo</h3>
   </div>
   <div class="modal-body">
     <form class="form-horizontal">
@@ -252,6 +252,53 @@
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-    <button class="btn btn-primary">Aceptar</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+  </div>
+</div>
+
+<div id="changePhotoModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changePhotoModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="changePhotoLabel">Agregar foto</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal">
+      <form class="form-search">
+        <input type="text" class="input-xlarge search-query" id="uploadFile" placeholder="Escriba aquí la ruta">
+        <button type="submit" class="btn">Examinar</button>
+      </form>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+  </div>
+</div>
+
+<div id="deleteProductModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="deleteProductLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="deleteProductModal">Confirmación de eliminación</h3>
+  </div>
+  <div class="modal-body">
+    ¿Está seguro de eliminar los producto seleccionados?
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hideen="true" type="button" href="#deletionProductConfirmationModal" role="button" data-toggle="modal">Aceptar</button>
+  </div>
+</div>
+
+<div id="deletionProductConfirmationModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="deletionProductConfirmationModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="deletionProductConfirmationModal">¡Felicitaciones!</h3>
+  </div>
+  <div class="modal-body">
+    Producto eliminado con exito
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Aceptar</button>
   </div>
 </div>

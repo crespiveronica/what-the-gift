@@ -23,8 +23,10 @@ Wtg::Application.routes.draw do
   match '/profile/delete/', to: 'profile#delete'
   match '/admins/user_edit', to: 'admins#user_edit', via: 'get'
   match '/admins/product_edit', to: 'admins#product_edit', via: 'get'
-  match '/admins/login', to: 'admins#login', via: 'get'
   match '/sellers/edit/' , to: 'sellers#edit'
+  match '/products/new' , to: 'products#new'
+  match '/products/edit' , to: 'products#edit'
+  match '/products/destroy' , to: 'products#destroy'
 
   resources :users
   resources :sellers

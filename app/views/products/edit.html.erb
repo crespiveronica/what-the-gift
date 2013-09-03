@@ -1,6 +1,98 @@
-<h1>Editing user</h1>
+<!-- Contenido principal -->
+<div class="container">
+  <div class="page-header text-center">
+    <h3>John Doe <br><small>johndoeVendedor2013 | johndoeVendedor@gmail.com</small></h3>
+  </div>
 
-<%= render 'form' %>
+  <div>
+    <form>
+      <fieldset>
+        <legend><h4>Perfil</h4></legend>
+        <div class="row">
+          <div class="span4">
+            <a href="#changePhotoModal" role="button" data-toggle="modal"><span></span><%= image_tag "http://lorempixel.com/124/125/food/2/cc", size: "200x200", class: "img-polaroid img-rounded" %></a>
+          </div>
+          <div class="span3"></div>
+        </div>
+        <div class="row">
+          <div class="span3">
+            <p class="text-center"><a class="btn btn-success btn-block" href="#changePhotoModal" role="button" data-toggle="modal">Agregar foto</a>
+            </p>
+          </div>
+          <div class="span3"></div>
+        </div>
+        <div class="row">
+          <div class="span9"><h4>Sobre mi</h4></div>
+        </div>
+        <div class="row">
+          <div class="span9">
+            <div class="row">
+              <div class="span4"><strong>Nombre del producto</strong></div>
+              <div class="span5"><input type="text" value="Regalito 1"></div>
+            </div>
+            <div class="row">
+              <div class="span4"><strong>Descripción</strong></div>
+              <div class="span5"><input type="text" value="El mejor regalito de todos"></div>
+            </div>
+            <div class="row">
+              <div class="span4"><strong>Precio</strong></div>
+              <div class="span5"><input type="text" value="250"></div>
+            </div>
+            <div class="row">
+              <div class="span4"><strong>Medios de pago</strong></div>
+              <div class="span5"><input type="text" value="AMEX, Efectivo."></div>
+            </div>
+            <div class="row">
+              <div class="span4"><strong>Observaciones</strong></div>
+              <div class="span5"><input type="text" value="El mejor de nuestros regalitos"></div>
+            </div>
+            <div class="row">
+              <div class="span3"></div>
+              <div class="span2">
+                <p class="text-center"><a class="btn btn-success btn-block" href="#addProductSuccessModal" role="button" data-toggle="modal">Confirmar cambios</a>
+                </p>
+              </div>
+              <div class="span2">
+                <p class="text-center"><a class="btn btn-danger btn-block" href="/sellers">Cancelar</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+
+<div id="changePhotoModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changePhotoModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="changePhotoLabel">Cambiar foto</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal">
+      <form class="form-search">
+        <input type="text" class="input-xlarge search-query" id="uploadFile" placeholder="Escriba aquí la ruta">
+        <button type="submit" class="btn">Examinar</button>
+      </form>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+  </div>
+</div>
+
+<div id="addProductSuccessModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="addProductSuccessModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="addProductSuccessLabel">¡Felicitaciones!</h3>
+  </div>
+  <div class="modal-body">
+    Producto modificado con éxito
+  </div>
+  <div class="modal-footer">
+    <a href="/sellers/" class="btn btn-primary">Aceptar</a>
+  </div>
+</div>
