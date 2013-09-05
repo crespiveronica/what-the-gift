@@ -1,1 +1,5 @@
-listado de mis regalos
+<ul class="thumbnails">
+	<% (1..10).each do |i| %>
+		<%= render :template => 'products/gift-item' %>
+	<% end %>
+</ul>
