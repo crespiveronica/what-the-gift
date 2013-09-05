@@ -27,6 +27,7 @@ Wtg::Application.routes.draw do
   match '/products/new' , to: 'products#new'
   match '/products/edit' , to: 'products#edit'
   match '/products/destroy' , to: 'products#destroy'
+  match '/reactivate' , to: 'static_pages#reactivate'
 
   resources :users
   resources :sellers
