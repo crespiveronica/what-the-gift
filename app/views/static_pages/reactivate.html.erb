@@ -1,0 +1,64 @@
+<div class="center hero-unit">
+  <h1>What The Gift?!</h1>
+
+  <p>
+  ¿Necesitas hacer un regalo y no sabes qué elegir? ¿Se viene tu cumpleaños y deseas muchas cosas? En <strong>What the Gift?!</strong> tenemos la solución: busca regalos por afinidad, filtra por tus intereses, y elige por ubicación; puedes también armar un <em>wish-list</em> con lo que deseas para que tus amigos sepan qué regalarte.
+  </p>
+  <p>
+  No pierdas más tiempo, ¡regístrate e invita a tus amigos a participar!
+  </p>
+
+  <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary", onclick: "displayRegisterForm()" %>
+</div>
+
+<div id="reactivate-account" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Reactivación de cuenta</h3>
+  </div>
+  <div class="modal-body">
+    <p>
+      Esta cuenta ha sido cerrada, ¿desea reactivarla?
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-primary" onclick="showProfile()">Aceptar</button>
+  </div>
+</div>
+
+<div id="welcome-back" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">John Doe</h3>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="span1">
+        <!--<img src="lego1.jpg" class="img-rounded">-->
+        <%= image_tag "lego2.jpg", class: "img-rounded" %>
+      </div>
+      <div class="span4">
+        <h4>Bienvenido de vuelta</h4>
+        <p>Le sugerimos actualizar su perfil</p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" onclick="">Perfil</button>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function reactivateAccount()
+  {
+    $('#loginModal').modal('toggle');
+    $('#reactivate-account').modal('toggle');
+  }
+
+  function showProfile()
+  {
+    $('#reactivate-account').modal('toggle');
+    $('#welcome-back').modal('toggle');
+  }
+</script>
