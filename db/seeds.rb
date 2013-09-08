@@ -58,3 +58,19 @@ print "Creating 50 sellers..."
   s.save
 end
 puts "done."
+
+
+# Products
+print "Creating 350 products... "
+status = [true, true, true, true, true, true, false]
+350.times do
+  p = Product.new
+  p.name = Faker::Commerce.product_name
+  p.description = Faker::Lorem.sentence(word_count = 4, 
+                  supplemental = false, random_words_to_add = 6)
+  p.brand = Faker::Company.name
+  p.approved = status.sample
+end
+puts "done"
+
+# ... next model
