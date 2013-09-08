@@ -16,15 +16,16 @@ Wtg::Application.routes.draw do
   match '/my-products/', to: 'products#mine', via: 'get'
   match '/gifts/', to: 'products#gifts', via: 'get'
   match '/profile/', to: 'profile#index', via: 'get'
-  match '/profile/edit', to: 'profile#edit', via: 'get'
+  match '/profile/edit/' , to: 'profile#edit'
+  match '/profile/edit_user', to: 'profile#edit_user', via: 'get'
+  match '/profile/edit_seller/' , to: 'profile#edit_seller'
+  match '/profile/delete/', to: 'profile#delete'
   match '/about/', to: 'static_pages#about', via: 'get'
   match '/contact/', to: 'static_pages#contact', via: 'get'
   match '/users/confirm/:id/:code/', to: 'users#confirm'
-  match '/profile/delete/', to: 'profile#delete'
   match '/admins/user_edit', to: 'admins#user_edit', via: 'get'
   match '/admins/product_edit', to: 'admins#product_edit', via: 'get'
   match '/admins/category_edit', to: 'admins#category_edit', via: 'get'
-  match '/sellers/edit/' , to: 'sellers#edit'
   match '/products/new' , to: 'products#new'
   match '/products/edit' , to: 'products#edit'
   match '/products/destroy' , to: 'products#destroy'
@@ -35,7 +36,8 @@ Wtg::Application.routes.draw do
   resources :products
   resources :categories
   resources :admins
-
+  resources :profile
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

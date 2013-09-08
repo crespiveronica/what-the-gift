@@ -1,0 +1,79 @@
+<div id="deleteProfileModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="deleteProfileModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="deleteProfileModalLabel">Eliminar perfil</h3>
+  </div>
+  <div class="modal-body">
+    <p>¿Está seguro de eliminar su cuenta?</p>
+    <p>Podrá reactivarla en cualquier momento</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+    <a class="btn btn-danger" href="/profile/delete">Eliminar</a>
+  </div>
+</div>
+
+<div id="changePhotoModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changePhotoModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="changePhotoLabel">Agregar foto</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal">
+      <form class="form-search">
+        <input type="text" class="input-medium search-query">
+        <button type="submit" class="btn">Examinar</button>
+      </form>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+  </div>
+</div>
+
+<div id="changePasswordModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changePasswordLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="changePasswordLabel">Cambiar Password</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="inputPassword">Contraseña</label>
+        <div class="controls">
+          <input type="text" id="inputPassword" placeholder="Nueva Contraseña">
+        </div>
+        <label class="control-label" for="inputPwdConf">Confirmar Contraseña</label>
+        <div class="controls">
+          <input type="text" id="inputPwdConf" placeholder="Repetir Contraseña">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Confirmar</button>
+  </div>
+</div>
+
+<div id="changeEmailModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changeEmailLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="changeEmailLabel">Cambiar e-mail</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="inputEmail">Email</label>
+        <div class="controls">
+          <input type="text" id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Confirmar</button>
+  </div>
+</div>
