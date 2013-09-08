@@ -13,13 +13,13 @@ print "Creating 100 users..."
 
 100.times do
   u = User.new(
-    :first_name = Faker::Name.first_name,
-    :last_name = Faker::Name.last_name,
-    :email = Faker::Internet.email,
-    :password = "password",
-    :active = true,
-    :banned = false,
-    :banned_reason = "none"
+    first_name = Faker::Name.first_name,
+    last_name = Faker::Name.last_name,
+    email = Faker::Internet.email,
+    password = "password",
+    active = true,
+    banned = false,
+    banned_reason = "none"
     # Para completar más luego... tiene referencias
     # a productos que todavía no existen
     #:whishlist,
@@ -36,15 +36,15 @@ puts "done."
 print "Creating 50 sellers..."
 50.times do
   s = Seller.new(
-    :first_name = Faker::Name.first_name,
-    :last_name = Faker::Name.last_name,
-    :email = Faker::Internet.email,
-    :password = "password",
-    :active = true,
-    :banned = false,
-    :banned_reason = "none",
-    :company_name = Faker::Company.bs,
-    :web = Faker::Internet.url
+    first_name = Faker::Name.first_name,
+    last_name = Faker::Name.last_name,
+    email = Faker::Internet.email,
+    password = "password",
+    active = true,
+    banned = false,
+    banned_reason = "none",
+    company_name = Faker::Company.bs,
+    web = Faker::Internet.url
     #:products
   )
 

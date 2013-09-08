@@ -8,6 +8,7 @@ gem 'mongoid', '~> 3.1.0'
 gem 'mongoid_search'
 gem 'bootstrap-sass', '~> 2.3.2.1'
 gem 'twitter-bootstrap-rails'
+gem 'faker'
 
 
 group :development, :test do
