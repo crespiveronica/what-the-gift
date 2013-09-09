@@ -30,11 +30,11 @@
           <div class="span9">
             <div class="row">
               <div class="span4"><strong>Nombre</strong></div>
-              <div class="span5">John</div>
+              <div class="span5"><%= @user.first_name %></div>
             </div>
             <div class="row">
               <div class="span4"><strong>Apellido</strong></div>
-              <div class="span5">Doe</div>
+              <div class="span5"><%= @user.last_name %></div>
             </div>
             <div class="row">
               <div class="span4"><strong>Ocupación</strong></div>
@@ -42,14 +42,18 @@
             </div>
             <div class="row">
               <div class="span4"><strong>Pasatiempos</strong></div>
-              <div class="span5">Fútbol, programación, arte</div>
+              <% if @user.hobbies != nil %>
+                <div class="span5"><%= @user.hobbies %></div>
+              <% else %>
+                <div class="span5">No has registrado pasatiempos.</div>
+              <% end %>
             </div>
             <div class="row">
               <div class="span12"><hr></div>
             </div>
             <div class="row">
               <div class="span4"><strong>E-mail</strong></div>
-              <div class="span5"><input type="text" placeholder="johndoe@gmail.com" disabled></div>
+              <div class="span5"><input type="text" placeholder=<%= @user.email %> disabled></div>
             </div>
             <div class="row">
               <div class="span4"></div>

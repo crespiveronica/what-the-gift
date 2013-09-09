@@ -1,6 +1,6 @@
 Wtg::Application.routes.draw do
-
   root to: 'static_pages#home'
+
   match '/singup/', to: 'signup#index', via: 'get'
   match '/friends/', to: 'friends#index', via: 'get'
   match '/friends/requests/', to: 'friends#requests', via: 'get'
