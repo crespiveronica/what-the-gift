@@ -1,5 +1,5 @@
-class User
-  include Mongoid::Document
-  field :name, type: String
-  field :email, type: String
+class User < GenericUser
+  has_many :whishlist, class_name: 'Product'
+  embeds_many :gifts
+  field :hobbies, type: Array
 end
