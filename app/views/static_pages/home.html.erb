@@ -20,7 +20,7 @@
     <form class="form-horizontal">
       <!-- Tipo de usuario -->
       <div class="control-group">
-        <label class="control-label"inputEmail">Tipo</label>
+        <label class="control-label">Tipo</label>
         <div class="controls">
           <select id="userType">
             <option value="">Seleccione un tipo de usuario</option>
@@ -29,122 +29,130 @@
           </select>
         </div>
       </div>
+      <!-- USER FORM -->
       <div id="user-form" style="display: none;">
+        <%= form_for(@user) do |f| %>
         <!-- Nombre de usuario -->
         <div class="control-group">
-        <label class="control-label"inputName">Nombre de usuario</label>
-        <div class="controls">
-          <input type="text" placeholder="juanperez">
-        </div>
+          <!--
+          <label class="control-label">Nombre de usuario</label>
+          <div class="controls">
+            <input type="text" placeholder="juanperez">
+          </div>
+          -->
+          <%= f.label :first_name, 'Nombre', class: "control-label" %>
+          <div class="controls">
+            <%= f.text_field :first_name %>
+          </div>
         </div>
         <!-- E-mail -->
         <div class="control-group">
-          <label class="control-label"inputEmail">E-mail</label>
+          <label class="control-label inputEmail">E-mail</label>
           <div class="controls">
             <input type="text" id="inputEmail" placeholder="nombre@servicio.com">
           </div>
         </div>
         <!-- Contraseña -->
         <div class="control-group">
-          <label class="control-label"inputPassword">Contraseña</label>
+          <label class="control-label inputPassword">Contraseña</label>
           <div class="controls">
             <input type="password" id="inputPassword" placeholder="Al menos 6 letras+números">
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label"inputPassword">Repetir contraseña</label>
+          <label class="control-label inputPassword">Repetir contraseña</label>
           <div class="controls">
             <input type="password" id="inputPassword" placeholder="Igual a la anterior">
           </div>
         </div>
         <!-- Ocupación -->
         <div class="control-group">
-          <label class="control-label"inputPassword">Ocupación</label>
+          <label class="control-label">Ocupación</label>
           <div class="controls">
             <input type="text" placeholder="Estudiante">
           </div>
         </div>
         <!-- Pasatiempos -->
         <div class="control-group">
-          <label class="control-label"inputPassword">Pasatiempos</label>
+          <label class="control-label">Pasatiempos</label>
           <div class="controls">
             <input type="text" placeholder="Deportes, música, marcas de ropa...">
           </div>
         </div>
         <!-- Foto de perfil -->
         <div class="control-group">
-          <label class="control-label"inputPassword">Foto de perfil</label>
+          <label class="control-label">Foto de perfil</label>
           <div class="controls">
             <input type="file">
           </div>
         </div>
-      </div>
+      <!--</div>--><% end %>
       <div id="seller-form" style="display: none;">
         <!-- Nombre de usuario -->
         <div class="control-group">
-        <label class="control-label"inputName">Nombre de usuario</label>
+        <label class="control-label inputName">Nombre de usuario</label>
         <div class="controls">
           <input type="text" placeholder="juanperez">
         </div>
         </div>
         <!-- E-mail -->
         <div class="control-group">
-          <label class="control-label"inputEmail">E-mail</label>
+          <label class="control-label inputEmail">E-mail</label>
           <div class="controls">
             <input type="text" id="inputEmail" placeholder="nombre@servicio.com">
           </div>
         </div>
         <!-- Contraseña -->
         <div class="control-group">
-          <label class="control-label"inputPassword">Contraseña</label>
+          <label class="control-label inputPassword">Contraseña</label>
           <div class="controls">
             <input type="password" id="inputPassword" placeholder="Al menos 6 letras+números">
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label"inputPassword">Repetir contraseña</label>
+          <label class="control-label inputPassword">Repetir contraseña</label>
           <div class="controls">
             <input type="password" id="inputPassword" placeholder="Igual a la anterior">
           </div>
         </div>
         <!-- Razón social -->
         <div class="control-group">
-          <label class="control-label"inputPassword">Razón social</label>
+          <label class="control-label">Razón social</label>
           <div class="controls">
             <input type="text" placeholder="Razón social o nombre completo">
           </div>
         </div>
         <!-- Ubicaicón geográfica -->
         <div class="control-group">
-          <label class="control-label"inputPassword">Ubicación geográfica</label>
+          <label class="control-label">Ubicación geográfica</label>
           <div class="controls">
             <input type="text" placeholder="Calle, altura, depto. y piso">
           </div>
         </div>
         <!-- Foto de perfil -->
         <div class="control-group">
-          <label class="control-label"inputPassword">Logo</label>
+          <label class="control-label">Logo</label>
           <div class="controls">
             <input type="file">
           </div>
         </div>
         <!-- Página web -->
         <div class="control-group">
-          <label class="control-label"inputPassword">Página web</label>
+          <label class="control-label">Página web</label>
           <div class="controls">
             <input type="text" placeholder="www.ejemplo.com.ar">
           </div>
         </div>
         <!-- Teléfono -->
         <div class="control-group">
-          <label class="control-label"inputPassword">Teléfono</label>
+          <label class="control-label">Teléfono</label>
           <div class="controls">
             <input type="text" placeholder="45678902">
           </div>
         </div>
         <!-- Observaciones -->
         <div class="control-group">
-          <label class="control-label"inputPassword">Observaciones</label>
+          <label class="control-label">Observaciones</label>
           <div class="controls">
             <input type="text" placeholder="Datos adicionales que desee añadir">
           </div>
