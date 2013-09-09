@@ -9,6 +9,7 @@ gem 'mongoid_search'
 gem 'bootstrap-sass', '~> 2.3.2.1'
 gem 'twitter-bootstrap-rails'
 gem 'faker'
+gem 'bcrypt-ruby', '3.0.1'
 
 
 group :development, :test do
