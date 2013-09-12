@@ -21,6 +21,12 @@
       <%= f.label :password_confirmation, 'Confirmar' %>
       <%= f.password_field :password_confirmation %>
 
+      <%= f.label :occupation, 'Ocupación' %>
+      <%= f.text_field :occupation %>
+
+      <%= f.label :hobbies, 'Pasatiempos y hobbies' %>
+      <%= f.text_field :hobbies, placeholder: 'Separados por comas' %>
+
       <%= f.submit "Crear", class: "btn btn-primary" %>
     <% end %>
   </div>
