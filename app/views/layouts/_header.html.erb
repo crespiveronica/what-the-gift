@@ -29,8 +29,9 @@
   </div>
 </header>
 
-<% if current_user %>
-<div class="navbar navbar-static-top">
+<% if current_user && current_user._type == 'User' %>
+
+  <div class="navbar navbar-static-top">
     <div class="navbar-inner container">
         <ul class="nav">
           <li class="dropdown">
@@ -50,28 +51,32 @@
         </ul>
     </div>
   </div>
-<% end %>
-<!--
-<div class="navbar navbar-static-top">
-  <div class="navbar-inner container">
-    <ul class="nav">
-      <li><%= link_to "Vendedores", '/sellers' %></li>
-      <li><%= link_to "Productos", '/products' %></li>
-      <li><%= link_to "Categorías", '/categories' %></li>
-      <li><%= link_to "Usuarios", '/users' %></li>
-    </ul>
-  </div>
-</div>
 
-<div class="navbar navbar-static-top">
-  <div class="navbar-inner container">
-    <ul class="nav">
-      <li><%= link_to "Mis productos", '/my-products' %></li>
-      <li><%= link_to "Productos", '/products/search' %></li>
-    </ul>
+<% elsif current_user && current_user._type == 'Admin' %>
+
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner container">
+      <ul class="nav">
+        <li><%= link_to "Vendedores", '/sellers' %></li>
+        <li><%= link_to "Productos", '/products' %></li>
+        <li><%= link_to "Categorías", '/categories' %></li>
+        <li><%= link_to "Usuarios", '/users' %></li>
+      </ul>
+    </div>
   </div>
-</div>
--->
+
+<% elsif current_user && current_user._type == 'Seller' %>
+
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner container">
+      <ul class="nav">
+        <li><%= link_to "Mis productos", '/my-products' %></li>
+        <li><%= link_to "Productos", '/products/search' %></li>
+      </ul>
+    </div>
+  </div>
+
+<% end %>
 
 <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
@@ -90,7 +95,7 @@
       <!-- Contraseña -->
       <div class="control-group">
         <%= f.label :password, class: 'Contraseña' %>
-        <div class="controls"> 
+        <div class="controls">
           <%= f.password_field :password %>
         </div>
       </div>
