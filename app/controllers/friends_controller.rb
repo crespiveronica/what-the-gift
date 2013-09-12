@@ -19,8 +19,9 @@ class FriendsController < ApplicationController
     render 'friends/show', layout: 'friend'
   end
 
-  def wishlist
-    render 'friends/wishlist', layout: 'friend'
+  def makeagift
+    @products = Product.all
+    render 'friends/makeagift', layout: 'friend'
   end
 
   def gifts
