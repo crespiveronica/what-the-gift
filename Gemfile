@@ -8,16 +8,17 @@ gem 'mongoid', '~> 3.1.0'
 gem 'mongoid_search'
 gem 'bootstrap-sass', '~> 2.3.2.1'
 gem 'twitter-bootstrap-rails'
-gem 'faker'
+gem 'faker', '1.2.0'
+gem 'bcrypt-ruby', '3.0.1'
 
 
 group :development, :test do
 #  gem 'rspec-rails', '2.11.0'
-  gem 'capybara', '1.1.2'
+   gem 'capybara', '1.1.2'
 #  gem 'guard-rspec', '1.2.1'
 #  gem 'guard-spork', :github => 'guard/guard-spork'
-# gem 'childprocess', '0.3.9'
-# gem 'spork', '0.9.2'
+#  gem 'childprocess', '0.3.9'
+#  gem 'spork', '0.9.2'
 end
 
 # Gems used only for assets and not required
@@ -35,9 +36,6 @@ end
 gem 'jquery-rails', '2.0.2'
 
 gem 'jquery-raty-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

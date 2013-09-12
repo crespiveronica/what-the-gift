@@ -1,21 +1,37 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <!--<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>-->
       <%= link_to "what the gift?!", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Iniciar sesión", '#', onclick: "$('#loginModal').modal('toggle');" %></li>
-          <!--<li><%= link_to "Registrarse", singup_path %></li>-->
-          <li><%= link_to "John Doe", '/profile' %></li>
-          <li><a href="#">Salir</a></li>
+      <!-- <li><%= link_to "Iniciar sesión", '#', onclick: "$('#loginModal').modal('toggle');" %></li>
+          <li><%= link_to "Registrarse", signup_path %></li>
+          <li><a href="#">Salir</a></li> -->
+          <% if signed_in? %>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= "#{current_user.first_name} #{current_user.last_name}" %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Perfil", current_user %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Cerrar sesión", signout_path, method: "delete" %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to "Iniciar sesión", signin_path %></li>
+          <% end %>
         </ul>
       </nav>
     </div>
   </div>
 </header>
 
-<div class="navbar navbar-static-top">
+<% if current_user && current_user._type == 'User' %>
+
+  <div class="navbar navbar-static-top">
     <div class="navbar-inner container">
         <ul class="nav">
           <li class="dropdown">
@@ -36,29 +52,31 @@
     </div>
   </div>
 
-<!--
--- admin --
-<div class="navbar navbar-static-top">
-  <div class="navbar-inner container">
-    <ul class="nav">
-      <li><%= link_to "Vendedores", '/sellers' %></li>
-      <li><%= link_to "Productos", '/products' %></li>
-      <li><%= link_to "Categorías", '/categories' %></li>
-      <li><%= link_to "Usuarios", '/users' %></li>
-    </ul>
-  </div>
-</div>
+<% elsif current_user && current_user._type == 'Admin' %>
 
--- seller --
-<div class="navbar navbar-static-top">
-  <div class="navbar-inner container">
-    <ul class="nav">
-      <li><%= link_to "Mis productos", '/my-products' %></li>
-      <li><%= link_to "Productos", '/products/search' %></li>
-    </ul>
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner container">
+      <ul class="nav">
+        <li><%= link_to "Vendedores", '/sellers' %></li>
+        <li><%= link_to "Productos", '/products' %></li>
+        <li><%= link_to "Categorías", '/categories' %></li>
+        <li><%= link_to "Usuarios", '/users' %></li>
+      </ul>
+    </div>
   </div>
-</div>
--->
+
+<% elsif current_user && current_user._type == 'Seller' %>
+
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner container">
+      <ul class="nav">
+        <li><%= link_to "Mis productos", '/my-products' %></li>
+        <li><%= link_to "Productos", '/products/search' %></li>
+      </ul>
+    </div>
+  </div>
+
+<% end %>
 
 <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
@@ -66,27 +84,27 @@
     <h3 id="myModalLabel">Inicia sesión</h3>
   </div>
   <div class="modal-body">
-    <form class="form-horizontal">
+    <%= form_for(:session, url: sessions_path, class: 'form-horizontal') do |f| %>
       <!-- Usuario -->
       <div class="control-group">
-        <label class="control-label" for="inputEmail">Nombre de usuario</label>
+        <%= f.label :email, 'Nombre de usuario' %>
         <div class="controls">
-          <input type="text">
+          <%= f.text_field :email %>
         </div>
       </div>
       <!-- Contraseña -->
       <div class="control-group">
-        <label class="control-label" for="inputPassword">Contraseña</label>
+        <%= f.label :password, class: 'Contraseña' %>
         <div class="controls">
-          <input type="password" id="inputPassword">
+          <%= f.password_field :password %>
         </div>
       </div>
-    </form>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Olvidé usuario y contraseña</button>
-    <button class="btn btn-primary" onclick="reactivateAccount()">Iniciar sesión</button>
+    <%= f.submit "Iniciar sesión", class: "btn btn-primary" %>
   </div>
+  <% end %>
 </div>
 
 <script>
