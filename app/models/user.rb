@@ -11,6 +11,9 @@ class User < GenericUser
 
     def hobbies_to_array
         self.hobbies = self.hobbies.split(',')
+        self.hobbies.each do |h|
+          h.lstrip!
+        end
     end
 
 end

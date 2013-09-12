@@ -16,7 +16,7 @@
                 <a class="btn btn-success pull-right" href="/profile/edit">Editar perfil</a>
               </h3>
               </div>
-            </div> 
+            </div>
         </legend>
         <div class="row">
           <div class="span4">
@@ -38,12 +38,20 @@
             </div>
             <div class="row">
               <div class="span4"><strong>Ocupación</strong></div>
-              <div class="span5">Sistemas</div>
+              <div class="span5"><%= @user.occupation %></div>
             </div>
             <div class="row">
               <div class="span4"><strong>Pasatiempos</strong></div>
               <% if @user.hobbies != nil %>
-                <div class="span5"><%= @user.hobbies %></div>
+                <div class="span5">
+                  <% @user.hobbies.each do |h| %>
+                    <% if h == @user.hobbies.last %>
+                      <%= h %>
+                    <% else %>
+                      <%= h + ', ' %>
+                    <% end %>
+                  <% end %>
+                </div>
               <% else %>
                 <div class="span5">No has registrado pasatiempos.</div>
               <% end %>
