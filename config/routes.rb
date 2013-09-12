@@ -1,7 +1,10 @@
 Wtg::Application.routes.draw do
-
   root to: 'static_pages#home'
-  match '/singup/', to: 'signup#index', via: 'get'
+
+  match '/signup/', to: 'users#new', via: 'get'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
   match '/friends/', to: 'friends#index', via: 'get'
   match '/friends/requests/', to: 'friends#requests', via: 'get'
   match '/friends/search/', to: 'friends#search', via: 'get'
@@ -37,6 +40,7 @@ Wtg::Application.routes.draw do
   resources :categories
   resources :admins
   resources :profile
+  resources :sessions, only: [:new, :create, :destroy]
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

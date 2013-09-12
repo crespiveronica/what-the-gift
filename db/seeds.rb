@@ -9,6 +9,7 @@
 
 
 password = "password"
+password_confirmation = "password"
 active = true
 banned = false
 banned_reason = "none"
@@ -26,6 +27,7 @@ print "Creating 100 users..."
   u.last_name = last_name
   u.email = email
   u.password = password
+  u.password_confirmation = password_confirmation
   u.active = active
   u.banned = banned
   u.banned_reason = banned_reason
@@ -51,6 +53,7 @@ print "Creating 50 sellers..."
   s.company_name = company_name
   s.web = web
   s.password = password
+  s.password_confirmation = password_confirmation
   s.active = active
   s.banned = banned
   s.banned_reason = banned_reason
@@ -70,6 +73,8 @@ status = [true, true, true, true, true, true, false]
                   supplemental = false, random_words_to_add = 6)
   p.brand = Faker::Company.name
   p.approved = status.sample
+
+  p.save
 end
 puts "done"
 
