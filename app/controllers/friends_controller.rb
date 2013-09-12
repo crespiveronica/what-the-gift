@@ -19,8 +19,10 @@ class FriendsController < ApplicationController
     render 'friends/show', layout: 'friend'
   end
 
-  def makeagift
-    @products = Product.all
+  def makeAGift
+    friend = User.find_by_id params[:id]
+    @products = friend.wishlist + friend.recommended
+    @products.uniq
     render 'friends/makeagift', layout: 'friend'
   end
 
@@ -32,4 +34,5 @@ class FriendsController < ApplicationController
     flash[:success] = 'Se ha eliminado a Jane Doe de sus amigos'
     redirect_to action: 'index'
   end
+
 end
