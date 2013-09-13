@@ -8,74 +8,128 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-password = "password"
-password_confirmation = "password"
-active = true
-banned = false
-banned_reason = "none"
+#password = "password"
+#password_confirmation = "password"
+#active = true
+#banned = false
+#banned_reason = "none"
 
 # Users
 #ban_reasons = ["Vendía droga", "Traficaba órganos"]
-print "Creating 100 users..."
-100.times do
-  u = User.new
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  email = Faker::Internet.email
-
-  u.first_name = first_name
-  u.last_name = last_name
-  u.email = email
-  u.password = password
-  u.password_confirmation = password_confirmation
-  u.active = active
-  u.banned = banned
-  u.banned_reason = banned_reason
-
-  u.save
-end
-puts "done."
+#print "Creating 100 users..."
+#100.times do
+#  u = User.new
+#  first_name = Faker::Name.first_name
+#  last_name = Faker::Name.last_name
+#  email = Faker::Internet.email
+#
+#  u.first_name = first_name
+#  u.last_name = last_name
+#  u.email = email
+#  u.password = password
+#  u.password_confirmation = password_confirmation
+#  u.active = active
+#  u.banned = banned
+#  u.banned_reason = banned_reason
+#
+#  u.save
+#end
+#puts "done."
 
 
 # Sellers
-print "Creating 50 sellers..."
-50.times do
-  s = Seller.new
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  email = Faker::Internet.email
-  company_name = Faker::Company.bs
-  web = Faker::Internet.url
-
-  s.first_name = first_name
-  s.last_name = last_name
-  s.email = email
-  s.company_name = company_name
-  s.web = web
-  s.password = password
-  s.password_confirmation = password_confirmation
-  s.active = active
-  s.banned = banned
-  s.banned_reason = banned_reason
-
-  s.save
-end
-puts "done."
+#print "Creating 50 sellers..."
+#50.times do
+#  s = Seller.new
+#  first_name = Faker::Name.first_name
+#  last_name = Faker::Name.last_name
+#  email = Faker::Internet.email
+#  company_name = Faker::Company.bs
+#  web = Faker::Internet.url
+#
+#  s.first_name = first_name
+#  s.last_name = last_name
+#  s.email = email
+#  s.company_name = company_name
+#  s.web = web
+#  s.password = password
+#  s.password_confirmation = password_confirmation
+#  s.active = active
+#  s.banned = banned
+#  s.banned_reason = banned_reason
+#
+#  s.save
+#end
+#puts "done."
 
 
 # Products
-print "Creating 350 products... "
-status = [true, true, true, true, true, true, false]
-350.times do
-  p = Product.new
-  p.name = Faker::Commerce.product_name
-  p.description = Faker::Lorem.sentence(word_count = 4, 
-                  supplemental = false, random_words_to_add = 6)
-  p.brand = Faker::Company.name
-  p.approved = status.sample
-
-  p.save
-end
-puts "done"
+#print "Creating 350 products... "
+#status = [true, true, true, true, true, true, false]
+#350.times do
+#  p = Product.new
+#  p.name = Faker::Commerce.product_name
+#  p.description = Faker::Lorem.sentence(word_count = 4,
+#                  supplemental = false, random_words_to_add = 6)
+#  p.brand = Faker::Company.name
+#  p.approved = status.sample
+#
+#  p.save
+#end
+#puts "done"
 
 # ... next model
+
+#
+# Cración de Categorías (Category)
+#
+deportes_category = Category.new(name: 'Deportes', description: 'Productos para entrenamiento y fitness')
+libros_category = Category.new(name: 'Libros', description: 'Novelas, ciencia, comics')
+peliculas_category = Category.new(name: 'Películas', description: 'De Chaplin a Avatar')
+mascotas_category = Category.new(name: 'Mascotas', description: 'Accesorios para tu perro o gato')
+autos_category = Category.new(name: 'Autos', description: '')
+computacion_category = Category.new(name: 'Computacion', description: 'Laptops, de escritorio y todos sus accesorios')
+celulares_category = Category.new(name: 'Celulares', description: 'Dumbphones, smartphones, cargadores y fundas')
+juegos_category = Category.new(name: 'Juegos', description: 'TEG, Juego de la Vida, Monopoly y otros clásicos')
+instrumentos_category = Category.new(name: 'Instrumentos', description: 'Guitarras, bajos, amplificadores y cuerdas')
+
+#
+# Creación de Productos (Product)
+#
+pelota_product = Product.new(name: 'Roteiro', descrption: 'Pelota de Alemania 2006', brand: 'Adidas')
+libro_product = Product.new(name: 'La Piedra Filosofal', description: 'J.K. Rowling', brand: 'Editorial Sudamericana')
+pelicula_product = Product.new(name: 'Pulp Fiction', description: 'La mejor pelicula de Tarantino', brand: '20th Century Fox')
+mascota_product = Product.new(name: 'Caniche', description: 'Perro con ladrido insoportable', brand: 'Cabana Las Lilas, versión canina')
+autos_product = Product.new(name: 'Fit 2012', description: 'El auto de Joaquincito', brand: 'Honda')
+computacion_product = Product.new(name: 'MacBook 13 in.', description: 'La compu de Sach', brand: 'Apple')
+celular_product = Product.new(name: 'iPhone 5S', description: 'El celular que quiere ser mi Samsung Ace cuando sea grande', brand: 'Apple')
+juegos_product = Product.new(name: 'Monopoly', description: 'El juego más aburrido de la historia', brand: 'Hasbro')
+instrumento_product = Product.new(name: 'Les Paul', descripcion: 'Clásica guitarra', brand: 'Gibson')
+
+#
+# Asociación Categoría-Producto
+#
+pelota_product.update_attributes({ "category_ids" => deportes_category._id })
+libro_product.update_attributes({ "category_ids" => libros_category._id })
+pelicula_product.update_attributes({ "category_ids" => peliculas_category._id})
+mascota_product.update_attributes({ "category_ids" => mascotas_category._id})
+autos_product.update_attributes({ "category_ids" => autos_category._id  })
+computacion_product.update_attributes({ "category_ids" => computacion_category._id })
+celular_product.update_attributes({ "category_ids" => celulares_category._id })
+juegos_product.update_attributes({ "category_ids" => juegos_category._id })
+instrumento_product.update_attributes({ "category_ids" => instrumentos_category._id })
+
+#
+# Creación de Productos Vendedor (Selling Product)
+#
+
+#
+# Guardar datos
+#
+deportes_category.save
+mascotas_category.save
+autos_category.save
+computacion_category.save
+celulares_category.save
+juegos_category.save
+instrumentos_category.save
