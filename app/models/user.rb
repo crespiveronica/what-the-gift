@@ -1,6 +1,6 @@
 class User < GenericUser
   attr_accessible :hobbies, :occupation
-  #before_save :hobbies_to_array
+  before_save :hobbies_to_array
 
   has_and_belongs_to_many :wishlist, class_name: 'Product'
   embeds_many :gifts
