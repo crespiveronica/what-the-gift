@@ -92,7 +92,13 @@ computacion_category = Category.new(name: 'Computacion', description: 'Laptops, 
 celulares_category = Category.new(name: 'Celulares', description: 'Dumbphones, smartphones, cargadores y fundas')
 juegos_category = Category.new(name: 'Juegos', description: 'TEG, Juego de la Vida, Monopoly y otros clásicos')
 instrumentos_category = Category.new(name: 'Instrumentos', description: 'Guitarras, bajos, amplificadores y cuerdas')
-
+deportes_category.save
+mascotas_category.save
+autos_category.save
+computacion_category.save
+celulares_category.save
+juegos_category.save
+instrumentos_category.save
 #
 # Creación de Productos (Product)
 #
@@ -126,10 +132,3 @@ instrumento_product.update_attributes({ "category_ids" => instrumentos_category.
 #
 # Guardar datos
 #
-deportes_category.save
-mascotas_category.save
-autos_category.save
-computacion_category.save
-celulares_category.save
-juegos_category.save
-instrumentos_category.save

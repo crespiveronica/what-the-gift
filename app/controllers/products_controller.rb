@@ -29,4 +29,5 @@ class ProductsController < ApplicationController
 
   def mine
   end
+
 end
