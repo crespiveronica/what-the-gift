@@ -92,6 +92,10 @@ computacion_category = Category.new(name: 'Computacion', description: 'Laptops, 
 celulares_category = Category.new(name: 'Celulares', description: 'Dumbphones, smartphones, cargadores y fundas')
 juegos_category = Category.new(name: 'Juegos', description: 'TEG, Juego de la Vida, Monopoly y otros clásicos')
 instrumentos_category = Category.new(name: 'Instrumentos', description: 'Guitarras, bajos, amplificadores y cuerdas')
+
+#
+# Guardar Categorías
+#
 deportes_category.save
 mascotas_category.save
 autos_category.save
@@ -99,10 +103,11 @@ computacion_category.save
 celulares_category.save
 juegos_category.save
 instrumentos_category.save
+
 #
 # Creación de Productos (Product)
 #
-pelota_product = Product.new(name: 'Roteiro', descrption: 'Pelota de Alemania 2006', brand: 'Adidas')
+pelota_product = Product.new(name: 'Roteiro', description: 'Pelota de Alemania 2006', brand: 'Adidas')
 libro_product = Product.new(name: 'La Piedra Filosofal', description: 'J.K. Rowling', brand: 'Editorial Sudamericana')
 pelicula_product = Product.new(name: 'Pulp Fiction', description: 'La mejor pelicula de Tarantino', brand: '20th Century Fox')
 mascota_product = Product.new(name: 'Caniche', description: 'Perro con ladrido insoportable', brand: 'Cabana Las Lilas, versión canina')
@@ -127,8 +132,4 @@ instrumento_product.update_attributes({ "category_ids" => instrumentos_category.
 
 #
 # Creación de Productos Vendedor (Selling Product)
-#
-
-#
-# Guardar datos
 #
