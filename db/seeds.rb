@@ -8,8 +8,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-#password = "password"
-#password_confirmation = "password"
+password = "password"
+password_confirmation = "password"
 #active = true
 #banned = false
 #banned_reason = "none"
@@ -97,6 +97,8 @@ instrumentos_category = Category.new(name: 'Instrumentos', description: 'Guitarr
 # Guardar Categorías
 #
 deportes_category.save
+libros_category.save
+peliculas_category.save
 mascotas_category.save
 autos_category.save
 computacion_category.save
@@ -129,6 +131,37 @@ computacion_product.update_attributes({ "category_ids" => computacion_category._
 celular_product.update_attributes({ "category_ids" => celulares_category._id })
 juegos_product.update_attributes({ "category_ids" => juegos_category._id })
 instrumento_product.update_attributes({ "category_ids" => instrumentos_category._id })
+
+#
+# Creación de Vendedores (Seller)
+#
+sellers = []
+
+(1..5).each do |s|
+  s = Seller.new(first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: password,
+    password_confirmation: password_confirmation)
+  sellers.push(s)
+end
+
+sellers[0].company_name = 'Librerías Yenny'
+sellers[0].web = 'http://www.yenny.com.ar/'
+sellers[0].save
+sellers[1].company_name = 'Librería Cúspide'
+sellers[1].web = 'http://www.cuspide.com.ar/'
+sellers[1].save
+sellers[2].company_name = 'Adidas'
+sellers[2].web = 'www.adidas.com.ar'
+sellers[2].save
+sellers[3].company_name = 'Stock Center'
+sellers[3].web = 'www.stockcenter.com.ar'
+sellers[3].save
+sellers[4].company_name = 'Apio Verde'
+sellers[4].web = 'www.apioverde.com'
+sellers[4].save
+
 
 #
 # Creación de Productos Vendedor (Selling Product)
