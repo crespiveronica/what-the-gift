@@ -1,2 +1,32 @@
-<h1>Nuevo vendedor</h1>
+<% provide(:title, 'Crear vendedor') %>
+<h1>Crear cuenta de vendedor</h1>
 
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for @seller do |s| %>
+
+      <%= s.label :first_name, 'Nombre' %>
+      <%= s.text_field :first_name %>
+
+      <%= s.label :last_name, 'Apellido' %>
+      <%= s.text_field :last_name %>
+
+      <%= s.label :email %>
+      <%= s.text_field :email %>
+
+      <%= s.label :password, 'Contraseña' %>
+      <%= s.password_field :password %>
+
+      <%= s.label :password_confirmation, 'Confirmar' %>
+      <%= s.password_field :password_confirmation %>
+
+      <%= s.label :company_name, 'Compañía' %>
+      <%= s.text_field :company_name %>
+
+      <%= s.label :web, 'Página web' %>
+      <%= s.text_field :web %>
+
+      <%= s.submit "Crear", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

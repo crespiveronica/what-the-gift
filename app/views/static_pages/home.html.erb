@@ -8,9 +8,9 @@
   No pierdas más tiempo, ¡regístrate e invita a tus amigos a participar!
   </p>
 
-  <!-- <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary", onclick: "displayRegisterForm()" %>
-  Note: The login-modal was temporarily disabled - the link now redirects to /users/new for sign up since the modal form doesn't currently work -->
-  <%= link_to "Registrate ahora!", '/users/new', class: "btn btn-large btn-primary" %>
+  <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary", onclick: "displayRegisterForm()" %>
+  <!-- Note: The login-modal was temporarily disabled - the link now redirects to /users/new for sign up since the modal form doesn't currently work
+  <%= link_to "Registrate ahora!", '/users/new', class: "btn btn-large btn-primary" %> -->
 </div>
 
 <div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -26,147 +26,16 @@
         <div class="controls">
           <select id="userType">
             <option value="">Seleccione un tipo de usuario</option>
-            <option value="1">Usuario</option>
-            <option value="2">Vendedor</option>
+            <option value="/users/new">Usuario</option>
+            <option value="/sellers/new">Vendedor</option>
           </select>
-        </div>
-      </div>
-      <!-- USER FORM -->
-      <div id="user-form" style="display: none;">
-        <%= form_for(@user) do |f| %>
-          <!-- Nombre de usuario -->
-          <div class="control-group">
-            <%= f.label :first_name, 'Nombre', class: "control-label" %>
-            <div class="controls">
-              <%= f.text_field :first_name %>
-            </div>
-          </div>
-          <div class="control-group">
-            <%= f.label :last_name, 'Apellido', class: "control-label" %>
-            <div class="controls">
-              <%= f.text_field :last_name %>
-            </div>
-          </div>
-          <!-- E-mail -->
-          <div class="control-group">
-            <%= f.label :email, 'E-mail', class: "control-label" %>
-            <div class="controls">
-              <%= f.text_field :email %>
-            </div>
-          </div>
-          <!-- Contraseña -->
-          <div class="control-group">
-            <%= f.label :password, 'Contraseña', class: "control-label" %>
-            <div class="controls">
-              <%= f.password_field :password %>
-            </div>
-          </div>
-          <div class="control-group">
-            <%= f.label :password_confirmation, 'Repetir contraseña', class: "control-label" %>
-            <div class="controls">
-              <%= f.password_field :password_confirmation %>
-            </div>
-          </div>
-          <!-- Ocupación -->
-          <div class="control-group">
-            <label class="control-label">Ocupación</label>
-            <div class="controls">
-              <input type="text" placeholder="Estudiante">
-            </div>
-          </div>
-          <!-- Pasatiempos -->
-          <div class="control-group">
-            <%= f.label :hobbies, 'Hobbies, pasatiempos', class: "control-label" %>
-            <div class="controls">
-              <%= f.text_field :hobbies %>
-            </div>
-          </div>
-          <!-- Foto de perfil -->
-          <div class="control-group">
-            <label class="control-label">Foto de perfil</label>
-            <div class="controls">
-              <input type="file">
-            </div>
-          </div>
-
-          <%= f.submit "Crear!", class: "btn btn-primary" %>
-        <% end %>
-      <div id="seller-form" style="display: none;">
-        <!-- Nombre de usuario -->
-        <div class="control-group">
-        <label class="control-label inputName">Nombre de usuario</label>
-        <div class="controls">
-          <input type="text" placeholder="juanperez">
-        </div>
-        </div>
-        <!-- E-mail -->
-        <div class="control-group">
-          <label class="control-label inputEmail">E-mail</label>
-          <div class="controls">
-            <input type="text" id="inputEmail" placeholder="nombre@servicio.com">
-          </div>
-        </div>
-        <!-- Contraseña -->
-        <div class="control-group">
-          <label class="control-label inputPassword">Contraseña</label>
-          <div class="controls">
-            <input type="password" id="inputPassword" placeholder="Al menos 6 letras+números">
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label inputPassword">Repetir contraseña</label>
-          <div class="controls">
-            <input type="password" id="inputPassword" placeholder="Igual a la anterior">
-          </div>
-        </div>
-        <!-- Razón social -->
-        <div class="control-group">
-          <label class="control-label">Razón social</label>
-          <div class="controls">
-            <input type="text" placeholder="Razón social o nombre completo">
-          </div>
-        </div>
-        <!-- Ubicaicón geográfica -->
-        <div class="control-group">
-          <label class="control-label">Ubicación geográfica</label>
-          <div class="controls">
-            <input type="text" placeholder="Calle, altura, depto. y piso">
-          </div>
-        </div>
-        <!-- Foto de perfil -->
-        <div class="control-group">
-          <label class="control-label">Logo</label>
-          <div class="controls">
-            <input type="file">
-          </div>
-        </div>
-        <!-- Página web -->
-        <div class="control-group">
-          <label class="control-label">Página web</label>
-          <div class="controls">
-            <input type="text" placeholder="www.ejemplo.com.ar">
-          </div>
-        </div>
-        <!-- Teléfono -->
-        <div class="control-group">
-          <label class="control-label">Teléfono</label>
-          <div class="controls">
-            <input type="text" placeholder="45678902">
-          </div>
-        </div>
-        <!-- Observaciones -->
-        <div class="control-group">
-          <label class="control-label">Observaciones</label>
-          <div class="controls">
-            <input type="text" placeholder="Datos adicionales que desee añadir">
-          </div>
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-    <button class="btn btn-primary">Confirmar</button>
+    <a id="signup-button" href="none"><button class="btn btn-primary">Crear</button></a>
   </div>
 </div>
 
@@ -178,15 +47,8 @@
 
   $('#userType').change(
     function() {
-      if (this.value == "1") {
-        $('#user-form').slideDown();
-        $('#seller-form').slideUp();
-      } else if (this.value == "2") {
-        $('#user-form').slideUp();
-        $('#seller-form').slideDown();
-      } else {
-        $('#user-form').slideUp();
-        $('#seller-form').slideUp();
+      if (this.value) {
+        document.getElementById("signup-button").href = this.value
       }
     }
   );
