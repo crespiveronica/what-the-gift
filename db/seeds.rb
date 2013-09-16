@@ -166,3 +166,22 @@ sellers[4].save
 #
 # Creación de Productos Vendedor (Selling Product)
 #
+libro_yenny = SellingProduct.new(price: 65)
+libro_yenny.update_attributes({ "seller" => sellers[0]._id })
+libro_yenny.update_attributes({ "product" => libro_product._id })
+
+libro_cuspide = SellingProduct.new(price: 60)
+libro_cuspide.update_attributes({ "seller" => sellers[1]._id })
+libro_cuspide.update_attributes({ "product" => libro_product._id })
+
+pelota_adidas = SellingProduct.new(price: 128)
+pelota_adidas.update_attributes({ "seller" => sellers[2]._id })
+pelota_adidas.update_attributes({ "product" => pelota_product._id })
+
+pelota_stockcenter = SellingProduct.new(price: 132)
+pelota_stockcenter.update_attributes({ "seller" => sellers[3]._id })
+pelota_stockcenter.update_attributes({ "product" => pelota_product._id })
+
+juego_apioverde = SellingProduct.new(price: 132)
+juego_apioverde.update_attributes({ "seller" => sellers[4]._id })
+juego_apioverde.update_attributes({ "product" => juegos_product._id })
