@@ -1,23 +1,25 @@
 class User < GenericUser
-  attr_accessible :hobbies, :occupation
-  before_save :hobbies_to_array
+  include Mongoid::Paperclip
+  
+  attr_accessible :hobbies, :occupation, :avatar
 
   has_and_belongs_to_many :wishlist, class_name: 'Product'
   embeds_many :gifts
   field :hobbies, type: Array
   field :occupation, type: String
+  has_mongoid_attached_file :avatar, :default_url => "/assets/missing.png"
 
 def self.find_by_id id
-	User.where(id: id).first 
+	User.where(id: id).first
 end
 
 def asorted_recommended
-Product.full_text_search( interests, match: :any , relevant_search: true) - products_from_gifts
+	Product.full_text_search( interests, match: :any , relevant_search: true) - products_from_gifts
 end
 
 def recommended
-	products = asorted_recommended 
-products.sort_by {|product| - (how_good_is product) }
+	products = asorted_recommended
+	products.sort_by {|product| - (how_good_is product) }
 end
 
 def interests
@@ -43,7 +45,7 @@ def interests_from_gifts
 end
 
 def how_good_is product
-	product.relevance + points_to(product.name, 10)	+ points_to(product.description, 4) + points_to_items(product.categories_names, 7)
+	product.relevance + points_to(product.name, 10) + points_to(product.description, 4) + points_to_items(product.categories_names, 7)
 end
 
 def points_to(what, howMany)
