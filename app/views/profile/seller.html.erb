@@ -14,7 +14,7 @@
                     <a class="btn btn-success pull-right" href="/profile/edit">Editar perfil</a>
                   </h3>
                   </div>
-                </div> 
+                </div>
             </legend>
             <div class="row">
               <div class="span4">
@@ -28,38 +28,30 @@
               <div class="span9">
                 <div class="row">
                   <div class="span4"><strong>Nombre</strong></div>
-                  <div class="span5">John</div>
+                  <div class="span5"><%= @seller.first_name %></div>
                 </div>
                 <div class="row">
                   <div class="span4"><strong>Apellido</strong></div>
-                  <div class="span5">DoeVendedor</div>
+                  <div class="span5"><%= @seller.last_name %></div>
                 </div>
                 <div class="row">
                   <div class="span4"><strong>Razón Social</strong></div>
-                  <div class="span5">Regalitos SRL</div>
-                </div>
-                <div class="row">
-                  <div class="span4"><strong>Locales</strong></div>
-                  <div class="span5">Medrano 950</div>
+                  <div class="span5"><%= @seller.company_name %></div>
                 </div>
                 <div class="row">
                   <div class="span4"><strong>Página Web</strong></div>
-                  <div class="span5">www.regalitos.com.ar</div>
+                  <div class="span5"><%= @seller.web %></div>
                 </div>
                 <div class="row">
                   <div class="span4"><strong>Teléfono</strong></div>
-                  <div class="span5">4444-3333</div>
-                </div>
-                <div class="row">
-                  <div class="span4"><strong>Observaciones</strong></div>
-                  <div class="span5">Tenemos los mejores regalitos</div>
+                  <div class="span5">No se pide en el sign up...</div>
                 </div>
                 <div class="row">
                   <div class="span12"><hr></div>
                 </div>
                 <div class="row">
                   <div class="span4"><strong>E-mail</strong></div>
-                  <div class="span5"><input type="text" placeholder="johndoe@gmail.com" disabled></div>
+                  <div class="span5"><input type="text" placeholder=<%= @seller.email %> disabled></div>
                 </div>
                 <div class="row">
                   <div class="span4"></div>
@@ -79,7 +71,7 @@
           <fieldset>
             <legend>Productos</legend>
           </fieldset>
-          <p>          
+          <p>
             <a href="/products/new"><i class="btn btn-small btn-primary">Agregar Producto</i></a>
             <a href="/products/edit"><i class="btn btn-small btn-primary">Modificar producto</i></a>
             <button class="btn btn-small btn-primary" type="button" href="#deleteProductModal" role="button" data-toggle="modal">Eliminar producto</i></button>
@@ -138,7 +130,7 @@
               </tr>
             </tbody>
           </table>
-        
+
         </form>
       </div>
     </div>

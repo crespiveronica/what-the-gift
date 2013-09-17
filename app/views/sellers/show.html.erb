@@ -2,14 +2,18 @@
 
 <p>
   <b>Name:</b>
-  <%= @user.name %>
+  <%= @seller.company_name %>
 </p>
 
 <p>
   <b>Email:</b>
-  <%= @user.email %>
+  <%= @seller.email %>
 </p>
 
+<p>
+  <b>Email:</b>
+  <%= @seller.web %>
+</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@seller) %> |
+<%= link_to 'Back', sellers_path %>
