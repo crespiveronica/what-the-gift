@@ -25,9 +25,39 @@
       <%= f.text_field :occupation %>
 
       <%= f.label :hobbies, 'Pasatiempos y hobbies' %>
-      <%= f.text_field :hobbies, placeholder: 'Separados por comas' %>
+      <!-- <%= f.text_field :hobbies, placeholder: 'Separados por comas' %> -->
+      <input type="text" id="hobby-field" placeholder="Hobby"></input>
+      <a onclick="addHobbyToList()"><i id="add-item" class="icon-plus"></i></a>
+      <a onclick="removeSelectedFromHobbyList()"><i id="remove-item" class="icon-remove"></i></a>
 
+      <select multiple id="hobby-list">
+      </select>
+
+      <br />
       <%= f.submit "Crear", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  function addHobbyToList()
+  {
+    if (document.getElementById("hobby-field").value)
+    {
+      $("#hobby-list").append(
+        "<option>" +
+        document.getElementById("hobby-field").value +
+        "</option>"
+      )
+    }
+    document.getElementById("hobby-field").value = ""
+  };
+
+  function removeSelectedFromHobbyList()
+  {
+    if ($("#hobby-list option:selected"))
+    {
+      $("#hobby-list option:selected").remove()
+    }
+  };
+</script>
