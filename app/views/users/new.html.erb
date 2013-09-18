@@ -25,15 +25,17 @@
       <%= f.text_field :occupation %>
 
       <%= f.label :hobbies, 'Pasatiempos y hobbies' %>
-      <% for hobby in @user.hobbies %>
-        <ul>
+      <a onclick="addHobbyBox()"><i class="icon-plus"></i></a>
+      <a onclick="removeHobbyBox()"><i class="icon-remove"></i></a>
+      <ul id="hobby-list">
+        <% for hobby in @user.hobbies %>
           <%= fields_for "user[hobbies_attributes][]", hobby do |hobby_form| %>
             <li>
               <%= hobby_form.text_field :name %>
             </li>
           <% end %>
-        </ul>
-      <% end %>
+        <% end %>
+      </ul>
 
       <br />
       <%= f.submit "Crear", class: "btn btn-primary" %>
@@ -42,24 +44,22 @@
 </div>
 
 <script type="text/javascript">
-  function addHobbyToList()
+  function addHobbyBox()
   {
-    if (document.getElementById("hobby-field").value)
-    {
-      $("#hobby-list").append(
-        "<option>" +
-        document.getElementById("hobby-field").value +
-        "</option>"
-      )
-    }
-    document.getElementById("hobby-field").value = ""
+    var item = document.createElement("li");
+    var input = document.createElement("input");
+    input.type = "text";
+    input.id = "user_hobbies_attributes__name";
+    input.name = "user[hobbies_attributes]​[]​[name]​";
+    input.size = 30;
+    item.appendChild(input);
+    document.getElementById("hobby-list").appendChild(item);
   };
 
-  function removeSelectedFromHobbyList()
+  function removeHobbyBox()
   {
-    if ($("#hobby-list option:selected"))
-    {
-      $("#hobby-list option:selected").remove()
-    }
+    var hobby_list = document.getElementById("hobby-list");
+    var list_items = hobby_list.getElementsByTagName("li");
+    list_items[0].parentNode.removeChild(list_items[0]);
   };
 </script>
