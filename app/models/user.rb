@@ -1,13 +1,13 @@
 class User < GenericUser
   include Mongoid::Paperclip
   
-  attr_accessible :hobbies, :occupation, :avatar
+  attr_accessible :hobbies, :occupation, :avatar, :hobbies_attributes
 
   has_and_belongs_to_many :wishlist, class_name: 'Product'
   embeds_many :gifts
   has_many :friend_requests, :inverse_of => :owner, :foreign_key => "owner_id"
   has_many :friend_requests, :inverse_of => :friend, :foreign_key => "friend_id"
-  field :hobbies, type: Array
+  has_many :hobbies
   field :occupation, type: String
   has_mongoid_attached_file :avatar, :default_url => "/assets/missing.png"
   before_create :hobbies_to_array
@@ -87,6 +87,12 @@ def hobbies_string
 		}
 	end
 	string
+end
+
+def hobbies_attributes=(hobbies_attributes)
+  hobbies_attributes.each do |attributes|
+    hobbies.build(attributes)
+  end
 end
 
 private

@@ -44,11 +44,11 @@
               <div class="span4"><strong>Pasatiempos</strong></div>
               <% if @user.hobbies != nil %>
                 <div class="span5">
-                  <% @user.hobbies.each do |h| %>
-                    <% if h == @user.hobbies.last %>
-                      <%= h %>
+                  <% @user.hobbies.entries.each do |h| %>
+                    <% if h == @user.hobbies.entries.last %>
+                      <%= h.name %>
                     <% else %>
-                      <%= h + ', ' %>
+                      <%= h.name + ', ' %>
                     <% end %>
                   <% end %>
                 </div>

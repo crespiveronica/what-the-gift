@@ -25,13 +25,15 @@
       <%= f.text_field :occupation %>
 
       <%= f.label :hobbies, 'Pasatiempos y hobbies' %>
-      <!-- <%= f.text_field :hobbies, placeholder: 'Separados por comas' %> -->
-      <input type="text" id="hobby-field" placeholder="Hobby"></input>
-      <a onclick="addHobbyToList()"><i id="add-item" class="icon-plus"></i></a>
-      <a onclick="removeSelectedFromHobbyList()"><i id="remove-item" class="icon-remove"></i></a>
-
-      <select multiple id="hobby-list">
-      </select>
+      <% for hobby in @user.hobbies %>
+        <ul>
+          <%= fields_for "user[hobbies_attributes][]", hobby do |hobby_form| %>
+            <li>
+              <%= hobby_form.text_field :name %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
 
       <br />
       <%= f.submit "Crear", class: "btn btn-primary" %>
