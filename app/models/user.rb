@@ -8,6 +8,7 @@ class User < GenericUser
   field :hobbies, type: Array
   field :occupation, type: String
   has_mongoid_attached_file :avatar, :default_url => "/assets/missing.png"
+  before_create :hobbies_to_array
 
 def self.find_by_id id
 	User.where(id: id).first
