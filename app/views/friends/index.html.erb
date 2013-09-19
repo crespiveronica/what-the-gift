@@ -11,12 +11,14 @@
 <% end %>
 	
 <ul class="row">
-	<% (1..6).each do |i| %>
+	<% @friends.each_with_index do |friend, i| %>
 	<li class="span2 text-center">
-		<a href="/friends/1" class="profile-mini">
-			<%= image_tag "lego#{i}.jpg", size: "80x80", class: "img-circle" %>
-			<p>Lego <%= i %></p>
+		<a href="/friends/<%=friend.id%>" class="profile-mini">
+			<%= image_tag "lego#{1}.jpg", size: "80x80", class: "img-circle" %>
+			<p> <%= friend.first_name %></p>
 		</a>
 	</li>
 	<% end %>
 </ul>
+
+

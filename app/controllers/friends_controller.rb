@@ -1,6 +1,7 @@
 class FriendsController < ApplicationController
 
   def index
+    @friends = User.all
   	render 'friends/index', layout: 'myfriends'
   end
 
@@ -16,17 +17,19 @@ class FriendsController < ApplicationController
   end
 
   def show
+    @friend = User.find_by_id params[:id]
     render 'friends/show', layout: 'friend'
   end
 
   def makeAGift
-    friend = User.find_by_id params[:id]
-    @products = friend.wishlist + friend.recommended
+    @friend = User.find_by_id params[:id]
+    @products = @friend.wishlist + @friend.recommended
     @products.uniq
     render 'friends/makeagift', layout: 'friend'
   end
 
   def gifts
+    @friend = User.find_by_id params[:id]
     render 'friends/gifts', layout: 'friend'
   end
 
