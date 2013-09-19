@@ -2,7 +2,6 @@ class User < GenericUser
   include Mongoid::Paperclip
   
   attr_accessible :hobbies, :occupation, :avatar, :hobbies_attributes
-
   has_and_belongs_to_many :wishlist, class_name: 'Product'
   embeds_many :gifts
   has_many :friend_requests, :inverse_of => :owner, :foreign_key => "owner_id"
@@ -97,13 +96,6 @@ def hobbies_attributes=(hobbies_attributes)
 end
 
 private
-
-def hobbies_to_array
-    self.hobbies = self.hobbies.split(',')
-    self.hobbies.each do |h|
-      h.lstrip!
-    end
-end
 
 def hobbies_list
 	self.hobbies.nil? ? [] : self.hobbies
