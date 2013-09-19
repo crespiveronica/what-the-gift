@@ -24,7 +24,7 @@ class FriendsController < ApplicationController
   def makeAGift
     @friend = User.find_by_id params[:id]
     @products = @friend.wishlist + @friend.recommended
-    @products.uniq
+    @products = @products.uniq
     render 'friends/makeagift', layout: 'friend'
   end
 
