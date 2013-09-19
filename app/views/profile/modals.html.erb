@@ -13,23 +13,22 @@
   </div>
 </div>
 
-<div id="changePhotoModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changePhotoModal" aria-hidden="true">
+<div id="changeAvatarModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changePhotoModal" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="changePhotoLabel">Agregar foto</h3>
   </div>
   <div class="modal-body">
-    <form class="form-horizontal">
-      <form class="form-search">
-        <input type="text" class="input-medium search-query">
-        <button type="submit" class="btn">Examinar</button>
-      </form>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Aceptar</button>
-  </div>
+    <%= form_for(@user, :url => change_avatar_path, :html => {:multipart => true}) do |f| %>
+      <div class="form-horizontal">
+          <%= f.file_field :avatar %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+      <%= f.submit "Cambiar", :class => 'btn btn-primary' %>
+    </div>
+  <% end %>
 </div>
 
 <div id="changePasswordModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changePasswordLabel" aria-hidden="true">

@@ -10,7 +10,8 @@ gem 'bootstrap-sass', '~> 2.3.2.1'
 gem 'twitter-bootstrap-rails'
 gem 'faker', '1.2.0'
 gem 'bcrypt-ruby', '3.0.1'
-
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem 'aws-sdk', '~> 1.3.4'
 
 group :development, :test do
 #  gem 'rspec-rails', '2.11.0'
