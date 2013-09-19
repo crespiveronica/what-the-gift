@@ -23,7 +23,7 @@ def recommended
 end
 
 def interests
-	(self.hobbies + interests_from_wishList + interests_from_gifts).uniq
+	(hobbies_list + interests_from_wishList + interests_from_gifts).uniq
 end
 
 def interests_from_wishList
@@ -60,6 +60,17 @@ def products_from_gifts
 	self.gifts.map { |gift| gift.product }
 end
 
+def hobbies_string
+	string = ''
+	if(self.hobbies.nil?)
+		string = '-'
+	else
+		self.hobbies.each { |h| 
+			string += h + ( h==self.hobbies.last ? '.' : ', ' )
+		}
+	end
+	string
+end
 
 private
 
@@ -68,6 +79,10 @@ def hobbies_to_array
     self.hobbies.each do |h|
       h.lstrip!
     end
+end
+
+def hobbies_list
+	self.hobbies.nil? ? [] : self.hobbies
 end
 
 end

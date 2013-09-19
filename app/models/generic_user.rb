@@ -24,6 +24,10 @@ class GenericUser
   validates :password, presence: true, length: { minimum: 8 }, :on => :create
   validates :password_confirmation, presence: true, :on => :create
 
+  def whole_name
+    first_name + ' ' + last_name
+  end
+  
   private
 
     def create_remember_token

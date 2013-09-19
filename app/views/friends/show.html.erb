@@ -15,19 +15,19 @@
                     	<h4>Sobre mi</h4>
                         <div class="row">
                             <div class="span2"><strong>Nombre</strong></div>
-                            <div class="span4">Jane Doe</div>
+                            <div class="span4"><%=@friend.whole_name%></div>
                         </div>
                         <div class="row">
                             <div class="span2"><strong>Ocupación</strong></div>
-                            <div class="span4">Estudiante</div>
+                            <div class="span4"><%=@friend.occupation%></div>
                         </div>
                         <div class="row">
                             <div class="span2"><strong>Pasatiempos</strong></div>
-                            <div class="span4">Ropa, maquillaje, bicicletas</div>
+                            <div class="span4"><%=@friend.hobbies_string %></div>
                         </div>
                         <div class="row">
                             <div class="span2"><strong>E-mail</strong></div>
-                            <div class="span4">jane.doe@gmail.com</div>
+                            <div class="span4"><%=@friend.email%></div>
                         </div>
                         <div class="row">
                             <div class="span6"><hr></div>
