@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
+    <%= nested_form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
       <%= f.label :first_name, 'Nombre' %>
@@ -27,15 +27,14 @@
       <%= f.label :hobbies, 'Pasatiempos y hobbies' %>
       <a onclick="addHobbyBox()"><i class="icon-plus"></i></a>
       <a onclick="removeHobbyBox()"><i class="icon-remove"></i></a>
-      <ul id="hobby-list">
-        <% for hobby in @user.hobbies %>
-          <%= fields_for "user[hobbies_attributes][]", hobby do |hobby_form| %>
-            <li>
-              <%= hobby_form.text_field :name %>
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
+
+
+      <%= f.fields_for :hobbies do |h| %>
+        <%= h.text_field :name %>
+        <%= h.link_to_remove "Eliminar" %>
+      <% end %>
+      <%= f.link_to_add "Agregar hobby", :hobbies %>
+
 
       <br />
       <%= f.submit "Crear", class: "btn btn-primary" %>

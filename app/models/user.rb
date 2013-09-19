@@ -8,6 +8,7 @@ class User < GenericUser
   has_many :friend_requests, :inverse_of => :owner, :foreign_key => "owner_id"
   has_many :friend_requests, :inverse_of => :friend, :foreign_key => "friend_id"
   has_many :hobbies
+  accepts_nested_attributes_for :hobbies
   field :occupation, type: String
   has_mongoid_attached_file :avatar, :default_url => "/assets/missing.png"
   before_create :hobbies_to_array
