@@ -24,41 +24,18 @@
       <%= f.label :occupation, 'Ocupación' %>
       <%= f.text_field :occupation %>
 
+      <div id="hobby-boxes">
       <%= f.label :hobbies, 'Pasatiempos y hobbies' %>
-      <a onclick="addHobbyBox()"><i class="icon-plus"></i></a>
-      <a onclick="removeHobbyBox()"><i class="icon-remove"></i></a>
 
-
-      <%= f.fields_for :hobbies do |h| %>
-        <%= h.text_field :name %>
-        <%= h.link_to_remove "Eliminar" %>
-      <% end %>
-      <%= f.link_to_add "Agregar hobby", :hobbies %>
-
+        <%= f.fields_for :hobbies do |h| %>
+          <%= h.text_field :name %>
+          <%= h.link_to_remove '<i class="icon-remove"></i>'.html_safe %>
+        <% end %>
+        <%= f.link_to_add '<i class="icon-plus"></i>'.html_safe, :hobbies %>
+      </div>
 
       <br />
       <%= f.submit "Crear", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
-
-<script type="text/javascript">
-  function addHobbyBox()
-  {
-    var item = document.createElement("li");
-    var input = document.createElement("input");
-    input.type = "text";
-    input.id = "user_hobbies_attributes__name";
-    input.name = "user[hobbies_attributes]​[]​[name]​";
-    input.size = 30;
-    item.appendChild(input);
-    document.getElementById("hobby-list").appendChild(item);
-  };
-
-  function removeHobbyBox()
-  {
-    var hobby_list = document.getElementById("hobby-list");
-    var list_items = hobby_list.getElementsByTagName("li");
-    list_items[0].parentNode.removeChild(list_items[0]);
-  };
-</script>
