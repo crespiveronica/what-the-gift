@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
   end
 
   def gifts
+    @user = current_user
   end
 
   def mine

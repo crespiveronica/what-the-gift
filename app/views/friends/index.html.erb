@@ -14,7 +14,7 @@
 	<% @friends.each_with_index do |friend, i| %>
 	<li class="span2 text-center">
 		<a href="/friends/<%=friend.id%>" class="profile-mini">
-			<%= image_tag "lego#{1}.jpg", size: "80x80", class: "img-circle" %>
+			<%= image_tag friend.avatar, size: "80x80", class: "img-circle" %>
 			<p> <%= friend.first_name %></p>
 		</a>
 	</li>

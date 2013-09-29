@@ -117,7 +117,7 @@ autos_product = Product.new(name: 'Fit 2012', description: 'El auto de Joaquinci
 computacion_product = Product.new(name: 'MacBook 13 in.', description: 'La compu de Sach', brand: 'Apple')
 celular_product = Product.new(name: 'iPhone 5S', description: 'El celular que quiere ser mi Samsung Ace cuando sea grande', brand: 'Apple')
 juegos_product = Product.new(name: 'Monopoly', description: 'El juego más aburrido de la historia', brand: 'Hasbro')
-instrumento_product = Product.new(name: 'Les Paul', descripcion: 'Clásica guitarra', brand: 'Gibson')
+instrumento_product = Product.new(name: 'Les Paul', description: 'Clásica guitarra', brand: 'Gibson')
 
 #
 # Asociación Categoría-Producto
