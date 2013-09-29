@@ -4,50 +4,32 @@
 
 <h1>Solicitudes de Amistad</h1>
 
-<div class="alert alert-success" id="accept" style="display: none;">
-	Has aceptado la solicitud de amistad de <strong>Jane Doe</strong>.
-</div>
-
-<div class="alert alert-error" id="reject" style="display: none;">
-	Has rechazado la solicitud de amistad de <strong>Jane Doe</strong>.
-</div>
-
-<table class="table table-hover" id="jane">
-	<thead>
-		<tr>
-			<th>Nombre</th>
-			<th width="35%"><p class="text-center">Acciones</p></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr class="friend-row">
-			<td>
-				Jane Doe
-			</td>
-			<td>
-				<p class="text-center">
-					<a class="btn btn-success" href="#" onclick="accept()">Confirmar</a>
-					<a class="btn btn-danger" href="javascript: reject()">Rechazar</a>
-				</p>
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-<div class="alert alert-info" id="nomore" style="display: none;">
-	No posee solicitudes de amistad
-</div>
-
-<script>
-function accept() {
-	$('#accept').fadeIn();
-	$('#jane').hide();
-	$('#nomore').fadeIn();
-}
-
-function reject() {
-	$('#reject').fadeIn();
-	$('#jane').hide();
-	$('#nomore').fadeIn();
-}
-</script>
+<% if @pending_requests.size == 0 %>
+	<div class="alert alert-info">
+		No posee solicitudes de amistad pendientes
+	</div>
+<% else %>
+	<table class="table table-hover" id="jane">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th width="35%"><p class="text-center">Acciones</p></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @pending_requests.each do |req| %>
+				<tr class="friend-row">
+					<td>
+						<%= req.owner.whole_name %>
+					</td>
+					<td>
+						<p class="text-center">
+							<a class="btn btn-success" href="/friends/accept/<%= req.id %>" >Confirmar</a>
+							<a class="btn btn-danger" href="javascript: reject()">Rechazar</a>
+						</p>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>

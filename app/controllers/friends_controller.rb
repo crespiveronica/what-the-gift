@@ -1,7 +1,7 @@
 class FriendsController < ApplicationController
 
   def index
-    @friends = User.all
+    @friends = current_user.friends.map {| request | request.owner }
   	render 'friends/index', layout: 'myfriends'
   end
 
@@ -9,7 +9,15 @@ class FriendsController < ApplicationController
   end
 
   def requests
-  	render 'friends/requests', layout: 'myfriends'
+  	@pending_requests = current_user.pending_requests
+    render 'friends/requests', layout: 'myfriends'
+  end
+
+  def accept
+    request = FriendRequest.find(params[:id])
+    request.accepted = true
+    request.save
+    redirect_to action: 'index'
   end
 
   def pending

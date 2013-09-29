@@ -5,10 +5,20 @@ class User < GenericUser
 
   has_and_belongs_to_many :wishlist, class_name: 'Product'
   embeds_many :gifts
+  has_many :friend_requests, :inverse_of => :owner, :foreign_key => "owner_id"
+  has_many :friend_requests, :inverse_of => :friend, :foreign_key => "friend_id"
   field :hobbies, type: Array
   field :occupation, type: String
   has_mongoid_attached_file :avatar, :default_url => "/assets/missing.png"
   before_create :hobbies_to_array
+
+def friends
+	self.friend_requests.where('accepted = true')
+end
+
+def pending_requests
+	self.friend_requests.where('accepted = false')
+end
 
 def self.find_by_id id
 	User.where(id: id).first
