@@ -1,3 +1,5 @@
+require 'pry'
+
 class User < GenericUser
   include Mongoid::Paperclip
   
@@ -10,7 +12,6 @@ class User < GenericUser
   accepts_nested_attributes_for :hobbies
   field :occupation, type: String
   has_mongoid_attached_file :avatar, :default_url => "/assets/missing.png"
-  before_create :hobbies_to_array
 
 def friends
 	reqs = self.friend_requests.where({accepted: true})
@@ -36,11 +37,11 @@ end
 
 def recommended
 	products = asorted_recommended
-	products.sort_by {|product| - (how_good_is product) }
+  products.sort_by {|product| - (how_good_is product) }
 end
 
 def interests
-	(hobbies_list + interests_from_wishList + interests_from_gifts).uniq
+	(hobbies_names + interests_from_wishList + interests_from_gifts).uniq
 end
 
 def interests_from_wishList
@@ -79,26 +80,24 @@ end
 
 def hobbies_string
 	string = ''
-	if(self.hobbies.nil?)
-		string = '-'
+	if(self.hobbies_list.nil?)
+		string = 'No has cargado pasatiempos'
 	else
-		self.hobbies.each { |h| 
-			string += h + ( h==self.hobbies.last ? '.' : ', ' )
+		self.hobbies_list.each { |h|
+			string += h.name + ( h==self.hobbies_list.last ? '.' : ', ' )
 		}
 	end
 	string
-end
-
-def hobbies_attributes=(hobbies_attributes)
-  hobbies_attributes.each do |attributes|
-    hobbies.build(attributes)
-  end
 end
 
 private
 
 def hobbies_list
 	self.hobbies.nil? ? [] : self.hobbies
+end
+
+def hobbies_names
+  self.hobbies.entries.map { |h| h.name }
 end
 
 end
