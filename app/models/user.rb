@@ -1,5 +1,3 @@
-require 'pry'
-
 class User < GenericUser
   include Mongoid::Paperclip
   
