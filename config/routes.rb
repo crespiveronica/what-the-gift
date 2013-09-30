@@ -7,6 +7,7 @@ Wtg::Application.routes.draw do
 
   match '/friends/', to: 'friends#index', via: 'get'
   match '/friends/requests/', to: 'friends#requests', via: 'get'
+  match '/friends/send-request/:id', to: 'friends#send_request', via: 'get'
   match '/friends/search/', to: 'friends#search', via: 'get'
   match '/friends/pending/', to: 'friends#pending', via: 'get'
   match '/friends/:id/', to: 'friends#show', via: 'get'

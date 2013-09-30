@@ -33,6 +33,11 @@
                             <div class="span6"><hr></div>
                         </div>
                         <div class="row">
+                            <% if not @pending_friends %>
+                                <div class="span2">
+                                    <a class="btn btn-primary" href="/friends/send-request/<%= @friend.id %>"><i class="icon-plus icon-white"></i> Agregar</a>
+                                </div>
+                            <% end %>
                             <div class="span2">
                                 <a class="btn btn-danger btn-block" href="#unfriendModal" role="button" data-toggle="modal"><i class="icon-ban-circle icon-white"></i> Eliminar amigo</a>
                             </div>

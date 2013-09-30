@@ -13,11 +13,17 @@ class User < GenericUser
   before_create :hobbies_to_array
 
 def friends
-	self.friend_requests.where('accepted = true')
+	reqs = self.friend_requests.where({accepted: true})
+	friends = reqs.map{ | req | req.owner_id == self.id ? req.friend : req.owner }
+	friends
 end
 
 def pending_requests
-	self.friend_requests.where('accepted = false')
+	self.friend_requests.where({accepted: false})
+end
+
+def is_friend(friend)
+	self.friends.include? friend
 end
 
 def self.find_by_id id
