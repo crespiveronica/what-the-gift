@@ -5,9 +5,15 @@ class FriendRequest
   belongs_to :friend, :class_name => "User"
   field :accepted, :type => Boolean, :default => false
 
-  def self.pending_friends(owner, friend)
-  	requests = FriendRequest.where({ accepted: false, owner: owner, friend: friend })
-  	requests += FriendRequest.where({ accepted: false, owner: friend, friend: owner })
+  def self.find_by_friends(user, friend)
+    requests = FriendRequest.where({ owner: user, friend: friend })
+    requests += FriendRequest.where({ owner: friend, friend: user })
+    requests.first
+  end
+
+  def self.friends_or_pending(owner, friend)
+  	requests = FriendRequest.where({ owner: owner, friend: friend })
+  	requests += FriendRequest.where({ owner: friend, friend: owner })
   	
   	requests.count > 0
   end

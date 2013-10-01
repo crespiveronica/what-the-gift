@@ -37,10 +37,11 @@
                                 <div class="span2">
                                     <a class="btn btn-primary" href="/friends/send-request/<%= @friend.id %>"><i class="icon-plus icon-white"></i> Agregar</a>
                                 </div>
+                            <% else %>
+                                <div class="span2">
+                                    <a class="btn btn-danger btn-block" href="/friends/unfriend/<%= @request.id %>" role="button" data-toggle="modal"><i class="icon-ban-circle icon-white"></i> Eliminar amigo</a>
+                                </div>
                             <% end %>
-                            <div class="span2">
-                                <a class="btn btn-danger btn-block" href="#unfriendModal" role="button" data-toggle="modal"><i class="icon-ban-circle icon-white"></i> Eliminar amigo</a>
-                            </div>
                         </div>
 	                </div>
                 </div>
