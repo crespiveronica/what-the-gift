@@ -76,61 +76,8 @@
             </div>
           </div>
           <ul class="thumbnails">
-            <li class="span2">
-              <div class="thumbnail">
-                <img src="http://lorempixel.com/128/128/transport/1" class="img-rounded" alt="">
-                <h5>Nombre Producto 1</h5>
-                <p><small>Descripción del producto 1</small></p>
-                <p class="text-right">
-                  <a><button class="btn btn-mini btn-success" type="button">+ Whish list</button></a>
-                  <a><button class="btn btn-mini btn-primary" type="button">Ver más</button></a>
-                </p>
-              </div>
-            </li>
-            <li class="span2">
-              <div class="thumbnail">
-                <img src="http://lorempixel.com/128/128/transport/2" class="img-rounded" alt="">
-                <h5>Nombre Producto 2</h5>
-                <p><small>Descripción del producto </small></p>
-                <p class="text-right">
-                  <a><button class="btn btn-mini btn-success" type="button">+ Whish list</button></a>
-                  <a><button class="btn btn-mini btn-primary" type="button">Ver más</button></a>
-                </p>
-              </div>
-            </li>
-            <li class="span2">
-              <div class="thumbnail">
-                <img src="http://lorempixel.com/128/128/transport/3" class="img-rounded" alt="">
-                <h5>Nombre Producto 3</h5>
-                <p><small>Descripción del producto </small></p>
-                <p class="text-right">
-                  <a><button class="btn btn-mini btn-success" type="button">+ Whish list</button></a>
-                  <a><button class="btn btn-mini btn-primary" type="button">Ver más</button></a>
-                </p>
-              </div>
-            </li>
-            <li class="span2">
-              <div class="thumbnail">
-                <img src="http://lorempixel.com/128/128/transport/4" class="img-rounded" alt="">
-                <h5>Nombre Producto 4</h5>
-                <p><small>Descripción del producto </small></p>
-                <p class="text-right">
-                  <a><button class="btn btn-mini btn-success" type="button">+ Whish list</button></a>
-                  <a><button class="btn btn-mini btn-primary" type="button">Ver más</button></a>
-                </p>
-              </div>
-            </li>
-            <li class="span2">
-              <div class="thumbnail">
-                <img src="http://lorempixel.com/128/128/transport/5" class="img-rounded" alt="">
-                <h5>Nombre Producto 5</h5>
-                <p><small>Descripción del producto </small></p>
-                <p class="text-right">
-                  <a><button class="btn btn-mini btn-success" type="button">+ Whish list</button></a>
-                  <a><button class="btn btn-mini btn-primary" type="button">Ver más</button></a>
-                </p>
-              </div>
-            </li>
+            <% @products = @recommended_products %>
+            <%= render :template => 'products/list' %>
           </ul>
           <div class="row"><div class="span10">
           <ul class="breadcrumb">
@@ -138,61 +85,8 @@
           </ul>
           </div></div>
           <ul class="thumbnails">
-            <li class="span2">
-              <div class="thumbnail">
-                <img src="http://lorempixel.com/128/128/transport/6" class="img-rounded" alt="">
-                <h5>Nombre Producto 6</h5>
-                <p><small>Descripción del producto </small></p>
-                <p class="text-right">
-                  <a><button class="btn btn-mini btn-success" type="button">+ Whish list</button></a>
-                  <a><button class="btn btn-mini btn-primary" type="button">Ver más</button></a>
-                </p>
-              </div>
-            </li>
-            <li class="span2">
-              <div class="thumbnail">
-                <img src="http://lorempixel.com/128/128/transport/7" class="img-rounded" alt="">
-                <h5>Nombre Producto 7</h5>
-                <p><small>Descripción del producto </small></p>
-                <p class="text-right">
-                  <a><button class="btn btn-mini btn-success" type="button">+ Whish list</button></a>
-                  <a><button class="btn btn-mini btn-primary" type="button">Ver más</button></a>
-                </p>
-              </div>
-            </li>
-            <li class="span2">
-              <div class="thumbnail">
-                <img src="http://lorempixel.com/128/128/transport/8" class="img-rounded" alt="">
-                <h5>Nombre Producto 8</h5>
-                <p><small>Descripción del producto </small></p>
-                <p class="text-right">
-                  <a><button class="btn btn-mini btn-success" type="button">+ Whish list</button></a>
-                  <a><button class="btn btn-mini btn-primary" type="button">Ver más</button></a>
-                </p>
-              </div>
-            </li>
-            <li class="span2">
-              <div class="thumbnail">
-                <img src="http://lorempixel.com/128/128/transport/9" class="img-rounded" alt="">
-                <h5>Nombre Producto 9</h5>
-                <p><small>Descripción del producto </small></p>
-                <p class="text-right">
-                  <a><button class="btn btn-mini btn-success" type="button">+ Whish list</button></a>
-                  <a><button class="btn btn-mini btn-primary" type="button">Ver más</button></a>
-                </p>
-              </div>
-            </li>
-            <li class="span2">
-              <div class="thumbnail">
-                <img src="http://lorempixel.com/128/128/transport/10" class="img-rounded" alt="">
-                <h5>Nombre Producto 10</h5>
-                <p><small>Descripción del producto 10</small></p>
-                <p class="text-right">
-                  <a><button class="btn btn-mini btn-success" type="button">+ Whish list</button></a>
-                  <a><button class="btn btn-mini btn-primary" type="button">Ver más</button></a>
-                </p>
-              </div>
-            </li>
+            <% @products = @latest_products %>
+            <%= render :template => 'products/list' %>
           </ul>
         </div>
       </div>

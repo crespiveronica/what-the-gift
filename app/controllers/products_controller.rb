@@ -22,6 +22,9 @@ class ProductsController < ApplicationController
   end
 
   def search
+    @recommended_products = Product.all[0..10]
+    @latest_products = Product.all[5..15]
+
   end
 
   def gifts
