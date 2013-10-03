@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
 
   def index
-  	@user="asa"     
+    @user = User.find(params[:id])
   end
 
   def edit
