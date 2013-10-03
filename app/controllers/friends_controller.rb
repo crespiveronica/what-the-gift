@@ -33,7 +33,7 @@ class FriendsController < ApplicationController
     request = FriendRequest.find(params[:id])
     friend = request.owner = current_user ? request.owner : request.friend
     request.delete
-    flash[:success] = "Se ha eliminado a #{friend.whole_name} de sus amigos"
+    flash[:success] = "Se ha eliminado a #{friend.full_name} de sus amigos"
     redirect_to action: 'index'
   end
 

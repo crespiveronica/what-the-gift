@@ -4,14 +4,14 @@
 <fieldset>
 	<legend>Regalos recibidos</legend>
 	<ul class="thumbnails">
-		<% @friend.gifts.each_with_index do |gift, i| %>
+		<% @friend.products_from_gifts do |product| %>
 			<li class="span2">
-			  <div class="thumbnail gift">
-			    <%= image_tag "gift1.jpg", size: '100x100', class: 'img-rounded' %>
-			    <h5><%= gift.product.name %></h5>
-			    <p><small><%= gift.product.description %></small></p>
+			  <div class="thumbnail product">
+			    <%= image_tag "product1.jpg", size: '100x100', class: 'img-rounded' %>
+			    <h5><%= product.name %></h5>
+			    <p><small><%= product.description %></small></p>
 			    <p class="bottom">
-			    	<%= link_to 'Ver más', product_path(:id => gift.product.id), :class => 'btn btn-mini btn-primary pull-right' %>
+			    	<%= link_to 'Ver más', product_path(:id => product.id), :class => 'btn btn-mini btn-primary pull-right' %>
 			    </p>
 			  </div>
 			</li>
