@@ -21,26 +21,38 @@
     </div>
     <div class="row">
       <div class="span9">
-        <div class="row">
-          <div class="span4"><strong>Nombre</strong></div>
-          <div class="span5"><input type="text" value="<%= @user.first_name %>"></div>
-        </div>
-        <div class="row">
-          <div class="span4"><strong>Apellido</strong></div>
-          <div class="span5"><input type="text" value="Doe"></div>
-        </div>
-        <div class="row">
-          <div class="span4"><strong>Ocupación</strong></div>
-          <div class="span5"><input type="text" value="Sistemas"></div>
-        </div>
-        <div class="row">
-          <div class="span4"><strong>Pasatiempos</strong></div>
-          <div class="span5"><input type="text" value="Fútbol, programación, arte"></div>
-        </div>
+
+<%= nested_form_for @user, :url => update_profile_path, :html => { :class => "form-stacked" } do |f| %>
+<div class="row">
+  <div class="span4"><%= f.label :first_name, 'Nombre', style: 'font-weight:bold' %></div>
+  <div class="span5"><%= f.text_field :first_name %></div>
+</div>
+
+<div class="row">
+  <div class="span4"><%= f.label :last_name, 'Apellido', style: 'font-weight:bold' %></div>
+  <div class="span5"><%= f.text_field :last_name %></div>
+</div>
+
+<div class="row">
+  <div class="span4"><%= f.label :occupation, 'Ocupación', style: 'font-weight:bold' %></div>
+  <div class="span5"><%= f.text_field :occupation %></div>
+</div>
+
+<div class="row">
+  <div id="hobby-boxes">
+    <%= f.label :hobbies, 'Pasatiempos y hobbies' %>
+
+    <%= f.fields_for :hobbies do |h| %>
+      <%= h.text_field :name %>
+      <%= h.link_to_remove '<i class="icon-remove"></i>'.html_safe %>
+    <% end %>
+    <%= f.link_to_add '<i class="icon-plus"></i>'.html_safe, :hobbies %>
+  </div>
+
         <div class="row">
           <div class="span3"></div>
           <div class="span2">
-            <p class="text-center"><a class="btn btn-success btn-block" href="/profile">Confirmar cambios</a>
+            <p class="text-center"><%= f.submit "Confirmar cambios", class: "btn btn-success btn-block" %>
             </p>
           </div>
           <div class="span2">
@@ -48,9 +60,12 @@
             </p>
           </div>
         </div>
-         <div class="row">
+<% end %>
+
+        <div class="row">
           <div class="span12"><hr></div>
         </div>
+
         <div class="row">
           <div class="span4"><strong>Contraseña</strong></div>
           <div class="span5"><input type="text" placeholder="*********" disabled></div>
@@ -67,7 +82,7 @@
         </div>
         <div class="row">
           <div class="span4"><strong>E-mail</strong></div>
-          <div class="span5"><input type="text" placeholder="johndoe@gmail.com" disabled></div>
+          <div class="span5"><input type="text" placeholder="<%= @user.email %>" disabled></div>
         </div>
         <div class="row">
           <div class="span4"></div>

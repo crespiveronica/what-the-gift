@@ -1,11 +1,11 @@
 <!-- Contenido principal -->
 <div class="container">
   <div class="page-header text-center">
-    <h3>John Doe <br><small>johndoe2013 | johndoe@gmail.com</small></h3>
+    <h3> <%= @user.whole_name %> <br><small><%= @user.email %></small></h3>
   </div>
 
   <div class="container">
-    <% if @user=="vendedor" %> 
+    <% if @user=="vendedor" %>
       <%= render template: 'profile/edit_seller' %> -->
     <% else %>
       <%= render template: 'profile/edit_user' %>

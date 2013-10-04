@@ -8,7 +8,7 @@
   No pierdas más tiempo, ¡regístrate e invita a tus amigos a participar!
   </p>
 
-  <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary", onclick: "displayRegisterForm()" %>
+  <%= link_to "Creá tu cuenta!", '#', class: "btn btn-large btn-primary", onclick: "displayRegisterForm()" %>
   <!-- Note: The login-modal was temporarily disabled - the link now redirects to /users/new for sign up since the modal form doesn't currently work
   <%= link_to "Registrate ahora!", '/users/new', class: "btn btn-large btn-primary" %> -->
 </div>
@@ -42,7 +42,7 @@
 <script>
   function displayRegisterForm()
   {
-  $('#registerModal').modal('toggle');
+    $('#registerModal').modal('toggle');
   }
 
   $('#userType').change(

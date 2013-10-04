@@ -15,3 +15,4 @@
 //= require_tree .
 #= require twitter/bootstrap
 //= require jquery.raty
+//= require jquery_nested_form
