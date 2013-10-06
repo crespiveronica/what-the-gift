@@ -10,77 +10,13 @@
 
 password = "password"
 password_confirmation = "password"
-#active = true
-#banned = false
-#banned_reason = "none"
-
-# Users
-#ban_reasons = ["Vendía droga", "Traficaba órganos"]
-#print "Creating 100 users..."
-#100.times do
-#  u = User.new
-#  first_name = Faker::Name.first_name
-#  last_name = Faker::Name.last_name
-#  email = Faker::Internet.email
-#
-#  u.first_name = first_name
-#  u.last_name = last_name
-#  u.email = email
-#  u.password = password
-#  u.password_confirmation = password_confirmation
-#  u.active = active
-#  u.banned = banned
-#  u.banned_reason = banned_reason
-#
-#  u.save
-#end
-#puts "done."
+active = true
+banned = false
+banned_reason = "none"
 
 
-# Sellers
-#print "Creating 50 sellers..."
-#50.times do
-#  s = Seller.new
-#  first_name = Faker::Name.first_name
-#  last_name = Faker::Name.last_name
-#  email = Faker::Internet.email
-#  company_name = Faker::Company.bs
-#  web = Faker::Internet.url
-#
-#  s.first_name = first_name
-#  s.last_name = last_name
-#  s.email = email
-#  s.company_name = company_name
-#  s.web = web
-#  s.password = password
-#  s.password_confirmation = password_confirmation
-#  s.active = active
-#  s.banned = banned
-#  s.banned_reason = banned_reason
-#
-#  s.save
-#end
-#puts "done."
 
 
-# Products
-#print "Creating 350 products... "
-#status = [true, true, true, true, true, true, false]
-#350.times do
-#  p = Product.new
-#  p.name = Faker::Commerce.product_name
-#  p.description = Faker::Lorem.sentence(word_count = 4,
-#                  supplemental = false, random_words_to_add = 6)
-#  p.brand = Faker::Company.name
-#  p.approved = status.sample
-#
-#  p.save
-#end
-#puts "done"
-
-# ... next model
-
-#
 # Cración de Categorías (Category)
 #
 deportes_category = Category.new(name: 'Deportes', description: 'Productos para entrenamiento y fitness')
@@ -118,6 +54,7 @@ computacion_product = Product.new(name: 'MacBook 13 in.', description: 'La compu
 celular_product = Product.new(name: 'iPhone 5S', description: 'El celular que quiere ser mi Samsung Ace cuando sea grande', brand: 'Apple')
 juegos_product = Product.new(name: 'Monopoly', description: 'El juego más aburrido de la historia', brand: 'Hasbro')
 instrumento_product = Product.new(name: 'Les Paul', description: 'Clásica guitarra', brand: 'Gibson')
+instrumento2_product = Product.new(name: 'Batería eléctrica', description: 'Batería roja', brand: 'Roland')
 
 #
 # Asociación Categoría-Producto
@@ -131,6 +68,7 @@ computacion_product.update_attributes({ "category_ids" => computacion_category._
 celular_product.update_attributes({ "category_ids" => celulares_category._id })
 juegos_product.update_attributes({ "category_ids" => juegos_category._id })
 instrumento_product.update_attributes({ "category_ids" => instrumentos_category._id })
+instrumento2_product.update_attributes({ "category_ids" => instrumentos_category._id })
 
 #
 # Creación de Vendedores (Seller)
@@ -185,3 +123,26 @@ pelota_stockcenter.update_attributes({ "product" => pelota_product._id })
 juego_apioverde = SellingProduct.new(price: 132)
 juego_apioverde.update_attributes({ "seller" => sellers[4]._id })
 juego_apioverde.update_attributes({ "product" => juegos_product._id })
+
+
+
+
+## Users
+rand = Random.new
+print "Creating 250 users..."
+100.times do
+  u = User.new
+  u.first_name = Faker::Name.first_name
+  u.last_name = Faker::Name.last_name
+  u.email = Faker::Internet.email
+  u.password = password
+  u.active = active
+  u.banned = banned
+  u.wishlist = [Product.all[random.rand(10)], Product.all[random.rand(10)]]
+  gift = Gift.new
+  gift.product = Product.all[rand.rand(10)]]
+  gift.score = rand.rand(10)
+  u.gifts = [gift]
+  u.save
+end
+puts "done."

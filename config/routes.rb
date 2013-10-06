@@ -5,40 +5,44 @@ Wtg::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
-  match '/friends/', to: 'friends#index', via: 'get'
-  match '/friends/requests/', to: 'friends#requests', via: 'get'
-  match '/friends/send-request/:id', to: 'friends#send_request', via: 'get'
-  match '/friends/search/', to: 'friends#search', via: 'get'
+  match '/friends/requests/', to: 'friends#requests', via: 'get'  
   match '/friends/pending/', to: 'friends#pending', via: 'get'
-  match '/friends/:id/', to: 'friends#show', via: 'get'
-  match '/friends/:id/make-a-gift/', to: 'friends#makeAGift', via: 'get'
-  match '/friends/:id/gifts/', to: 'friends#gifts', via: 'get'
-  match '/friends/accept/:id/', to: 'friends#accept', via: 'get', :as => 'accept_friend_request'
-  match '/friends/unfriend/:id/', to: 'friends#unfriend', via: 'get'
+  match '/friends/send-request/:id', to: 'friends#send_request', via: 'get'
+  match '/friends/accept/:id/', to: 'friend#accept', via: 'get', :as => 'accept_friend_request'
+  match '/friends/unfriend/:id/', to: 'friend#unfriend', via: 'get'
+  
+  match '/friends/', to: 'users#friends', via: 'get'
+  
+  match '/friends/search/', to: 'users#search', via: 'get'
+  match '/friends/:id/', to: 'users#show_friend', via: 'get'
+  match '/friends/:id/make-a-gift/', to: 'users#makeAGift', via: 'get'
+  match '/friends/:id/gifts/', to: 'users#gifts', via: 'get'
+
+  match '/profile/edit/' , to: 'users#edit', :as => 'edit_profile'
+  
+  match '/profile/update' , to: 'users#update', :as => 'update_profile'
+  match '/profile/delete/', to: 'users#delete'
+  match '/profile/change-avatar/', to: 'users#change_avatar', :as => 'change_avatar'  
+  match '/users/confirm/:id/:code/', to: 'users#confirm'
+
   match '/products/recommended/', to: 'products#recommended', via: 'get'
   match '/products/favorites/', to: 'products#favorites', via: 'get'
   match '/products/search/', to: 'products#search', via: 'get'
   match '/my-products/', to: 'products#mine', via: 'get'
   match '/gifts/', to: 'products#gifts', via: 'get'
-  match '/profile/', to: 'profile#index', via: 'get'
-  match '/profile/edit/' , to: 'profile#edit', :as => 'edit_profile'
-  match '/profile/edit_user', to: 'profile#edit_user', via: 'get'
-  match '/profile/edit_seller/' , to: 'profile#edit_seller'
-  match '/profile/update' , to: 'profile#update', :as => 'update_profile'
-  match '/profile/delete/', to: 'profile#delete'
-  match '/profile/change-avatar/', to: 'profile#change_avatar', :as => 'change_avatar'
-  match '/about/', to: 'static_pages#about', via: 'get'
-  match '/contact/', to: 'static_pages#contact', via: 'get'
-  match '/users/confirm/:id/:code/', to: 'users#confirm'
-  match '/admins/user_edit', to: 'admins#user_edit', via: 'get'
-  match '/admins/product_edit', to: 'admins#product_edit', via: 'get'
-  match '/admins/category_edit', to: 'admins#category_edit', via: 'get'
   match '/products/new' , to: 'products#new'
   match '/products/edit' , to: 'products#edit'
   match '/products/destroy' , to: 'products#destroy'
   match '/products/:id/', to: 'products#show', :as => 'product'
+  
+  match '/about/', to: 'static_pages#about', via: 'get'
+  match '/contact/', to: 'static_pages#contact', via: 'get'
   match '/reactivate' , to: 'static_pages#reactivate'
 
+  match '/admins/user_edit', to: 'admins#user_edit', via: 'get'
+  match '/admins/product_edit', to: 'admins#product_edit', via: 'get'
+  match '/admins/category_edit', to: 'admins#category_edit', via: 'get'
+  
   resources :users
   resources :sellers
   resources :products
