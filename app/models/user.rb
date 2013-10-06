@@ -1,7 +1,6 @@
 class User < GenericUser
-  include Mongoid::Paperclip
 
-  attr_accessible :hobbies, :occupation, :avatar, :hobbies_attributes
+  attr_accessible :hobbies, :occupation, :hobbies_attributes
   has_and_belongs_to_many :wishlist, class_name: 'Product'
   embeds_many :gifts
   has_many :friend_requests, :inverse_of => :owner, :foreign_key => "owner_id"
@@ -9,8 +8,6 @@ class User < GenericUser
   has_many :hobbies
   accepts_nested_attributes_for :hobbies
   field :occupation, type: String
-  has_mongoid_attached_file :avatar, :default_url => "/assets/missing.png"
-
 
 def friends
 	reqs = self.friend_requests.where({accepted: true})

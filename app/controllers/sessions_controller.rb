@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    userSearch = User.where(email: params[:session][:email].downcase)
+    userSearch = GenericUser.where(email: params[:session][:email].downcase)
     if userSearch.size == 1  && userSearch.first.authenticate(params[:session][:password])
       sign_in userSearch.first
       redirect_to userSearch.first
