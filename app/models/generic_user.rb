@@ -1,8 +1,11 @@
 class GenericUser
   include Mongoid::Document
   include Mongoid::Search
+  include Mongoid::Paperclip
   include ActiveModel::SecurePassword
-  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
+
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :avatar
+  has_mongoid_attached_file :avatar, :default_url => "/assets/missing.png"
   has_secure_password
 
   before_save { |user| user.email = email.downcase }
@@ -27,7 +30,7 @@ class GenericUser
   def whole_name
     first_name + ' ' + last_name
   end
-  
+
   private
 
     def create_remember_token
