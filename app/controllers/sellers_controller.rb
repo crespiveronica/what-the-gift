@@ -5,7 +5,7 @@ class SellersController < ApplicationController
 
   def show
     @seller = Seller.find(params[:id])
-    render 'profile/seller.html'
+    render 'users/seller.html'
   end
 
   def new

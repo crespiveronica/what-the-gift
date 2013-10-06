@@ -18,13 +18,11 @@ Wtg::Application.routes.draw do
   match '/friends/:id/make-a-gift/', to: 'users#makeAGift', via: 'get'
   match '/friends/:id/gifts/', to: 'users#gifts', via: 'get'
 
-  match '/profile/', to: 'profile#index', via: 'get'
-  match '/profile/edit/' , to: 'profile#edit', :as => 'edit_profile'
-  match '/profile/edit_user', to: 'profile#edit_user', via: 'get'
-  match '/profile/edit_seller/' , to: 'profile#edit_seller'
-  match '/profile/update' , to: 'profile#update', :as => 'update_profile'
-  match '/profile/delete/', to: 'profile#delete'
-  match '/profile/change-avatar/', to: 'profile#change_avatar', :as => 'change_avatar'  
+  match '/profile/edit/' , to: 'users#edit', :as => 'edit_profile'
+  
+  match '/profile/update' , to: 'users#update', :as => 'update_profile'
+  match '/profile/delete/', to: 'users#delete'
+  match '/profile/change-avatar/', to: 'users#change_avatar', :as => 'change_avatar'  
   match '/users/confirm/:id/:code/', to: 'users#confirm'
 
   match '/products/recommended/', to: 'products#recommended', via: 'get'
