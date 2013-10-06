@@ -14,7 +14,7 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= User.where(remember_token: cookies[:remember_token]).first
+    @current_user ||= GenericUser.where(remember_token: cookies[:remember_token]).first
   end
 
   def sign_out
