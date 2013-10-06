@@ -1,17 +1,33 @@
+require 'pry'
+
 class ProfileController < ApplicationController
 
   def index
-  	@user="asa"     
+    @user = User.find(params[:id])
   end
 
   def edit
-  	@user = current_user
+    @user = current_user
   end
 
   def edit_user
   end
 
   def edit_seller
+  end
+
+  def update
+    binding.pry
+    @user.hobbies.each { |h| h.delete }
+    @user.hobbies = []
+
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      @user.hobbies.each { |h| h.save }
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   def change_avatar

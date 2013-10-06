@@ -24,6 +24,7 @@ Wtg::Application.routes.draw do
   match '/profile/edit/' , to: 'profile#edit', :as => 'edit_profile'
   match '/profile/edit_user', to: 'profile#edit_user', via: 'get'
   match '/profile/edit_seller/' , to: 'profile#edit_seller'
+  match '/profile/update' , to: 'profile#update', :as => 'update_profile'
   match '/profile/delete/', to: 'profile#delete'
   match '/profile/change-avatar/', to: 'profile#change_avatar', :as => 'change_avatar'
   match '/about/', to: 'static_pages#about', via: 'get'
@@ -45,7 +46,7 @@ Wtg::Application.routes.draw do
   resources :admins
   resources :profile
   resources :sessions, only: [:new, :create, :destroy]
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
