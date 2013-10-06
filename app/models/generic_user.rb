@@ -31,6 +31,14 @@ class GenericUser
     first_name + ' ' + last_name
   end
 
+  def is_user?
+    self._type == 'User'
+  end
+
+  def is_seller?
+    self._type == 'Seller'
+  end
+
   private
 
     def create_remember_token

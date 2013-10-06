@@ -32,7 +32,11 @@ class ProfileController < ApplicationController
 
   def change_avatar
     @user = current_user
-    @avatar = params[:user] ? params[:user][:avatar] : nil
+    if @user.is_user?
+      @avatar = params[:user] ? params[:user][:avatar] : nil
+    else
+      @avatar = params[:seller] ? params[:seller][:avatar] : nil
+    end
     @user.update_attributes({ :avatar => @avatar })
     sign_in @user
     redirect_to edit_profile_url

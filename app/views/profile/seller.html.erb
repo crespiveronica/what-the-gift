@@ -18,7 +18,7 @@
             </legend>
             <div class="row">
               <div class="span4">
-                <%= image_tag @user.avatar, size: "200x200", class: "img-polaroid img-rounded" %>
+                <%= image_tag @seller.avatar, size: "200x200", class: "img-polaroid img-rounded" %>
               </div>
             </div>
             <div class="row">
@@ -28,19 +28,19 @@
               <div class="span9">
                 <div class="row">
                   <div class="span4"><strong>Nombre</strong></div>
-                  <div class="span5"><%= @user.first_name %></div>
+                  <div class="span5"><%= @seller.first_name %></div>
                 </div>
                 <div class="row">
                   <div class="span4"><strong>Apellido</strong></div>
-                  <div class="span5"><%= @user.last_name %></div>
+                  <div class="span5"><%= @seller.last_name %></div>
                 </div>
                 <div class="row">
                   <div class="span4"><strong>Razón Social</strong></div>
-                  <div class="span5"><%= @user.company_name %></div>
+                  <div class="span5"><%= @seller.company_name %></div>
                 </div>
                 <div class="row">
                   <div class="span4"><strong>Página Web</strong></div>
-                  <div class="span5"><%= @user.web %></div>
+                  <div class="span5"><%= @seller.web %></div>
                 </div>
                 <div class="row">
                   <div class="span4"><strong>Teléfono</strong></div>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="row">
                   <div class="span4"><strong>E-mail</strong></div>
-                  <div class="span5"><input type="text" placeholder=<%= @user.email %> disabled></div>
+                  <div class="span5"><input type="text" placeholder=<%= @seller.email %> disabled></div>
                 </div>
                 <div class="row">
                   <div class="span4"></div>
