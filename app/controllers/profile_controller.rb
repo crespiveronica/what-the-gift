@@ -1,5 +1,3 @@
-require 'pry'
-
 class ProfileController < ApplicationController
 
   def index
