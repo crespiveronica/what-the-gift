@@ -1,0 +1,10 @@
+<% content_for :activefriendgifts do %>
+	class="active"
+<% end %>
+<fieldset>
+	<legend>Regalos recibidos</legend>
+	<ul class="thumbnails">
+		<% @products = @friend.products_from_gifts %>
+		<%= render :template => 'products/list' %>
+	</ul>
+</fieldset>
