@@ -20,12 +20,8 @@ class UsersController < ApplicationController
 
    def update
     @user = User.find(params[:id])
-
-    @user.hobbies.each { |h| h.delete }
-    @user.hobbies = []
-
     if @user.update_attributes(params[:user])
-      @user.hobbies.each { |h| h.save }
+      sign_in @user
       redirect_to @user
     else
       render 'edit'
