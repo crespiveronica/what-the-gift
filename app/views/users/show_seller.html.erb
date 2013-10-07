@@ -11,7 +11,7 @@
                   <div class="span7">
                   <h3>
                     Perfil
-                    <a class="btn btn-success pull-right" href="/profile/edit">Editar perfil</a>
+                    <%= link_to "Editar perfil", edit_seller_path(current_user), class: "btn btn-success" %>
                   </h3>
                   </div>
                 </div>
@@ -136,7 +136,7 @@
     </div>
 
 
-<%= render template: 'profile/modals' %>
+<%= render template: 'users/modals' %>
 
 <div id="uploadProductsFromFileModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="uploadProductsFromFileLabel" aria-hidden="true">
   <div class="modal-header">

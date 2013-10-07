@@ -1,3 +1,5 @@
+require 'pry'
+
 class SellersController < ApplicationController
 
   def index
@@ -5,7 +7,7 @@ class SellersController < ApplicationController
 
   def show
     @seller = Seller.find(params[:id])
-    render 'users/seller.html'
+    render 'users/show_seller'
   end
 
   def new
@@ -13,6 +15,8 @@ class SellersController < ApplicationController
   end
 
   def edit
+    @seller = Seller.find(params[:id])
+    render 'users/edit_seller'
   end
 
   def create
