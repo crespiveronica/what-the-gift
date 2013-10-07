@@ -13,7 +13,7 @@
               <div class="span7">
               <h3>
                 Perfil
-                <a class="btn btn-success pull-right" href="/profile/edit">Editar perfil</a>
+                <%= link_to "Editar perfil", edit_user_path(current_user), class: "btn btn-success btn-small pull-right" %>
               </h3>
               </div>
             </div>
@@ -137,4 +137,4 @@
   </div>
 </div>
 
-<%= render template: 'profile/modals' %>
+<%= render template: 'users/modals' %>

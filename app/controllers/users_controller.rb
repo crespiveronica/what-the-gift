@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    render 'users/user.html.erb'
+    render 'users/show_user'
   end
 
   def new
@@ -19,10 +19,11 @@ class UsersController < ApplicationController
    end
 
    def update
+    @user = User.find(params[:id])
+
     @user.hobbies.each { |h| h.delete }
     @user.hobbies = []
 
-    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       @user.hobbies.each { |h| h.save }
       redirect_to @user
@@ -62,7 +63,7 @@ class UsersController < ApplicationController
     @friends = current_user.friends
     render 'users/friends', layout: 'myfriends'
   end
-  
+
   def show_friend
     @friend = User.find_by_id params[:id]
     @pending_friends = FriendRequest.friends_or_pending(current_user, @friend)
@@ -72,7 +73,7 @@ class UsersController < ApplicationController
 
   def search
   end
- 
+
  def makeAGift
     @friend = User.find_by_id params[:id]
     @products = @friend.wishlist + @friend.recommended

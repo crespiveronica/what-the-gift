@@ -5,24 +5,24 @@ Wtg::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
-  match '/friends/requests/', to: 'friends#requests', via: 'get'  
+  match '/friends/requests/', to: 'friends#requests', via: 'get'
   match '/friends/pending/', to: 'friends#pending', via: 'get'
   match '/friends/send-request/:id', to: 'friends#send_request', via: 'get'
   match '/friends/accept/:id/', to: 'friend#accept', via: 'get', :as => 'accept_friend_request'
   match '/friends/unfriend/:id/', to: 'friend#unfriend', via: 'get'
-  
+
   match '/friends/', to: 'users#friends', via: 'get'
-  
+
   match '/friends/search/', to: 'users#search', via: 'get'
   match '/friends/:id/', to: 'users#show_friend', via: 'get'
   match '/friends/:id/make-a-gift/', to: 'users#makeAGift', via: 'get'
   match '/friends/:id/gifts/', to: 'users#gifts', via: 'get'
 
   match '/profile/edit/' , to: 'users#edit', :as => 'edit_profile'
-  
+
   match '/profile/update' , to: 'users#update', :as => 'update_profile'
   match '/profile/delete/', to: 'users#delete'
-  match '/profile/change-avatar/', to: 'users#change_avatar', :as => 'change_avatar'  
+  match '/profile/change-avatar/', to: 'users#change_avatar', :as => 'change_avatar'
   match '/users/confirm/:id/:code/', to: 'users#confirm'
 
   match '/products/recommended/', to: 'products#recommended', via: 'get'
@@ -34,7 +34,7 @@ Wtg::Application.routes.draw do
   match '/products/edit' , to: 'products#edit'
   match '/products/destroy' , to: 'products#destroy'
   match '/products/:id/', to: 'products#show', :as => 'product'
-  
+
   match '/about/', to: 'static_pages#about', via: 'get'
   match '/contact/', to: 'static_pages#contact', via: 'get'
   match '/reactivate' , to: 'static_pages#reactivate'
@@ -42,7 +42,7 @@ Wtg::Application.routes.draw do
   match '/admins/user_edit', to: 'admins#user_edit', via: 'get'
   match '/admins/product_edit', to: 'admins#product_edit', via: 'get'
   match '/admins/category_edit', to: 'admins#category_edit', via: 'get'
-  
+
   resources :users
   resources :sellers
   resources :products

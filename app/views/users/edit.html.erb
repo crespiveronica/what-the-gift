@@ -5,7 +5,7 @@
   </div>
 
   <div class="container">
-    <% if @user=="vendedor" %>
+    <% if @user.is_seller? %>
       <%= render template: 'users/edit_seller' %> -->
     <% else %>
       <%= render template: 'users/edit_user' %>
