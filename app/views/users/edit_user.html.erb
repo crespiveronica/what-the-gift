@@ -2,7 +2,7 @@
   <legend><h4>Perfil</h4></legend>
   <div class="row">
     <div class="span4">
-        <%= image_tag @user.avatar.url, size: "200x200", class: "img-polaroid img-rounded" %>
+      <%= image_tag @user.avatar.url, size: "200x200", class: "img-polaroid img-rounded" %>
     </div>
   </div>
   <div class="row">
@@ -37,20 +37,15 @@
 
 <div class="row">
   <div id="hobby-boxes">
-    <%= f.label :hobbies, 'Pasatiempos y hobbies', style: 'font-weight:bold' %>
+    <div class="span4"><%= f.label :hobbies, 'Pasatiempos y hobbies', style: 'font-weight:bold' %></div>
 
     <%= f.fields_for :hobbies do |h| %>
-      <% if h == f.hobbies.first %>
-        <div class="span5"><%= h.text_field :name %>
-        <%= h.link_to_remove '<i class="icon-remove"></i>'.html_safe %></div>
-      <% else %>
-        <div class="span5 offset4"><%= h.text_field :name %>
-        <%= h.link_to_remove '<i class="icon-remove"></i>'.html_safe %></div>
-      <% end %>
+      <div class="span5 offset4"><%= h.text_field :name %>
+      <%= h.link_to_remove '<i class="icon-remove"></i>'.html_safe %></div>
     <% end %>
     <%= f.link_to_add '<i class="icon-plus"></i>'.html_safe, :hobbies %>
   </div>
-
+</div>
       <div class="row">
         <div class="span2 offset3">
           <p class="text-center">

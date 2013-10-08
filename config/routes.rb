@@ -20,7 +20,6 @@ Wtg::Application.routes.draw do
 
   match '/profile/edit/' , to: 'users#edit', :as => 'edit_profile'
 
-#  match '/profile/update' , to: 'users#update', :as => 'update_profile'
   match '/profile/delete/', to: 'users#delete'
   match '/profile/change-avatar/', to: 'users#change_avatar', :as => 'change_avatar'
   match '/users/confirm/:id/:code/', to: 'users#confirm'
