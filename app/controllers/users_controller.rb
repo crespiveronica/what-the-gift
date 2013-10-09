@@ -42,9 +42,9 @@ class UsersController < ApplicationController
     msj =  'Felicitaciones, su cuenta ya esta casi lista. '
     msj += 'Se ha enviado un correo electronico a ' + @user.email + ' para la confirmacion de su cuenta. Presione el link de confirmacion en el E-Mail para terminar el proceso de registracion.'
     if @user.save
-
-       redirect_to root_path,  alert: msj
-
+      UserMailer.signup_email(@user).deliver
+      sign_in @user
+      redirect_to root_path,  alert: msj
     else
       render 'new'
     end

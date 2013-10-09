@@ -4,12 +4,13 @@ class GenericUser
   include Mongoid::Paperclip
   include ActiveModel::SecurePassword
 
-  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :avatar
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :avatar, :signup_token
   has_mongoid_attached_file :avatar, :default_url => "/assets/missing.png"
   has_secure_password
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
+  before_create :create_signup_token
 
   field :first_name, type: String
   field :last_name, type: String
@@ -19,6 +20,7 @@ class GenericUser
   field :banned, type: Boolean
   field :banned_reason, type: String
   field :remember_token, type: String
+  field :signup_token, type: String
 
   belongs_to :banned_user, class_name: 'Admin'
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -43,5 +45,9 @@ class GenericUser
 
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
+    end
+
+    def create_signup_token
+      self.signup_token = SecureRandom.urlsafe_base64
     end
 end
