@@ -1,14 +1,13 @@
 <fieldset>
-  <legend><h4>Perfil Vendedor</h4></legend>
+  <legend><h4>Perfil</h4></legend>
   <div class="row">
     <div class="span4">
-      <a href="#changePhotoModal" role="button" data-toggle="modal"><span></span><%= image_tag "lego5.jpg", size: "200x200", class: "img-polaroid img-rounded" %></a>
+      <%= image_tag @seller.avatar.url, size: "200x200", class: "img-polaroid img-rounded" %>
     </div>
-    <div class="span3"></div>
   </div>
   <div class="row">
     <div class="span3">
-      <p class="text-center"><a class="btn btn-success btn-block" href="#changePhotoModal" role="button" data-toggle="modal">Cambiar foto</a>
+      <p class="text-center"><a class="btn btn-success btn-block" href="#changeAvatarModal" role="button" data-toggle="modal">Cambiar foto</a>
       </p>
     </div>
     <div class="span3"></div>
@@ -76,7 +75,7 @@
       </div>
       <div class="row">
         <div class="span4"><strong>E-mail</strong></div>
-        <div class="span5"><input type="text" placeholder="johndoe@gmail.com" disabled></div>
+        <div class="span5"><input type="text" placeholder="<%= @seller.email %>" disabled></div>
       </div>
       <div class="row">
         <div class="span4"></div>
