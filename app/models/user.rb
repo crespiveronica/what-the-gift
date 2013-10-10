@@ -5,7 +5,7 @@ class User < GenericUser
   embeds_many :gifts
   has_many :friend_requests, :inverse_of => :owner, :foreign_key => "owner_id"
   has_many :friend_requests, :inverse_of => :friend, :foreign_key => "friend_id"
-  has_many :hobbies
+  has_many :hobbies, :autosave => true
   accepts_nested_attributes_for :hobbies
   field :occupation, type: String
 
@@ -86,11 +86,11 @@ def hobbies_string
 	string
 end
 
-private
-
 def hobbies_list
 	self.hobbies.nil? ? [] : self.hobbies
 end
+
+private
 
 def hobbies_names
   self.hobbies.entries.map { |h| h.name }

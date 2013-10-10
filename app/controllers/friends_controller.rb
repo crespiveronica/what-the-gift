@@ -11,7 +11,7 @@ class FriendsController < ApplicationController
     friend = User.find_by_id params[:id]
     request.friend = friend
     request.save
-    redirect_to action: 'users#show', :id => params[:id]
+    redirect_to action: 'show_friend', :id => params[:id]
   end
 
   def accept

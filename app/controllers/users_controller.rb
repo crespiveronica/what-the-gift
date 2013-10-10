@@ -43,7 +43,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      @user.hobbies.each { |h| h.save }
       sign_in @user
       flash[:success] = "Bienvenido!"
       redirect_to @user

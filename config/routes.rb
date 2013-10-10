@@ -14,7 +14,7 @@ Wtg::Application.routes.draw do
   match '/friends/', to: 'users#friends', via: 'get'
 
   match '/friends/search/', to: 'users#search', via: 'get'
-  match '/friends/:id/', to: 'users#show_friend', via: 'get'
+  match '/friends/:id/', to: 'users#show_friend', via: 'get', :as => 'show_friend'
   match '/friends/:id/make-a-gift/', to: 'users#makeAGift', via: 'get'
   match '/friends/:id/gifts/', to: 'users#gifts', via: 'get'
 
