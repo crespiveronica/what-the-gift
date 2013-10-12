@@ -3,7 +3,6 @@ class UserMailer < ActionMailer::Base
 
   def signup_email(user)
     @user = user
-    @url  = 'http://example.com/login?' + user.signup_token
     mail(to: @user.email, subject: 'Bienvenido a What the Gift?!')
   end
 

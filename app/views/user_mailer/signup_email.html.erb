@@ -4,14 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.full_name %></h1>
+    <h1>Bienvenido a What The Gift?!, <%= @user.full_name %></h1>
     <p>
-      You have successfully signed up to example.com,
-      your username is: <%= @user.email %>.<br/>
+      Te has registrado con éxito en el sitio.<br/>
+      Ahora sólo falta confirmar tu registración.<br/>
+      Ingresá a <%= link_to "este link", root_url %> para confirmar tu cuenta.
     </p>
     <p>
-      To login to the site, just follow this link: <%= @url %>.
+      Muchas gracias, el equipo de What The Gift?!
     </p>
-    <p>Thanks for joining and have a great day!</p>
   </body>
 </html>
