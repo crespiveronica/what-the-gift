@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    render 'users/show_user'
   end
 
   def new
@@ -16,6 +15,7 @@ class UsersController < ApplicationController
 
    def edit
     @user = current_user
+    @change_avatar_path = user_change_avatar_path
    end
 
    def update
@@ -30,14 +30,10 @@ class UsersController < ApplicationController
 
   def change_avatar
     @user = current_user
-    if @user.is_user?
-      @avatar = params[:user] ? params[:user][:avatar] : nil
-    else
-      @avatar = params[:seller] ? params[:seller][:avatar] : nil
-    end
+    @avatar = params[:user] ? params[:user][:avatar] : nil
     @user.update_attributes({ :avatar => @avatar })
     sign_in @user
-    redirect_to edit_profile_url
+    redirect_to edit_user_path(current_user)
   end
 
   def create
@@ -84,5 +80,4 @@ class UsersController < ApplicationController
   def forgotten_user
     render 'users/forgotten_user'
   end
-
 end

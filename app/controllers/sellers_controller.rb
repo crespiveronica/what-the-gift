@@ -1,30 +1,27 @@
-require 'pry'
-
 class SellersController < ApplicationController
 
   def index
   end
 
   def show
-    @seller = Seller.find(params[:id])
-    render 'users/show_seller'
+    @user = Seller.find(params[:id])
   end
 
   def new
-    @seller = Seller.new
+    @user = Seller.new
   end
 
   def edit
-    @seller = Seller.find(params[:id])
-    render 'users/edit_seller'
+    @user = Seller.find(params[:id])
+    @change_avatar_path = seller_change_avatar_path
   end
 
   def create
-    @seller = Seller.new(params[:seller])
-    if @seller.save
-      sign_in @seller
+    @user = Seller.new(params[:user])
+    if @user.save
+      sign_in @user
       flash[:success] = "Bienvenido!" # No funciona el flash
-      redirect_to @seller
+      redirect_to @user
     else
       render 'new'
     end
@@ -35,4 +32,13 @@ class SellersController < ApplicationController
 
   def destroy
   end
+
+  def change_avatar
+    @user = current_user
+    @avatar = params[:seller] ? params[:seller][:avatar] : nil
+    @user.update_attributes({ :avatar => @avatar })
+    sign_in @user
+    redirect_to edit_seller_path(current_user)
+  end
+
 end
