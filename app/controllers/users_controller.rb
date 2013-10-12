@@ -38,10 +38,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.active = false
+    msj =  'Felicitaciones, su cuenta ya esta casi lista. '
+    msj += 'Se ha enviado un correo electronico a ' + @user.email + ' para la confirmacion de su cuenta. Presione el link de confirmacion en el E-Mail para terminar el proceso de registracion.'
     if @user.save
-      sign_in @user
-      flash[:success] = "Bienvenido!"
-      redirect_to @user
+
+       redirect_to root_path,  alert: msj
+
     else
       render 'new'
     end
