@@ -16,6 +16,8 @@ class UsersController < ApplicationController
 
    def edit
     @user = current_user
+    @change_avatar_path = user_change_avatar_path
+    render 'edit_user'
    end
 
    def update
@@ -30,14 +32,10 @@ class UsersController < ApplicationController
 
   def change_avatar
     @user = current_user
-    if @user.is_user?
-      @avatar = params[:user] ? params[:user][:avatar] : nil
-    else
-      @avatar = params[:seller] ? params[:seller][:avatar] : nil
-    end
+    @avatar = params[:user] ? params[:user][:avatar] : nil
     @user.update_attributes({ :avatar => @avatar })
     sign_in @user
-    redirect_to edit_profile_url
+    render edit
   end
 
   def create
