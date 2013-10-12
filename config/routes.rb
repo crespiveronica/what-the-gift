@@ -22,7 +22,7 @@ Wtg::Application.routes.draw do
   match '/user/change-avatar', to: 'users#change_avatar', :as => 'user_change_avatar'
   match '/seller/change-avatar', to: 'sellers#change_avatar', :as => 'seller_change_avatar'
   match '/user/forgotten-user/', to: 'users#forgotten_user', :as => 'forgotten_user'
-  match '/users/confirm/:id/:token/', to: 'users#confirm', :as => 'confirm_signup'
+  match '/confirm/:id/:token/', to: 'users#confirm', via: 'get', :as => 'confirm'
 
   match '/products/recommended/', to: 'products#recommended', via: 'get'
   match '/products/favorites/', to: 'products#favorites', via: 'get'

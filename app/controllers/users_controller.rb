@@ -83,4 +83,21 @@ class UsersController < ApplicationController
   def forgotten_user
     render 'users/forgotten_user'
   end
+
+  def confirm
+    @user = User.find_by_id params[:id]
+    if @user != nil
+      if @user.active
+        redirect_to 'profile'
+      else
+        @user.active = true
+        @user.save
+        sign_in @user
+        redirect_to @user, alert: "Felicitaciones, su cuenta ha sido activada!"
+      end
+    else
+      redirect_to root_url, alert: 'No se encontró el usuario'
+    end
+  end
+
 end

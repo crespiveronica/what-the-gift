@@ -7,13 +7,18 @@ class SessionsController < ApplicationController
     userSearch = GenericUser.where(email: params[:session][:email].downcase)
     if (userSearch.size == 1)
       user = userSearch.first
-      if (user.active && user.authenticate(params[:session][:password]))
-        sign_in userSearch.first
-        redirect_to userSearch.first
+      if (user.active)
+        if (user.authenticate(params[:session][:password]))
+          sign_in user
+          return redirect_to user
+        end
+      else
+        redirect_to root_url, alert: 'Su cuenta no se encuentra activa'
+        return
       end
+    else 
+      redirect_to signin_url, alert: 'Email/Contrasena incorrectos'
     end
-    flash.now[:error] = 'Email/Contrasena incorrectos' ## no funciona
-    render 'new'
   end
 
   def destroy
