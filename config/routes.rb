@@ -23,6 +23,7 @@ Wtg::Application.routes.draw do
   match '/profile/delete/', to: 'users#delete'
   match '/profile/change-avatar/', to: 'users#change_avatar', :as => 'change_avatar'
   match '/users/confirm/:id/:code/', to: 'users#confirm'
+  match '/user/forgotten-user/', to: 'users#forgotten_user', :as => 'forgotten_user'
 
   match '/products/recommended/', to: 'products#recommended', via: 'get'
   match '/products/favorites/', to: 'products#favorites', via: 'get'
