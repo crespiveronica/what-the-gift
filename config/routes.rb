@@ -18,8 +18,6 @@ Wtg::Application.routes.draw do
   match '/friends/:id/make-a-gift/', to: 'users#makeAGift', via: 'get'
   match '/friends/:id/gifts/', to: 'users#gifts', via: 'get'
 
-  match '/profile/edit/' , to: 'users#edit', :as => 'edit_profile'
-
   match '/profile/delete/', to: 'users#delete'
   match '/user/change-avatar', to: 'users#change_avatar', :as => 'user_change_avatar'
   match '/seller/change-avatar', to: 'sellers#change_avatar', :as => 'seller_change_avatar'

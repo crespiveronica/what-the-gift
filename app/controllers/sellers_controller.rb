@@ -5,7 +5,6 @@ class SellersController < ApplicationController
 
   def show
     @user = Seller.find(params[:id])
-    render 'show_seller'
   end
 
   def new
@@ -15,7 +14,6 @@ class SellersController < ApplicationController
   def edit
     @user = Seller.find(params[:id])
     @change_avatar_path = seller_change_avatar_path
-    render 'edit_seller'
   end
 
   def create
@@ -37,10 +35,10 @@ class SellersController < ApplicationController
 
   def change_avatar
     @user = current_user
-    @avatar = params[:user] ? params[:user][:avatar] : nil
+    @avatar = params[:seller] ? params[:seller][:avatar] : nil
     @user.update_attributes({ :avatar => @avatar })
     sign_in @user
-    redirect_to edit
+    redirect_to edit_seller_path(current_user)
   end
 
 end

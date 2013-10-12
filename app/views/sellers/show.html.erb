@@ -1,19 +1,185 @@
-<p id="notice"><%= notice %></p>
+<ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab"><i class="icon-user"></i> Perfil</a></li>
+      <li><a href="#tab2" data-toggle="tab"><i class="icon-th-large"></i> Productos</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab1">
+        <form>
+          <fieldset>
+            <legend>
+                <div class="row">
+                  <div class="span7">
+                  <h3>
+                    Perfil
+                    <%= link_to "Editar perfil", edit_seller_path(current_user), class: "btn btn-success" %>
+                  </h3>
+                  </div>
+                </div>
+            </legend>
+            <div class="row">
+              <div class="span4">
+                <%= image_tag @user.avatar, size: "200x200", class: "img-polaroid img-rounded" %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span9"><h4>Sobre mi</h4></div>
+            </div>
+            <div class="row">
+              <div class="span9">
+                <div class="row">
+                  <div class="span4"><strong>Nombre</strong></div>
+                  <div class="span5"><%= @user.first_name %></div>
+                </div>
+                <div class="row">
+                  <div class="span4"><strong>Apellido</strong></div>
+                  <div class="span5"><%= @user.last_name %></div>
+                </div>
+                <div class="row">
+                  <div class="span4"><strong>Razón Social</strong></div>
+                  <div class="span5"><%= @user.company_name %></div>
+                </div>
+                <div class="row">
+                  <div class="span4"><strong>Página Web</strong></div>
+                  <div class="span5"><%= @user.web %></div>
+                </div>
+                <div class="row">
+                  <div class="span4"><strong>Teléfono</strong></div>
+                  <div class="span5">No se pide en el sign up...</div>
+                </div>
+                <div class="row">
+                  <div class="span12"><hr></div>
+                </div>
+                <div class="row">
+                  <div class="span4"><strong>E-mail</strong></div>
+                  <div class="span5"><input type="text" placeholder=<%= @user.email %> disabled></div>
+                </div>
+                <div class="row">
+                  <div class="span4"></div>
+                  <div class="span3">
+                    <p class="text-center"><a class="btn btn-success btn-block" href="#changeEmailModal" role="button" data-toggle="modal">Cambiar e-mail</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
 
-<p>
-  <b>Name:</b>
-  <%= @seller.company_name %>
-</p>
+      <div class="tab-pane" id="tab2">
+        <form>
+          <fieldset>
+            <legend>Productos</legend>
+          </fieldset>
+          <p>
+            <a href="/products/new"><i class="btn btn-small btn-primary">Agregar Producto</i></a>
+            <a href="/products/edit"><i class="btn btn-small btn-primary">Modificar producto</i></a>
+            <button class="btn btn-small btn-primary" type="button" href="#deleteProductModal" role="button" data-toggle="modal">Eliminar producto</i></button>
+            <button class="btn btn-small btn-primary" type="button" href="#uploadProductsFromFileModal" role="button" data-toggle="modal">Agregar productos desde archivo</button>
+          </p>
 
-<p>
-  <b>Email:</b>
-  <%= @seller.email %>
-</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>
+                  <label class="checkbox inline">
+                  <input type="checkbox" id="inlineCheckbox1" value="option1">
+                  </label>
+                </th>
+                <th>Foto</th>
+                <th>Producto</th>
+                <th>Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>
+                  <label class="checkbox inline">
+                  <input type="checkbox" id="inlineCheckbox1" value="option1">
+                  </label>
+                </th>
+                <th>
+                  <img src="http://lorempixel.com/124/125/food/2/cc" class="img-rounded" alt="25x25" style="width: 25px; height: 25px;">
+                </th>
+                <th>Regalito 1</th>
+                <th>250</th>
+              </tr>
+              <tr>
+                 <th>
+                  <label class="checkbox inline">
+                  <input type="checkbox" id="inlineCheckbox1" value="option1">
+                  </label>
+                </th>
+                <th>
+                  <img src="http://lorempixel.com/124/125/food/6/cc" class="img-rounded" alt="25x25" style="width: 25px; height: 25px;">
+                </th>
+                <th>Regalito 2</th>
+                <th>350</th>
+              </tr>
+              <tr>
+                 <th>
+                  <label class="checkbox inline">
+                  <input type="checkbox" id="inlineCheckbox1" value="option1">
+                  </label>
+                </th>
+                <th>
+                  <img src="http://lorempixel.com/125/125/food/9/cc" class="img-rounded" alt="25x25" style="width: 25px; height: 25px;">
+                </th>
+                <th>Regalito 3</th>
+                <th>550</th>
+              </tr>
+            </tbody>
+          </table>
 
-<p>
-  <b>Email:</b>
-  <%= @seller.web %>
-</p>
+        </form>
+      </div>
+    </div>
 
-<%= link_to 'Edit', edit_user_path(@seller) %> |
-<%= link_to 'Back', sellers_path %>
+<div id="uploadProductsFromFileModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="uploadProductsFromFileLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="uploadProductsFromFileModal">Agregar productos desde archivo</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal">
+      <form class="form-search">
+        <input type="text" class="input-xlarge search-query" id="uploadFile" placeholder="Escriba aquí la ruta">
+        <button type="submit" class="btn">Examinar</button>
+      </form>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+  </div>
+</div>
+
+<div id="deleteProductModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="deleteProductLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="deleteProductModal">Confirmación de eliminación</h3>
+  </div>
+  <div class="modal-body">
+    ¿Está seguro de eliminar los producto seleccionados?
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hideen="true" type="button" href="#deletionProductConfirmationModal" role="button" data-toggle="modal">Aceptar</button>
+  </div>
+</div>
+
+<div id="deletionProductConfirmationModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="deletionProductConfirmationModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="deletionProductConfirmationModal">¡Felicitaciones!</h3>
+  </div>
+  <div class="modal-body">
+    Producto eliminado con exito
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+  </div>
+</div>
+
+<%= render template: 'shared/modals' %>
