@@ -82,5 +82,8 @@ class UsersController < ApplicationController
     render 'friends/gifts', layout: 'friend'
   end
 
+  def forgotten_user
+    render 'users/forgotten_user'
+  end
 
 end
