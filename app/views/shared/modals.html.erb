@@ -19,14 +19,7 @@
     <h3 id="changePhotoLabel">Agregar foto</h3>
   </div>
   <div class="modal-body">
-
-    <% if @user.nil? %>
-    <% @u = @seller %>
-    <% else %>
-    <% @u = @user %>
-    <% end %>
-
-    <%= form_for(@u, :url => change_avatar_path, :html => {:multipart => true}) do |f| %>
+    <%= form_for(@user, :url => @change_avatar_path, :html => {:multipart => true}) do |f| %>
       <div class="form-horizontal">
           <%= f.file_field :avatar %>
       </div>
