@@ -7,4 +7,8 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Bienvenido a What the Gift?!')
   end
 
+  def forgotten_password(user)
+  	@user = user
+  	mail(to: @user.email, subject: 'Nueva contraseña')
+  end
 end

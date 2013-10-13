@@ -27,6 +27,10 @@ def self.find_by_id id
 	User.where(id: id).first
 end
 
+def self.find_by_email email
+	User.where(email: email).first
+end
+
 def asorted_recommended
 	Product.full_text_search( interests, match: :any , relevant_search: true) - products_from_gifts
 end

@@ -16,9 +16,8 @@ class SessionsController < ApplicationController
         redirect_to root_url, alert: 'Su cuenta no se encuentra activa'
         return
       end
-    else 
-      redirect_to signin_url, alert: 'Email/Contrasena incorrectos'
-    end
+    end 
+    redirect_to signin_url, alert: 'Email/Contrasena incorrectos'
   end
 
   def destroy
