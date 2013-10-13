@@ -13,6 +13,8 @@ gem 'bcrypt-ruby', '3.0.1'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'aws-sdk', '~> 1.3.4'
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
+gem 'will_paginate_mongoid'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
 #  gem 'rspec-rails', '2.11.0'

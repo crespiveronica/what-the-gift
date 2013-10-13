@@ -24,8 +24,6 @@ class AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
   end
 
-  # DELETE /admins/1
-  # DELETE /admins/1.json
   def destroy
     @admin = Admin.find(params[:id])
     @admin.destroy
@@ -40,6 +38,7 @@ class AdminsController < ApplicationController
   end
 
   def user_edit
+    @users = User.paginate(:page => params[:page], :per_page => 30)
   end
 
   def login
