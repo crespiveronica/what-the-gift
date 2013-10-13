@@ -8,6 +8,8 @@ class Seller < GenericUser
 
   embeds_many :products
 
+  validates :company_name, presence: true
+
   def full_name
     company_name
   end
