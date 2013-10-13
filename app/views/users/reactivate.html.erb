@@ -1,0 +1,10 @@
+<h1>Reactiva tu cuenta</h1>
+<div class="well text-center">
+	<p>Esta cuenta ha sido cerrada.</p>
+	<p>¿Desea reactivarla nuevamente?</p>
+	<form method="post" action="<%= reactivate_post_path %>">
+		<input type="hidden" value="<%= @id %>" name="id">
+		<input class="btn btn-primary" type="submit" value="Aceptar">
+		<a class="btn" type="submit" href="<%= root_path %>">Cancelar</a>
+	</form>
+</div>

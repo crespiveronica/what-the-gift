@@ -4,7 +4,7 @@ class GenericUser
   include Mongoid::Paperclip
   include ActiveModel::SecurePassword
 
-  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :avatar, :signup_token, :active
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :avatar, :signup_token, :active, :deleted
   has_mongoid_attached_file :avatar, :default_url => "/assets/missing.png"
   has_secure_password
 
@@ -15,6 +15,7 @@ class GenericUser
   field :email, type: String
   field :password_digest, type: String
   field :active, type: Boolean
+  field :deleted, type: Boolean
   field :banned, type: Boolean
   field :banned_reason, type: String
   field :remember_token, type: String

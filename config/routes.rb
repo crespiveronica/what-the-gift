@@ -24,6 +24,8 @@ Wtg::Application.routes.draw do
   match '/users/forgotten-user/', to: 'users#forgotten_user', via: 'get', :as => 'forgotten_user'
   match '/users/forgotten-user/', to: 'users#forgotten_user_post', via: 'post', :as => 'forgotten_user'
   match '/confirm/:id/:token/', to: 'users#confirm', via: 'get', :as => 'confirm'
+  match '/users/reactivate/:id', to: 'users#reactivate', via: 'get', :as => 'reactivate'
+  match '/users/reactivate/:id', to: 'users#reactivatePost', via: 'post', :as => 'reactivate_post'
 
   match '/products/recommended/', to: 'products#recommended', via: 'get'
   match '/products/favorites/', to: 'products#favorites', via: 'get'
@@ -39,7 +41,6 @@ Wtg::Application.routes.draw do
 
   match '/about/', to: 'static_pages#about', via: 'get'
   match '/contact/', to: 'static_pages#contact', via: 'get'
-  match '/reactivate' , to: 'static_pages#reactivate'
 
   match '/admins/login', to: 'admins#login', via: 'get'
   match '/admins/user_edit', to: 'admins#user_edit', via: 'get', :as => 'user_edit'
