@@ -18,7 +18,6 @@ Wtg::Application.routes.draw do
   match '/friends/:id/make-a-gift/', to: 'users#makeAGift', via: 'get'
   match '/friends/:id/gifts/', to: 'users#gifts', via: 'get'
 
-  match '/profile/delete/', to: 'users#delete'
   match '/user/change-avatar', to: 'users#change_avatar', :as => 'user_change_avatar'
   match '/seller/change-avatar', to: 'sellers#change_avatar', :as => 'seller_change_avatar'
   match '/users/forgotten-user/', to: 'users#forgotten_user', via: 'get', :as => 'forgotten_user'
@@ -39,7 +38,8 @@ Wtg::Application.routes.draw do
   match '/contact/', to: 'static_pages#contact', via: 'get'
   match '/reactivate' , to: 'static_pages#reactivate'
 
-  match '/admins/user_edit', to: 'admins#user_edit', via: 'get'
+  match '/admins/login', to: 'admins#login', via: 'get'
+  match '/admins/user_edit', to: 'admins#user_edit', via: 'get', :as => 'user_edit'
   match '/admins/product_edit', to: 'admins#product_edit', via: 'get'
   match '/admins/category_edit', to: 'admins#category_edit', via: 'get'
 
@@ -49,7 +49,7 @@ Wtg::Application.routes.draw do
   resources :categories
   resources :admins
   resources :profile
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy, :create_admin]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
