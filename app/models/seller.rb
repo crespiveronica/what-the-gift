@@ -14,4 +14,4 @@ class Seller < GenericUser
     company_name
   end
 
-
+end

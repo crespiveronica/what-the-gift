@@ -61,7 +61,7 @@ class ProductsController < ApplicationController
     end
     if( !params[:seller_enable].blank? && !params[:seller].blank?)
       sellerProducts = Seller.where({ :company_name => /.*#{params[:seller]}.*/i }).map {|s| s.selling_products}.map {|sp| sp.product}
-      filtered_products = (filtered_products & sellerProducts).uniq
+      filtered_products = (filtered_products & sellerProducts.flatten).uniq
     end
     if( !params[:category_enable].blank? && !params[:category].blank?)
       ids = Category.where({ :name => /.*#{params[:category]}.*/i }).map {|c| c.id}

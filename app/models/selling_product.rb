@@ -4,6 +4,6 @@ class SellingProduct
   field :price, type: Float
   field :approved, type: Boolean
   
-  belongs_to :seller
-  belongs_to :product
+  embedded_in :seller
+  has_one :product
 end
