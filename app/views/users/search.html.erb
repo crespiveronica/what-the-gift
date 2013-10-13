@@ -7,7 +7,7 @@
 	  	</fieldset>
 		<form class="form-search">
 			<div class="input-append">
-			  <input type="text" class="span8 input-medium search-query">
+			  <input type="text" class="span8 input-medium search-query" name="search">
 			  <button type="submit" class="btn">Buscar</button>
 			</div>
 		</form>
@@ -22,16 +22,14 @@
             </tr>
           </thead>
           <tbody>
+            <% @friends each do |f| %>
             <tr class="friend-row">
               <td>
-              	Jane Doe <a class="btn btn-primary btn-small" role="button" data-toggle="modal" style="display: none" href="#addFriend"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i></a>
+              	<%= f.full_name %> <a class="btn btn-primary btn-small" role="button" data-toggle="modal" style="display: none" href="#addFriend"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i></a>
               </td>
-              <td><p class="text-right"><img src="http://lorempixel.com/64/64/people/4" class="img-rounded" /></p></td>
+              <td><p class="text-right"><%= image_tag f.avatar, class: "img-rounded" %></p></td>
             </tr>
-            <tr class="friend-row">
-              <td>James Doe <a class="btn btn-primary btn-small" role="button" data-toggle="modal" style="display: none" href="#addFriend"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i></a></td>
-              <td><p class="text-right"><img src="http://lorempixel.com/64/64/people/2" class="img-rounded" /></p></td>
-            </tr>
+            <% end %>
           </tbody>
         </table>
 	</div>

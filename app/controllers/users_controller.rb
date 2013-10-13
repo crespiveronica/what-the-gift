@@ -70,7 +70,8 @@ class UsersController < ApplicationController
     render 'users/show_friend', layout: 'friend'
   end
 
-  def search
+  def search_post
+    search = params[:search]
   end
 
  def makeAGift
