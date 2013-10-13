@@ -1,70 +1,30 @@
-    <div class="container">
-      <div class="page-header">
-        <h2>Raqueta de Tenis</h2>
-      </div>
-    </div>
+<div class="container">
+  <div class="page-header">
+    <h2><%= @product.name %></h2>
+  </div>
+</div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span2">
-        <!--Sidebar content-->
-          <ul class="nav nav-tabs nav-stacked">
-            <li><a href=#>Accesorios</a></li>
-            <li><a href=#>Deportes</a></li>    
-            <li><a href=#>Electrónica</a></li>            
-            <li><a href=#>Indumentaria</a></li>
-            <li><a href=#>Juegos</a></li>
-            <li><a href=#>Categoría 6</a></li>
-            <li><a href=#>Categoría ...</a></li>
-            <li><a href=#>Categoría <em>n</em></a></li>
-          </ul>
-        </div>
-        <div class="span10">
-        <!--Body content-->
-          <div class="row">
-            <div class="span4"><%= image_tag "raqueta.jpg", size: "512x512", class: "img-polaroid" %></div>
-            <div class="span6">
-              <h3 class="text-right">Vendido por Empresa</h3>
-              <h4 class="text-right">$ Precio</h4>
-              <p class="muted text-right">Producto ubicado en tal lado<p>
-              <p class="text-right">
-                <button class="btn btn-success" type="button">+ Wishlist</button>
-                <button class="btn btn-primary" type="button">Regalar</button>
-              </p>
-              <p class="text-right">
-                <a href="#" data-toggle="tooltip" title="Compartir en Facebook" data-placement="top"><%= image_tag "fb-glyph.png", alt: "Facebook Like", class: "img-rounded" %></a>
-                <%= image_tag "tw-glyph.png", alt: "Share on Twitter", class: "img-rounded" %>
-              </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="span10">
-              <h3>Descripción</h3>
-              <hr>
-            </div>
-          </div>
-          <div class="row">
-            <div class="span10">
-              <p>Algun texto contando las maravillosidades del producto y por qué le gustaría tanto a todos tus amigos, cosa que se los puedas regalar a todos y estén muy felices de la vida y de tener un amigo como vos.</p>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.<p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="span10">
-              <h3>Preguntas y Respuestas</h3>
-              <hr>
-            </div>
-          </div>
-          <div class="row">
-            <div class="span10">
-              <div class="alert-response">
-              <div class="alert alert-info">
-                ¿Se puede pagar con tarjeta?
-              </div>
-                <p>Sí, con Visa y Mastercard.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="container-fluid">
+  <div class="span10 offset2">
+    <div class="row">
+      <div class="span4"><%= image_tag "raqueta.jpg", size: "512x512", class: "img-polaroid" %></div>
+      <div class="span6">
+        <h3 class="text-right">Vendido por Empresa</h3>
+        <h4 class="text-right">$ Precio</h4>
+        <p class="muted text-right">Producto ubicado en tal lado<p>
+        <% if not current_user.wishlist.include? @product %>
+        <p class="text-right">
+            <a href="<%= product_add_to_wishlist_path :id => @product.id %>" class="btn btn-danger" type="button"><i class="icon-white icon-heart"></i> Wishlist</a>
+        </p>
+        <% end %>
       </div>
     </div>
+    <div class="row">
+      <div class="span10">
+        <h3>Descripción</h3>
+        <hr>
+        <p><%= @product.description %></p>
+      </div>
+    </div>
+  </div>
+</div>

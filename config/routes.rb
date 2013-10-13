@@ -27,13 +27,14 @@ Wtg::Application.routes.draw do
 
   match '/products/recommended/', to: 'products#recommended', via: 'get'
   match '/products/favorites/', to: 'products#favorites', via: 'get'
-  match '/products/search/', to: 'products#search', via: 'get'
+  match '/products/search/', to: 'products#search', via: 'get', :as => 'products_list'
   match '/my-products/', to: 'products#mine', via: 'get'
   match '/gifts/', to: 'products#gifts', via: 'get'
   match '/products/new' , to: 'products#new'
   match '/products/edit' , to: 'products#edit'
   match '/products/destroy' , to: 'products#destroy'
   match '/products/:id/', to: 'products#show', :as => 'product'
+  match '/products/:id/wishlist', to: 'products#wishlist', :as => 'product_add_to_wishlist'
 
   match '/about/', to: 'static_pages#about', via: 'get'
   match '/contact/', to: 'static_pages#contact', via: 'get'
