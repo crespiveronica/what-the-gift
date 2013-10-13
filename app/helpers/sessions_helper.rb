@@ -1,5 +1,3 @@
-require 'pry'
-
 module SessionsHelper
 
   def sign_in(user)
