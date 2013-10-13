@@ -27,8 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @recommended_products = Product.all[0..50]
-    @categories = Category.all
+    @products = Product.all[0..50]
   end
 
   def gifts
@@ -57,16 +56,15 @@ class ProductsController < ApplicationController
 
   def do_search
     filtered_products = Product.all
-    binding.pry
     if( !params[:brand_enable].blank? && !params[:brand].blank?)
-      filtered_products = filtered_products.where({ :name => /.*params[:brand].*/i })
+      filtered_products = filtered_products.where({ :brand => /.*#{params[:brand]}.*/i })
     end
     if( !params[:seller_enable].blank? && !params[:seller].blank?)
-      sellerProducts = Seller.where({ :company_name => /.*params[:seller].*/i }).map {|s| s.selling_products}.map {|sp| sp.product}
+      sellerProducts = Seller.where({ :company_name => /.*#{params[:seller]}.*/i }).map {|s| s.selling_products}.map {|sp| sp.product}
       filtered_products = (filtered_products & sellerProducts).uniq
     end
     if( !params[:category_enable].blank? && !params[:category].blank?)
-      ids = Category.where({ :name => /.*params[:category].*/i }).map {|c| c.id}
+      ids = Category.where({ :name => /.*#{params[:category]}.*/i }).map {|c| c.id}
       filtered_products = filtered_products.any_in(category_ids: ids)
     end
     if( !params[:price_enable].blank? & (!params[:price_from].blank? || !params[:price_to].blank?))
@@ -82,6 +80,13 @@ class ProductsController < ApplicationController
     if( !params[:free_text_enable].blank? && !params[:free_text].blank?)
       filtered_products = filtered_products.full_text_search( params[:free_text].split , match: :any , relevant_search: true)
     end
+    @products = filtered_products
+    render 'products/search'
+  end
+
+  def do_search_by_category
+    @products = Product.any_in(category_ids: params[:category])
+    render 'products/search'
   end
 
 end
