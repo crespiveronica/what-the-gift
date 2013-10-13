@@ -129,13 +129,14 @@ juego_apioverde.update_attributes({ "product" => juegos_product._id })
 
 ## Users
 rand = Random.new
-print "Creating 250 users..."
+print "Creating 100 users..."
 100.times do
   u = User.new
   u.first_name = Faker::Name.first_name
   u.last_name = Faker::Name.last_name
   u.email = Faker::Internet.email
   u.password = password
+  u.password_confirmation = password_confirmation
   u.active = active
   u.banned = banned
   u.wishlist = []
