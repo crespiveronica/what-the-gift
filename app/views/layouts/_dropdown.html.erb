@@ -1,9 +1,12 @@
 <% if signed_in? %>
 
+<!-- Esta seccion la renderean las tres clases -->
   <li id="fat-menu" class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
       <%= "#{current_user.full_name}" %>
+<!-- -->
 
+<!-- Dropdown segun el usuario logueado -->
   <% if current_user.class.to_s == 'User' %>
       <% if current_user.pending_requests.count > 0 %>
         <span class="badge badge-warning"><%= current_user.pending_requests.count %></span>
@@ -17,33 +20,29 @@
         <li><%= link_to "Solicitudes de amistad (#{current_user.pending_requests.count})", friend_requests_path %></li>
         <li class="divider"></li>
       <% end %>
-      <li>
-        <%= link_to "Cerrar sesión", signout_path, method: "delete" %>
-      </li>
-    </ul>
-  </li>
 
   <% elsif current_user.class.to_s == 'Seller' %>
     </a>
     <ul class="dropdown-menu">
       <li><%= link_to "Perfil", current_user %></li>
       <li class="divider"></li>
-      <li>
-        <%= link_to "Cerrar sesión", signout_path, method: "delete" %>
-      </li>
-    </ul>
 
   <% elsif current_user.class.to_s == 'Admin' %>
     </a>
     <ul class="dropdown-menu">
       <li><%= link_to "Panel de control", admins_path %></li>
       <li class="divider"></li>
+
+  <% end %>
+<!-- -->
+
+<!-- Esta seccion la renderean las tres clases -->
       <li>
         <%= link_to "Cerrar sesión", signout_path, method: "delete" %>
       </li>
     </ul>
-
-  <% end %>
+  </li>
+<!-- -->
 
 <% else %>
   <li><%= link_to "Iniciar sesión", signin_path %></li>
