@@ -138,9 +138,11 @@ print "Creating 250 users..."
   u.password = password
   u.active = active
   u.banned = banned
-  u.wishlist = [Product.all[random.rand(10)], Product.all[random.rand(10)]]
+  u.wishlist = []
+  u.wishlist << Product.all.entries[rand.rand(10)]
+  u.wishlist << Product.all.entries[rand.rand(10)]
   gift = Gift.new
-  gift.product = Product.all[rand.rand(10)]]
+  gift.product = Product.all[rand.rand(10)]
   gift.score = rand.rand(10)
   u.gifts = [gift]
   u.save
