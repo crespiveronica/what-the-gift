@@ -8,6 +8,7 @@ class Product
   field :approved, type: Boolean
 
   has_and_belongs_to_many :categories
+  has_many :selling_producs
 
   search_in :brand, :name, :descripcion, :categories => :name
 
