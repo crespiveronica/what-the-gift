@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+  skip_before_filter  :verify_authenticity_token
+  
   def index
     @users = User.all
   end
@@ -70,8 +71,15 @@ class UsersController < ApplicationController
     render 'users/show_friend', layout: 'friend'
   end
 
+  def search
+    @friends = Array.new
+    @search = ''
+  end
+
   def search_post
-    search = params[:search]
+    @search = params[:search]
+    @friends = User.any_of({email: /.*#{@search}.*/i}, {first_name: /.*#{@search}.*/i}, {last_name: /.*#{@search}.*/i})
+    render 'users/search'
   end
 
  def makeAGift
