@@ -84,6 +84,18 @@ class UsersController < ApplicationController
     render 'users/forgotten_user'
   end
 
+  def forgotten_user_post
+    user = User.find_by_email params[:email]
+    if user == nil
+      redirect_to root_path, alert: 'No se encontro ningun usuario con ese email'
+    else
+      user.password = SecureRandom.urlsafe_base64
+      user.save
+      UserMailer.forgotten_password(user).deliver
+      redirect_to root_path, alert: 'Se ha reiniciado su password'
+    end
+  end
+
   def confirm
     @user = User.find_by_id params[:id]
     if @user != nil and @user.signup_token == params[:token]
