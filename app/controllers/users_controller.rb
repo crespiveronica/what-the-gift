@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.active = false
     @user.save
-    flash[:success] = "Tu cuenta ha sido eliminada satisfactoriamente."
+    flash[:success] = "Su cuenta ha sido cerrada, esperamos volverlo a ver pronto!"
     redirect_to root_url
   end
 
