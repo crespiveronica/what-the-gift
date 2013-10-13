@@ -3,13 +3,7 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for @seller do |s| %>
-
-      <%= s.label :first_name, 'Nombre' %>
-      <%= s.text_field :first_name %>
-
-      <%= s.label :last_name, 'Apellido' %>
-      <%= s.text_field :last_name %>
+    <%= form_for @user do |s| %>
 
       <%= s.label :email %>
       <%= s.text_field :email %>
@@ -25,6 +19,12 @@
 
       <%= s.label :web, 'Página web' %>
       <%= s.text_field :web %>
+
+      <%= s.label :location, 'Ubicación' %>
+      <%= s.text_field :location %>
+
+      <%= s.label :phone, 'Teléfono' %>
+      <%= s.text_field :phone %>
 
       <%= s.submit "Crear", class: "btn btn-primary" %>
     <% end %>
