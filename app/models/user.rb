@@ -21,6 +21,12 @@ def friends
 	friends
 end
 
+def friend_request friend
+	reqs = self.friend_requests.where({accepted: true, friend: friend})
+	reqs += self.friend_requests.where({accepted: true, owner: friend})
+	reqs.first
+end
+
 def pending_requests
 	self.friend_requests.where({accepted: false})
 end
