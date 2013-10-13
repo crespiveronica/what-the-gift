@@ -9,7 +9,7 @@ class Seller < GenericUser
   embeds_many :products
 
   def full_name
-    web
+    company_name
   end
 
 end
