@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.where(:id => params[:id]).first
+    if @product == nil
+      redirect_to products_list_path, alert: 'No se encontro el producto'
+    end
   end
 
   def new
@@ -32,6 +36,16 @@ class ProductsController < ApplicationController
   end
 
   def mine
+  end
+
+  def wishlist
+    @product = Product.where(:id => params[:id]).first
+    if @product
+      current_user.wishlist << @product
+      redirect_to product_path, alert: 'El regalo fue agregado a tu Wish List'
+    else
+      redirect_to products_list_path, alert: 'No se encontro el producto'
+    end
   end
 
 end
