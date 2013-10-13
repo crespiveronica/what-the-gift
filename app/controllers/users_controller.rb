@@ -53,10 +53,9 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.active = false
+    @user.deleted = true
     @user.save
-    flash[:success] = "Su cuenta ha sido cerrada, esperamos volverlo a ver pronto!"
-    redirect_to root_url
+    redirect_to root_url, alert: "Su cuenta ha sido desactivada, esperamos volverlo a ver pronto!"
   end
 
   def friends
@@ -120,6 +119,18 @@ class UsersController < ApplicationController
     else
       return redirect_to root_url, alert: "No se encontro el usuario"
     end
+  end
+
+  def reactivate
+    @id = params[:id]
+  end
+
+  def reactivatePost
+    user = User.where(:id => params[:id]).first
+    user.deleted = false
+    user.save
+    sign_in user
+    return redirect_to user
   end
 
 end
