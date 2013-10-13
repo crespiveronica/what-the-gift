@@ -47,8 +47,8 @@ Wtg::Application.routes.draw do
 
   match '/admins/login', to: 'admins#login', via: 'get', :as => 'admin_login'
   match '/admins/user_edit', to: 'admins#user_edit', via: 'get', :as => 'user_edit'
-  match '/admins/product_edit', to: 'admins#product_edit', via: 'get'
-  match '/admins/category_edit', to: 'admins#category_edit', via: 'get'
+  match '/admins/product_edit', to: 'admins#product_edit', via: 'get', :as => 'product_edit'
+  match '/admins/category_edit', to: 'admins#category_edit', via: 'get', :as => 'category_edit'
 
   resources :users
   resources :sellers

@@ -39,7 +39,7 @@ class SessionsController < ApplicationController
       admin = adminSearch.first
       if admin.authenticate(params[:session][:password])
         sign_in admin
-        redirect_to user_edit_path
+        redirect_to admins_path
         return
       end
     end
