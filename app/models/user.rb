@@ -16,8 +16,13 @@ def full_name
 end
 
 def friends
-	reqs = self.friend_requests.where({accepted: true})
-	friends = reqs.map{ | req | req.owner_id == self.id ? req.friend : req.owner }
+	reqs = FriendRequest.where({accepted: true})
+	friends = Array.new
+	reqs.each do |req|
+		if req.owner == self or req.friend == self
+			friends.push(req.owner == self ? req.friend : req.owner)
+		end
+	end
 	friends
 end
 
