@@ -27,7 +27,8 @@ Wtg::Application.routes.draw do
 
   match '/products/recommended/', to: 'products#recommended', via: 'get'
   match '/products/favorites/', to: 'products#favorites', via: 'get'
-  match '/products/search/', to: 'products#search', via: 'get', :as => 'products_list'
+  match '/products/search/', to: 'products#search', via: 'get', :as =>'search_product'
+  match '/products/search/', to: 'products#do_search', via: 'post', :as =>'do_search_product'
   match '/my-products/', to: 'products#mine', via: 'get'
   match '/gifts/', to: 'products#gifts', via: 'get'
   match '/products/new' , to: 'products#new'

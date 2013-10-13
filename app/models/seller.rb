@@ -6,7 +6,7 @@ class Seller < GenericUser
   field :location, type: String
   field :phone, type: String
 
-  embeds_many :products
+  embeds_many :selling_products
 
   validates :company_name, presence: true
 
@@ -14,4 +14,4 @@ class Seller < GenericUser
     company_name
   end
 
-end
+

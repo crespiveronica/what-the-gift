@@ -6,36 +6,40 @@
       <button class="btn btn-primary" id="advanced-search">Búsqueda avanzada</button>
       <div id="advanced-search-form" style="display: none;">
         <br>
-        <form class="form-inline">
-          <label class="checkbox">
-            <input type="checkbox"> Marca
-          </label>
-          <input type="text" class="input-small">
-        </form>
-        <form class="form-inline">
-          <label class="checkbox">
-            <input type="checkbox"> Vendedor
-          </label>
-          <input type="text" class="input-small">
-        </form>
-        <form class="form-inline">
-          <label class="checkbox">
-            <input type="checkbox"> Categoría
-          </label>
-          <input type="text" class="input-small">
-        </form>
-        <form class="form-inline">
-          <label class="checkbox">
-            <input type="checkbox"> Rango de Precios
-          </label>
-          <input type="text" class="input-small" placeholder="desde">
-          <input type="text" class="input-small" placeholder="hasta">
-        </form>
-        <form class="form-inline">
-          <label class="checkbox">
-            <input type="checkbox"> Palabras clave
-          </label>
-          <input type="text" class="input-small">
+        <form action="/products/search/" 
+        class="search form form-inline" id="search" method="post">
+          <div class="row-fluid" style="margin-bottom: 12px">
+            <label class="checkbox">
+              <input type="checkbox" name="brand_enable"> Marca
+            </label>
+            <input type="text" class="input-small" name="brand">
+          </div>
+          <div class="row-fluid" style="margin-bottom: 12px">
+            <label class="checkbox">
+              <input type="checkbox" name="seller_enable"> Vendedor
+            </label>
+            <input type="text" class="input-small" name="seller">
+          </div>
+          <div class="row-fluid" style="margin-bottom: 12px">
+            <label class="checkbox">
+              <input type="checkbox" name="category_enable"> Categoría
+            </label>
+            <input type="text" class="input-small" name="category">
+          </div>
+          <div class="row-fluid" style="margin-bottom: 12px">
+            <label class="checkbox">
+              <input type="checkbox" name="price_enable"> Rango de Precios
+            </label>
+            <input type="text" class="input-small" placeholder="desde" name="price_from">
+            <input type="text" class="input-small" placeholder="hasta" name="price_to">
+          </div>
+          <div class="row-fluid" style="margin-bottom: 12px">
+            <label class="checkbox">
+              <input type="checkbox" name="free_text_enable"> Palabras clave
+            </label>
+            <input type="text" class="input-small" name="free_text">
+          </div>
+          <input name="commit" type="submit" value="Buscar" />
         </form>
       </div>
 
@@ -53,19 +57,7 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span2">
-        <!--Sidebar content-->
-          <ul class="nav nav-tabs nav-stacked">
-            <li><a href=#>Accesorios</a></li>
-            <li><a href=#>Deportes</a></li>
-            <li><a href=#>Electrónica</a></li>
-            <li><a href=#>Indumentaria</a></li>
-            <li><a href=#>Juegos</a></li>
-            <li><a href=#>Categoría 6</a></li>
-            <li><a href=#>Categoría ...</a></li>
-            <li><a href=#>Categoría <em>n</em></a></li>
-          </ul>
-        </div>
+        <%= render :template => 'products/categories_sidebar' %>
         <div class="span10">
         <!--Body content-->
           <div class="row">
@@ -79,16 +71,6 @@
             <% @products = @recommended_products %>
             <%= render :template => 'products/list' %>
           </ul>
-          <div class="row"><div class="span10">
-          <ul class="breadcrumb">
-              <li><a href="#">Los visitados recientemente</a></li>
-          </ul>
-          </div></div>
-          <ul class="thumbnails">
-            <% @products = @latest_products %>
-            <%= render :template => 'products/list' %>
-          </ul>
-        </div>
       </div>
     </div>
 

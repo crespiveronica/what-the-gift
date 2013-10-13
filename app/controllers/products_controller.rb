@@ -27,9 +27,8 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @recommended_products = Product.all[0..10]
-    @latest_products = Product.all[5..15]
-
+    @recommended_products = Product.all[0..50]
+    @categories = Category.all
   end
 
   def gifts
@@ -54,6 +53,35 @@ class ProductsController < ApplicationController
     @gift.score = params[:score] != '' ? params[:score] : 0
     @gift.save
     redirect_to gifts_path, alert: 'Se ha calificado su regalo satisfactoriamente'
+  end
+
+  def do_search
+    filtered_products = Product.all
+    binding.pry
+    if( !params[:brand_enable].blank? && !params[:brand].blank?)
+      filtered_products = filtered_products.where({ :name => /.*params[:brand].*/i })
+    end
+    if( !params[:seller_enable].blank? && !params[:seller].blank?)
+      sellerProducts = Seller.where({ :company_name => /.*params[:seller].*/i }).map {|s| s.selling_products}.map {|sp| sp.product}
+      filtered_products = (filtered_products & sellerProducts).uniq
+    end
+    if( !params[:category_enable].blank? && !params[:category].blank?)
+      ids = Category.where({ :name => /.*params[:category].*/i }).map {|c| c.id}
+      filtered_products = filtered_products.any_in(category_ids: ids)
+    end
+    if( !params[:price_enable].blank? & (!params[:price_from].blank? || !params[:price_to].blank?))
+      filtered_selling_products = SellingProduct.all
+      if(!params[:price_from].blank?)
+        filtered_selling_products = filtered_selling_products.where(:price.gt => params[:price_from])
+      end
+      if(!params[:price_to].blank?)
+        filtered_selling_products = filtered_selling_products.where(:price.lt => params[:price_to])
+      end
+      filtered_products = filtered_products & filtered_selling_products.map {|sp| sp.product}
+    end
+    if( !params[:free_text_enable].blank? && !params[:free_text].blank?)
+      filtered_products = filtered_products.full_text_search( params[:free_text].split , match: :any , relevant_search: true)
+    end
   end
 
 end
