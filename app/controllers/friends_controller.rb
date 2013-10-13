@@ -18,15 +18,14 @@ class FriendsController < ApplicationController
     request = FriendRequest.find(params[:id])
     request.accepted = true
     request.save
-    redirect_to action: 'users#friends'
+    redirect_to friend_requests_path, alert: 'Has aceptado la solicitud de amistad de ' + request.owner.full_name
   end
 
   def unfriend
     request = FriendRequest.find(params[:id])
     friend = request.owner = current_user ? request.owner : request.friend
     request.delete
-    flash[:success] = "Se ha eliminado a #{friend.full_name} de sus amigos"
-    redirect_to action: 'users#friends'
+    redirect_to friend_requests_path, alert: 'Has rechazado la solicitud de amistad de ' + request.owner.full_name
   end
 
   def pending
