@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
 
   def index
   end
@@ -46,6 +47,13 @@ class ProductsController < ApplicationController
     else
       redirect_to products_list_path, alert: 'No se encontro el producto'
     end
+  end
+
+  def rate
+    @gift = current_user.gifts.where(:id => params[:id]).first
+    @gift.score = params[:score] != '' ? params[:score] : 0
+    @gift.save
+    redirect_to gifts_path, alert: 'Se ha calificado su regalo satisfactoriamente'
   end
 
 end
