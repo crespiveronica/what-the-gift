@@ -149,3 +149,36 @@ print "Creating 100 users..."
   u.save
 end
 puts "done."
+
+#
+# Creación de Administradores
+#
+puts "Creando aministradores..."
+puts "Vero"
+a = Admin.new
+a.username = 'v.crespi'
+a.password = 'password'
+a.password_confirmation = 'password'
+a.save
+
+puts "Sacha"
+a = Admin.new
+a.username = 's.lifzsyc'
+a.password = 'password'
+a.password_confirmation = 'password'
+a.save
+
+puts "Fer"
+a = Admin.new
+a.username = 'f.nino'
+a.password = 'password'
+a.password_confirmation = 'password'
+a.save
+
+puts "Joaco"
+a = Admin.new
+a.username = 'joaquinpb'
+a.password = 'password'
+a.password_confirmation = 'password'
+a.save
+puts "done"
