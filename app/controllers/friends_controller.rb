@@ -11,7 +11,7 @@ class FriendsController < ApplicationController
     friend = User.find_by_id params[:id]
     request.friend = friend
     request.save
-    redirect_to show_friend_path, :id => params[:id], alert: 'La solicitud ha sido enviada con exito, aguarde la confirmación del usuario'
+    redirect_to show_friend_path, :id => params[:id], alert: 'La solicitud ha sido enviada con exito, aguarde la confirmacion del usuario'
   end
 
   def accept
