@@ -5,11 +5,15 @@
   </div>
   <div class="modal-body">
     <p>¿Está seguro de eliminar su cuenta?</p>
-    <p>Podrá reactivarla en cualquier momento</p>
+    <p>Podrá reactivarla en cualquier momento.</p>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-    <a class="btn btn-danger" href="/profile/delete">Eliminar</a>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <% if @user._type == 'User' %>
+      <%= link_to "Aceptar", user_path(current_user), method: :delete, class: "btn btn-danger" %>
+    <% else %>
+      <%= link_to "Aceptar", seller_path(current_user), method: :delete, class: "btn btn-danger" %>
+    <% end %>
   </div>
 </div>
 
