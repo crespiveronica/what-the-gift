@@ -12,8 +12,12 @@ class SessionsController < ApplicationController
         user = userSearch.first
         if (user.active)
           if (user.authenticate(params[:session][:password]))
-            sign_in user
-            return redirect_to user
+            if not user.deleted
+              sign_in user
+              return redirect_to user
+            else
+              return redirect_to reactivate_path user.id
+            end
           end
         else
           redirect_to root_url, alert: 'Su cuenta no se encuentra activa'
