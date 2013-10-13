@@ -5,5 +5,5 @@ class SellingProduct
   field :approved, type: Boolean
   
   embedded_in :seller
-  has_one :product
+  belongs_to :product
 end
