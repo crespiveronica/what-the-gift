@@ -38,10 +38,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.active = false
+    msj =  'Felicitaciones, su cuenta ya esta casi lista. '
+    msj += 'Se ha enviado un correo electronico a ' + @user.email + ' para la confirmacion de su cuenta. Presione el link de confirmacion en el E-Mail para terminar el proceso de registracion.'
     if @user.save
+      UserMailer.signup_email(@user).deliver
       sign_in @user
-      flash[:success] = "Bienvenido!"
-      redirect_to @user
+      redirect_to root_path,  alert: msj
     else
       render 'new'
     end
@@ -80,4 +83,17 @@ class UsersController < ApplicationController
   def forgotten_user
     render 'users/forgotten_user'
   end
+
+  def confirm
+    @user = User.find_by_id params[:id]
+    if @user != nil and @user.signup_token == params[:token]
+      @user.active = true
+      @user.save
+      sign_in @user
+      return redirect_to @user, alert: "Felicitaciones, su cuenta ha sido activada!"
+    else
+      return redirect_to root_url, alert: "No se encontro el usuario"
+    end
+  end
+
 end

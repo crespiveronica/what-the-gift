@@ -20,11 +20,13 @@ class SellersController < ApplicationController
 
   def create
     @user = Seller.new(params[:seller])
-    binding.pry
+    @user.active = false
+    msj =  'Felicitaciones, su cuenta ya esta casi lista. '
+    msj += 'Se ha enviado un correo electronico a ' + @user.email + ' para la confirmacion de su cuenta. Presione el link de confirmacion en el E-Mail para terminar el proceso de registracion.'
     if @user.save
+      UserMailer.signup_email(@user).deliver
       sign_in @user
-      flash[:success] = "Bienvenido!" # No funciona el flash
-      redirect_to @user
+      redirect_to root_path,  alert: msj
     else
       render 'new'
     end
