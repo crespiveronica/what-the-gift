@@ -7,4 +7,9 @@ class Seller < GenericUser
   field :phone, type: String
 
   embeds_many :products
+
+  def full_name
+    web
+  end
+
 end
