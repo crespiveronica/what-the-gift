@@ -1,53 +1,37 @@
-<div class="page-header text-center">
-    <h3>John Doe <br><small>johndoe2013 | johndoe@gmail.com</small></h3>
-  </div>
 <div class="row text-center">
 		<fieldset>
 	    	<legend>Buscar amigos</legend>
 	  	</fieldset>
-		<form class="form-search">
+		<form class="form-search" method="post">
 			<div class="input-append">
-			  <input type="text" class="span8 input-medium search-query">
+			  <input type="text" class="span8 input-medium search-query" name="search" value="<%= @search %>">
 			  <button type="submit" class="btn">Buscar</button>
 			</div>
 		</form>
 </div>
 <div class="row">
 	<div class="span8 offset2">
-		<table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th><p class="text-right">Foto</p></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="friend-row">
-              <td>
-              	Jane Doe <a class="btn btn-primary btn-small" role="button" data-toggle="modal" style="display: none" href="#addFriend"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i></a>
-              </td>
-              <td><p class="text-right"><img src="http://lorempixel.com/64/64/people/4" class="img-rounded" /></p></td>
-            </tr>
-            <tr class="friend-row">
-              <td>James Doe <a class="btn btn-primary btn-small" role="button" data-toggle="modal" style="display: none" href="#addFriend"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i></a></td>
-              <td><p class="text-right"><img src="http://lorempixel.com/64/64/people/2" class="img-rounded" /></p></td>
-            </tr>
-          </tbody>
-        </table>
+		<% if @friends.count > 0 %>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th><p class="text-right">Foto</p></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @friends.each do |f| %>
+          <tr class="friend-row">
+            <td>
+            	<%= f.full_name %> <a class="btn btn-primary btn-small" style="display: none" href="/friends/send-request/<%= f.id %>"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i></a>
+            </td>
+            <td><p class="text-right"><%= image_tag f.avatar, size: "80x80", class: "img-rounded" %></p></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
 	</div>
-</div>
-
-<div id="addFriend" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="addFriendLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="addFriendLabel">Agregar amigo</h3>
-  </div>
-  <div class="modal-body">
-    <p>La solicitud ha sido enviada con éxito, aguarde la confirmación del usuario</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Aceptar</button>
-  </div>
 </div>
 
 <script>
