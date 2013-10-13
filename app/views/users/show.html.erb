@@ -13,6 +13,7 @@
               <div class="span7">
               <h3>
                 Perfil
+                <a class="btn btn-small btn-warning pull-right" href="#deleteProfileModal" role="button" data-toggle="modal">Eliminar cuenta</a>
                 <%= link_to "Editar perfil", edit_user_path(current_user), class: "btn btn-success btn-small pull-right" %>
               </h3>
               </div>
@@ -122,17 +123,6 @@
         <div class="span2"></div>
       </div>
       <hr>
-    </form>
-  </div>
-  <div class="tab-pane" id="tab5">
-    <form>
-      <fieldset>
-        <legend>Preferencias</legend>
-      </fieldset>
-      <p>Para opciones de privacidad, etc.</p>
-      <div class="row">
-        <div class="span2"><a class="btn btn-danger btn-block" href="#deleteProfileModal" role="button" data-toggle="modal">Eliminar perfil</a></div>
-      </div>
     </form>
   </div>
 </div>

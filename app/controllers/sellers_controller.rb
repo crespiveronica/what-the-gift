@@ -34,6 +34,11 @@ class SellersController < ApplicationController
   end
 
   def destroy
+    @user = Seller.find(params[:id])
+    @user.active = false
+    @user.save
+    flash[:success] = "Tu cuenta ha sido eliminada satisfactoriamente."
+    redirect_to root_url
   end
 
   def change_avatar
