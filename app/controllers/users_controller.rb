@@ -87,14 +87,10 @@ class UsersController < ApplicationController
   def confirm
     @user = User.find_by_id params[:id]
     if @user != nil and @user.signup_token == params[:token]
-      if @user.active
-        return redirect_to @user
-      else
-        @user.active = true
-        @user.save
-        sign_in @user
-        return redirect_to @user, alert: "Felicitaciones, su cuenta ha sido activada!"
-      end
+      @user.active = true
+      @user.save
+      sign_in @user
+      return redirect_to @user, alert: "Felicitaciones, su cuenta ha sido activada!"
     else
       return redirect_to root_url, alert: "No se encontro el usuario"
     end
