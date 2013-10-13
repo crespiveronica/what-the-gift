@@ -9,6 +9,6 @@ class UserMailer < ActionMailer::Base
 
   def forgotten_password(user)
   	@user = user
-  	mail(to: @user.email, subject: 'Nueva contraseña')
+  	mail(to: @user.email, subject: 'Nueva password')
   end
 end
