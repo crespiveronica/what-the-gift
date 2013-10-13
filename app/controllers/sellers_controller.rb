@@ -1,3 +1,5 @@
+require 'pry'
+
 class SellersController < ApplicationController
 
   def index
@@ -17,7 +19,8 @@ class SellersController < ApplicationController
   end
 
   def create
-    @user = Seller.new(params[:user])
+    @user = Seller.new(params[:seller])
+    binding.pry
     if @user.save
       sign_in @user
       flash[:success] = "Bienvenido!" # No funciona el flash
