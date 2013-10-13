@@ -12,8 +12,6 @@ class GenericUser
   before_save :create_remember_token
   before_create :create_signup_token
 
-  field :first_name, type: String
-  field :last_name, type: String
   field :email, type: String
   field :password_digest, type: String
   field :active, type: Boolean
@@ -28,10 +26,6 @@ class GenericUser
             uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 8 }, :on => :create
   validates :password_confirmation, presence: true, :on => :create
-
-  def full_name
-    first_name + ' ' + last_name
-  end
 
   def is_user?
     self._type == 'User'

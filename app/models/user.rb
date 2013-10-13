@@ -8,6 +8,12 @@ class User < GenericUser
   has_many :hobbies, :autosave => true
   accepts_nested_attributes_for :hobbies
   field :occupation, type: String
+  field :first_name, type: String
+  field :last_name, type: String
+
+def full_name
+  first_name + ' ' + last_name
+end
 
 def friends
 	reqs = self.friend_requests.where({accepted: true})
