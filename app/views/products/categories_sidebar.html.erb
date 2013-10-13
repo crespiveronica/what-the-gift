@@ -1,0 +1,7 @@
+<div class="span2">
+  <ul class="nav nav-tabs nav-stacked">
+    <% Category.all.each do |category| %>
+    <li><%= link_to category.name, search_by_category_product_path(category) %></li>
+    <% end %>
+  </ul>
+</div>

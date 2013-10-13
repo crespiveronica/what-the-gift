@@ -104,28 +104,31 @@ sellers[4].save
 #
 # Creación de Productos Vendedor (Selling Product)
 #
+sellers[0].selling_products = []
 libro_yenny = SellingProduct.new(price: 65)
-libro_yenny.update_attributes({ "seller" => sellers[0]._id })
-libro_yenny.update_attributes({ "product" => libro_product._id })
+libro_yenny.product  = libro_product
+sellers[0].selling_products << libro_yenny
+libro_yenny.save
 
 libro_cuspide = SellingProduct.new(price: 60)
-libro_cuspide.update_attributes({ "seller" => sellers[1]._id })
-libro_cuspide.update_attributes({ "product" => libro_product._id })
+libro_cuspide.product  = libro_product
+sellers[1].selling_products << libro_cuspide
+libro_cuspide.save
 
 pelota_adidas = SellingProduct.new(price: 128)
-pelota_adidas.update_attributes({ "seller" => sellers[2]._id })
-pelota_adidas.update_attributes({ "product" => pelota_product._id })
+pelota_adidas.product  = pelota_product
+sellers[2].selling_products << pelota_adidas
+pelota_adidas.save
 
 pelota_stockcenter = SellingProduct.new(price: 132)
-pelota_stockcenter.update_attributes({ "seller" => sellers[3]._id })
-pelota_stockcenter.update_attributes({ "product" => pelota_product._id })
+pelota_stockcenter.product  = pelota_product
+sellers[3].selling_products << pelota_stockcenter
+pelota_stockcenter.save
 
 juego_apioverde = SellingProduct.new(price: 132)
-juego_apioverde.update_attributes({ "seller" => sellers[4]._id })
-juego_apioverde.update_attributes({ "product" => juegos_product._id })
-
-
-
+juego_apioverde.product  = juegos_product
+sellers[4].selling_products << juego_apioverde
+juego_apioverde.save
 
 ## Users
 rand = Random.new
@@ -182,3 +185,72 @@ a.password = 'password'
 a.password_confirmation = 'password'
 a.save
 puts "done"
+
+
+sach = User.new
+sach.first_name = 'Sacha'
+sach.last_name = 'Lifszyc'
+sach.email = 'sacha.lifszyc@gmail.com'
+sach.password = '12345678'
+sach.password_confirmation = '12345678'
+sach.active = active
+sach.banned = banned
+sach.wishlist = []
+sach.wishlist << Product.all.entries[rand.rand(10)]
+sach.wishlist << Product.all.entries[rand.rand(10)]
+gift = Gift.new
+gift.product = Product.all[rand.rand(10)]
+gift.score = rand.rand(10)
+sach.gifts = [gift]
+sach.save
+
+fer = User.new
+fer.first_name = 'Fernando'
+fer.last_name = 'Niño'
+fer.email = 'nino.fernando@gmail.com'
+fer.password = 'password'
+fer.password_confirmation = 'password'
+fer.active = active
+fer.banned = banned
+fer.wishlist = []
+fer.wishlist << Product.all.entries[rand.rand(10)]
+fer.wishlist << Product.all.entries[rand.rand(10)]
+gift = Gift.new
+gift.product = Product.all[rand.rand(10)]
+gift.score = rand.rand(10)
+fer.gifts = [gift]
+fer.save
+
+joaquincito = User.new
+joaquincito.first_name = 'Joaquín'
+joaquincito.last_name = 'Perez Bay'
+joaquincito.email = 'joquinperezbay@gmail.com'
+joaquincito.password = '12345678'
+joaquincito.password_confirmation = '12345678'
+joaquincito.active = active
+joaquincito.banned = banned
+joaquincito.wishlist = []
+joaquincito.wishlist << Product.all.entries[rand.rand(10)]
+joaquincito.wishlist << Product.all.entries[rand.rand(10)]
+gift = Gift.new
+gift.product = Product.all[rand.rand(10)]
+gift.score = rand.rand(10)
+joaquincito.gifts = [gift]
+joaquincito.save
+
+vero = User.new
+vero.first_name = 'Verónica'
+vero.last_name = 'Crespi'
+vero.email = 'crespi.veronica@gmail.com'
+vero.password = '12345678'
+vero.password_confirmation = '12345678'
+vero.active = active
+vero.banned = banned
+vero.wishlist = []
+vero.wishlist << Product.all.entries[rand.rand(10)]
+vero.wishlist << Product.all.entries[rand.rand(10)]
+gift = Gift.new
+gift.product = Product.all[rand.rand(10)]
+gift.score = rand.rand(10)
+vero.gifts = [gift]
+vero.save
