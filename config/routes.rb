@@ -35,6 +35,7 @@ Wtg::Application.routes.draw do
   match '/products/destroy' , to: 'products#destroy'
   match '/products/:id/', to: 'products#show', :as => 'product'
   match '/products/:id/wishlist', to: 'products#wishlist', :as => 'product_add_to_wishlist'
+  match '/products/:id/rate', to: 'products#rate', via: 'post', :as => 'product_rate'
 
   match '/about/', to: 'static_pages#about', via: 'get'
   match '/contact/', to: 'static_pages#contact', via: 'get'
