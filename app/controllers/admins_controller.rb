@@ -36,6 +36,7 @@ class AdminsController < ApplicationController
   end
 
   def category_edit
+    @new_category = Category.new
     @categories = Category.paginate(:page => params[:page], :per_page => 30)
   end
 
