@@ -1,5 +1,3 @@
-require 'pry'
-
 class CategoriesController < ApplicationController
 
   def index
