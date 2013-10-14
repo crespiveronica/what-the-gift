@@ -29,10 +29,12 @@ class AdminsController < ApplicationController
   def destroy
     @admin = Admin.find(params[:id])
     @admin.destroy
-
   end
 
   def product_edit
+    @selling_products = SellingProduct.where(:approved => false)
+    @selling_products.map {|sp| sp.seller = Seller.find(sp.seller) }
+    @selling_products.map {|sp| sp.product = Product.find(sp.product) }
   end
 
   def category_edit
