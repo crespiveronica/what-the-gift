@@ -27,6 +27,9 @@ Wtg::Application.routes.draw do
   match '/users/reactivate/:id', to: 'users#reactivate', via: 'get', :as => 'reactivate'
   match '/users/reactivate/:id', to: 'users#reactivatePost', via: 'post', :as => 'reactivate_post'
 
+  match '/users/:id/enable', to: 'users#enable', via: 'post', :as => 'enable'
+  match '/users/:id/disable', to: 'users#disable', via: 'post', :as => 'disable'
+
   match '/products/recommended/', to: 'products#recommended', via: 'get'
   match '/products/favorites/', to: 'products#favorites', via: 'get'
   match '/products/search/', to: 'products#search', via: 'get', :as =>'search_product'
@@ -46,9 +49,9 @@ Wtg::Application.routes.draw do
   match '/contact/', to: 'static_pages#contact', via: 'get'
 
   match '/admins/login', to: 'admins#login', via: 'get', :as => 'admin_login'
-  match '/admins/user_edit', to: 'admins#user_edit', via: 'get', :as => 'user_edit'
-  match '/admins/product_edit', to: 'admins#product_edit', via: 'get', :as => 'product_edit'
-  match '/admins/category_edit', to: 'admins#category_edit', via: 'get', :as => 'category_edit'
+  match '/admins/user_edit', to: 'admins#user_edit', via: 'get', :as => 'admin_user_edit'
+  match '/admins/product_edit', to: 'admins#product_edit', via: 'get', :as => 'admin_product_edit'
+  match '/admins/category_edit', to: 'admins#category_edit', via: 'get', :as => 'admin_category_edit'
 
   resources :users
   resources :sellers

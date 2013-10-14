@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
-  
+
   def index
     @users = User.all
   end
@@ -130,6 +130,21 @@ class UsersController < ApplicationController
     user.save
     sign_in user
     return redirect_to user
+
+  def disable
+    @user = User.find(params[:id])
+    @user.active = false
+    @user.save
+    flash[:info] = "El usuario ha sido deshabilitado."
+    redirect_to admin_user_edit_path
+  end
+
+  def enable
+    @user = User.find(params[:id])
+    @user.active = true
+    @user.save
+    flash[:info] = "El usuario ha sido habilitado."
+    redirect_to admin_user_edit_path
   end
 
 end
