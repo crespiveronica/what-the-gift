@@ -36,7 +36,7 @@ class AdminsController < ApplicationController
   end
 
   def category_edit
-    redirect_to '/categories'
+    @categories = Category.paginate(:page => params[:page], :per_page => 30)
   end
 
   def user_edit
