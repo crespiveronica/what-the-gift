@@ -4,7 +4,15 @@
 
   <%= will_paginate @users %>
 
-  <table class="table">
+  <table class="table table-striped table-hover">
+    <tr>
+      <th>Nombre</th>
+      <th>E-mail</th>
+      <th>Estado</th>
+      <th>Motivo</th>
+      <th colspan="2">Acción</th>
+    </tr>
+
     <% @users.each do |user| %>
       <tr class="users">
         <%= form_for user, url: disable_user_path(user), method: 'post' do |u| %>

@@ -5,6 +5,14 @@
   <%= will_paginate @sellers %>
 
   <table class="table">
+    <tr>
+      <th>Vendedor</th>
+      <th>E-mail</th>
+      <th>Estado</th>
+      <th>Motivo</th>
+      <th colspan="2">Acción</th>
+    </tr>
+
     <% @sellers.each do |seller| %>
       <tr class="users">
         <%= form_for seller, url: disable_seller_path(seller), method: 'post' do |s| %>
