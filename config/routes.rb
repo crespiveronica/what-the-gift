@@ -27,8 +27,10 @@ Wtg::Application.routes.draw do
   match '/users/reactivate/:id', to: 'users#reactivate', via: 'get', :as => 'reactivate'
   match '/users/reactivate/:id', to: 'users#reactivatePost', via: 'post', :as => 'reactivate_post'
 
-  match '/users/:id/enable', to: 'users#enable', via: 'post', :as => 'enable'
-  match '/users/:id/disable', to: 'users#disable', via: 'post', :as => 'disable'
+  match '/users/:id/enable', to: 'users#enable', via: 'post', :as => 'enable_user'
+  match '/users/:id/disable', to: 'users#disable', via: 'post', :as => 'disable_user'
+  match '/sellers/:id/enable', to: 'sellers#enable', via: 'post', :as => 'enable_seller'
+  match '/sellers/:id/disable', to: 'sellers#disable', via: 'post', :as => 'disable_seller'
 
   match '/products/recommended/', to: 'products#recommended', via: 'get'
   match '/products/favorites/', to: 'products#favorites', via: 'get'

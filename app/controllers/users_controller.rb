@@ -1,3 +1,5 @@
+require 'pry'
+
 class UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
@@ -134,6 +136,8 @@ class UsersController < ApplicationController
   def disable
     @user = User.find(params[:id])
     @user.active = false
+    @user.banned_reason = params[:user][:banned_reason]
+    binding.pry
     @user.save
     flash[:info] = "El usuario ha sido deshabilitado."
     redirect_to admin_user_edit_path
@@ -142,6 +146,7 @@ class UsersController < ApplicationController
   def enable
     @user = User.find(params[:id])
     @user.active = true
+    @user.banned_reason = nil
     @user.save
     flash[:info] = "El usuario ha sido habilitado."
     redirect_to admin_user_edit_path

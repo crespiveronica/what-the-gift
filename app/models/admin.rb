@@ -15,6 +15,10 @@ class Admin
     username
   end
 
+  def is_admin?
+    self.class.to_s == 'Admin'
+  end
+
   private
 
     def create_remember_token

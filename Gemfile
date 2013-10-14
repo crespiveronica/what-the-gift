@@ -20,6 +20,7 @@ group :development, :test do
 #  gem 'rspec-rails', '2.11.0'
    gem 'capybara', '1.1.2'
    gem 'pry'
+#  gem 'better_errors'
 #  gem 'guard-rspec', '1.2.1'
 #  gem 'guard-spork', :github => 'guard/guard-spork'
 #  gem 'childprocess', '0.3.9'

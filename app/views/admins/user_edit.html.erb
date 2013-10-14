@@ -7,11 +7,18 @@
   <table class="table">
     <% @users.each do |user| %>
       <tr class="users">
-        <td><%= user.full_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.active ? 'Habilitado' : 'Deshabilitado' %></td>
-        <td><%= link_to "Habilitar", enable_path(user), method: :post, class: "btn btn-info btn-small pull-right" %></td>
-        <td><%= link_to "Deshabilitar", disable_path(user), method: :post, class: "btn btn-warning btn-small pull-right" %></td>
+        <%= form_for user, url: disable_user_path(user), method: 'post' do |u| %>
+          <td><%= user.full_name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.active ? 'Habilitado' : 'Deshabilitado' %></td>
+          <% if user.active %>
+            <td><%= u.text_field :banned_reason %></td>
+          <% else %>
+            <td><%= user.banned_reason %></td>
+          <% end %>
+          <td><%= link_to "Habilitar", enable_user_path(user), method: :post, class: "btn btn-info btn-small" %></td>
+          <td><%= u.submit "Deshabilitar", class: "btn btn-warning btn-small" %></td>
+        <% end %>
       </tr>
     <% end %>
 
