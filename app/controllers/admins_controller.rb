@@ -32,7 +32,7 @@ class AdminsController < ApplicationController
   end
 
   def product_edit
-    @selling_products = SellingProduct.where(:approved => false)
+    @selling_products = SellingProduct.where(:pending => true)
     @selling_products.map {|sp| sp.seller = Seller.find(sp.seller) }
     @selling_products.map {|sp| sp.product = Product.find(sp.product) }
   end
