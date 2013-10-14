@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Administrar Usuarios</h2>
+  <%= render 'shared/info_messages' %>
+
+  <%= will_paginate @sellers %>
+
+  <table class="table">
+    <% @sellers.each do |seller| %>
+      <tr class="users">
+        <%= form_for seller, url: disable_seller_path(seller), method: 'post' do |s| %>
+          <td><%= seller.full_name %></td>
+          <td><%= seller.email %></td>
+          <td><%= seller.active ? 'Habilitado' : 'Deshabilitado' %></td>
+          <% if seller.active %>
+            <td><%= s.text_field :banned_reason %></td>
+          <% else %>
+            <td><%= seller.banned_reason %></td>
+          <% end %>
+          <td><%= link_to "Habilitar", enable_seller_path(seller), method: :post, class: "btn btn-info btn-small" %></td>
+          <td><%= s.submit "Deshabilitar", class: "btn btn-warning btn-small" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+
+  </table>
+
+  <%= will_paginate @sellers %>
+
+</div>

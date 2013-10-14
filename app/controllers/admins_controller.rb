@@ -1,7 +1,9 @@
 class AdminsController < ApplicationController
 
   def index
-    @admins = Admin.all
+    if !signed_in?
+      redirect_to admin_login_path
+    end
   end
 
   def show
@@ -39,6 +41,10 @@ class AdminsController < ApplicationController
 
   def user_edit
     @users = User.paginate(:page => params[:page], :per_page => 30)
+  end
+
+  def seller_edit
+    @sellers = Seller.paginate(:page => params[:page], :per_page => 30)
   end
 
   def login
