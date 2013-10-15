@@ -14,12 +14,12 @@ class UsersController < ApplicationController
     2.times { @user.hobbies.build }
   end
 
-   def edit
+  def edit
     @user = current_user
     @change_avatar_path = user_change_avatar_path
-   end
+  end
 
-   def update
+  def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       sign_in @user
@@ -80,7 +80,7 @@ class UsersController < ApplicationController
     render 'users/search'
   end
 
- def makeAGift
+  def makeAGift
     @friend = User.find_by_id params[:id]
     @products = @friend.wishlist + @friend.recommended
     @products = @products.uniq
@@ -130,10 +130,11 @@ class UsersController < ApplicationController
     user.save
     sign_in user
     return redirect_to user
+  end
 
   def disable
     @user = User.find(params[:id])
-    @user.banned = false
+    @user.banned = true
     @user.banned_reason = params[:user][:banned_reason]
     @user.save
     flash[:info] = "El usuario ha sido deshabilitado."
@@ -142,7 +143,7 @@ class UsersController < ApplicationController
 
   def enable
     @user = User.find(params[:id])
-    @user.banned = true
+    @user.banned = false
     @user.banned_reason = nil
     @user.save
     flash[:info] = "El usuario ha sido habilitado."
