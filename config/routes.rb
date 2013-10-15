@@ -26,6 +26,12 @@ Wtg::Application.routes.draw do
   match '/confirm/:id/:token/', to: 'users#confirm', via: 'get', :as => 'confirm'
   match '/users/reactivate/:id', to: 'users#reactivate', via: 'get', :as => 'reactivate'
   match '/users/reactivate/:id', to: 'users#reactivatePost', via: 'post', :as => 'reactivate_post'
+  match '/banned/:id', to: 'static_pages#banned', via: 'get', :as => 'banned'
+
+  match '/users/:id/enable', to: 'users#enable', via: 'post', :as => 'enable_user'
+  match '/users/:id/disable', to: 'users#disable', via: 'post', :as => 'disable_user'
+  match '/sellers/:id/enable', to: 'sellers#enable', via: 'post', :as => 'enable_seller'
+  match '/sellers/:id/disable', to: 'sellers#disable', via: 'post', :as => 'disable_seller'
 
   match '/products/recommended/', to: 'products#recommended', via: 'get'
   match '/products/favorites/', to: 'products#favorites', via: 'get'
@@ -42,13 +48,17 @@ Wtg::Application.routes.draw do
   match '/products/:id/wishlist', to: 'products#wishlist', :as => 'product_add_to_wishlist'
   match '/products/:id/rate', to: 'products#rate', via: 'post', :as => 'product_rate'
 
+  match '/sellingproduct/:id/approve', to: 'sellingproduct#approve', via: 'post', :as => 'approve'
+  match '/sellingproduct/:id/reject', to: 'sellingproduct#reject', via: 'post', :as => 'reject'
+
   match '/about/', to: 'static_pages#about', via: 'get'
   match '/contact/', to: 'static_pages#contact', via: 'get'
 
-  match '/admins/login', to: 'admins#login', via: 'get'
-  match '/admins/user_edit', to: 'admins#user_edit', via: 'get', :as => 'user_edit'
-  match '/admins/product_edit', to: 'admins#product_edit', via: 'get'
-  match '/admins/category_edit', to: 'admins#category_edit', via: 'get'
+  match '/admins/login', to: 'admins#login', via: 'get', :as => 'admin_login'
+  match '/admins/user_edit', to: 'admins#user_edit', via: 'get', :as => 'admin_user_edit'
+  match '/admins/seller_edit', to: 'admins#seller_edit', via: 'get', :as => 'admin_seller_edit'
+  match '/admins/product_edit', to: 'admins#product_edit', via: 'get', :as => 'admin_product_edit'
+  match '/admins/category_edit', to: 'admins#category_edit', via: 'get', :as => 'admin_category_edit'
 
   resources :users
   resources :sellers

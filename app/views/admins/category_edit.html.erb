@@ -1,0 +1,43 @@
+<div class="container">
+  <h3 class="text-center">Administrar Categorías</h3>
+
+  <h5 id="new-category">Nueva categoría</h5>
+  <div id="new-category-form">
+    <%= form_for @new_category do |nc| %>
+      <%= nc.label :name, 'Nombre' %>
+      <%= nc.text_field :name %>
+
+      <%= nc.label :description, 'Descripción' %>
+      <%= nc.text_field :description %>
+
+      <%= nc.submit "Crear", class: "btn btn-small btn-success" %>
+    <% end %>
+  </div>
+
+  <%= render 'shared/info_messages' %>
+
+  <%= will_paginate @categories %>
+
+  <table class="table table-striped table-hover">
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th colspan="2">Acción</th>
+    </tr>
+
+    <% @categories.each do |cat| %>
+      <tr class="users">
+        <%= form_for cat, url: (cat), method: 'post' do |u| %>
+          <td><%= cat.name %></td>
+          <td><%= cat.description %></td>
+          <td><%= link_to "Modificar", edit_category_path(cat), class: "btn btn-info btn-small" %></td>
+          <td><%= link_to "Eliminar", category_path(cat), method: :delete, class: "btn btn-warning btn-small" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+
+  </table>
+
+  <%= will_paginate @categories %>
+
+</div>

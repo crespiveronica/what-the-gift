@@ -11,4 +11,9 @@ class StaticPagesController < ApplicationController
 
   def reactivate
   end
+
+  def banned
+    @user = GenericUser.find(params[:id])
+  end
+
 end
