@@ -26,6 +26,7 @@ Wtg::Application.routes.draw do
   match '/confirm/:id/:token/', to: 'users#confirm', via: 'get', :as => 'confirm'
   match '/users/reactivate/:id', to: 'users#reactivate', via: 'get', :as => 'reactivate'
   match '/users/reactivate/:id', to: 'users#reactivatePost', via: 'post', :as => 'reactivate_post'
+  match '/banned/:id', to: 'static_pages#banned', via: 'get', :as => 'banned'
 
   match '/users/:id/enable', to: 'users#enable', via: 'post', :as => 'enable_user'
   match '/users/:id/disable', to: 'users#disable', via: 'post', :as => 'disable_user'

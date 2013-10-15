@@ -10,7 +10,9 @@ class SessionsController < ApplicationController
       userSearch = GenericUser.where(email: params[:session][:email].downcase)
       if (userSearch.size == 1)
         user = userSearch.first
-        if (user.active)
+        if (user.banned)
+          redirect_to banned_path(user) and return
+        elsif (user.active)
           if (user.authenticate(params[:session][:password]))
             if not user.deleted
               sign_in user
