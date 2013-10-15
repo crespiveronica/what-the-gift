@@ -12,7 +12,7 @@
         <h3 class="text-right">Vendido por Empresa</h3>
         <h4 class="text-right">$ Precio</h4>
         <p class="muted text-right">Producto ubicado en tal lado<p>
-        <% if not current_user.wishlist.include? @product %>
+        <% if current_user._type == 'User' and not current_user.wishlist.include? @product %>
         <p class="text-right">
             <a href="<%= product_add_to_wishlist_path :id => @product.id %>" class="btn btn-danger" type="button"><i class="icon-white icon-heart"></i> Wishlist</a>
         </p>
