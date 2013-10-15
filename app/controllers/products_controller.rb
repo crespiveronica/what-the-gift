@@ -75,12 +75,12 @@ class ProductsController < ApplicationController
       filtered_products = (filtered_products & sellerProducts).uniq
     end
     if( !@price_enable.blank? & (!@price_from.blank? || !@price_to.blank?))
-      filtered_selling_products = Seller.all.flat_map {|s| s.selling_products}
+      filtered_selling_products = SellingProduct.all
       if(!@price_from.blank?)
-        filtered_selling_products = filtered_selling_products.select {|p| p.price >= @price_from.to_f}
+        filtered_selling_products = filtered_selling_products.where(:price.gt =>@price_from.to_f)
       end
       if(!@price_to.blank?)
-        filtered_selling_products = filtered_selling_products.select {|p| p.price < @price_to.to_f}
+        filtered_selling_products = filtered_selling_products.where(:price.lt =>@price_to.to_f)
       end
       filtered_products = filtered_products & filtered_selling_products.map {|sp| sp.product}
     end
