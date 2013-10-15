@@ -11,6 +11,14 @@ class Admin
   field :password_digest, type: String
   field :remember_token, type: String
 
+  def full_name
+    username
+  end
+
+  def is_admin?
+    self.class.to_s == 'Admin'
+  end
+
   private
 
     def create_remember_token

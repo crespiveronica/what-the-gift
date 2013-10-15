@@ -4,40 +4,14 @@
       <%= link_to "what the gift?!", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-      <!-- <li><%= link_to "Iniciar sesión", '#', onclick: "$('#loginModal').modal('toggle');" %></li>
-          <li><%= link_to "Registrarse", signup_path %></li>
-          <li><a href="#">Salir</a></li> -->
-          <% if signed_in? %>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <%= "#{current_user.full_name}" %>
-                <% if current_user._type == 'User' && current_user.pending_requests.count > 0 %>
-                  <span class="badge badge-warning"><%= current_user.pending_requests.count %></span>
-                <% end %>
-                <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Perfil", current_user %></li>
-                <li class="divider"></li>
-                <% if current_user._type == 'User' && current_user.pending_requests.count > 0 %>
-                  <li><%= link_to "Solicitudes de amistad (#{current_user.pending_requests.count})", friend_requests_path %></li>
-                  <li class="divider"></li>
-                <% end %>
-                <li>
-                  <%= link_to "Cerrar sesión", signout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "Iniciar sesión", signin_path %></li>
-          <% end %>
+          <%= render 'layouts/dropdown' %>
         </ul>
       </nav>
     </div>
   </div>
 </header>
 
-<% if current_user && current_user._type == 'User' %>
+<% if current_user && current_user.class.to_s == 'User' %>
 
   <div class="navbar navbar-static-top">
     <div class="navbar-inner container">
@@ -60,20 +34,20 @@
     </div>
   </div>
 
-<% elsif current_user && current_user._type == 'Admin' %>
+<% elsif current_user && current_user.class.to_s == 'Admin' %>
 
   <div class="navbar navbar-static-top">
     <div class="navbar-inner container">
       <ul class="nav">
-        <li><%= link_to "Vendedores", '/sellers' %></li>
-        <li><%= link_to "Productos", '/products' %></li>
-        <li><%= link_to "Categorías", '/categories' %></li>
-        <li><%= link_to "Usuarios", '/users' %></li>
+        <li><%= link_to "Usuarios", admin_user_edit_path %></li>
+        <li><%= link_to "Vendedores", admin_seller_edit_path %></li>
+        <li><%= link_to "Productos", admin_product_edit_path %></li>
+        <li><%= link_to "Categorías", admin_category_edit_path %></li>
       </ul>
     </div>
   </div>
 
-<% elsif current_user && current_user._type == 'Seller' %>
+<% elsif current_user && current_user.class.to_s == 'Seller' %>
 
   <div class="navbar navbar-static-top">
     <div class="navbar-inner container">

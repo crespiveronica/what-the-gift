@@ -13,11 +13,14 @@ gem 'bcrypt-ruby', '3.0.1'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'aws-sdk', '~> 1.3.4'
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
+gem 'will_paginate_mongoid'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
 #  gem 'rspec-rails', '2.11.0'
    gem 'capybara', '1.1.2'
    gem 'pry'
+#  gem 'better_errors'
 #  gem 'guard-rspec', '1.2.1'
 #  gem 'guard-spork', :github => 'guard/guard-spork'
 #  gem 'childprocess', '0.3.9'

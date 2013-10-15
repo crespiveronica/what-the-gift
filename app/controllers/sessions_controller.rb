@@ -10,7 +10,9 @@ class SessionsController < ApplicationController
       userSearch = GenericUser.where(email: params[:session][:email].downcase)
       if (userSearch.size == 1)
         user = userSearch.first
-        if (user.active)
+        if (user.banned)
+          redirect_to banned_path(user) and return
+        elsif (user.active)
           if (user.authenticate(params[:session][:password]))
             if not user.deleted
               sign_in user
@@ -39,10 +41,11 @@ class SessionsController < ApplicationController
       admin = adminSearch.first
       if admin.authenticate(params[:session][:password])
         sign_in admin
-        redirect_to user_edit_path
+        redirect_to admins_path
         return
       end
     end
+    redirect_to admin_login_path, alert: 'Email/Contrasena incorrectos'
   end
 
 end

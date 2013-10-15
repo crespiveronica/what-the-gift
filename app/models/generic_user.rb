@@ -16,7 +16,7 @@ class GenericUser
   field :password_digest, type: String
   field :active, type: Boolean
   field :deleted, type: Boolean
-  field :banned, type: Boolean
+  field :banned, type: Boolean, default: false
   field :banned_reason, type: String
   field :remember_token, type: String
   field :signup_token, type: String
