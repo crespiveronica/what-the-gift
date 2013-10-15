@@ -37,9 +37,6 @@ class ProductsController < ApplicationController
     @user = current_user
   end
 
-  def mine
-  end
-
   def wishlist
     @product = Product.where(:id => params[:id]).first
     if @product

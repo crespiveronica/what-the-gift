@@ -1,0 +1,14 @@
+<% @selling_products.each do |selling_product| %>
+    <li class="span2">
+      <div class="thumbnail gift">
+        <%= image_tag "gift1.jpg", size: '100x100', class: 'img-rounded' %>
+		<h5><%= selling_product.product.name %></h5>
+		<p><small><%= selling_product.product.description %></small></p> 
+    <p><small><%= selling_product.price %></small></p>  
+        <p class="bottom">
+            <%= link_to 'Modificar', edit_selling_products_path(:id => selling_product.id), :class => 'btn btn-mini btn-primary pull-right' %>
+            <%= link_to 'Eliminar', destroy_selling_products_path(:id => selling_product.id), :class => 'btn btn-danger btn-mini btn-primary pull-right' %>
+        </p>
+      </div>
+    </li>
+<% end %>
