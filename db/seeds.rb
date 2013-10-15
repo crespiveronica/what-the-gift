@@ -143,11 +143,11 @@ print "Creating 100 users..."
   u.active = active
   u.banned = banned
   u.wishlist = []
-  u.wishlist << Product.all.entries[rand.rand(10)]
-  u.wishlist << Product.all.entries[rand.rand(10)]
+  #u.wishlist << Product.all.entries[rand.rand(10)]
+  #u.wishlist << Product.all.entries[rand.rand(10)]
   gift = Gift.new
-  gift.product = Product.all[rand.rand(10)]
-  gift.score = rand.rand(10)
+  #gift.product = Product.all[rand.rand(10)]
+  #gift.score = rand.rand(10)
   u.gifts = [gift]
   u.save
 end
@@ -196,11 +196,11 @@ sach.password_confirmation = '12345678'
 sach.active = active
 sach.banned = banned
 sach.wishlist = []
-sach.wishlist << Product.all.entries[rand.rand(10)]
-sach.wishlist << Product.all.entries[rand.rand(10)]
+#sach.wishlist << Product.all.entries[rand.rand(10)]
+#sach.wishlist << Product.all.entries[rand.rand(10)]
 gift = Gift.new
-gift.product = Product.all[rand.rand(10)]
-gift.score = rand.rand(10)
+#gift.product = Product.all[rand.rand(10)]
+#gift.score = rand.rand(10)
 sach.gifts = [gift]
 sach.save
 
@@ -213,12 +213,12 @@ fer.password_confirmation = 'password'
 fer.active = active
 fer.banned = banned
 fer.wishlist = []
-fer.wishlist << Product.all.entries[rand.rand(10)]
-fer.wishlist << Product.all.entries[rand.rand(10)]
+#fer.wishlist << Product.all.entries[rand.rand(10)]
+#fer.wishlist << Product.all.entries[rand.rand(10)]
 gift = Gift.new
-gift.product = Product.all[rand.rand(10)]
-gift.score = rand.rand(10)
-fer.gifts = [gift]
+#gift.product = Product.all[rand.rand(10)]
+#gift.score = rand.rand(10)
+#fer.gifts = [gift]
 fer.save
 
 joaquincito = User.new
@@ -230,12 +230,12 @@ joaquincito.password_confirmation = '12345678'
 joaquincito.active = active
 joaquincito.banned = banned
 joaquincito.wishlist = []
-joaquincito.wishlist << Product.all.entries[rand.rand(10)]
-joaquincito.wishlist << Product.all.entries[rand.rand(10)]
+#joaquincito.wishlist << Product.all.entries[rand.rand(10)]
+#joaquincito.wishlist << Product.all.entries[rand.rand(10)]
 gift = Gift.new
-gift.product = Product.all[rand.rand(10)]
-gift.score = rand.rand(10)
-joaquincito.gifts = [gift]
+#gift.product = Product.all[rand.rand(10)]
+#gift.score = rand.rand(10)
+#joaquincito.gifts = [gift]
 joaquincito.save
 
 vero = User.new
@@ -247,10 +247,10 @@ vero.password_confirmation = '12345678'
 vero.active = active
 vero.banned = banned
 vero.wishlist = []
-vero.wishlist << Product.all.entries[rand.rand(10)]
-vero.wishlist << Product.all.entries[rand.rand(10)]
+#vero.wishlist << Product.all.entries[rand.rand(10)]
+#vero.wishlist << Product.all.entries[rand.rand(10)]
 gift = Gift.new
-gift.product = Product.all[rand.rand(10)]
-gift.score = rand.rand(10)
-vero.gifts = [gift]
+#gift.product = Product.all[rand.rand(10)]
+#gift.score = rand.rand(10)
+#vero.gifts = [gift]
 vero.save
