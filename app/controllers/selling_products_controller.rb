@@ -33,6 +33,7 @@ class SellingProductsController < ApplicationController
   def destroy
     @selling_product = SellingProduct.where(:id => params[:id]).first
     @selling_product.destroy
+    redirect_to '/my-products/', alert: 'Se ha eliminado el producto'
   end
 
 end
