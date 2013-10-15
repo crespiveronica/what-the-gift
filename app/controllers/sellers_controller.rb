@@ -50,7 +50,7 @@ class SellersController < ApplicationController
 
   def disable
     @user = Seller.find(params[:id])
-    @user.active = false
+    @user.banned = true
     @user.banned_reason = params[:seller][:banned_reason]
     @user.save
     flash[:info] = "El usuario ha sido deshabilitado."
@@ -59,7 +59,7 @@ class SellersController < ApplicationController
 
   def enable
     @user = Seller.find(params[:id])
-    @user.active = true
+    @user.banned = false
     @user.banned_reason = nil
     @user.save
     flash[:info] = "El usuario ha sido habilitado."
