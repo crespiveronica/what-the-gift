@@ -1,0 +1,32 @@
+<fieldset>
+  <legend><h4>Mi Producto</h4></legend>
+  <%= form_tag(update_selling_product_path(:id => @selling_product.id), method: "put") do %>
+
+  <div class="row">
+    <div class="span4"><strong>Nombre</strong></div>
+    <div class="span5"><input type="text" value="<%=@selling_product.product.name %>" disabled></div>
+  </div>
+
+  <div class="row">
+    <div class="span4"><strong>Descripción</strong></div>
+    <div class="span5"><input type="text" value="<%=@selling_product.product.description %>" disabled></div>
+  </div>
+
+  <div class="row">
+    <div class="span4"><strong>Marca</strong></div>
+    <div class="span5"><input type="text" value="<%=@selling_product.product.brand %>" disabled></div>
+  </div>
+
+ <div class="row">
+    <div class="span4"><strong>Precio</strong></div>
+    <div class="span5"><input type="text" value="<%=@selling_product.price %>" name="price"></div>
+  </div>
+  
+  <div class="span2 offset3">
+            <p class="text-center">
+    <%= submit_tag("Confirmar", class: 'btn btn-success btn-block') %>
+    </p>
+  </div>
+
+  <% end %>
+</fieldset>
