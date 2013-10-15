@@ -21,6 +21,17 @@ class SellingProductsController < ApplicationController
   end
 
   def create
+    product  = Product.new
+    product.name = params[:name]
+    product.description = params[:description]
+    product.brand = params[:brand]
+    product.save
+    selling_product = SellingProduct.new
+    selling_product.product = product
+    selling_product.seller = current_user
+    selling_product.price = params[:price] 
+    selling_product.save
+    redirect_to '/my-products/', alert: 'Se ha creado el nuevo producto'
   end
 
   def update

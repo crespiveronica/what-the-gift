@@ -1,16 +1,11 @@
 <!-- Contenido principal -->
 <div class="container">
-  <div class="page-header text-center">
-    <h3>John Doe <br><small>johndoeVendedor2013 | johndoeVendedor@gmail.com</small></h3>
-  </div>
-
   <div>
-    <form>
       <fieldset>
-        <legend><h4>Perfil</h4></legend>
+        <legend><h4>Nuevo Producto</h4></legend>
         <div class="row">
           <div class="span4">
-            <a href="#changePhotoModal" role="button" data-toggle="modal"><span></span><%= image_tag "http://lorempixel.com/124/125/food/2/cc", size: "200x200", class: "img-polaroid img-rounded" %></a>
+            <a href="#changePhotoModal" role="button" data-toggle="modal"><span></span><%= image_tag "Fotos.png", size: "200x200", class: "img-polaroid img-rounded" %></a>
           </div>
           <div class="span3"></div>
         </div>
@@ -22,50 +17,47 @@
           <div class="span3"></div>
         </div>
         <div class="row">
-          <div class="span9"><h4>Sobre mi</h4></div>
+          <div class="span9"><h4>Sobre mi producto</h4></div>
         </div>
         <div class="row">
           <div class="span9">
+          <form action="<%= create_selling_products_path%>" method="post">
             <div class="row">
               <div class="span4"><strong>Nombre del producto</strong></div>
-              <div class="span5"><input type="text" value="Regalito 1"></div>
+              <div class="span5"><input type="text" name="name"></div>
+            </div>
+            <div class="row">
+              <div class="span4"><strong>Marca</strong></div>
+              <div class="span5"><input type="text" name="brand"></div>
             </div>
             <div class="row">
               <div class="span4"><strong>Descripción</strong></div>
-              <div class="span5"><input type="text" value="El mejor regalito de todos"></div>
+              <div class="span5"><input type="text" name="description"></div>
             </div>
             <div class="row">
               <div class="span4"><strong>Precio</strong></div>
-              <div class="span5"><input type="text" value="250"></div>
-            </div>
-            <div class="row">
-              <div class="span4"><strong>Medios de pago</strong></div>
-              <div class="span5"><input type="text" value="AMEX, Efectivo."></div>
-            </div>
-            <div class="row">
-              <div class="span4"><strong>Observaciones</strong></div>
-              <div class="span5"><input type="text" value="El mejor de nuestros regalitos"></div>
+              <div class="span5"><input type="text" name="price"></div>
             </div>
             <div class="row">
               <div class="span3"></div>
               <div class="span2">
-                <p class="text-center"><a class="btn btn-success btn-block" href="#addProductSuccessModal" role="button" data-toggle="modal">Confirmar cambios</a>
+                <p class="text-center">
+                  <input type="submit" class="btn btn-success btn-block" value="Crear" />
                 </p>
               </div>
               <div class="span2">
-                <p class="text-center"><a class="btn btn-danger btn-block" href="/profile">Cancelar</a>
+                <p class="text-center">
+                  <%= link_to 'Cancelar', '/my-products/', :method => :get,  :class => 'btn btn-danger btn-block' %>
                 </p>
               </div>
+              </form>
             </div>
           </div>
         </div>
       </fieldset>
-    </form>
   </div>
 </div>
 
-
-<%= render template: 'profile/modals' %>
 
 <div id="addProductSuccessModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="addProductSuccessModal" aria-hidden="true">
   <div class="modal-header">
@@ -73,7 +65,7 @@
     <h3 id="addProductSuccessLabel">¡Felicitaciones!</h3>
   </div>
   <div class="modal-body">
-    Producto modificado con éxito
+    Producto guardado con éxito
   </div>
   <div class="modal-footer">
     <a href="/profile/" class="btn btn-primary">Aceptar</a>

@@ -52,9 +52,11 @@ Wtg::Application.routes.draw do
   match '/sellingproduct/:id/approve', to: 'sellingproduct#approve', via: 'post', :as => 'approve'
   match '/sellingproduct/:id/reject', to: 'sellingproduct#reject', via: 'post', :as => 'reject'
   match '/my-products/', to: 'selling_products#mine', via: 'get'
-  match '/my-products/:id/edit', to: 'selling_products#edit', via: 'get', :as => 'edit_selling_products'
-  match '/my-products/:id', to: 'selling_products#destroy', via:'delete', :as => 'destroy_selling_products'
-  match '/my-products/:id', to: 'selling_products#update', via: 'put', :as => 'update_selling_product'
+  match '/my-products/:id/edit/', to: 'selling_products#edit', via: 'get', :as => 'edit_selling_products'
+  match '/my-products/:id/', to: 'selling_products#destroy', via:'delete', :as => 'destroy_selling_products'
+  match '/my-products/:id/', to: 'selling_products#update', via: 'put', :as => 'update_selling_products'
+  match '/my-products/new/', to: 'selling_products#new', via: 'get', :as => 'new_selling_products'
+  match '/my-products/create/', to: 'selling_products#create', via: 'post', :as => 'create_selling_products'
 
 
   match '/about/', to: 'static_pages#about', via: 'get'
@@ -69,6 +71,7 @@ Wtg::Application.routes.draw do
   resources :users
   resources :sellers
   resources :products
+  resources :selling_products
   resources :categories
   resources :admins
   resources :profile
