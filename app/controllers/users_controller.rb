@@ -133,7 +133,7 @@ class UsersController < ApplicationController
 
   def disable
     @user = User.find(params[:id])
-    @user.active = false
+    @user.banned = false
     @user.banned_reason = params[:user][:banned_reason]
     @user.save
     flash[:info] = "El usuario ha sido deshabilitado."
@@ -142,7 +142,7 @@ class UsersController < ApplicationController
 
   def enable
     @user = User.find(params[:id])
-    @user.active = true
+    @user.banned = true
     @user.banned_reason = nil
     @user.save
     flash[:info] = "El usuario ha sido habilitado."

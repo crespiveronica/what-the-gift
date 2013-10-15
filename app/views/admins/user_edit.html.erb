@@ -18,8 +18,8 @@
         <%= form_for user, url: disable_user_path(user), method: 'post' do |u| %>
           <td><%= user.full_name %></td>
           <td><%= user.email %></td>
-          <td><%= user.active ? 'Habilitado' : 'Deshabilitado' %></td>
-          <% if user.active %>
+          <td><%= user.banned ? 'Habilitado' : 'Deshabilitado' %></td>
+          <% if user.banned %>
             <td><%= u.text_field :banned_reason %></td>
           <% else %>
             <td><%= user.banned_reason %></td>
