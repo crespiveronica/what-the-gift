@@ -53,8 +53,7 @@ class SellersController < ApplicationController
     @user.banned = true
     @user.banned_reason = params[:seller][:banned_reason]
     @user.save
-    flash[:info] = "El usuario ha sido deshabilitado."
-    redirect_to admin_seller_edit_path
+    redirect_to admin_seller_edit_path, alert: 'El usuario ha sido deshabilitado.'
   end
 
   def enable
@@ -62,8 +61,7 @@ class SellersController < ApplicationController
     @user.banned = false
     @user.banned_reason = nil
     @user.save
-    flash[:info] = "El usuario ha sido habilitado."
-    redirect_to admin_seller_edit_path
+    redirect_to admin_seller_edit_path, alert: 'El usuario ha sido habilitado.'
   end
 
 end

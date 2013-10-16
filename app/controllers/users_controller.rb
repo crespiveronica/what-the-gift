@@ -138,6 +138,7 @@ class UsersController < ApplicationController
     @user.banned_reason = params[:user][:banned_reason]
     @user.save
     flash[:info] = "El usuario ha sido deshabilitado."
+    UserMailer.inform_state(@user).deliver
     redirect_to admin_user_edit_path
   end
 
@@ -147,6 +148,7 @@ class UsersController < ApplicationController
     @user.banned_reason = nil
     @user.save
     flash[:info] = "El usuario ha sido habilitado."
+    UserMailer.inform_state(@user).deliver
     redirect_to admin_user_edit_path
   end
 
