@@ -109,7 +109,7 @@ class UsersController < ApplicationController
   end
 
   def confirm
-    @user = User.find_by_id params[:id]
+    @user = GenericUser.find params[:id]
     if @user != nil and @user.signup_token == params[:token]
       @user.active = true
       @user.save
