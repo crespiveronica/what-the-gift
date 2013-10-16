@@ -88,6 +88,7 @@ end
 sellers[0].company_name = 'Librerías Yenny'
 sellers[0].web = 'http://www.yenny.com.ar/'
 sellers[0].active = active
+sellers[0].email = 'joaquinperezbay@hotmail.com'
 sellers[0].save
 sellers[1].company_name = 'Librería Cúspide'
 sellers[1].web = 'http://www.cuspide.com.ar/'
