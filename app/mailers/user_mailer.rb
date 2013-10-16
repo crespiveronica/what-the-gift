@@ -11,4 +11,9 @@ class UserMailer < ActionMailer::Base
   	@user = user
   	mail(to: @user.email, subject: 'Nueva password')
   end
+
+  def inform_state(user)
+    @user = user
+    mail(to: @user.email, subject: 'Se ha cambiado su estado')
+  end
 end
