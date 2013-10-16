@@ -25,17 +25,18 @@
         <label class="control-label">Tipo</label>
         <div class="controls">
           <select id="userType">
-            <option value="">Seleccione un tipo de usuario</option>
+            <option value="none">Seleccione un tipo de usuario</option>
             <option value="/users/new">Usuario</option>
             <option value="/sellers/new">Vendedor</option>
           </select>
+          <p id="notice" style="color: red"></p>
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-    <a id="signup-button" href="none"><button class="btn btn-primary">Crear</button></a>
+    <a id="signup-link" href="none"><button id="signup-button" class="btn btn-primary" disabled="disabled">Crear</button></a>
   </div>
 </div>
 
@@ -47,8 +48,13 @@
 
   $('#userType').change(
     function() {
-      if (this.value) {
-        document.getElementById("signup-button").href = this.value
+      if (this.value == "none") {
+        document.getElementById("signup-button").disabled = true;
+        document.getElementById("notice").innerHTML = "Campo obligatorio.";
+      } else {
+        document.getElementById("signup-button").disabled = false;
+        document.getElementById("signup-link").href = this.value;
+        document.getElementById("notice").innerHTML = "";
       }
     }
   );
