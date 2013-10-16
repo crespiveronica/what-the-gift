@@ -96,10 +96,10 @@ class ProductsController < ApplicationController
     @price_to = params[:price_to]
     @query = params[:query]
     @free_text = params[:free_text].blank? ? @query : params[:free_text]
-    @brand_enable = params[:brand_enable] 
-    @seller_enable = params[:seller_enable] 
-    @category_enable  = params[:category_enable] 
-    @price_enable = params[:price_enable] 
+    @brand_enable = params[:brand_enable]
+    @seller_enable = params[:seller_enable]
+    @category_enable  = params[:category_enable]
+    @price_enable = params[:price_enable]
     @free_text_enable = params[:free_text_enable]
   end
 
@@ -119,6 +119,26 @@ class ProductsController < ApplicationController
     @products = Product.any_in(category_ids: params[:category])
     @brand_enable = @seller_enable = @category_enable  =  @price_enable = @free_text_enable = true
     render 'products/search'
+  end
+
+  def disable
+    @product = SellingProduct.find(params[:id])
+    @product.banned = true
+    @product.banned_reason = params[:selling_product][:banned_reason]
+    @product.save
+    flash[:info] = "Producto rechazado."
+    ProductMailer.publication_result(@product).deliver
+    redirect_to admin_product_edit_path
+  end
+
+  def enable
+    @product = SellingProduct.find(params[:id])
+    @product.banned = false
+    @product.banned_reason = nil
+    @product.save
+    flash[:info] = "Produto aprobado."
+    ProductMailer.publication_result(@product).deliver
+    redirect_to admin_product_edit_path
   end
 
 end

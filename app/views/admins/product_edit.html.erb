@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Administrar Productos</h2>
+  <h3 class="text-center">Administrar Productos</h3>
 
   <%= render 'shared/info_messages' %>
 
@@ -11,17 +11,30 @@
         <th>Producto</th>
         <th>Vendedor</th>
         <th>Precio</th>
+        <th>Motivo</th>
         <th colspan="2">Acción</th>
       </tr>
     </thead>
 
     <% @selling_products.each do |prod| %>
       <tr class="users">
-        <td><%= prod.product %></td>
-        <td><%= prod.seller %></td>
-        <td><%= prod.price %></td>
-        <td><%= link_to "Aprobar", approve_path(prod), method: :post, class: "btn btn-info btn-small" %></td>
-        <td><%= link_to "Rechazar", reject_path(prod), method: :post, class: "btn btn-warning btn-small" %></td>
+        <%= form_for prod, url: disable_product_path(prod), method: 'post' do |p| %>
+          <td><%= prod.product.name %></td>
+          <td><%= prod.seller.full_name %></td>
+          <td><%= prod.price %></td>
+          <% if prod.banned %>
+              <td><%= prod.banned_reason %></td>
+            <% else %>
+              <td><%= p.text_field :banned_reason %></td>
+            <% end %>
+          <% if prod.banned %>
+            <td><%= link_to "Habilitar", enable_product_path(prod), method: :post, class: "btn btn-info btn-small" %></td>
+            <td><button type="button" class="btn btn-warning btn-small" disabled="disabled">Deshabilitar</button></td>
+          <% else %>
+            <td><button type="button" class="btn btn-info btn-small" disabled="disabled">Habilitar</button></td>
+            <td><%= p.submit "Deshabilitar", class: "btn btn-warning btn-small" %></td>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
 
