@@ -32,8 +32,7 @@ class AdminsController < ApplicationController
   end
 
   def product_edit
-    @selling_products = SellingProduct.all
-    @selling_products = @selling_products.paginate(:page => params[:page], :per_page => 30)
+    @selling_products = SellingProduct.paginate(:page => params[:page], :per_page => 30)
   end
 
   def category_edit
