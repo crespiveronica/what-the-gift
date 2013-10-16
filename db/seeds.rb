@@ -87,18 +87,23 @@ end
 
 sellers[0].company_name = 'Librerías Yenny'
 sellers[0].web = 'http://www.yenny.com.ar/'
+sellers[0].active = active
 sellers[0].save
 sellers[1].company_name = 'Librería Cúspide'
 sellers[1].web = 'http://www.cuspide.com.ar/'
+sellers[1].active = active
 sellers[1].save
 sellers[2].company_name = 'Adidas'
 sellers[2].web = 'www.adidas.com.ar'
+sellers[2].active = active
 sellers[2].save
 sellers[3].company_name = 'Stock Center'
 sellers[3].web = 'www.stockcenter.com.ar'
+sellers[3].active = active
 sellers[3].save
 sellers[4].company_name = 'Apio Verde'
 sellers[4].web = 'www.apioverde.com'
+sellers[4].active = active
 sellers[4].save
 
 
