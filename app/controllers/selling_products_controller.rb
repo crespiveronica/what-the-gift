@@ -25,7 +25,9 @@ class SellingProductsController < ApplicationController
     product.name = params[:name]
     product.description = params[:description]
     product.brand = params[:brand]
+    @photo = params[:photo]
     product.save
+    @product.update_attributes({ :photo => @photo })
     selling_product = SellingProduct.new
     selling_product.product = product
     selling_product.seller = current_user
