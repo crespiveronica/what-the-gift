@@ -32,9 +32,8 @@ class AdminsController < ApplicationController
   end
 
   def product_edit
-    @selling_products = SellingProduct.where(:pending => true)
-    @selling_products.map {|sp| sp.seller = Seller.find(sp.seller) }
-    @selling_products.map {|sp| sp.product = Product.find(sp.product) }
+    @selling_products = SellingProduct.all
+    @selling_products = @selling_products.paginate(:page => params[:page], :per_page => 30)
   end
 
   def category_edit

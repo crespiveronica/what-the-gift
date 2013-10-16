@@ -121,4 +121,24 @@ class ProductsController < ApplicationController
     render 'products/search'
   end
 
+  def disable
+    @product = SellingProduct.find(params[:id])
+    @product.banned = true
+    @product.banned_reason = params[:selling_product][:banned_reason]
+    @product.save
+    flash[:info] = "El producto ha sido deshabilitado."
+    ProductMailer.publication_result(@product).deliver
+    redirect_to admin_product_edit_path
+  end
+
+  def enable
+    @product = SellingProduct.find(params[:id])
+    @product.banned = false
+    @product.banned_reason = nil
+    @product.save
+    flash[:info] = "El produto ha sido habilitado."
+    ProductMailer.publication_result(@product).deliver
+    redirect_to admin_product_edit_path
+  end
+
 end
