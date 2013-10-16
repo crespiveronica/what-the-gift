@@ -1,57 +1,45 @@
 <div class="container">
-  <h2>Administrar Productos</h2>
-  <table class="table table-striped">
+  <h3 class="text-center">Administrar Productos</h3>
+
+  <%= render 'shared/info_messages' %>
+
+  <%= will_paginate @selling_products %>
+
+  <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th>Imagen</th>
         <th>Producto</th>
+        <th>Vendedor</th>
         <th>Precio</th>
+        <th>Motivo</th>
         <th colspan="2">Acción</th>
       </tr>
     </thead>
-    <tbody>
-    <tr>
-      <td><img src="http://lorempixel.com/64/64/technics/5" class="img-rounded"></td>
-      <td><a href="">Auriculares Sennheiser</a></td>
-      <td>Vendedor 1</td>
-      <td><button class="btn btn-success">Aprobar</button></td>
-      <td><button class="btn btn-danger">Rechazar</button></td>
-    </tr>
-    <tr>
-      <td><img src="http://lorempixel.com/64/64/technics/6" class="img-rounded"></td>
-      <td><a href="">Portaretrato Digital</a></td>
-      <td>Vendedor 1</td>
-      <td><button class="btn btn-success">Aprobar</button></td>
-      <td><button class="btn btn-danger">Rechazar</button></td>
-    </tr>
-    <tr>
-      <td><img src="http://lorempixel.com/64/64/" class="img-rounded"></td>
-      <td><a href="">Producto 3</a></td>
-      <td>Vendedor 2</td>
-      <td><button class="btn btn-success">Aprobar</button></td>
-      <td><button class="btn btn-danger">Rechazar</button></td>
-    </tr>
-    <tr>
-      <td><img src="http://lorempixel.com/64/64/" class="img-rounded"></td>
-      <td><a href="">Producto 4</a></td>
-      <td>Vendedor 3</td>
-      <td><button class="btn btn-success">Aprobar</button></td>
-      <td><button class="btn btn-danger">Rechazar</button></td>
-    </tr>
-    <tr>
-      <td><img src="http://lorempixel.com/64/64/" class="img-rounded"></td>
-      <td><a href="">Producto 5</a></td>
-      <td>Vendedor 4</td>
-      <td><button class="btn btn-success">Aprobar</button></td>
-      <td><button class="btn btn-danger">Rechazar</button></td>
-    </tr>
-    <tr>
-      <td><img src="http://lorempixel.com/64/64/" class="img-rounded"></td>
-      <td><a href="">Producto 6</a></td>
-      <td>Vendedor 5</td>
-      <td><button class="btn btn-success">Aprobar</button></td>
-      <td><button class="btn btn-danger">Rechazar</button></td>
-    </tr>
-    </tbody>
+
+    <% @selling_products.each do |prod| %>
+      <tr class="users">
+        <%= form_for prod, url: disable_product_path(prod), method: 'post' do |p| %>
+          <td><%= prod.product.name %></td>
+          <td><%= prod.seller.full_name %></td>
+          <td><%= prod.price %></td>
+          <% if prod.banned %>
+              <td><%= prod.banned_reason %></td>
+            <% else %>
+              <td><%= p.text_field :banned_reason %></td>
+            <% end %>
+          <% if prod.banned %>
+            <td><%= link_to "Habilitar", enable_product_path(prod), method: :post, class: "btn btn-info btn-small" %></td>
+            <td><button type="button" class="btn btn-warning btn-small" disabled="disabled">Deshabilitar</button></td>
+          <% else %>
+            <td><button type="button" class="btn btn-info btn-small" disabled="disabled">Habilitar</button></td>
+            <td><%= p.submit "Deshabilitar", class: "btn btn-warning btn-small" %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+
   </table>
+
+  <%= will_paginate @selling_products %>
+
 </div>

@@ -1,3 +1,5 @@
+require 'pry'
+
 module SessionsHelper
 
   def sign_in(user)
@@ -14,7 +16,7 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= GenericUser.where(remember_token: cookies[:remember_token]).first
+    @current_user ||= GenericUser.where(remember_token: cookies[:remember_token]).first || Admin.where(remember_token: cookies[:remember_token]).first
   end
 
   def sign_out

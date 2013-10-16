@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hola <%= @selling_product.seller.full_name %>!</h1>
+    <p>
+      <% if @selling_product.banned %>
+        <p>Le enviamos este email para informarle que su producto <%= @selling_product.product.name %> ha sido desaprobado por el siguiente motivo:</p>
+        <p><%= @selling_product.banned_reason %></p>
+      <% else %>
+        <p>Felicitaciones! Le escribimos para informarle que la publicacion de su producto <%= @selling_product.product.name %> ha sido aprobada.</p>
+      <% end %>
+    </p>
+    <p>
+      Muchas gracias, el equipo de What The Gift?!
+    </p>
+  </body>
+</html>

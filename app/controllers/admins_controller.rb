@@ -1,7 +1,9 @@
 class AdminsController < ApplicationController
 
   def index
-    @admins = Admin.all
+    if !signed_in?
+      redirect_to admin_login_path
+    end
   end
 
   def show
@@ -24,22 +26,26 @@ class AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
   end
 
-  # DELETE /admins/1
-  # DELETE /admins/1.json
   def destroy
     @admin = Admin.find(params[:id])
     @admin.destroy
-
   end
 
   def product_edit
+    @selling_products = SellingProduct.paginate(:page => params[:page], :per_page => 30)
   end
 
   def category_edit
-    redirect_to '/categories'
+    @new_category = Category.new
+    @categories = Category.paginate(:page => params[:page], :per_page => 30)
   end
 
   def user_edit
+    @users = User.paginate(:page => params[:page], :per_page => 30)
+  end
+
+  def seller_edit
+    @sellers = Seller.paginate(:page => params[:page], :per_page => 30)
   end
 
   def login

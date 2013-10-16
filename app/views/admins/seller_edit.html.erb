@@ -1,0 +1,44 @@
+<div class="container">
+  <h3 class="text-center">Administrar Vendedores</h3>
+  <%= render 'shared/info_messages' %>
+
+  <%= will_paginate @sellers %>
+
+  <table class="table">
+    <tr>
+      <th>Vendedor</th>
+      <th>E-mail</th>
+      <th>Estado</th>
+      <th>Motivo</th>
+      <th colspan="2">Acción</th>
+    </tr>
+
+    <% @sellers.each do |seller| %>
+      <tr class="users">
+        <%= form_for seller, url: disable_seller_path(seller), method: 'post' do |s| %>
+          <td><%= seller.full_name %></td>
+          <td><%= seller.email %></td>
+          <td><%= seller.active ? 'Habilitado' : 'Deshabilitado' %></td>
+
+          <% if seller.banned %>
+            <td><%= seller.banned_reason %></td>
+          <% else %>
+            <td><%= s.text_field :banned_reason %></td>
+          <% end %>
+
+          <% if seller.banned %>
+            <td><%= link_to "Habilitar", enable_seller_path(seller), method: :post, class: "btn btn-info btn-small" %></td>
+            <td><button type="button" class="btn btn-warning btn-small" disabled="disabled">Deshabilitar</button></td>
+          <% else %>
+            <td><button type="button" class="btn btn-info btn-small" disabled="disabled">Habilitar</button></td>
+            <td><%= s.submit "Deshabilitar", class: "btn btn-warning btn-small" %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+
+  </table>
+
+  <%= will_paginate @sellers %>
+
+</div>
