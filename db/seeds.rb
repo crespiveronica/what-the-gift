@@ -224,7 +224,7 @@ fer.save
 joaquincito = User.new
 joaquincito.first_name = 'Joaquín'
 joaquincito.last_name = 'Perez Bay'
-joaquincito.email = 'joquinperezbay@gmail.com'
+joaquincito.email = 'joaquinperezbay@gmail.com'
 joaquincito.password = '12345678'
 joaquincito.password_confirmation = '12345678'
 joaquincito.active = active
