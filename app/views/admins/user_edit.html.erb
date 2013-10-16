@@ -23,7 +23,7 @@
           <% if user.banned %>
             <td><%= user.banned_reason %></td>
           <% else %>
-            <td><%= u.text_field :banned_reason %></td>
+            <td><%= u.text_field :banned_reason, :required => true %></td>
           <% end %>
 
           <% if user.banned %>
