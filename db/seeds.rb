@@ -14,9 +14,6 @@ active = true
 banned = false
 banned_reason = "none"
 
-
-
-
 # Cración de Categorías (Category)
 #
 deportes_category = Category.new(name: 'Deportes', description: 'Productos para entrenamiento y fitness')
@@ -213,6 +210,7 @@ a = Admin.new
 a.username = 'v.crespi'
 a.password = 'password'
 a.password_confirmation = 'password'
+
 a.save
 
 puts "Sacha"
@@ -220,6 +218,7 @@ a = Admin.new
 a.username = 's.lifzsyc'
 a.password = 'password'
 a.password_confirmation = 'password'
+
 a.save
 
 puts "Fer"
@@ -227,6 +226,7 @@ a = Admin.new
 a.username = 'f.nino'
 a.password = 'password'
 a.password_confirmation = 'password'
+
 a.save
 
 puts "Joaco"
@@ -234,6 +234,7 @@ a = Admin.new
 a.username = 'joaquinpb'
 a.password = 'password'
 a.password_confirmation = 'password'
+
 a.save
 puts "done"
 
@@ -247,12 +248,13 @@ sach.password_confirmation = '12345678'
 sach.active = active
 sach.banned = banned
 sach.wishlist = []
-sach.wishlist << Product.all.entries[rand.rand(10)]
-sach.wishlist << Product.all.entries[rand.rand(10)]
+#sach.wishlist << Product.all.entries[rand.rand(10)]
+#sach.wishlist << Product.all.entries[rand.rand(10)]
 gift = Gift.new
-gift.product = Product.all[rand.rand(10)]
-gift.score = rand.rand(10)
-sach.gifts = [gift]
+#gift.product = Product.all[rand.rand(10)]
+#gift.score = rand.rand(10)
+#sach.gifts = [gift]
+sach.birthday = rand(20.years).ago
 sach.save
 
 fer = User.new
@@ -264,12 +266,13 @@ fer.password_confirmation = 'password'
 fer.active = active
 fer.banned = banned
 fer.wishlist = []
-fer.wishlist << Product.all.entries[rand.rand(10)]
-fer.wishlist << Product.all.entries[rand.rand(10)]
+#fer.wishlist << Product.all.entries[rand.rand(10)]
+#fer.wishlist << Product.all.entries[rand.rand(10)]
 gift = Gift.new
-gift.product = Product.all[rand.rand(10)]
-gift.score = rand.rand(10)
-fer.gifts = [gift]
+#gift.product = Product.all[rand.rand(10)]
+#gift.score = rand.rand(10)
+#fer.gifts = [gift]
+fer.birthday = rand(20.years).ago
 fer.save
 
 joaquincito = User.new
@@ -281,12 +284,13 @@ joaquincito.password_confirmation = '12345678'
 joaquincito.active = active
 joaquincito.banned = banned
 joaquincito.wishlist = []
-joaquincito.wishlist << Product.all.entries[rand.rand(10)]
-joaquincito.wishlist << Product.all.entries[rand.rand(10)]
+#joaquincito.wishlist << Product.all.entries[rand.rand(10)]
+#joaquincito.wishlist << Product.all.entries[rand.rand(10)]
 gift = Gift.new
-gift.product = Product.all[rand.rand(10)]
-gift.score = rand.rand(10)
-joaquincito.gifts = [gift]
+#gift.product = Product.all[rand.rand(10)]
+#gift.score = rand.rand(10)
+#joaquincito.gifts = [gift]
+joaquincito.birthday = rand(20.years).ago
 joaquincito.save
 
 vero = User.new
@@ -298,10 +302,11 @@ vero.password_confirmation = '12345678'
 vero.active = active
 vero.banned = banned
 vero.wishlist = []
-vero.wishlist << Product.all.entries[rand.rand(10)]
-vero.wishlist << Product.all.entries[rand.rand(10)]
+#vero.wishlist << Product.all.entries[rand.rand(10)]
+#vero.wishlist << Product.all.entries[rand.rand(10)]
 gift = Gift.new
-gift.product = Product.all[rand.rand(10)]
-gift.score = rand.rand(10)
-vero.gifts = [gift]
+#gift.product = Product.all[rand.rand(10)]
+#gift.score = rand.rand(10)
+#vero.gifts = [gift]
+vero.birthday = rand(20.years).ago
 vero.save
