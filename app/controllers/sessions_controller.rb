@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
           return
         end
       end
-      redirect_to signin_url, alert: 'Email/Contrasena incorrectos'
+      redirect_to signin_url, alert: 'Email/Contrase&ntilde;a incorrectos'.html_safe
     end
   end
 
