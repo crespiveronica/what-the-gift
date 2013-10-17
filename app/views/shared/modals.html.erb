@@ -61,22 +61,22 @@
 </div>
 
 <div id="changeEmailModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changeEmailLabel" aria-hidden="true">
+  <%= form_for(@user, :url => update_user_email_path(@user.id)) do |f| %>
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="changeEmailLabel">Cambiar e-mail</h3>
   </div>
   <div class="modal-body">
-    <form class="form-horizontal">
+  
       <div class="control-group">
         <label class="control-label" for="inputEmail">Email</label>
         <div class="controls">
-          <input type="text" id="inputEmail" placeholder="Email">
+          <%= f.email_field :email %>
         </div>
       </div>
-    </form>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Confirmar</button>
+    <%= f.submit "Confirmar", :class => 'btn btn-primary' %>
   </div>
+  <% end %>
 </div>

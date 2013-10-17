@@ -49,6 +49,15 @@ class UsersController < ApplicationController
     redirect_to edit_user_path(current_user)
   end
 
+  def update_mail
+    @user = current_user
+    @user.new_email = params[:user][:email]
+    @user.save
+    sign_in @user
+    UserMailer.new_email_email(@user).deliver
+    redirect_to root_path,  alert: 'Se ha enviado un correo electronico a ' + current_user.new_email + ' para la confirmacion de su nuevo mail.'
+  end
+
   def create
     @user = User.new(params[:user])
     @user.active = false
@@ -133,6 +142,18 @@ class UsersController < ApplicationController
       @user.save
       sign_in @user
       return redirect_to @user, alert: "Felicitaciones, su cuenta ha sido activada!"
+    else
+      return redirect_to root_url, alert: "No se encontro el usuario"
+    end
+  end
+
+  def confirm_mail
+    @user = GenericUser.find params[:id]
+    if @user != nil and @user.signup_token == params[:token]
+      @user.email = @user.new_email
+      @user.save
+      sign_in @user
+      return redirect_to @user, alert: "Se ha confirmado su nuevo mail"
     else
       return redirect_to root_url, alert: "No se encontro el usuario"
     end

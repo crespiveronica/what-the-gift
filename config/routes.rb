@@ -21,9 +21,12 @@ Wtg::Application.routes.draw do
 
   match '/user/change-avatar', to: 'users#change_avatar', :as => 'user_change_avatar'
   match '/seller/change-avatar', to: 'sellers#change_avatar', :as => 'seller_change_avatar'
+  match '/user/:id/mail', to: 'users#update_mail', :as => 'update_user_email'
+  match '/seller/:id/mail', to: 'sellers#update_mail', :as => 'update_seller_email'
   match '/users/forgotten-user/', to: 'users#forgotten_user', via: 'get', :as => 'forgotten_user'
   match '/users/forgotten-user/', to: 'users#forgotten_user_post', via: 'post', :as => 'forgotten_user'
   match '/confirm/:id/:token/', to: 'users#confirm', via: 'get', :as => 'confirm'
+  match '/confirm-mail/:id/:token/', to: 'users#confirm_mail', via: 'get', :as => 'confirm_mail'
   match '/users/reactivate/:id', to: 'users#reactivate', via: 'get', :as => 'reactivate'
   match '/users/reactivate/:id', to: 'users#reactivatePost', via: 'post', :as => 'reactivate_post'
   match '/banned/:id', to: 'static_pages#banned', via: 'get', :as => 'banned'

@@ -30,6 +30,13 @@ class SellersController < ApplicationController
     end
   end
 
+  def update_mail
+    @user = current_user
+    @user.mail = params[:mail]
+    @user.save
+    render 'edit'
+  end
+  
   def update
   end
 
