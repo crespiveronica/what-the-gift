@@ -1,13 +1,12 @@
 class Product
   include Mongoid::Document
   include Mongoid::Search
-  include Mongoid::Paperclip
 
   field :name, type: String
   field :description, type: String
   field :brand, type: String
   field :approved, type: Boolean
-  has_mongoid_attached_file :photo, :default_url => "/assets/Fotos.png"
+  field :photo_url, type: String
 
   has_and_belongs_to_many :categories
   has_many :selling_products
@@ -27,5 +26,10 @@ class Product
 
   def categories_names
   	self.categories.map { |c| c.name }
+  end
+
+  def photo
+    photo_url ? photo_url : "Fotos.png"
+    
   end
 end

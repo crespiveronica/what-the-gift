@@ -26,9 +26,8 @@ class SellingProductsController < ApplicationController
     product.description = params[:description]
     product.brand = params[:brand]
     product.categories = params[:categories].map{ |id| Category.where(id: id).first}
-    @photo = params[:photo]
+    product.photo_url = params[:photo]
     product.save
-    ##@product.update_attributes({ :photo => @photo })
     selling_product = SellingProduct.new
     selling_product.product = product
     selling_product.seller = current_user
