@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @user.hobbies = []
+    @selected_hobbies = []
+    @predefined_hobbies = predefined_hobbies
   end
 
   def edit
@@ -39,14 +41,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    @user.hobbies  = @user.hobbies + params[:hobbiesPredefinidos].map { |h| Hobby.new(name: h) }
     @user.active = false
     msj =  'Felicitaciones, su cuenta ya esta casi lista. '
     msj += 'Se ha enviado un correo electronico a ' + @user.email + ' para la confirmacion de su cuenta. Presione el link de confirmacion en el E-Mail para terminar el proceso de registracion.'
     if @user.save
+      @user.hobbies.concat(params[:selectedHobbies].map { |h| Hobby.new(name: h) })
+      @user.save
       UserMailer.signup_email(@user).deliver
       redirect_to root_path,  alert: msj
     else
+      @predefined_hobbies = predefined_hobbies
+      @selected_hobbies = params[:selectedHobbies]
       render 'new'
     end
   end
@@ -160,6 +165,32 @@ class UsersController < ApplicationController
         UserMailer.birthday_notification(user, friend).deliver
       end
     end
+  end
+
+  def predefined_hobbies
+    predifined_hobbies = []
+    predifined_hobbies << PredefinedHobby.new("Deporte",  true)
+    predifined_hobbies << PredefinedHobby.new("Futbol",  false)
+    predifined_hobbies << PredefinedHobby.new("Basket",  false)
+    predifined_hobbies << PredefinedHobby.new("Tenis",  false)
+    predifined_hobbies << PredefinedHobby.new("Golf",  false)
+    predifined_hobbies << PredefinedHobby.new("Natacion",  false)
+    predifined_hobbies << PredefinedHobby.new("Hockey",  false)
+    predifined_hobbies << PredefinedHobby.new("Musica",  true)
+    predifined_hobbies << PredefinedHobby.new("Pop",  false)
+    predifined_hobbies << PredefinedHobby.new("Rock",  false)
+    predifined_hobbies << PredefinedHobby.new("Punk",  false)
+    predifined_hobbies << PredefinedHobby.new("Folk",  false)
+    predifined_hobbies << PredefinedHobby.new("Electronica",  false)
+    predifined_hobbies << PredefinedHobby.new("Reggae",  false)
+    predifined_hobbies << PredefinedHobby.new("Libros",  true)
+    predifined_hobbies << PredefinedHobby.new("Novelas",  false)
+    predifined_hobbies << PredefinedHobby.new("Suspenso",  false)
+    predifined_hobbies << PredefinedHobby.new("Historia",  false)
+    predifined_hobbies << PredefinedHobby.new("Filosofia",  false)
+    predifined_hobbies << PredefinedHobby.new("Infantil",  false)
+    predifined_hobbies << PredefinedHobby.new("Juvenil",  false)
+    predifined_hobbies
   end
 
 end
