@@ -30,6 +30,13 @@ class Product
 
   def photo
     photo_url ? photo_url : "Fotos.png"
-    
+  end
+
+  def sellers
+    selling_products.map{|sp| sp.seller.company_name}.join(' ,')
+  end
+
+  def lowest_price
+    selling_products.sort_by {|sp| sp.price }.first.price 
   end
 end
