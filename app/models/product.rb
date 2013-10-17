@@ -6,6 +6,7 @@ class Product
   field :description, type: String
   field :brand, type: String
   field :approved, type: Boolean
+  field :photo_url, type: String
 
   has_and_belongs_to_many :categories
   has_many :selling_products
@@ -25,5 +26,10 @@ class Product
 
   def categories_names
   	self.categories.map { |c| c.name }
+  end
+
+  def photo
+    photo_url ? photo_url : "Fotos.png"
+    
   end
 end

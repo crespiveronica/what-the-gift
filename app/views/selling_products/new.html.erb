@@ -1,0 +1,59 @@
+<!-- Contenido principal -->
+<div class="container">
+  <div>
+      <fieldset>
+        <legend><h4>Nuevo Producto</h4></legend>
+        <form action="<%= create_selling_products_path%>" enctype="multipart/form-data" method="post">
+          <div class="row">
+            <div class="span9"><h4>Sobre mi producto</h4></div>
+          </div>
+          <div class="row">
+            <div class="span9">
+              <div class="row">
+                <div class="span4"><strong>Nombre del producto</strong></div>
+                <div class="span5"><input type="text" name="name"></div>
+              </div>
+              <div class="row">
+                <div class="span4"><strong>Marca</strong></div>
+                <div class="span5"><input type="text" name="brand"></div>
+              </div>
+              <div class="row">
+                <div class="span4"><strong>Descripción</strong></div>
+                <div class="span5"><input type="text" name="description"></div>
+              </div>
+              <div class="row">
+                <div class="span4"><strong>Precio</strong></div>
+                <div class="span5"><input type="text" name="price"></div>
+              </div>
+              <div class="row">
+                <div class="span4"><strong>Foto</strong></div>
+                <div class="span5"><input name="photo" type="url" /></div>
+              </div>
+              <div class="row">
+                <div class="span4"><strong>Categorías</strong></div>
+                <div class="span5">
+                 <%= render :template => 'shared/categories_options' %>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="span3"></div>
+                <div class="span2">
+                  <p class="text-center">
+                    <input type="submit" class="btn btn-success btn-block" value="Crear" />
+                  </p>
+                </div>
+                <div class="span2">
+                  <p class="text-center">
+                    <%= link_to 'Cancelar', '/my-products/', :method => :get,  :class => 'btn btn-danger btn-block' %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+         </form> 
+      </fieldset>
+  </div>
+</div>
+

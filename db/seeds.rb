@@ -47,6 +47,12 @@ instrumentos_category.save
 #
 pelota_product = Product.new(name: 'Roteiro', description: 'Pelota de Alemania 2006', brand: 'Adidas')
 libro_product = Product.new(name: 'La Piedra Filosofal', description: 'J.K. Rowling', brand: 'Editorial Sudamericana')
+libro_product2 = Product.new(name: 'Harry Potter 2', description: 'J.K. Rowling', brand: 'Editorial Sudamericana')
+libro_product3 = Product.new(name: 'Harry Potter 3', description: 'J.K. Rowling', brand: 'Editorial Sudamericana')
+libro_product4 = Product.new(name: 'Harry Potter 4', description: 'J.K. Rowling', brand: 'Editorial Sudamericana')
+libro_product5 = Product.new(name: 'Harry Potter 5', description: 'J.K. Rowling', brand: 'Editorial Sudamericana')
+libro_product6 = Product.new(name: 'Harry Potter 6', description: 'J.K. Rowling', brand: 'Editorial Sudamericana')
+libro_product7 = Product.new(name: 'Harry Potter 7', description: 'J.K. Rowling', brand: 'Editorial Sudamericana')
 pelicula_product = Product.new(name: 'Pulp Fiction', description: 'La mejor pelicula de Tarantino', brand: '20th Century Fox')
 mascota_product = Product.new(name: 'Caniche', description: 'Perro con ladrido insoportable', brand: 'Cabana Las Lilas, versión canina')
 autos_product = Product.new(name: 'Fit 2012', description: 'El auto de Joaquincito', brand: 'Honda')
@@ -61,6 +67,12 @@ instrumento2_product = Product.new(name: 'Batería eléctrica', description: 'Ba
 #
 pelota_product.update_attributes({ "category_ids" => deportes_category._id })
 libro_product.update_attributes({ "category_ids" => libros_category._id })
+libro_product2.update_attributes({ "category_ids" => libros_category._id })
+libro_product3.update_attributes({ "category_ids" => libros_category._id })
+libro_product4.update_attributes({ "category_ids" => libros_category._id })
+libro_product5.update_attributes({ "category_ids" => libros_category._id })
+libro_product6.update_attributes({ "category_ids" => libros_category._id })
+libro_product7.update_attributes({ "category_ids" => libros_category._id })
 pelicula_product.update_attributes({ "category_ids" => peliculas_category._id})
 mascota_product.update_attributes({ "category_ids" => mascotas_category._id})
 autos_product.update_attributes({ "category_ids" => autos_category._id  })
@@ -81,14 +93,15 @@ sellers = []
     email: Faker::Internet.email,
     banned: false,
     password: password,
-    password_confirmation: password_confirmation)
+    password_confirmation: password_confirmation,
+    active: true)
   sellers.push(s)
 end
 
 sellers[0].company_name = 'Librerías Yenny'
 sellers[0].web = 'http://www.yenny.com.ar/'
 sellers[0].active = active
-sellers[0].email = 'joaquinperezbay@hotmail.com'
+sellers[0].email= 'yenny@yenny.com'
 sellers[0].save
 sellers[1].company_name = 'Librería Cúspide'
 sellers[1].web = 'http://www.cuspide.com.ar/'
@@ -116,6 +129,37 @@ libro_yenny = SellingProduct.new(price: 65)
 libro_yenny.product  = libro_product
 sellers[0].selling_products << libro_yenny
 libro_yenny.save
+
+libro_yenny2 = SellingProduct.new(price: 70)
+libro_yenny2.product  = libro_product2
+sellers[0].selling_products << libro_yenny2
+libro_yenny2.save
+
+libro_yenny3 = SellingProduct.new(price: 75)
+libro_yenny3.product  = libro_product3
+sellers[0].selling_products << libro_yenny3
+libro_yenny3.save
+
+libro_yenny4 = SellingProduct.new(price: 72)
+libro_yenny4.product  = libro_product4
+sellers[0].selling_products << libro_yenny4
+libro_yenny4.save
+
+libro_yenny5 = SellingProduct.new(price: 82)
+libro_yenny5.product  = libro_product5
+sellers[0].selling_products << libro_yenny5
+libro_yenny5.save
+
+
+libro_yenny6 = SellingProduct.new(price: 85)
+libro_yenny6.product  = libro_product6
+sellers[0].selling_products << libro_yenny6
+libro_yenny6.save
+
+libro_yenny7 = SellingProduct.new(price: 90)
+libro_yenny7.product  = libro_product7
+sellers[0].selling_products << libro_yenny7
+libro_yenny7.save
 
 libro_cuspide = SellingProduct.new(price: 60)
 libro_cuspide.product  = libro_product

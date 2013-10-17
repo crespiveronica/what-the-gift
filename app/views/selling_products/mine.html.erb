@@ -1,0 +1,10 @@
+<div class="container-fluid">
+	<div class="span10">
+	    <%= render :template => 'selling_products/list' %>
+	</div>
+	<div class="span2">
+		<p class="text-center">
+		  <%= button_to 'Agregar Producto', new_selling_products_path, :method => :get,  :class => 'btn btn-success btn-block' %>
+		</p>
+	</div>
+</div>

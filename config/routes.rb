@@ -41,7 +41,6 @@ Wtg::Application.routes.draw do
   match '/products/do_advanced_search/', to: 'products#do_advanced_search', via: 'get', :as =>'do_advanced_search_product'
   match '/products/do_search/', to: 'products#do_search', via: 'get', :as =>'do_search_product'
   match '/products/search-by-category/:category', to: 'products#do_search_by_category', via: 'get', :as =>'search_by_category_product'
-  match '/my-products/', to: 'products#mine', via: 'get'
   match '/gifts/', to: 'products#gifts', via: 'get'
   match '/products/new' , to: 'products#new'
   match '/products/edit' , to: 'products#edit'
@@ -50,8 +49,15 @@ Wtg::Application.routes.draw do
   match '/products/:id/wishlist', to: 'products#wishlist', :as => 'product_add_to_wishlist'
   match '/products/:id/rate', to: 'products#rate', via: 'post', :as => 'product_rate'
 
-  match '/sellingproduct/:id/approve', to: 'sellingproduct#approve', via: 'post', :as => 'approve'
-  match '/sellingproduct/:id/reject', to: 'sellingproduct#reject', via: 'post', :as => 'reject'
+  match '/sellingproducts/:id/approve', to: 'sellingproducts#approve', via: 'post', :as => 'approve'
+  match '/sellingproducts/:id/reject', to: 'sellingproducts#reject', via: 'post', :as => 'reject'
+  match '/my-products/', to: 'selling_products#mine', via: 'get'
+  match '/my-products/:id/edit/', to: 'selling_products#edit', via: 'get', :as => 'edit_selling_products'
+  match '/my-products/:id/', to: 'selling_products#destroy', via:'delete', :as => 'destroy_selling_products'
+  match '/my-products/:id/', to: 'selling_products#update', via: 'put', :as => 'update_selling_products'
+  match '/my-products/new/', to: 'selling_products#new', via: 'get', :as => 'new_selling_products'
+  match '/my-products/create/', to: 'selling_products#create', via: 'post', :as => 'create_selling_products'
+
 
   match '/about/', to: 'static_pages#about', via: 'get'
   match '/contact/', to: 'static_pages#contact', via: 'get'
@@ -65,6 +71,7 @@ Wtg::Application.routes.draw do
   resources :users
   resources :sellers
   resources :products
+  resources :selling_products
   resources :categories
   resources :admins
   resources :profile
