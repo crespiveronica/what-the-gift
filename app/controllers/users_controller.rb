@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    2.times { @user.hobbies.build }
+    @user.hobbies = []
   end
 
   def edit
@@ -39,6 +39,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.hobbies  = @user.hobbies + params[:hobbiesPredefinidos].map { |h| Hobby.new(name: h) }
     @user.active = false
     msj =  'Felicitaciones, su cuenta ya esta casi lista. '
     msj += 'Se ha enviado un correo electronico a ' + @user.email + ' para la confirmacion de su cuenta. Presione el link de confirmacion en el E-Mail para terminar el proceso de registracion.'
