@@ -7,11 +7,11 @@
 <div class="container-fluid">
   <div class="span10 offset2">
     <div class="row">
-      <div class="span4"><%= image_tag "raqueta.jpg", size: "512x512", class: "img-polaroid" %></div>
+      <div class="span4"><%= image_tag @product.photo, size: "512x512", class: "img-polaroid" %></div>
       <div class="span6">
-        <h3 class="text-right">Vendido por Empresa</h3>
-        <h4 class="text-right">$ Precio</h4>
-        <p class="muted text-right">Producto ubicado en tal lado<p>
+        <h3 class="text-right">Vendido por: </h3>
+        <h4 class="text-right"><%= @product.sellers %></h4>
+        <h4 class="text-right">Desde $<%= @product.lowest_price %> </h4>
         <% if current_user._type == 'User' and not current_user.wishlist.include? @product %>
         <p class="text-right">
             <a href="<%= product_add_to_wishlist_path :id => @product.id %>" class="btn btn-danger" type="button"><i class="icon-white icon-heart"></i> Wishlist</a>

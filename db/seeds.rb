@@ -125,60 +125,70 @@ sellers[4].save
 # Creación de Productos Vendedor (Selling Product)
 #
 sellers[0].selling_products = []
-libro_yenny = SellingProduct.new(price: 65)
+libro_yenny = SellingProduct.new
 libro_yenny.product  = libro_product
 sellers[0].selling_products << libro_yenny
+libro_yenny.price = 65
 libro_yenny.save
 
-libro_yenny2 = SellingProduct.new(price: 70)
+libro_yenny2 = SellingProduct.new
 libro_yenny2.product  = libro_product2
 sellers[0].selling_products << libro_yenny2
+libro_yenny2.price = 70
 libro_yenny2.save
 
-libro_yenny3 = SellingProduct.new(price: 75)
+libro_yenny3 = SellingProduct.new
 libro_yenny3.product  = libro_product3
 sellers[0].selling_products << libro_yenny3
+libro_yenny3.price = 75
 libro_yenny3.save
 
-libro_yenny4 = SellingProduct.new(price: 72)
+libro_yenny4 = SellingProduct.new
 libro_yenny4.product  = libro_product4
 sellers[0].selling_products << libro_yenny4
+libro_yenny4.price = 72
 libro_yenny4.save
 
-libro_yenny5 = SellingProduct.new(price: 82)
+libro_yenny5 = SellingProduct.new
 libro_yenny5.product  = libro_product5
 sellers[0].selling_products << libro_yenny5
+libro_yenny5.price = 82
 libro_yenny5.save
 
-
-libro_yenny6 = SellingProduct.new(price: 85)
+libro_yenny6 = SellingProduct.new
 libro_yenny6.product  = libro_product6
 sellers[0].selling_products << libro_yenny6
+libro_yenny6.price = 85
 libro_yenny6.save
 
-libro_yenny7 = SellingProduct.new(price: 90)
+libro_yenny7 = SellingProduct.new
 libro_yenny7.product  = libro_product7
 sellers[0].selling_products << libro_yenny7
+libro_yenny7.price = 90
 libro_yenny7.save
 
-libro_cuspide = SellingProduct.new(price: 60)
+libro_cuspide = SellingProduct.new
 libro_cuspide.product  = libro_product
 sellers[1].selling_products << libro_cuspide
+libro_cuspide.price = 60
 libro_cuspide.save
 
-pelota_adidas = SellingProduct.new(price: 128)
+pelota_adidas = SellingProduct.new
 pelota_adidas.product  = pelota_product
 sellers[2].selling_products << pelota_adidas
+pelota_adidas.price = 128
 pelota_adidas.save
 
-pelota_stockcenter = SellingProduct.new(price: 132)
+pelota_stockcenter = SellingProduct.new
 pelota_stockcenter.product  = pelota_product
 sellers[3].selling_products << pelota_stockcenter
+pelota_stockcenter.price = 123
 pelota_stockcenter.save
 
-juego_apioverde = SellingProduct.new(price: 132)
+juego_apioverde = SellingProduct.new
 juego_apioverde.product  = juegos_product
 sellers[4].selling_products << juego_apioverde
+juego_apioverde.price = 132
 juego_apioverde.save
 
 ## Users
