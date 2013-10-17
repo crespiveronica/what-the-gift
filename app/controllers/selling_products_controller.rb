@@ -25,6 +25,7 @@ class SellingProductsController < ApplicationController
     product.name = params[:name]
     product.description = params[:description]
     product.brand = params[:brand]
+    product.categories = []
     product.categories = params[:categories].map{ |id| Category.where(id: id).first}
     product.photo_url = params[:photo]
     product.save

@@ -11,29 +11,29 @@
             <div class="span9">
               <div class="row">
                 <div class="span4"><strong>Nombre del producto</strong></div>
-                <div class="span5"><input type="text" name="name"></div>
+                <div class="span5"><input type="text" name="name" required="required"></div>
               </div>
               <div class="row">
                 <div class="span4"><strong>Marca</strong></div>
-                <div class="span5"><input type="text" name="brand"></div>
+                <div class="span5"><input type="text" name="brand" required="required"></div>
               </div>
               <div class="row">
                 <div class="span4"><strong>Descripción</strong></div>
-                <div class="span5"><input type="text" name="description"></div>
+                <div class="span5"><input type="text" name="description" required="required"></div>
               </div>
               <div class="row">
                 <div class="span4"><strong>Precio</strong></div>
-                <div class="span5"><input type="text" name="price"></div>
+                <div class="span5"><input type="text" name="price" required="required"></div>
               </div>
               <div class="row">
-                <div class="span4"><strong>Foto</strong></div>
-                <div class="span5"><input name="photo" type="url" /></div>
+                <div class="span4"><strong>Foto (debe ser un URL)</strong></div>
+                <div class="span5"><input name="photo" type="url" requires="required"/></div>
               </div>
               <div class="row">
                 <div class="span4"><strong>Categorías</strong></div>
                 <div class="span5">
                  <%= render :template => 'shared/categories_options' %>
-                </div>
+                <imput required="required"></div>
               </div>
 
 

@@ -7,7 +7,7 @@
     <p><small><%= selling_product.price %></small></p>  
         <p class="bottom">
             <%= link_to 'Modificar', edit_selling_products_path(:id => selling_product.id), :class => 'btn btn-mini btn-primary pull-right' %>
-            <%= button_to 'Eliminar', destroy_selling_products_path(:id => selling_product.id), :method => :delete,  :class => 'btn btn-danger btn-mini btn-primary pull-right' %>
+            <%= button_to 'Eliminar', destroy_selling_products_path(:id => selling_product.id), :method => :delete,  :class => 'btn btn-danger btn-mini btn-primary pull-left' %>
         </p>
       </div>
     </li>
