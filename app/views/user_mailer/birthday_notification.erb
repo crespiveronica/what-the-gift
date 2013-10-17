@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Se acerca el cumpleaños de <a href="<%= @link_friend %>"><%= @user.full_name %></a></h1>
+    <p>
+      No sabés qué regalarle todavía? Acá te damos unas ideas:
+    </p>
+    <% @gifts.each do |gift| %>
+      <p><a href="<%= @link_gift + gift.id %>"><%= gift.name %></a></p>
+    <% end %>
+    <p>
+      Muchas gracias, el equipo de What The Gift?!
+    </p>
+  </body>
+</html>

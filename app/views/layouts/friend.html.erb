@@ -1,6 +1,7 @@
 <%= inside_layout "application" do %>
 	<div class="page-header">
 	    <h1><%=@friend.full_name%></h1>
+	    <p class="text-center">Faltan <%= @friend.remaining_days %> días para su cumpleaños</p>
 	</div>
 
 	<div class="row">

@@ -152,4 +152,13 @@ class UsersController < ApplicationController
     redirect_to admin_user_edit_path
   end
 
+  def birthday_notification
+    birthday_users = User.birthday_users
+    birthday_users.each do | user | 
+      user.friends.each do |friend|
+        UserMailer.birthday_notification(user, friend).deliver
+      end
+    end
+  end
+
 end
