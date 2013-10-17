@@ -27,7 +27,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      @user.hobbies.concat(params[:selectedHobbies].map { |h| Hobby.new(name: h) })
+      if params[:selectedHobbies]
+        @user.hobbies.concat(params[:selectedHobbies].map { |h| Hobby.new(name: h) })
+      end
       @user.save
       sign_in @user
       redirect_to @user
@@ -53,7 +55,9 @@ class UsersController < ApplicationController
     msj =  'Felicitaciones, su cuenta ya esta casi lista. '
     msj += 'Se ha enviado un correo electronico a ' + @user.email + ' para la confirmacion de su cuenta. Presione el link de confirmacion en el E-Mail para terminar el proceso de registracion.'
     if @user.save
-      @user.hobbies.concat(params[:selectedHobbies].map { |h| Hobby.new(name: h) })
+      if params[:selectedHobbies]
+        @user.hobbies.concat(params[:selectedHobbies].map { |h| Hobby.new(name: h) })
+      end
       @user.save
       UserMailer.signup_email(@user).deliver
       redirect_to root_path,  alert: msj
