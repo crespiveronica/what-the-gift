@@ -166,7 +166,7 @@ libro_cuspide.product  = libro_product
 sellers[1].selling_products << libro_cuspide
 libro_cuspide.save
 
-pelota_adidas = SellingProduct.new(price: 128)
+pelota_adidas = SellingProduct.new(price: 128.0)
 pelota_adidas.product  = pelota_product
 sellers[2].selling_products << pelota_adidas
 pelota_adidas.save
