@@ -1,7 +1,7 @@
 class SellingProductsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
-  
+
   def mine
     @selling_products = current_user.selling_products
   end
@@ -31,7 +31,7 @@ class SellingProductsController < ApplicationController
     selling_product = SellingProduct.new
     selling_product.product = product
     selling_product.seller = current_user
-    selling_product.price = params[:price] 
+    selling_product.price = params[:price]
     selling_product.save
     redirect_to '/my-products/', alert: 'Se ha creado el nuevo producto'
   end
@@ -47,6 +47,20 @@ class SellingProductsController < ApplicationController
     @selling_product = SellingProduct.where(:id => params[:id]).first
     @selling_product.destroy
     redirect_to '/my-products/', alert: 'Se ha eliminado el producto'
+  end
+
+  def approve
+    @sp = SellingProduct(params[:id])
+    @sp.approved = true
+    @sp.pending = false
+    @sp.save
+  end
+
+  def reject
+    @sp = SellingProduct(params[:id])
+    @sp.pending = false
+    @sp.approved = false
+    @sp.save
   end
 
 end
