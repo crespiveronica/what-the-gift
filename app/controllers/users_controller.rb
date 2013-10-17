@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     @change_avatar_path = user_change_avatar_path
+    @update_email_path = update_user_email_path
     @selected_hobbies = predefined_hobbies.map {|ph| ph.name} & @user.hobbies.map { |h| h.name }
     @user.hobbies = @user.hobbies.select {|h| !@selected_hobbies.include?(h.name) }
     @predefined_hobbies = predefined_hobbies
@@ -51,6 +52,7 @@ class UsersController < ApplicationController
 
   def update_mail
     @user = current_user
+    binding.pry
     @user.new_email = params[:user][:email]
     @user.save
     sign_in @user

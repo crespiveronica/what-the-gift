@@ -1,4 +1,4 @@
-sclass SignupController < ApplicationController
+class SignupController < ApplicationController
   def index
   end
 end

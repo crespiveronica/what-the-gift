@@ -61,7 +61,7 @@
 </div>
 
 <div id="changeEmailModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changeEmailLabel" aria-hidden="true">
-  <%= form_for(@user, :url => update_user_email_path(@user.id)) do |f| %>
+  <%= form_for(@user, :url => @update_email_path ) do |f| %>
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="changeEmailLabel">Cambiar e-mail</h3>
