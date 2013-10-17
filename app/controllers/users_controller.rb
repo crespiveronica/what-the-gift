@@ -19,14 +19,22 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     @change_avatar_path = user_change_avatar_path
+    @selected_hobbies = predefined_hobbies.map {|ph| ph.name} & @user.hobbies.map { |h| h.name }
+    @user.hobbies = @user.hobbies.select {|h| !@selected_hobbies.include?(h.name) }
+    @predefined_hobbies = predefined_hobbies
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
+      @user.hobbies.concat(params[:selectedHobbies].map { |h| Hobby.new(name: h) })
+      @user.save
       sign_in @user
       redirect_to @user
     else
+      @predefined_hobbies = predefined_hobbies
+      @selected_hobbies = params[:selectedHobbies]
+      render 'new'
       render 'edit'
     end
   end
@@ -168,29 +176,29 @@ class UsersController < ApplicationController
   end
 
   def predefined_hobbies
-    predifined_hobbies = []
-    predifined_hobbies << PredefinedHobby.new("Deporte",  true)
-    predifined_hobbies << PredefinedHobby.new("Futbol",  false)
-    predifined_hobbies << PredefinedHobby.new("Basket",  false)
-    predifined_hobbies << PredefinedHobby.new("Tenis",  false)
-    predifined_hobbies << PredefinedHobby.new("Golf",  false)
-    predifined_hobbies << PredefinedHobby.new("Natacion",  false)
-    predifined_hobbies << PredefinedHobby.new("Hockey",  false)
-    predifined_hobbies << PredefinedHobby.new("Musica",  true)
-    predifined_hobbies << PredefinedHobby.new("Pop",  false)
-    predifined_hobbies << PredefinedHobby.new("Rock",  false)
-    predifined_hobbies << PredefinedHobby.new("Punk",  false)
-    predifined_hobbies << PredefinedHobby.new("Folk",  false)
-    predifined_hobbies << PredefinedHobby.new("Electronica",  false)
-    predifined_hobbies << PredefinedHobby.new("Reggae",  false)
-    predifined_hobbies << PredefinedHobby.new("Libros",  true)
-    predifined_hobbies << PredefinedHobby.new("Novelas",  false)
-    predifined_hobbies << PredefinedHobby.new("Suspenso",  false)
-    predifined_hobbies << PredefinedHobby.new("Historia",  false)
-    predifined_hobbies << PredefinedHobby.new("Filosofia",  false)
-    predifined_hobbies << PredefinedHobby.new("Infantil",  false)
-    predifined_hobbies << PredefinedHobby.new("Juvenil",  false)
-    predifined_hobbies
+    predefined_hobbies = []
+    predefined_hobbies << PredefinedHobby.new("Deporte",  true)
+    predefined_hobbies << PredefinedHobby.new("Futbol",  false)
+    predefined_hobbies << PredefinedHobby.new("Basket",  false)
+    predefined_hobbies << PredefinedHobby.new("Tenis",  false)
+    predefined_hobbies << PredefinedHobby.new("Golf",  false)
+    predefined_hobbies << PredefinedHobby.new("Natacion",  false)
+    predefined_hobbies << PredefinedHobby.new("Hockey",  false)
+    predefined_hobbies << PredefinedHobby.new("Musica",  true)
+    predefined_hobbies << PredefinedHobby.new("Pop",  false)
+    predefined_hobbies << PredefinedHobby.new("Rock",  false)
+    predefined_hobbies << PredefinedHobby.new("Punk",  false)
+    predefined_hobbies << PredefinedHobby.new("Folk",  false)
+    predefined_hobbies << PredefinedHobby.new("Electronica",  false)
+    predefined_hobbies << PredefinedHobby.new("Reggae",  false)
+    predefined_hobbies << PredefinedHobby.new("Libros",  true)
+    predefined_hobbies << PredefinedHobby.new("Novelas",  false)
+    predefined_hobbies << PredefinedHobby.new("Suspenso",  false)
+    predefined_hobbies << PredefinedHobby.new("Historia",  false)
+    predefined_hobbies << PredefinedHobby.new("Filosofia",  false)
+    predefined_hobbies << PredefinedHobby.new("Infantil",  false)
+    predefined_hobbies << PredefinedHobby.new("Juvenil",  false)
+    predefined_hobbies
   end
 
 end

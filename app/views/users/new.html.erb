@@ -33,7 +33,7 @@
       
       <%= render :template => 'users/hobbies-select' %>
 
-      <%= f.label :hobbies, 'Otros hobbies y pasatiempos' %>
+      <%= f.label :hobbies, 'Otros pasatiempos y hobbies' %>
         <%= f.fields_for :hobbies do |h| %>
           <%= h.text_field :name %>
           <%= h.link_to_remove '<i class="icon-remove"></i>'.html_safe %>
