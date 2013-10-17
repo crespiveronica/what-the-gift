@@ -35,17 +35,22 @@
           <div class="span5"><%= f.text_field :occupation %></div>
         </div>
 
-        <div class="row">
           <div id="hobby-boxes">
-            <div class="span4"><%= f.label :hobbies, 'Pasatiempos y hobbies', style: 'font-weight:bold' %></div>
+            <div class="row">
+              <div class="span4"><%= f.label :hobbies, 'Pasatiempos y hobbies', style: 'font-weight:bold' %></div>
 
-            <%= f.fields_for :hobbies do |h| %>
-              <div class="span5 offset4"><%= h.text_field :name %>
-              <%= h.link_to_remove '<i class="icon-remove"></i>'.html_safe %></div>
-            <% end %>
-            <%= f.link_to_add '<i class="icon-plus"></i>'.html_safe, :hobbies %>
+              <div class="span5">
+              <%= render :template => 'users/hobbies-select' %>
+              </div>
+              <div class="span4"><%= f.label :hobbies, 'Otros pasatiempos y hobbies', style: 'font-weight:bold' %></div>
+
+              <%= f.fields_for :hobbies do |h| %>
+                <div class="span5 offset4"><%= h.text_field :name %>
+                <%= h.link_to_remove '<i class="icon-remove"></i>'.html_safe %></div>
+              <% end %>
+              <%= f.link_to_add '<i class="icon-plus"></i>'.html_safe, :hobbies %>
+            </div>
           </div>
-        </div>
         <div class="row">
           <div class="span2 offset3">
             <p class="text-center">
