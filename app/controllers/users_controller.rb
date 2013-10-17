@@ -117,7 +117,7 @@ class UsersController < ApplicationController
   def forgotten_user_post
     user = User.find_by_email params[:email]
     if user == nil
-      redirect_to root_path, alert: 'No se encontr&oacute; ning&uacute;n usuario con ese email'
+      redirect_to root_path, alert: 'No se encontr&oacute; ning&uacute;n usuario con ese email'.html_safe
     else
       user.password = SecureRandom.urlsafe_base64
       user.save
@@ -134,7 +134,7 @@ class UsersController < ApplicationController
       sign_in @user
       return redirect_to @user, alert: "Felicitaciones, su cuenta ha sido activada!"
     else
-      return redirect_to root_url, alert: "No se encontr&oacute; el usuario"
+      return redirect_to root_url, alert: "No se encontr&oacute; el usuario".html_safe
     end
   end
 
