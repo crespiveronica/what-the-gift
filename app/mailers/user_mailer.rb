@@ -24,7 +24,7 @@ class UserMailer < ActionMailer::Base
     @gifts = @gifts.uniq
     @link_friend = "http://localhost:3000/friends/" + user.id
     @link_gift = "http://localhost:3000/products/"
-    mail(to: @friend.email, subject: "Se acerca el cumpleanios de #{@user.full_name}!")
+    mail(to: @friend.email, subject: "Se acerca el cumplea&ntilde;os de #{@user.full_name}!".html_safe)
   end
 
 end

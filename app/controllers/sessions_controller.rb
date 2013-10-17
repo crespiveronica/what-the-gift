@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
         return
       end
     end
-    redirect_to admin_login_path, alert: 'Email/Contrasena incorrectos'
+    redirect_to admin_login_path, alert: 'Email/Contrase&ntilde;a incorrectos'.html_safe
   end
 
 end

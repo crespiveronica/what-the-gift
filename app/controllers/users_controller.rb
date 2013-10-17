@@ -52,8 +52,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @user.active = false
-    msj =  'Felicitaciones, su cuenta ya esta casi lista. '
-    msj += 'Se ha enviado un correo electronico a ' + @user.email + ' para la confirmacion de su cuenta. Presione el link de confirmacion en el E-Mail para terminar el proceso de registracion.'
+    msj =  'Felicitaciones, su cuenta ya est&aacute; casi lista. '.html_safe
+    msj += 'Se ha enviado un correo electr&oacute;nico a ' + @user.email + ' para la confirmaci&oacute;n de su cuenta. Presione el link de confirmaci&oacute;n en el E-Mail para terminar el proceso de registraci&oacute;n.'.html_safe
     if @user.save
       if params[:selectedHobbies]
         @user.hobbies.concat(params[:selectedHobbies].map { |h| Hobby.new(name: h) })
@@ -117,7 +117,7 @@ class UsersController < ApplicationController
   def forgotten_user_post
     user = User.find_by_email params[:email]
     if user == nil
-      redirect_to root_path, alert: 'No se encontro ningun usuario con ese email'
+      redirect_to root_path, alert: 'No se encontr&oacute; ning&uacute;n usuario con ese email'
     else
       user.password = SecureRandom.urlsafe_base64
       user.save
@@ -134,7 +134,7 @@ class UsersController < ApplicationController
       sign_in @user
       return redirect_to @user, alert: "Felicitaciones, su cuenta ha sido activada!"
     else
-      return redirect_to root_url, alert: "No se encontro el usuario"
+      return redirect_to root_url, alert: "No se encontr&oacute; el usuario"
     end
   end
 
