@@ -12,6 +12,9 @@
       <%= f.label :last_name, 'Apellido' %>
       <%= f.text_field :last_name %>
 
+      <%= f.label :birthday, 'Fecha de nacimiento' %>
+      <%= f.text_field :birthday, :type => :date, :start_year => (Date.current - 5.year).year, :end_year => (Date.current - 120.year).year, "required" => "true", :include_blank => true %>
+
       <%= f.label :email %>
       <%= f.text_field :email %>
 

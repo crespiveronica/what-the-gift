@@ -1,6 +1,7 @@
 class User < GenericUser
+  Mongoid::MultiParameterAttributes
 
-  attr_accessible :hobbies, :occupation, :hobbies_attributes
+  attr_accessible :hobbies, :occupation, :hobbies_attributes, :birthday
   has_and_belongs_to_many :wishlist, class_name: 'Product'
   embeds_many :gifts
   has_many :friend_requests, :inverse_of => :owner, :foreign_key => "owner_id"
@@ -10,6 +11,9 @@ class User < GenericUser
   field :occupation, type: String
   field :first_name, type: String
   field :last_name, type: String
+  field :birthday, type: Date
+
+  validates :birthday, presence: true
 
 def full_name
   first_name + ' ' + last_name
@@ -109,6 +113,25 @@ end
 
 def hobbies_list
 	self.hobbies.nil? ? [] : self.hobbies
+end
+
+def self.birthday_users
+	users = User.all
+	birthday_users = Array.new
+	users.each do |u|
+		if u.birthday_this_year > Date.today and u.birthday_this_year < Date.today + 10
+			birthday_users.push u
+		end
+	end
+	birthday_users
+end
+
+def remaining_days
+	diff = (Date.today - birthday_this_year).to_i.abs
+end
+
+def birthday_this_year
+	date = Date.parse(Date.today.year.to_s + "/" + self.birthday.month.to_s + "/" + self.birthday.day.to_s)
 end
 
 private

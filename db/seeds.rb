@@ -253,6 +253,7 @@ gift = Gift.new
 gift.product = Product.all[rand.rand(10)]
 gift.score = rand.rand(10)
 sach.gifts = [gift]
+sach.birthday = rand(20.years).ago
 sach.save
 
 fer = User.new
@@ -270,6 +271,7 @@ gift = Gift.new
 gift.product = Product.all[rand.rand(10)]
 gift.score = rand.rand(10)
 fer.gifts = [gift]
+fer.birthday = rand(20.years).ago
 fer.save
 
 joaquincito = User.new
@@ -287,6 +289,7 @@ gift = Gift.new
 gift.product = Product.all[rand.rand(10)]
 gift.score = rand.rand(10)
 joaquincito.gifts = [gift]
+joaquincito.birthday = rand(20.years).ago
 joaquincito.save
 
 vero = User.new
@@ -304,4 +307,5 @@ gift = Gift.new
 gift.product = Product.all[rand.rand(10)]
 gift.score = rand.rand(10)
 vero.gifts = [gift]
+vero.birthday = rand(20.years).ago
 vero.save
