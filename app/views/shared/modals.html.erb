@@ -51,22 +51,21 @@
     <h3 id="changePasswordLabel">Cambiar Password</h3>
   </div>
   <div class="modal-body">
-    <form class="form-horizontal">
-      <div class="control-group">
-        <label class="control-label" for="inputPassword">Contraseña</label>
-        <div class="controls">
-          <input type="text" id="inputPassword" placeholder="Nueva Contraseña">
-        </div>
-        <label class="control-label" for="inputPwdConf">Confirmar Contraseña</label>
-        <div class="controls">
-          <input type="text" id="inputPwdConf" placeholder="Repetir Contraseña">
-        </div>
-      </div>
-    </form>
+    <%= form_for @user, :url => @change_password_path, :html => {:multipart => true} do |u| %>
+      <%= u.label :password, 'Contraseña' %>
+      <%= u.password_field :password %>
+
+      <%= u.label :password_confirmation, 'Confirmar' %>
+      <%= u.password_field :password_confirmation %>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Confirmar</button>
+      <% if @user._type == 'User' %>
+        <%= u.submit "Confirmar", class: "btn btn-primary" %>
+      <% else %>
+        <%= u.submit "Confirmar", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 

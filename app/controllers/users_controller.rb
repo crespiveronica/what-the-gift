@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user = current_user
     @change_avatar_path = user_change_avatar_path
     @update_email_path = update_user_email_path
+    @change_password_path = user_password_reset_path
     @selected_hobbies = predefined_hobbies.map {|ph| ph.name} & @user.hobbies.map { |h| h.name }
     @user.hobbies = @user.hobbies.select {|h| !@selected_hobbies.include?(h.name) }
     @predefined_hobbies = predefined_hobbies
@@ -128,12 +129,12 @@ class UsersController < ApplicationController
   def forgotten_user_post
     user = User.find_by_email params[:email]
     if user == nil
-      redirect_to root_path, alert: 'No se encontr&oacute; ning&uacute;n usuario con ese email'.html_safe
+      redirect_to root_path, alert: 'No se encontr&oacute; ning&uacute;n usuario con ese email.'.html_safe
     else
       user.password = SecureRandom.urlsafe_base64
       user.save
       UserMailer.forgotten_password(user).deliver
-      redirect_to root_path, alert: 'Se ha reiniciado su password'
+      redirect_to root_path, alert: 'Se ha reiniciado su password.'
     end
   end
 
@@ -155,9 +156,9 @@ class UsersController < ApplicationController
       @user.email = @user.new_email
       @user.save
       sign_in @user
-      return redirect_to @user, alert: "Se ha confirmado su nuevo mail"
+      return redirect_to @user, alert: "Se ha confirmado su nuevo e-mail."
     else
-      return redirect_to root_url, alert: "No se encontro el usuario"
+      return redirect_to root_url, alert: "No se encontr&oacute; el usuario".html_safe
     end
   end
 
@@ -195,7 +196,7 @@ class UsersController < ApplicationController
 
   def birthday_notification
     birthday_users = User.birthday_users
-    birthday_users.each do | user | 
+    birthday_users.each do | user |
       user.friends.each do |friend|
         UserMailer.birthday_notification(user, friend).deliver
       end
@@ -226,6 +227,15 @@ class UsersController < ApplicationController
     predefined_hobbies << PredefinedHobby.new("Infantil",  false)
     predefined_hobbies << PredefinedHobby.new("Juvenil",  false)
     predefined_hobbies
+  end
+
+  def update_password
+    @user = User.find params[:id]
+    if @user.update_attributes(params[:user])
+      flash.now[:info] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
+      sign_in @user
+    end
+    redirect_to edit_user_path @user
   end
 
 end
