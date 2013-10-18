@@ -25,7 +25,7 @@ class GenericUser
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 8 }, :on => :create
+  validates :password, length: { minimum: 8, :message => "La contaseña debe tener al menos 8 caracteres" }, :on => :create
   validates :password_confirmation, presence: true, :on => :create
 
   def is_user?

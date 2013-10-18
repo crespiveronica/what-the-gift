@@ -13,7 +13,15 @@ class User < GenericUser
   field :last_name, type: String
   field :birthday, type: Date
 
+  validates :hobbies, presence: true
+  validate :birthday_cannot_be_in_the_future
   validates :birthday, presence: true
+
+def birthday_cannot_be_in_the_future
+	if self.birthday > Date.today
+		errors.add(:base, "La fecha de nacimiento debe ser en el pasado")
+  	end
+end
 
 def full_name
   first_name + ' ' + last_name

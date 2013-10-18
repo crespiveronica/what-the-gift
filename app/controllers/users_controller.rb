@@ -54,18 +54,16 @@ class UsersController < ApplicationController
     @user.active = false
     msj =  'Felicitaciones, su cuenta ya esta casi lista. '
     msj += 'Se ha enviado un correo electronico a ' + @user.email + ' para la confirmacion de su cuenta. Presione el link de confirmacion en el E-Mail para terminar el proceso de registracion.'
-    if @user.save
-      if params[:selectedHobbies]
-        @user.hobbies.concat(params[:selectedHobbies].map { |h| Hobby.new(name: h) })
+    @user.errors.delete(:password_confirmation)
+    if @user.valid?
+      if @user.save
+        UserMailer.signup_email(@user).deliver
+        redirect_to root_path,  alert: msj
       end
-      @user.save
-      UserMailer.signup_email(@user).deliver
-      redirect_to root_path,  alert: msj
-    else
-      @predefined_hobbies = predefined_hobbies
-      @selected_hobbies = params[:selectedHobbies]
-      render 'new'
     end
+    @predefined_hobbies = predefined_hobbies
+    @selected_hobbies = params[:selectedHobbies] ? params[:selectedHobbies] : []
+    render 'new'
   end
 
   def destroy
@@ -107,7 +105,7 @@ class UsersController < ApplicationController
 
   def gifts
     @friend = User.find_by_id params[:id]
-    render 'friends/gifts', layout: 'friend'
+    render 'users/gifts', layout: 'friend'
   end
 
   def forgotten_user

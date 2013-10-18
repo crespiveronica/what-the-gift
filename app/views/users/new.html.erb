@@ -4,6 +4,7 @@
 <div class="row">
   <div class="span6 offset3">
     <%= nested_form_for(@user) do |f| %>
+      <% @user.errors.delete(:password_digest) %>
       <%= render 'shared/error_messages' %>
 
       <%= f.label :first_name, 'Nombre' %>
