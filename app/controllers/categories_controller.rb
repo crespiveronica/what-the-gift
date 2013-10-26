@@ -45,7 +45,7 @@ class CategoriesController < ApplicationController
   end
 
   def category_exists?(c)
-    category = (Category.where(name: c)).entries
+    category = Category.where(name: c).entries
     if category.size > 0
       return true
     else

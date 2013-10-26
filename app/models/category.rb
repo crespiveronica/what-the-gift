@@ -7,4 +7,6 @@ class Category
   has_and_belongs_to_many :products
 
   validates :name, uniqueness: {case_sensitive: false}
+
+  default_scope order_by :name => :asc
 end
