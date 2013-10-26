@@ -107,7 +107,7 @@ class UsersController < ApplicationController
 
   def gifts
     @friend = User.find_by_id params[:id]
-    render 'friends/gifts', layout: 'friend'
+    render 'users/gifts', layout: 'friend'
   end
 
   def forgotten_user
