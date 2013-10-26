@@ -35,7 +35,7 @@
             <%= text_field_tag(:free_text, @free_text) %>
           </div>
           <div class="row-fluid" style="margin-bottom: 12px">
-            <%= submit_tag("Buscar") %>
+            <%= submit_tag("Buscar", onclick: "return validateSearch();") %>
           </div>
           <input type="hidden" name="query" value="<%=@query%>" >
           <% end %>
@@ -84,4 +84,54 @@
       }
     }
   );
+
+  function validateSearch()
+  {
+    var price_from = $('#price_from').val();
+    var price_to = $('#price_to').val();
+    
+    if (price_from != '') 
+    {
+      if ((price_from != '' && isNaN(price_from)) || parseFloat(price_from) <= 0) 
+      {
+        $('#priceError').html('El precio desde debe ser un número positivo');
+        $('#priceModal').modal();
+        return false;
+      }
+    }
+    if (price_to != '') {
+      if ((price_to != '' && isNaN(price_to)) || parseFloat(price_to) <= 0) 
+      {
+        $('#priceError').html('El precio hasta debe ser un número positivo');
+        $('#priceModal').modal();
+        return false;
+      }
+    }
+    if (price_from != '' && price_to != '')
+    {
+      if (parseFloat(price_from) > parseFloat(price_to))
+      {
+        $('#priceError').html('El precio desde no puede superar al precio hasta');
+        $('#priceModal').modal();
+        return false;
+      }
+    } 
+
+    return true;
+  }
 </script>
+
+
+
+<div id="priceModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="priceModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="changePhotoLabel">Error</h3>
+  </div>
+  <div class="modal-body">
+    <p id="priceError"></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+  </div>
+</div>
