@@ -8,7 +8,9 @@
   <div class="row">
     <div class="span3">
       <p class="text-center"><a class="btn btn-success btn-block" href="#changeAvatarModal" role="button" data-toggle="modal">Cambiar foto</a>
-      <p class="text-center"><a class="btn btn-danger btn-block" href="<%= @change_avatar_path %>" role="button" data-toggle="modal">Eliminar foto</a>
+      <% if current_user.avatar.instance.avatar_file_name != nil %>
+        <p class="text-center"><a class="btn btn-danger btn-block" href="#deleteAvatarModal" role="button" data-toggle="modal">Eliminar foto</a>
+      <% end %>
       </p>
     </div>
     <div class="span3"></div>
