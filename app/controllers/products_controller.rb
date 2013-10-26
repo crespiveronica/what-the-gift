@@ -110,7 +110,6 @@ class ProductsController < ApplicationController
     @products = filtered_products
     render 'products/search'
   end
-q
 
   def do_search_by_category
     @products = Product.any_in(category_ids: params[:category])
