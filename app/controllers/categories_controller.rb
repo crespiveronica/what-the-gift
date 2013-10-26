@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
       flash[:info] = 'La categor&iacute;a ya existe. No se ha vuelto a crear.'.html_safe
     else
       @category.save
-      flash[:info] = 'La categor&iacute;a se ha creado correctamente.'
+      flash[:info] = 'La categor&iacute;a se ha creado correctamente.'.html_safe
     end
     redirect_to admin_category_edit_path
   end
@@ -45,8 +45,8 @@ class CategoriesController < ApplicationController
   end
 
   def category_exists?(c)
-    @category = (Category.where(name: c)).entries
-    if @category.size > 0
+    category = (Category.where(name: c)).entries
+    if category.size > 0
       return true
     else
       return false
