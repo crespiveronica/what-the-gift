@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.where(:id => params[:id]).first
     if @product == nil
-      redirect_to products_list_path, alert: 'No se encontro el producto'
+      redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
     end
   end
 
@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
       current_user.wishlist << @product
       redirect_to product_path, alert: 'El regalo fue agregado a tu Wish List'
     else
-      redirect_to products_list_path, alert: 'No se encontro el producto'
+      redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
     end
   end
 
@@ -110,7 +110,7 @@ class ProductsController < ApplicationController
     @products = filtered_products
     render 'products/search'
   end
-
+q
 
   def do_search_by_category
     @products = Product.any_in(category_ids: params[:category])
