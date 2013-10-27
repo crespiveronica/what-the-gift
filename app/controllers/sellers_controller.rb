@@ -1,3 +1,4 @@
+require 'pry'
 class SellersController < ApplicationController
 
   def index
@@ -90,10 +91,9 @@ class SellersController < ApplicationController
   def update_password
     @user = Seller.find params[:id]
     if @user.update_attributes(params[:seller])
-      flash.now[:info] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
+      flash[:info] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
       sign_in @user
     end
-    redirect_to edit_seller_path @user
   end
 
 end
