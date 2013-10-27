@@ -42,11 +42,51 @@
       </div>
 
       <br />
-      <%= f.submit "Crear", class: "btn btn-primary" %>
+      <%= f.submit "Crear", class: "btn btn-primary", onclick: "return validateSignup();" %>
     <% end %>
   </div>
 </div>
 
 <script>
   $('.chosen-select').chosen();
+
+  function validateSignup()
+  {
+    var birthday = $('#user_birthday').val();
+    if (!isPastDate(birthday))
+    {
+      $('#signupError').html('La fecha de nacimiento debe ser en el pasado');
+      $('#signupModal').modal();
+      return false;
+    }
+    return true;
+  }
+
+  function isPastDate(value) {
+    var now = new Date();
+    var target = new Date(value);
+
+    if (target.getFullYear() > now.getFullYear()) {
+        return false;
+    } else if (target.getMonth() > now.getMonth()) {
+        return false;
+    } else if (target.getDate() >= now.getDate()) {
+        return false;
+    }
+
+    return true;
+  }
 </script>
+
+<div id="signupModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="changePhotoLabel">Error</h3>
+  </div>
+  <div class="modal-body">
+    <p id="signupError"></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+  </div>
+</div>
