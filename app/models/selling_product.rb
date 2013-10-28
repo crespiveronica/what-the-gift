@@ -2,7 +2,7 @@ class SellingProduct
   include Mongoid::Document
 
   attr_accessible :banned, :banned_reason
-
+  
   field :price, type: Float
   field :approved, type: Boolean
   field :banned, type: Boolean, default: true
@@ -10,4 +10,5 @@ class SellingProduct
 
   belongs_to :seller
   belongs_to :product
+
 end

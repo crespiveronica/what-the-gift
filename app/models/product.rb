@@ -13,7 +13,6 @@ class Product
 
   search_in :brand, :name, :descripcion, :categories => :name
 
-
   def asorted_recommended_for user
   	Product.full_text_search( to_keys user.interests , match: :any, relevant_search: true)
   end

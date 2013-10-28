@@ -63,4 +63,21 @@ class SellingProductsController < ApplicationController
     @sp.save
   end
 
+  def upload
+    selling_products = MultiJson.load(params[:product_file])
+    selling_products['products'].each do |sp|
+      product = Product.new
+      product.name = sp["nombre"]
+      product.description = sp["descripcion"]
+      product.brand = sp["marca"]
+      product.photo_url = sp["url_foto"]
+      product.save
+      selling_product = SellingProduct.new
+      selling_product.product = product
+      selling_product.price = sp["precio"].to_f
+      selling_product.seller = current_user
+      selling_product.save
+    end
+  end
+
 end
