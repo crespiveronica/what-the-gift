@@ -132,7 +132,7 @@ class ProductsController < ApplicationController
     @product.banned = false
     @product.banned_reason = nil
     @product.save
-    flash[:info] = "Produto aprobado."
+    flash[:info] = "Producto aprobado."
     ProductMailer.publication_result(@product).deliver
     redirect_to admin_product_edit_path
   end
