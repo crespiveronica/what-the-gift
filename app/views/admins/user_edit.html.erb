@@ -13,7 +13,6 @@
       <th colspan="2">Acción</th>
     </tr>
 
-    <% seq_id = 0 %>
     <% @users.each do |user| %>
       <tr class="users">
         <%= form_for user, url: disable_user_path(user), method: 'post' do |u| %>
@@ -32,12 +31,11 @@
             <td><button type="button" class="btn btn-warning btn-small" disabled="disabled">Deshabilitar</button></td>
           <% else %>
             <td><button type="button" class="btn btn-info btn-small" disabled="disabled">Habilitar</button></td>
-            <td><%= u.submit "Deshabilitar", class: "btn btn-warning btn-small", id: "ban-reason-btn-" + seq_id.to_s %></td>
+            <td><%= u.submit "Deshabilitar", class: "btn btn-warning btn-small" %></td>
           <% end %>
 
         <% end %>
       </tr>
-      <% seq_id += 1 %>
     <% end %>
 
   </table>

@@ -26,7 +26,7 @@
           <% if prod.banned %>
               <td><%= prod.banned_reason %></td>
             <% else %>
-              <td><%= p.text_field :banned_reason, placeholder: "obligatorio", id: 'ban-reason-' + id_gen.to_s %></td>
+              <td><%= p.text_field :banned_reason, id: 'ban-reason-' + id_gen.to_s %></td>
             <% end %>
           <% if prod.banned %>
             <td><%= link_to "Habilitar", enable_product_path(prod), method: :post, class: "btn btn-info btn-small" %></td>
@@ -37,7 +37,7 @@
           <% end %>
         <% end %>
       </tr>
-      <% id_gen = id_gen + 1 %>
+      <% id_gen += 1 %>
     <% end %>
 
   </table>
