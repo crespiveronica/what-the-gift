@@ -7,16 +7,16 @@
       <%= render 'shared/error_messages' %>
 
       <%= s.label :email %>
-      <%= s.text_field :email %>
+      <%= s.text_field :email, oninput: 'check(this)' %>
 
       <%= s.label :password, 'Contraseña' %>
-      <%= s.password_field :password %>
+      <%= s.password_field :password, oninput: 'check(this)' %>
 
       <%= s.label :password_confirmation, 'Confirmar' %>
-      <%= s.password_field :password_confirmation %>
+      <%= s.password_field :password_confirmation, oninput: 'check(this)' %>
 
       <%= s.label :company_name, 'Compañía' %>
-      <%= s.text_field :company_name %>
+      <%= s.text_field :company_name, oninput: 'check(this)' %>
 
       <%= s.label :web, 'Página web' %>
       <%= s.text_field :web %>
@@ -31,3 +31,24 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  function check(input) {
+    if (input.value == "") {
+      input.setCustomValidity('Debes completar este campo.');
+    } else {
+      input.setCustomValidity('');
+    }
+  }
+
+  $(document).ready( function() {
+    var inputs = new Array();
+    inputs[0] = document.getElementById('seller_email');
+    inputs[1] = document.getElementById('seller_password');
+    inputs[2] = document.getElementById('seller_password_confirmation');
+    inputs[3] = document.getElementById('seller_company_name');
+    for (i = 0; i < inputs.length; i++) {
+      check(inputs[i]);
+    }
+  });
+</script>
