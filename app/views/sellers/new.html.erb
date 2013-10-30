@@ -13,7 +13,7 @@
       <%= s.password_field :password, oninput: 'check(this)' %>
 
       <%= s.label :password_confirmation, 'Confirmar' %>
-      <%= s.password_field :password_confirmation, oninput: 'check(this)' %>
+      <%= s.password_field :password_confirmation, oninput: 'check_email(this)' %>
 
       <%= s.label :company_name, 'Compañía' %>
       <%= s.text_field :company_name, oninput: 'check(this)' %>
@@ -36,6 +36,14 @@
   function check(input) {
     if (input.value == "") {
       input.setCustomValidity('Debes completar este campo.');
+    } else {
+      input.setCustomValidity('');
+    }
+  }
+
+  function check_email(input) {
+    if (input.value != document.getElementById('seller_password').value ) {
+      input.setCustomValidity('Las contraseñas no coinciden.');
     } else {
       input.setCustomValidity('');
     }
