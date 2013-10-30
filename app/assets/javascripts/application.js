@@ -17,3 +17,4 @@
 //= require jquery.raty
 //= require jquery_nested_form
 //= require chosen.jquery
+//= require jquery.validate.min
