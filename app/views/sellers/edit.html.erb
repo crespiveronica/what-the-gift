@@ -17,7 +17,7 @@
   </div>
   <div class="row">
     <div class="span9">
-      <%= form_for @user do |s| %>
+      <%= form_for @user, :html =>{:id => "seller_edit_form"} do |s| %>
       <div class="row">
         <div class="span4"><%= s.label :company_name, "Razón social", style: 'font-weight:bold' %></div>
         <div class="span5"><%= s.text_field :company_name %></div>
@@ -27,11 +27,11 @@
         <div class="span5"><%= s.text_field :location %></div>
       </div>
       <div class="row">
-        <div class="span4"><%= s.label :web, "Página web", style: 'fonrt-weight:bold' %></div>
+        <div class="span4"><%= s.label :web, "Página web", style: 'font-weight:bold' %></div>
         <div class="span5"><%= s.text_field :web %></div>
       </div>
       <div class="row">
-        <div class="span4"><%= s.label :phone, "Teléfono", style: 'fonrt-weight:bold' %></div>
+        <div class="span4"><%= s.label :phone, "Teléfono", style: 'font-weight:bold' %></div>
         <div class="span5"><%= s.text_field :phone %></div>
       </div>
       <div class="row">
@@ -79,3 +79,13 @@
 </fieldset>
 
 <%= render template: 'shared/modals' %>
+
+<script>
+  $('#seller_edit_form').validate({
+    rules: {
+      "seller[company_name]": {required: true, minlength: 2},
+      "seller[location]": {required: true},
+      "seller[web]": {required: true, url: true }
+    }
+  });
+</script>

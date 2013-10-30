@@ -1,4 +1,3 @@
-require 'pry'
 class SellersController < ApplicationController
 
   def index
@@ -34,7 +33,6 @@ class SellersController < ApplicationController
   def update
     @user = Seller.find(params[:id])
     if @user.update_attributes params[:seller]
-      binding.pry
       sign_in @user
       redirect_to @user
     else
