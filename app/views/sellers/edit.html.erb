@@ -84,8 +84,7 @@
   $('#seller_edit_form').validate({
     rules: {
       "seller[company_name]": {required: true, minlength: 2},
-      "seller[location]": {required: true},
-      "seller[web]": {required: true, url: true }
+      "seller[web]": { url: true }
     }
   });
 </script>
