@@ -1,8 +1,8 @@
-<h1>Iniciar sesion</h1>
+<h2>Iniciar sesión</h2>
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
+    <%= form_for :session, url: sessions_path, :html => { :id => 'signin-form' } do |f| %>
 
       <%= f.label :email %>
       <%= f.text_field :email %>
@@ -15,3 +15,12 @@
     <p><%= link_to "Olvidé mi usuario o contraseña", forgotten_user_path %></p>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('#signin-form').validate({
+    rules: {
+      "session[email]": {required: true},
+      "session[password]": {required: true}
+    }
+  })
+</script>
