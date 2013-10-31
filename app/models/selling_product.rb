@@ -15,7 +15,15 @@ class SellingProduct
     selling_product = SellingProduct.new
   	product = Product.from_json json
     selling_product.product = product
-    selling_product.price = json["precio"].gsub(',', '.').to_f
+    sprice = json["precio"].gsub(',', '.')
+    if(!Matcher.float? sprice)
+      raise ParsingFileError.newUnparsablePrice
+    end
+    price = sprice.to_f
+    if(price <= 0)
+      raise ParsingFileError.newNegativePrice
+    end
+    selling_product.price = price
     selling_product
   end
 end
