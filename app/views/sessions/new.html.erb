@@ -1,4 +1,4 @@
-<h2>Iniciar sesión</h2>
+<h1>Iniciar sesión</h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -20,7 +20,7 @@
   $('#signin-form').validate({
     rules: {
       "session[email]": {required: true},
-      "session[password]": {required: true}
+      "session[password]": {required: true, minlength: 8}
     }
   })
 </script>
