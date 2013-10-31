@@ -3,14 +3,14 @@
 
   <h5 id="new-category">Nueva categoría</h5>
   <div id="new-category-form">
-    <%= form_for @new_category do |nc| %>
+    <%= form_for @new_category, :html => { :id => 'new-category-val'} do |nc| %>
       <%= nc.label :name, 'Nombre' %>
       <%= nc.text_field :name %>
 
       <%= nc.label :description, 'Descripción' %>
       <%= nc.text_field :description %>
 
-      <%= nc.submit "Crear", id: "submit_button", class: "btn btn-small btn-success" %>
+      <%= nc.submit "Crear", class: "btn btn-small btn-success" %>
     <% end %>
   </div>
 
@@ -43,14 +43,11 @@
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-      $('#submit_button').attr('disabled',true);
-      $('#category_name').keyup(function(){
-          if($(this).val().length !=0){
-              $('#submit_button').attr('disabled', false);
-          }
-          else
-          $('#submit_button').attr('disabled',true);
-      })
+
+  $('#new-category-val').validate({
+    rules: {
+      "category[name]": {required: true, minlength: 2}
+    }
   });
+
 </script>
