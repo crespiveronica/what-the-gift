@@ -72,4 +72,7 @@ class SellersController < ApplicationController
     redirect_to admin_seller_edit_path, alert: 'El usuario ha sido habilitado.'
   end
 
+  def showroom
+    @seller = Seller.find(params[:id])
+  end
 end

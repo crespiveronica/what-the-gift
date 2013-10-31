@@ -10,7 +10,11 @@
       <div class="span4"><%= image_tag @product.photo, size: "512x512", class: "img-polaroid" %></div>
       <div class="span6">
         <h3 class="text-right">Vendido por: </h3>
-        <h4 class="text-right"><%= @product.sellers %></h4>
+        <h4 class="text-right">
+          <% for seller in @product.sellers_list %>
+            <a href="/sellers/<%= seller.id %>/showroom"><%= seller.company_name %></a>
+          <% end %>
+        </h4>
         <h4 class="text-right">Desde $<%= @product.lowest_price %> </h4>
         <% if current_user._type == 'User' and not current_user.wishlist.include? @product %>
         <p class="text-right">

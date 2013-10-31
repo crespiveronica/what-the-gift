@@ -32,6 +32,7 @@ Wtg::Application.routes.draw do
   match '/users/:id/disable', to: 'users#disable', via: 'post', :as => 'disable_user'
   match '/sellers/:id/enable', to: 'sellers#enable', via: 'post', :as => 'enable_seller'
   match '/sellers/:id/disable', to: 'sellers#disable', via: 'post', :as => 'disable_seller'
+  match '/sellers/:id/showroom/', to: 'sellers#showroom', via: 'get', :as => 'showroom'
   match '/products/:id/disable', to: 'products#disable', via: 'post', :as => 'disable_product'
   match '/products/:id/enable', to: 'products#enable', via: 'post', :as => 'enable_product'
   match '/users/birthday-notification', to: 'users#birthday_notification', via: 'get', :as => 'birthday_notification'
