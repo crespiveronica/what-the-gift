@@ -19,7 +19,7 @@
 <script type="text/javascript">
   $('#signin-form').validate({
     rules: {
-      "session[email]": {required: true},
+      "session[email]": {required: true, email: true},
       "session[password]": {required: true, minlength: 8}
     }
   })
