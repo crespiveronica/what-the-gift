@@ -13,6 +13,7 @@
       <th colspan="2">Acción</th>
     </tr>
 
+    <% id_gen = 0 %>
     <% @users.each do |user| %>
       <tr class="users">
         <%= form_for user, url: disable_user_path(user), method: 'post' do |u| %>
@@ -23,7 +24,7 @@
           <% if user.banned %>
             <td><%= user.banned_reason %></td>
           <% else %>
-            <td><%= u.text_field :banned_reason, :required => true, name: 'ban-reason' %></td>
+            <td><%= u.text_field :banned_reason, id: 'ban-reason-' + id_gen.to_s %></td>
           <% end %>
 
           <% if user.banned %>
@@ -31,11 +32,12 @@
             <td><button type="button" class="btn btn-warning btn-small" disabled="disabled">Deshabilitar</button></td>
           <% else %>
             <td><button type="button" class="btn btn-info btn-small" disabled="disabled">Habilitar</button></td>
-            <td><%= u.submit "Deshabilitar", class: "btn btn-warning btn-small" %></td>
+            <td><%= u.submit "Deshabilitar", class: "btn btn-warning btn-small", onclick: "return validateReason(this.id);", id: 'ban-reason-btn-' + id_gen.to_s %></td>
           <% end %>
 
         <% end %>
       </tr>
+      <% id_gen += 1 %>
     <% end %>
 
   </table>
@@ -44,4 +46,4 @@
 
 </div>
 
-<%= javascript_include_tag "admin_validations" %>
+<%= render 'error_modal' %>

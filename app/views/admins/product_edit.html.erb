@@ -46,32 +46,4 @@
 
 </div>
 
-<script>
-
-  function validateReason(clicked_id)
-  {
-    var input_id = clicked_id.replace('btn-', '');
-    if (document.getElementById(input_id).value == "")
-    {
-      $('#reasonError').html('La razón de rechazo no puede estar vacía.');
-      $('#reasonModal').modal();
-      return false;
-    }
-
-    return true;
-  }
-
-</script>
-
-<div id="reasonModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="reasonModal" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="changePhotoLabel">Error</h3>
-  </div>
-  <div class="modal-body">
-    <p id="reasonError"></p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
-  </div>
-</div>
+<%= render 'error_modal' %>
