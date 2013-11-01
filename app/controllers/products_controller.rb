@@ -46,7 +46,20 @@ class ProductsController < ApplicationController
       redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
     end
   end
- 
+
+  def product_add_to_gifts
+    product = Product.where(:id => params[:id]).first
+    if product and not current_user.gifts.include? product
+      gift = Gift.new
+      gift.product = product
+      current_user.gifts << gift
+      current_user.wishlist.delete(product)
+      redirect_to product_path, alert: 'El regalo fue agregado a tu lista de regalos recibidos'
+    else
+      redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
+    end
+  end
+
   def rate
     @gift = current_user.gifts.where(:id => params[:id]).first
     @gift.score = params[:score] != '' ? params[:score] : 0
