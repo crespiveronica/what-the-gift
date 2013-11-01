@@ -164,15 +164,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.banned = false
     @user.banned_reason = nil
-    @user.save
-    flash[:info] = "El usuario ha sido habilitado."
-    UserMailer.inform_state(@user).deliver
+    if @user.save
+      flash[:info] = "El usuario ha sido habilitado."
+      UserMailer.inform_state(@user).deliver
+    else
+      flash[:info] = "No se ha podido reactivar al usuario."
+    end
     redirect_to admin_user_edit_path
   end
 
   def birthday_notification
     birthday_users = User.birthday_users
-    birthday_users.each do | user | 
+    birthday_users.each do | user |
       user.friends.each do |friend|
         UserMailer.birthday_notification(user, friend).deliver
       end
