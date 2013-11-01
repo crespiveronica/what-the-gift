@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
       redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
     end
   end
-
+ 
   def rate
     @gift = current_user.gifts.where(:id => params[:id]).first
     @gift.score = params[:score] != '' ? params[:score] : 0

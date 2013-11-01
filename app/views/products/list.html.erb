@@ -5,8 +5,13 @@
 		<h5><%= product.name %></h5>
 		<p><small><%= product.description %></small></p>  
         <p class="bottom">
-          <% if signed_in? and current_user._type == 'User' and not current_user.wishlist.include? product %>
+          <% if signed_in? and current_user._type == 'User'%>
+           <% if not current_user.wishlist.include? product %>
             <a href="<%=product_add_to_wishlist_path(:id => product.id)%>" class="btn btn-danger btn-mini btn-primary pull-left"><i class="icon-heart icon-white"></i></a>
+          <% else %>
+            <%= link_to "<i class='icon-thumbs-down icon-white'></i>".html_safe, product_remove_from_wishlist_path(:id => product.id), method: :delete,
+              :class => 'btn btn-warning btn-mini btn-primary pull-left' %>
+          <% end %>
           <% end %>
             <%= link_to 'Ver más', product_path(:id => product.id), :class => 'btn btn-mini btn-primary pull-right' %>
         </p>
