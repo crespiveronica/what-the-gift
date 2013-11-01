@@ -154,9 +154,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.banned = true
     @user.banned_reason = params[:user][:banned_reason]
-    @user.save
-    flash[:info] = "El usuario ha sido deshabilitado."
-    UserMailer.inform_state(@user).deliver
+    if @user.save
+      flash[:info] = "El usuario ha sido deshabilitado."
+      UserMailer.inform_state(@user).deliver
+    else
+      flash[:info] = "No se ha podido deshabilitar al usuario."
+    end
     redirect_to admin_user_edit_path
   end
 
