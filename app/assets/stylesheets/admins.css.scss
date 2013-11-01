@@ -1,3 +1,18 @@
 // Place all the styles related to the Admins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#logo
+{
+	background: url('logo off.png') no-repeat top left;
+	background-size: 35px 35px;
+	padding-left: 45px;
+}
+
+#logo:hover
+{
+	background: url('logo.png') no-repeat top left;
+	background-size: 35px 35px;
+	padding-left: 45px;
+	color: #c4902b !important;
+}

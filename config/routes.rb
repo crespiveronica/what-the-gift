@@ -53,7 +53,7 @@ Wtg::Application.routes.draw do
 
   match '/sellingproducts/:id/approve', to: 'sellingproducts#approve', via: 'post', :as => 'approve'
   match '/sellingproducts/:id/reject', to: 'sellingproducts#reject', via: 'post', :as => 'reject'
-  match '/my-products/', to: 'selling_products#mine', via: 'get'
+  match '/my-products/', to: 'selling_products#mine', via: 'get', :as => 'my_products'
   match '/my-products/:id/edit/', to: 'selling_products#edit', via: 'get', :as => 'edit_selling_products'
   match '/my-products/:id/', to: 'selling_products#destroy', via:'delete', :as => 'destroy_selling_products'
   match '/my-products/:id/', to: 'selling_products#update', via: 'put', :as => 'update_selling_products'
