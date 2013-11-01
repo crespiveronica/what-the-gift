@@ -1,15 +1,17 @@
 <% @products.each do |product| %>
     <li class="span2">
       <div class="thumbnail gift">
-        <% if signed_in? and current_user._type == 'User' and not current_user.products_from_gifts.include? product %>
-          <a title="Lo tengo!" href="<%= product_add_to_gifts_path(:id => product.id) %>" class="btn btn-mini pull-left add-to-gifts"><i class="icon-plus"></i></a>
+        <% if signed_in? and current_user._type == 'User' and 
+              not current_user.products_from_gifts.include? product %>
+          <a title="Lo tengo!" href="<%= product_add_to_gifts_path(:id => product.id) %>" class="btn btn-mini pull-left btn-success"><i class="icon-plus"></i></a>
         <% end %>
         <%= image_tag product.photo , size: '100x100', class: 'img-rounded' %>
 		<h5><%= product.name %></h5>
 		<p><small><%= product.description %></small></p>  
         <p class="bottom">
           <% if signed_in? and current_user._type == 'User'%>
-           <% if not current_user.wishlist.include? product not current_user.products_from_gifts.include? product %> %>
+           <% if not current_user.wishlist.include? product and
+                 not current_user.products_from_gifts.include? product %>
             <a href="<%=product_add_to_wishlist_path(:id => product.id)%>" class="btn btn-danger btn-mini btn-primary pull-left"><i class="icon-heart icon-white"></i></a>
             <% elsif current_user.wishlist.include? product %>
             <%= link_to "<i class='icon-thumbs-down icon-white'></i>".html_safe, product_remove_from_wishlist_path(:id => product.id), method: :delete,

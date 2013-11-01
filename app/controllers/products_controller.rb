@@ -49,7 +49,7 @@ class ProductsController < ApplicationController
 
   def product_add_to_gifts
     product = Product.where(:id => params[:id]).first
-    if product and not current_user.gifts.include? product
+    if product
       gift = Gift.new
       gift.product = product
       current_user.gifts << gift
@@ -64,7 +64,7 @@ class ProductsController < ApplicationController
     @gift = current_user.gifts.where(:id => params[:id]).first
     @gift.score = params[:score] != '' ? params[:score] : 0
     @gift.save
-    redirect_to gifts_path, alert: 'Se ha calificado su regalo satisfactoriamente'
+    redirect_to user_path(current_user.id), alert: 'Se ha calificado su regalo satisfactoriamente'
   end
 
   def do_advanced_search
