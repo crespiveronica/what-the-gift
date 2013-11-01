@@ -1,6 +1,6 @@
 <fieldset>
   <legend><h4>Mi Producto</h4></legend>
-  <%= form_tag(update_selling_products_path(:id => @selling_product.id), method: "put") do %>
+  <%= form_tag update_selling_products_path(:id => @selling_product.id), method: "put", :id => 'precio-box' do %>
 
   <div class="row">
     <div class="span4"><strong>Nombre</strong></div>
@@ -26,7 +26,7 @@
     <div class="span4"><strong>Precio</strong></div>
     <div class="span5"><input type="text" value="<%=@selling_product.price %>" name="price"></div>
   </div>
-  
+
   <div class="span2 offset3">
             <p class="text-center">
     <%= submit_tag("Confirmar", class: 'btn btn-success btn-block') %>
@@ -35,3 +35,15 @@
 
   <% end %>
 </fieldset>
+
+<script type="text/javascript">
+  jQuery.validator.addMethod("greaterThanZero", function(value, element) {
+    return this.optional(element) || (parseFloat(value) > 0);
+  }, "El precio debe ser mayor a cero.");
+
+  $('#precio-box').validate({
+    rules: {
+      "price": {required: true, number: true, greaterThanZero: true}
+    }
+  });
+</script>

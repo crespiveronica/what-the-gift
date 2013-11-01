@@ -46,13 +46,13 @@ class SellingProductsController < ApplicationController
     @selling_product = SellingProduct.where(:id => params[:id]).first
     @selling_product.price = params[:price]
     @selling_product.save
-    redirect_to '/my-products/', alert: 'La modificaci&oacute;n se realizo con exito'.html_safe
+    redirect_to '/my-products/', alert: 'La modificaci&oacute;n se realiz&oacute; con &eacute;xito.'.html_safe
   end
 
   def destroy
     @selling_product = SellingProduct.where(:id => params[:id]).first
     @selling_product.destroy
-    redirect_to '/my-products/', alert: 'Se ha eliminado el producto'
+    redirect_to '/my-products/', alert: 'Se ha eliminado el producto satisfactoriamente.'
   end
 
   def approve
@@ -78,11 +78,11 @@ class SellingProductsController < ApplicationController
     rescue ParsingFileError => error
       redirect_to '/my-products/', alert: error.message
     rescue
-      default_msg = 'El formato del archivo es incorrecto, por favor corrija el archivo y vuelva a cargarlo'
+      default_msg = 'El formato del archivo es incorrecto, por favor corr&iacute; y vuelva a cargarlo.'
       redirect_to '/my-products/', alert: default_msg
     else
       save_selling_products selling_products
-      redirect_to '/my-products/', alert: 'Se han creado los nuevos productos'
+      redirect_to '/my-products/', alert: 'Se han creado los nuevos productos.'
     end
   end
 
