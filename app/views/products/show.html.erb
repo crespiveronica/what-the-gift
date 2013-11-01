@@ -26,11 +26,12 @@
           <% if not current_user.wishlist.include? @product and
                 not current_user.products_from_gifts.include? @product %>
             <p class="text-right">
-                <a href="<%= product_add_to_wishlist_path :id => @product.id %>" class="btn btn-danger" type="button"><i class="icon-white icon-heart"></i> Wishlist</a>
+            <%= link_to "<i class='icon-white icon-heart'></i> Wishlist".html_safe, product_add_to_wishlist_path(:id => @product.id),  
+                :method => :post, :class => 'btn btn-danger' %>
             </p>
           <% elsif current_user.wishlist.include? @product %>
             <p class="text-right">
-              <%= link_to "<i class='icon-thumbs-down icon-white'></i> Ya no lo quiero".html_safe, product_remove_from_wishlist_path(:id => @product.id), method: :delete,
+              <%= link_to "<i class='icon-thumbs-down icon-white'></i> Ya no lo quiero".html_safe, product_remove_from_wishlist_path(:id => @product.id),  :method => :delete,
                 :class => 'btn btn-warning' %>
             </p>
           <% end %>

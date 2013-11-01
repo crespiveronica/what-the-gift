@@ -47,6 +47,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  def remove_from_wishlist
+    @product = Product.where(:id => params[:id]).first
+    if @product
+      current_user.wishlist.delete @product
+      redirect_to product_path, alert: 'El regalo fue borrado de tu Wish List'
+    else
+      redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
+    end
+  end
+
   def product_add_to_gifts
     product = Product.where(:id => params[:id]).first
     if product
