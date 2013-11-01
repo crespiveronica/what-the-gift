@@ -232,10 +232,12 @@ class UsersController < ApplicationController
   def update_password
     @user = User.find params[:id]
     if @user.update_attributes(params[:user])
-      flash.now[:info] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
+      flash[:info] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
       sign_in @user
+    else
+      flash[:info] = 'No se ha cambiado la contrase&ntilde;a. Debe tener como m&itildenimo de ocho caracteres.'.html_safe
     end
-    redirect_to edit_user_path @user
+    redirect_to @user
   end
 
 end
