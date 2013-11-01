@@ -31,7 +31,7 @@
           <div class="span4"><%= f.label :last_name, 'Apellido', style: 'font-weight:bold' %></div>
           <div class="span5"><%= f.text_field :last_name %></div>
         </div>
-        
+
         <div class="row">
           <div class="span4"><%= f.label :birthday, 'Cumpleaños', style: 'font-weight:bold' %></div>
           <div class="span5"><%= f.text_field :birthday, :type => :date, :start_year => (Date.current - 5.year).year, :end_year => (Date.current - 120.year).year, "required" => "true", :include_blank => true %>
@@ -111,7 +111,7 @@
   function validateEdit()
   {
     var birthday = $('#user_birthday').val();
-    
+
     if (!isPastDate(birthday))
     {
       $('#signupError').html('La fecha de nacimiento debe ser en el pasado');
@@ -125,11 +125,7 @@
     var now = new Date();
     var target = new Date(value);
 
-    if (target.getFullYear() > now.getFullYear()) {
-        return false;
-    } else if (target.getMonth() > now.getMonth()) {
-        return false;
-    } else if (target.getDate() >= now.getDate()) {
+    if (now < target) {
         return false;
     }
 
