@@ -21,19 +21,25 @@ class SellingProductsController < ApplicationController
   end
 
   def create
-    product  = Product.new
-    product.name = params[:name]
-    product.description = params[:description]
-    product.brand = params[:brand]
-    product.categories = params[:categories].map{ |id| Category.where(id: id).first}
-    product.photo_url = params[:photo]
-    product.save
-    selling_product = SellingProduct.new
-    selling_product.product = product
-    selling_product.seller = current_user
-    selling_product.price = params[:price]
-    selling_product.save
-    redirect_to '/my-products/', alert: 'Se ha creado el nuevo producto'
+    if params[:categories].nil?
+      message = 'El producto debe tener al menos una categor&iacute;a. Vuelva a ingresar los datos por favor.'.html_safe
+    else
+      product  = Product.new
+      product.name = params[:name]
+      product.description = params[:description]
+      product.brand = params[:brand]
+      product.categories = params[:categories].map{ |id| Category.where(id: id).first}
+      product.photo_url = params[:photo]
+      product.save
+      selling_product = SellingProduct.new
+      selling_product.product = product
+      selling_product.seller = current_user
+      selling_product.price = params[:price]
+      selling_product.save
+      message = 'Se ha creado el nuevo producto satisfactoriamente.'
+    end
+
+    redirect_to '/my-products/', alert: message
   end
 
   def update
@@ -73,7 +79,7 @@ class SellingProductsController < ApplicationController
       redirect_to '/my-products/', alert: error.message
     rescue
       default_msg = 'El formato del archivo es incorrecto, por favor corrija el archivo y vuelva a cargarlo'
-      redirect_to '/my-products/', alert: default_msg 
+      redirect_to '/my-products/', alert: default_msg
     else
       save_selling_products selling_products
       redirect_to '/my-products/', alert: 'Se han creado los nuevos productos'
@@ -100,7 +106,7 @@ class SellingProductsController < ApplicationController
   end
 
   def required_fields_for_file
-    ['nombre','descripcion', 'marca', 'url_foto', 'precio', 'categorias'] 
+    ['nombre','descripcion', 'marca', 'url_foto', 'precio', 'categorias']
   end
 
   def is_null_or_empty field
@@ -113,7 +119,7 @@ class SellingProductsController < ApplicationController
         selling_product = SellingProduct.from_json sp
         selling_product.seller = current_user
         sp_list << selling_product
-      end    
+      end
     sp_list
   end
 
