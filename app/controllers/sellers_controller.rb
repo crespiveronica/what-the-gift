@@ -93,7 +93,10 @@ class SellersController < ApplicationController
     if @user.update_attributes(params[:seller])
       flash[:info] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
       sign_in @user
+    else
+      flash[:info] = 'No se ha cambiado la contrase&ntilde;a. Debe tener como m&itildenimo de ocho caracteres.'.html_safe
     end
+    redirect_to @user
   end
 
 end
