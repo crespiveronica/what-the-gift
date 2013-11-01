@@ -66,12 +66,8 @@
     var now = new Date();
     var target = new Date(value);
 
-    if (target.getFullYear() > now.getFullYear()) {
-        return false;
-    } else if (target.getMonth() > now.getMonth()) {
-        return false;
-    } else if (target.getDate() >= now.getDate()) {
-        return false;
+    if (now < target) {
+      return false;
     }
 
     return true;
