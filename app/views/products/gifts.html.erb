@@ -1,7 +1,7 @@
 <ul class="thumbnails">
 	<% @user.gifts.each do |gift| %>
 	<li class="span4">
-		<%= image_tag "gift1.jpg", size: '100x100', class: 'img-rounded' %>
+		<%= image_tag gift.product.photo, size: '100x100', class: 'img-rounded' %>
 		<h5><%= gift.product.name %></h5>
 		<p><small><%= gift.product.description %></small></p>  
       <p class="bottom">
