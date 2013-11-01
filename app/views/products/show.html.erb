@@ -16,10 +16,25 @@
           <% end %>
         </h4>
         <h4 class="text-right">Desde $<%= @product.lowest_price %> </h4>
-        <% if current_user._type == 'User' and not current_user.wishlist.include? @product %>
-        <p class="text-right">
-            <a href="<%= product_add_to_wishlist_path :id => @product.id %>" class="btn btn-danger" type="button"><i class="icon-white icon-heart"></i> Wishlist</a>
-        </p>
+        <% if current_user._type == 'User'%>
+          <% if not current_user.products_from_gifts.include? @product %>
+            <p class="text-right">
+              <a href="<%= product_add_to_gifts_path(:id => @product.id) %>" class="btn btn-success"><i class="icon-plus">
+              </i> Lo tengo!</a>
+            </p>
+          <% end %>
+          <% if not current_user.wishlist.include? @product and
+                not current_user.products_from_gifts.include? @product %>
+            <p class="text-right">
+            <%= link_to "<i class='icon-white icon-heart'></i> Wishlist".html_safe, product_add_to_wishlist_path(:id => @product.id),  
+                :method => :post, :class => 'btn btn-danger' %>
+            </p>
+          <% elsif current_user.wishlist.include? @product %>
+            <p class="text-right">
+              <%= link_to "<i class='icon-thumbs-down icon-white'></i> Ya no lo quiero".html_safe, product_remove_from_wishlist_path(:id => @product.id),  :method => :delete,
+                :class => 'btn btn-warning' %>
+            </p>
+          <% end %>
         <% end %>
       </div>
     </div>

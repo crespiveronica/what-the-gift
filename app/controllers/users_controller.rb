@@ -205,14 +205,4 @@ class UsersController < ApplicationController
     predefined_hobbies
   end
 
-  def remove_from_wishlist
-    @product = Product.where(:id => params[:id]).first
-    if @product
-      current_user.wishlist.delete @product
-      redirect_to current_user, alert: 'El regalo fue borrado de tu Wish List'
-    else
-      redirect_to current_user, alert: 'No se encontr&oacute; el producto'.html_safe
-    end
-  end
-
 end
