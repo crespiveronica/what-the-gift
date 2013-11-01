@@ -49,6 +49,7 @@ Wtg::Application.routes.draw do
   match '/products/destroy' , to: 'products#destroy'
   match '/products/:id/', to: 'products#show', :as => 'product'
   match '/products/:id/wishlist', to: 'products#wishlist', :as => 'product_add_to_wishlist'
+  match '/users/:id/wishlist', to: 'users#remove_from_wishlist', via: 'delete', :as => 'product_remove_from_wishlist'
   match '/products/:id/rate', to: 'products#rate', via: 'post', :as => 'product_rate'
 
   match '/sellingproducts/:id/approve', to: 'sellingproducts#approve', via: 'post', :as => 'approve'
