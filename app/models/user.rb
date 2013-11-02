@@ -14,6 +14,7 @@ class User < GenericUser
   field :birthday, type: Date
 
   validates :birthday, presence: true
+  default_scope order_by :email => :asc
 
 def full_name
   first_name + ' ' + last_name
