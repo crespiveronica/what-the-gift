@@ -3,7 +3,7 @@
   <div>
       <fieldset>
         <legend><h4>Nuevo Producto</h4></legend>
-        <form action="<%= create_selling_products_path%>" enctype="multipart/form-data" method="post">
+        <form action="<%= create_selling_products_path%>" enctype="multipart/form-data" method="post" id="new-product-form">
           <div class="row">
             <div class="span9"><h4>Sobre mi producto</h4></div>
           </div>
@@ -11,23 +11,23 @@
             <div class="span9">
               <div class="row">
                 <div class="span4"><strong>Nombre del producto</strong></div>
-                <div class="span5"><input type="text" name="name" required="required"></div>
+                <div class="span5"><input type="text" name="name" ></div>
               </div>
               <div class="row">
                 <div class="span4"><strong>Marca</strong></div>
-                <div class="span5"><input type="text" name="brand" required="required"></div>
+                <div class="span5"><input type="text" name="brand" ></div>
               </div>
               <div class="row">
                 <div class="span4"><strong>Descripción</strong></div>
-                <div class="span5"><input type="text" name="description" required="required"></div>
+                <div class="span5"><input type="text" name="description" ></div>
               </div>
               <div class="row">
                 <div class="span4"><strong>Precio</strong></div>
-                <div class="span5"><input type="text" name="price" required="required"></div>
+                <div class="span5"><input type="text" name="price" id="price"></div>
               </div>
               <div class="row">
                 <div class="span4"><strong>Foto (debe ser un URL)</strong></div>
-                <div class="span5"><input name="photo" type="url" requires="required"/></div>
+                <div class="span5"><input name="photo" type="url"/></div>
               </div>
               <div class="row">
                 <div class="span4"><strong>Categorías</strong></div>
@@ -35,8 +35,7 @@
                  <%= render :template => 'shared/categories_options' %>
                 </div>
               </div>
-
-
+              <br>
               <div class="row">
                 <div class="span3"></div>
                 <div class="span2">
@@ -52,8 +51,23 @@
               </div>
             </div>
           </div>
-         </form> 
+         </form>
       </fieldset>
   </div>
 </div>
 
+<script>
+  jQuery.validator.addMethod("greaterThanZero", function(value, element) {
+    return this.optional(element) || (parseFloat(value) > 0);
+  }, "El precio debe ser mayor a cero.");
+
+  $('#new-product-form').validate({
+    rules: {
+      "name": {required: true},
+      "brand": {required: true},
+      "description": {required: true},
+      "price": {required: true, number: true, greaterThanZero: true},
+      "photo": {required: true, url: true}
+    }
+  });
+</script>

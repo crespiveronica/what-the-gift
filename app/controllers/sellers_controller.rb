@@ -14,6 +14,7 @@ class SellersController < ApplicationController
 
   def edit
     @user = Seller.find(params[:id])
+    @change_password_path = seller_password_reset_path
     @change_avatar_path = seller_change_avatar_path
     @update_email_path = update_seller_email_path
   end
@@ -85,4 +86,16 @@ class SellersController < ApplicationController
   def showroom
     @seller = Seller.find(params[:id])
   end
+
+  def update_password
+    @user = Seller.find params[:id]
+    if @user.update_attributes(params[:seller])
+      flash[:info] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
+      sign_in @user
+    else
+      flash[:info] = 'No se ha cambiado la contrase&ntilde;a. Debe tener como m&itildenimo de ocho caracteres.'.html_safe
+    end
+    redirect_to @user
+  end
+
 end
