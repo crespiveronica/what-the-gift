@@ -7,4 +7,25 @@
 		  <%= button_to 'Agregar Producto', new_selling_products_path, :method => :get,  :class => 'btn btn-success btn-block' %>
 		</p>
 	</div>
+	<div class="span2">
+      <p class="text-center"><a class="btn btn-success btn-block" href="#productFileModal" role="button" data-toggle="modal">Cargar desde Archivo</a>
+      </p>
+    </div>
+</div>
+
+<div id="productFileModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="products" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="productFileLabel">Cargar Producto desde Archivo</h3>
+  </div>
+  <div class="modal-body">
+    <form action="<%= product_file_path%>" enctype="multipart/form-data" method="post">
+      <div class="form-horizontal">
+          <input type="file" name="product_file" required/>
+      </div>
+    </div>
+    <div class="modal-footer">
+   		<input type="submit" class="btn btn-primary" value="Aceptar" />
+    </div>
+  </form>
 </div>

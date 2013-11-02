@@ -2,7 +2,7 @@ class SellingProduct
   include Mongoid::Document
 
   attr_accessible :banned, :banned_reason
-
+  
   field :price, type: Float
   field :approved, type: Boolean
   field :banned, type: Boolean, default: true
@@ -10,4 +10,20 @@ class SellingProduct
 
   belongs_to :seller
   belongs_to :product
+
+  def self.from_json json
+    selling_product = SellingProduct.new
+  	product = Product.from_json json
+    selling_product.product = product
+    sprice = json["precio"].gsub(',', '.')
+    if(!Matcher.float? sprice)
+      raise ParsingFileError.newUnparsablePrice
+    end
+    price = sprice.to_f
+    if(price <= 0)
+      raise ParsingFileError.newNegativePrice
+    end
+    selling_product.price = price
+    selling_product
+  end
 end

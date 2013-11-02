@@ -13,7 +13,6 @@ class Product
 
   search_in :brand, :name, :descripcion, :categories => :name
 
-
   def asorted_recommended_for user
   	Product.full_text_search( to_keys user.interests , match: :any, relevant_search: true)
   end
@@ -30,6 +29,38 @@ class Product
 
   def photo
     photo_url ? photo_url : "Fotos.png"
-    
   end
+
+  def sellers
+    selling_products.map{|sp| sp.seller.company_name}.join(', ')
+  end
+
+  def sellers_list
+    selling_products.map{|sp| sp.seller}
+  end
+
+  def lowest_price
+    selling_products.sort_by {|sp| sp.price }.first.price 
+  end
+
+  def categories_string
+    categories_names.join(',')
+  end
+
+  def self.from_json json
+    product = Product.new
+    product.name = json["nombre"]
+    product.description = json["descripcion"]
+    product.brand = json["marca"]
+    product.photo_url = json["url_foto"]
+    product.categories = []
+    json['categorias'].each do |category_name|
+      category = Category.where({ :name => /.*#{category_name}.*/i }).first
+      if(!category.nil?)
+        product.categories << category
+      end
+    end
+    product
+  end
+
 end

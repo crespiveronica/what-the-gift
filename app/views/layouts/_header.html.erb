@@ -59,39 +59,3 @@
   </div>
 
 <% end %>
-
-<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Inicia sesión</h3>
-  </div>
-  <div class="modal-body">
-    <%= form_for(:session, url: sessions_path, class: 'form-horizontal') do |f| %>
-      <!-- Usuario -->
-      <div class="control-group">
-        <%= f.label :email, 'Nombre de usuario' %>
-        <div class="controls">
-          <%= f.text_field :email %>
-        </div>
-      </div>
-      <!-- Contraseña -->
-      <div class="control-group">
-        <%= f.label :password, class: 'Contraseña' %>
-        <div class="controls">
-          <%= f.password_field :password %>
-        </div>
-      </div>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Olvidé usuario y contraseña</button>
-    <%= f.submit "Iniciar sesión", class: "btn btn-primary" %>
-  </div>
-  <% end %>
-</div>
-
-<script>
-function displayLoginForm()
-  {
-      $('#loginModal').modal('toggle');
-  }
-</script>

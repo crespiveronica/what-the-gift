@@ -13,6 +13,7 @@
       <th colspan="2">Acción</th>
     </tr>
 
+    <% id_gen = 0 %>
     <% @sellers.each do |seller| %>
       <tr class="users">
         <%= form_for seller, url: disable_seller_path(seller), method: 'post' do |s| %>
@@ -23,7 +24,7 @@
           <% if seller.banned %>
             <td><%= seller.banned_reason %></td>
           <% else %>
-            <td><%= s.text_field :banned_reason %></td>
+            <td><%= s.text_field :banned_reason, id: 'ban-reason-' + id_gen.to_s %></td>
           <% end %>
 
           <% if seller.banned %>
@@ -31,10 +32,11 @@
             <td><button type="button" class="btn btn-warning btn-small" disabled="disabled">Deshabilitar</button></td>
           <% else %>
             <td><button type="button" class="btn btn-info btn-small" disabled="disabled">Habilitar</button></td>
-            <td><%= s.submit "Deshabilitar", class: "btn btn-warning btn-small" %></td>
+            <td><%= s.submit "Deshabilitar", class: "btn btn-warning btn-small", onclick: "return validateReason(this.id);", id: 'ban-reason-btn-' + id_gen.to_s %></td>
           <% end %>
         <% end %>
       </tr>
+      <% id_gen += 1 %>
     <% end %>
 
   </table>
@@ -42,3 +44,5 @@
   <%= will_paginate @sellers %>
 
 </div>
+
+<%= render 'error_modal' %>

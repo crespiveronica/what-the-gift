@@ -21,4 +21,8 @@ class Matcher
   	end
   	cant
   end
+
+  def self.float? string
+    string.to_i.to_s == string || string.to_f.to_s == string
+  end
 end

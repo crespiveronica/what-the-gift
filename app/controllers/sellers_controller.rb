@@ -21,8 +21,8 @@ class SellersController < ApplicationController
   def create
     @user = Seller.new(params[:seller])
     @user.active = false
-    msj =  'Felicitaciones, su cuenta ya esta casi lista. '
-    msj += 'Se ha enviado un correo electronico a ' + @user.email + ' para la confirmacion de su cuenta. Presione el link de confirmacion en el E-Mail para terminar el proceso de registracion.'
+    msj =  'Felicitaciones, su cuenta ya est&aacute; casi lista. '.html_safe
+    msj += 'Se ha enviado un correo electr&oacute;nico a '.html_safe + @user.email + ' para la confirmaci&oacute;n de su cuenta. Presione el link de confirmaci&oacute;n en el e-mail para terminar el proceso de registraci&oacute;n.'.html_safe
     if @user.save
       UserMailer.signup_email(@user).deliver
       redirect_to root_path,  alert: msj
@@ -32,6 +32,13 @@ class SellersController < ApplicationController
   end
 
   def update
+    @user = Seller.find(params[:id])
+    if @user.update_attributes params[:seller]
+      sign_in @user
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   def update_mail
@@ -75,4 +82,7 @@ class SellersController < ApplicationController
     redirect_to admin_seller_edit_path, alert: 'El usuario ha sido habilitado.'
   end
 
+  def showroom
+    @seller = Seller.find(params[:id])
+  end
 end

@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.where(:id => params[:id]).first
     if @product == nil
-      redirect_to products_list_path, alert: 'No se encontro el producto'
+      redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
     end
   end
 
@@ -43,7 +43,30 @@ class ProductsController < ApplicationController
       current_user.wishlist << @product
       redirect_to product_path, alert: 'El regalo fue agregado a tu Wish List'
     else
-      redirect_to products_list_path, alert: 'No se encontro el producto'
+      redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
+    end
+  end
+
+  def remove_from_wishlist
+    @product = Product.where(:id => params[:id]).first
+    if @product
+      current_user.wishlist.delete @product
+      redirect_to product_path, alert: 'El regalo fue borrado de tu Wish List'
+    else
+      redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
+    end
+  end
+
+  def product_add_to_gifts
+    product = Product.where(:id => params[:id]).first
+    if product
+      gift = Gift.new
+      gift.product = product
+      current_user.gifts << gift
+      current_user.wishlist.delete(product)
+      redirect_to product_path, alert: 'El regalo fue agregado a tu lista de regalos recibidos'
+    else
+      redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
     end
   end
 
@@ -51,7 +74,7 @@ class ProductsController < ApplicationController
     @gift = current_user.gifts.where(:id => params[:id]).first
     @gift.score = params[:score] != '' ? params[:score] : 0
     @gift.save
-    redirect_to gifts_path, alert: 'Se ha calificado su regalo satisfactoriamente'
+    redirect_to user_path(current_user.id), alert: 'Se ha calificado su regalo satisfactoriamente'
   end
 
   def do_advanced_search
@@ -111,7 +134,6 @@ class ProductsController < ApplicationController
     render 'products/search'
   end
 
-
   def do_search_by_category
     @products = Product.any_in(category_ids: params[:category])
     @brand_enable = @seller_enable = @category_enable  =  @price_enable = @free_text_enable = true
@@ -133,7 +155,7 @@ class ProductsController < ApplicationController
     @product.banned = false
     @product.banned_reason = nil
     @product.save
-    flash[:info] = "Produto aprobado."
+    flash[:info] = "Producto aprobado."
     ProductMailer.publication_result(@product).deliver
     redirect_to admin_product_edit_path
   end

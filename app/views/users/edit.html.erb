@@ -8,7 +8,9 @@
   <div class="row">
     <div class="span3">
       <p class="text-center"><a class="btn btn-success btn-block" href="#changeAvatarModal" role="button" data-toggle="modal">Cambiar foto</a>
-      <p class="text-center"><a class="btn btn-danger btn-block" href="<%= @change_avatar_path %>" role="button" data-toggle="modal">Eliminar foto</a>
+      <% if current_user.avatar.instance.avatar_file_name != nil %>
+        <p class="text-center"><a class="btn btn-danger btn-block" href="#deleteAvatarModal" role="button" data-toggle="modal">Eliminar foto</a>
+      <% end %>
       </p>
     </div>
     <div class="span3"></div>
@@ -29,7 +31,7 @@
           <div class="span4"><%= f.label :last_name, 'Apellido', style: 'font-weight:bold' %></div>
           <div class="span5"><%= f.text_field :last_name %></div>
         </div>
-        
+
         <div class="row">
           <div class="span4"><%= f.label :birthday, 'Cumpleaños', style: 'font-weight:bold' %></div>
           <div class="span5"><%= f.text_field :birthday, :type => :date, :start_year => (Date.current - 5.year).year, :end_year => (Date.current - 120.year).year, "required" => "true", :include_blank => true %>
@@ -60,7 +62,7 @@
         <div class="row">
           <div class="span2 offset3">
             <p class="text-center">
-              <%= f.submit "Confirmar cambios", class: "btn btn-success btn-block" %>
+              <%= f.submit "Confirmar cambios", class: "btn btn-success btn-block", onclick: "return validateEdit();" %>
             </p>
           </div>
           <div class="span2">
@@ -103,5 +105,45 @@
     </div>
   </div>
 </fieldset>
+
+
+<script>
+  function validateEdit()
+  {
+    var birthday = $('#user_birthday').val();
+
+    if (!isPastDate(birthday))
+    {
+      $('#signupError').html('La fecha de nacimiento debe ser en el pasado');
+      $('#signupModal').modal();
+      return false;
+    }
+    return true;
+  }
+
+  function isPastDate(value) {
+    var now = new Date();
+    var target = new Date(value);
+
+    if (now < target) {
+        return false;
+    }
+
+    return true;
+  }
+</script>
+
+<div id="signupModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="changePhotoLabel">Error</h3>
+  </div>
+  <div class="modal-body">
+    <p id="signupError"></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+  </div>
+</div>
 
 <%= render template: 'shared/modals' %>

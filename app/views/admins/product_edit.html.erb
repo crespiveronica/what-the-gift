@@ -16,6 +16,7 @@
       </tr>
     </thead>
 
+    <% id_gen = 0 %>
     <% @selling_products.each do |prod| %>
       <tr class="users">
         <%= form_for prod, url: disable_product_path(prod), method: 'post' do |p| %>
@@ -25,17 +26,18 @@
           <% if prod.banned %>
               <td><%= prod.banned_reason %></td>
             <% else %>
-              <td><%= p.text_field :banned_reason %></td>
+              <td><%= p.text_field :banned_reason, id: 'ban-reason-' + id_gen.to_s %></td>
             <% end %>
           <% if prod.banned %>
             <td><%= link_to "Habilitar", enable_product_path(prod), method: :post, class: "btn btn-info btn-small" %></td>
             <td><button type="button" class="btn btn-warning btn-small" disabled="disabled">Deshabilitar</button></td>
           <% else %>
             <td><button type="button" class="btn btn-info btn-small" disabled="disabled">Habilitar</button></td>
-            <td><%= p.submit "Deshabilitar", class: "btn btn-warning btn-small" %></td>
+            <td><%= p.submit "Deshabilitar", class: "btn btn-warning btn-small", onclick: "return validateReason(this.id);", id: 'ban-reason-btn-' + id_gen.to_s %></td>
           <% end %>
         <% end %>
       </tr>
+      <% id_gen += 1 %>
     <% end %>
 
   </table>
@@ -43,3 +45,5 @@
   <%= will_paginate @selling_products %>
 
 </div>
+
+<%= render 'error_modal' %>
