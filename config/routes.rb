@@ -48,7 +48,7 @@ Wtg::Application.routes.draw do
   match '/products/do_advanced_search/', to: 'products#do_advanced_search', via: 'get', :as =>'do_advanced_search_product'
   match '/products/do_search/', to: 'products#do_search', via: 'get', :as =>'do_search_product'
   match '/products/search-by-category/:category', to: 'products#do_search_by_category', via: 'get', :as =>'search_by_category_product'
-  match '/gifts/', to: 'products#gifts', via: 'get'
+  match '/gifts/', to: 'products#gifts', via: 'get', :as => 'my_gifts'
   match '/products/new' , to: 'products#new'
   match '/products/edit' , to: 'products#edit'
   match '/products/destroy' , to: 'products#destroy'

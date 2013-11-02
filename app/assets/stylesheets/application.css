@@ -33,7 +33,7 @@ a.profile-mini:hover
 	position: relative;
 }
 
-.thumbnail.gift img
+.thumbnail.gift img.gift
 {
 	height: 100px;
 }
