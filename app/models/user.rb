@@ -1,7 +1,7 @@
 class User < GenericUser
   Mongoid::MultiParameterAttributes
 
-  attr_accessible :hobbies, :occupation, :hobbies_attributes, :birthday
+  attr_accessible :hobbies, :occupation, :hobbies_attributes, :birthday, :genre
   has_and_belongs_to_many :wishlist, class_name: 'Product'
   embeds_many :gifts
   has_many :friend_requests, :inverse_of => :owner, :foreign_key => "owner_id"
@@ -12,6 +12,7 @@ class User < GenericUser
   field :first_name, type: String
   field :last_name, type: String
   field :birthday, type: Date
+  field :genre, type: String
 
   validates :birthday, presence: true
 
