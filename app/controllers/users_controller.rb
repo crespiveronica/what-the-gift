@@ -105,7 +105,12 @@ class UsersController < ApplicationController
 
   def search_post
     @search = params[:search]
-    @friends = User.any_of({email: /.*#{@search}.*/i}, {first_name: /.*#{@search}.*/i}, {last_name: /.*#{@search}.*/i})
+    searches = @search.split(' ')
+    @friends = []
+    for s in searches do
+      @friends += User.any_of({email: /.*#{s}.*/i}, {first_name: /.*#{s}.*/i}, {last_name: /.*#{s}.*/i})
+    end
+    @friends = @friends.uniq
     render 'users/search'
   end
 
