@@ -44,3 +44,8 @@ a.profile-mini:hover
 	bottom: 0;
 	right: 6px;
 }
+
+.navbar-inner
+{
+	margin-bottom: 20px;
+}

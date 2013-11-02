@@ -1,5 +1,5 @@
 <% @selling_products.each do |selling_product| %>
-    <li class="span2">
+    <div class="span2" style="margin-bottom: 12px">
       <div class="thumbnail gift">
         <%= image_tag selling_product.product.photo, size: '100x100', class: 'img-rounded' %>
 		<h5><%= selling_product.product.name %></h5>
@@ -7,12 +7,12 @@
     <p><small><%= selling_product.price %></small></p>
         <p class="bottom">
             <%= link_to 'Modificar', edit_selling_products_path(:id => selling_product.id), :class => 'btn btn-mini btn-primary pull-right' %>
-            <button class="btn btn-mini btn-warning pull-left" href="#confirmation-modal" data-toggle="modal">Eliminar</button>
+            <button class="btn btn-mini btn-warning pull-left" href="#confirmation-modal<%= selling_product.id %>" data-toggle="modal">Eliminar</button>
         </p>
       </div>
-    </li>
+    </div>
 
-  <div id="confirmation-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="confirmation-modal" aria-hidden="true">
+  <div id="confirmation-modal<%= selling_product.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="confirmation-modal" aria-hidden="true">
     <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h4>Eliminar producto</h4>

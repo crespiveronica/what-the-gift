@@ -20,17 +20,25 @@ class SellingProductsController < ApplicationController
     @selling_product = SellingProduct.where(:id => params[:id]).first
   end
 
+  def sellone
+    @product = Product.where(:id => params[:id]).first
+  end
+
   def create
     if params[:categories].nil?
       message = 'El producto debe tener al menos una categor&iacute;a. Vuelva a ingresar los datos por favor.'.html_safe
     else
-      product  = Product.new
-      product.name = params[:name]
-      product.description = params[:description]
-      product.brand = params[:brand]
-      product.categories = params[:categories].map{ |id| Category.where(id: id).first}
-      product.photo_url = params[:photo]
-      product.save
+      if params[:id_product] == nil
+        product  = Product.new
+        product.name = params[:name]
+        product.description = params[:description]
+        product.brand = params[:brand]
+        product.categories = params[:categories].map{ |id| Category.where(id: id).first}
+        product.photo_url = params[:photo]
+        product.save
+      else 
+        product = Product.where(:id => params[:id_product]).first
+      end
       selling_product = SellingProduct.new
       selling_product.product = product
       selling_product.seller = current_user
