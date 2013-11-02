@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     @change_avatar_path = user_change_avatar_path
+    @update_email_path = update_user_email_path
     @selected_hobbies = predefined_hobbies.map {|ph| ph.name} & @user.hobbies.map { |h| h.name }
     @user.hobbies = @user.hobbies.select {|h| !@selected_hobbies.include?(h.name) }
     @predefined_hobbies = predefined_hobbies
@@ -47,6 +48,16 @@ class UsersController < ApplicationController
     @user.update_attributes({ :avatar => @avatar })
     sign_in @user
     redirect_to edit_user_path(current_user)
+  end
+
+  def update_mail
+    @user = current_user
+    binding.pry
+    @user.new_email = params[:user][:email]
+    @user.save
+    sign_in @user
+    UserMailer.new_email_email(@user).deliver
+    redirect_to root_path,  alert: 'Se ha enviado un correo electronico a ' + current_user.new_email + ' para la confirmacion de su nuevo mail.'
   end
 
   def create
@@ -135,6 +146,18 @@ class UsersController < ApplicationController
       return redirect_to @user, alert: "Felicitaciones, su cuenta ha sido activada!"
     else
       return redirect_to root_url, alert: "No se encontr&oacute; el usuario".html_safe
+    end
+  end
+
+  def confirm_mail
+    @user = GenericUser.find params[:id]
+    if @user != nil and @user.signup_token == params[:token]
+      @user.email = @user.new_email
+      @user.save
+      sign_in @user
+      return redirect_to @user, alert: "Se ha confirmado su nuevo mail"
+    else
+      return redirect_to root_url, alert: "No se encontro el usuario"
     end
   end
 

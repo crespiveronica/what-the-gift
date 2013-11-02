@@ -80,7 +80,14 @@
 
 <%= render template: 'shared/modals' %>
 
-<script>
+
+<script type="text/javascript">
+  $('#email-form').validate({
+    rules: {
+      "seller[email]": {required: true, email: true}
+    }
+  });
+
   $('#seller_edit_form').validate({
     rules: {
       "seller[company_name]": {required: true, minlength: 2},

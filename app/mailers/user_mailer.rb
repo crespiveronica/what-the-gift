@@ -7,6 +7,12 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Bienvenido a What the Gift?!')
   end
 
+  def new_email_email(user)
+    @user = user
+    @link = "http://localhost:3000/confirm-mail/" + @user.id + "/" + @user.signup_token
+    mail(to: @user.new_email, subject: 'Confirme su nuevo mail')
+  end
+
   def forgotten_password(user)
   	@user = user
   	mail(to: @user.email, subject: 'Nueva password')

@@ -15,6 +15,7 @@ class SellersController < ApplicationController
   def edit
     @user = Seller.find(params[:id])
     @change_avatar_path = seller_change_avatar_path
+    @update_email_path = update_seller_email_path
   end
 
   def create
@@ -38,6 +39,15 @@ class SellersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def update_mail
+    @user = current_user
+    @user.new_email = params[:seller][:email]
+    @user.save
+    sign_in @user
+    UserMailer.new_email_email(@user).deliver
+    redirect_to root_path,  alert: 'Se ha enviado un correo electronico a ' + current_user.new_email + ' para la confirmacion de su nuevo mail.'
   end
 
   def destroy
