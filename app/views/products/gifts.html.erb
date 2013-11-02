@@ -1,20 +1,22 @@
 <div class="row">
   <ul class="span12">
   	<% @user.gifts.each do |gift| %>
-  	<li class="span3" style="margin-left: 10px">
+  	<li class="span3" style="margin-left: 10px; height: 230px; position: relative">
   		<%= image_tag gift.product.photo, size: '100x100', class: 'img-rounded' %>
   		<h5><%= gift.product.name %></h5>
-  		<p><small><%= gift.product.description %></small></p>  
-        <p class="bottom">
-          <% if gift.score != nil and gift.score != ''  %>
-            <div class="star" id="star<%= gift.id %>"></div>
-            <script>
-              $('#star<%= gift.id %>').raty({ readOnly: true, half: true, score: <%= gift.score %> });
-            </script>
-          <% end %>
-          <a class="btn btn-success" onclick="$('#evaluateModal<%= gift.id %>').modal('toggle');">
-          Evaluar</a>
-    	</p>
+  		<p><small><%= gift.product.short_description %></small></p>  
+      <div style="position: absolute;bottom: 0px">
+        <div class="star" id="star<%= gift.id %>"></div>
+        <% if gift.score != nil and gift.score != ''  %>
+          <% score = gift.score %>
+        <% else %>
+          <% score = 0 %>
+        <% end %>
+        <script>
+          $('#star<%= gift.id %>').raty({ readOnly: true, half: true, score: <%= score %> });
+        </script>
+        <a class="btn btn-success" onclick="$('#evaluateModal<%= gift.id %>').modal('toggle');">Evaluar</a>
+    	</div>
       <div id="evaluateModal<%= gift.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
