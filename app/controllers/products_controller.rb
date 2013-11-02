@@ -74,7 +74,12 @@ class ProductsController < ApplicationController
     @gift = current_user.gifts.where(:id => params[:id]).first
     @gift.score = params[:score] != '' ? params[:score] : 0
     @gift.save
-    redirect_to user_path(current_user.id), alert: 'Se ha calificado su regalo satisfactoriamente'
+    productlist = params[:productlist]
+    if productlist != nil and productlist
+      redirect_to search_product_path, alert: 'Se ha calificado su regalo satisfactoriamente'
+    else
+      redirect_to user_path(current_user.id), alert: 'Se ha calificado su regalo satisfactoriamente'
+    end
   end
 
   def do_advanced_search

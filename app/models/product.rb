@@ -13,6 +13,10 @@ class Product
 
   search_in :brand, :name, :descripcion, :categories => :name
 
+  def short_description
+    self.description.truncate(100, omission: '...')
+  end
+
   def asorted_recommended_for user
   	Product.full_text_search( to_keys user.interests , match: :any, relevant_search: true)
   end

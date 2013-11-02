@@ -5,7 +5,7 @@
       </optgroup>
       <optgroup label="<%= predefined_hobby.name %>">
     <% else %>
-      <% if @selected_hobbies.include?(predefined_hobby.name) %>
+      <% if @selected_hobbies != nil and @selected_hobbies.include?(predefined_hobby.name) %>
         <option value ="<%= predefined_hobby.name %>" selected><%= predefined_hobby.name %></option>
       <% else %>
         <option value ="<%= predefined_hobby.name %>"><%= predefined_hobby.name %></option>
