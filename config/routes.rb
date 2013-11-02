@@ -48,7 +48,7 @@ Wtg::Application.routes.draw do
   match '/products/do_advanced_search/', to: 'products#do_advanced_search', via: 'get', :as =>'do_advanced_search_product'
   match '/products/do_search/', to: 'products#do_search', via: 'get', :as =>'do_search_product'
   match '/products/search-by-category/:category', to: 'products#do_search_by_category', via: 'get', :as =>'search_by_category_product'
-  match '/gifts/', to: 'products#gifts', via: 'get'
+  match '/gifts/', to: 'products#gifts', via: 'get', :as => 'my_gifts'
   match '/products/new' , to: 'products#new'
   match '/products/edit' , to: 'products#edit'
   match '/products/destroy' , to: 'products#destroy'
@@ -67,6 +67,7 @@ Wtg::Application.routes.draw do
   match '/my-products/new/', to: 'selling_products#new', via: 'get', :as => 'new_selling_products'
   match '/my-products/create/', to: 'selling_products#create', via: 'post', :as => 'create_selling_products'
   match '/my-products/upload/', to: 'selling_products#upload', via: 'post', :as => 'product_file'
+  match '/sell-one/:id/', to: 'selling_products#sellone', via: 'get', :as => 'sell_one'
 
   match '/about/', to: 'static_pages#about', via: 'get'
   match '/contact/', to: 'static_pages#contact', via: 'get'
