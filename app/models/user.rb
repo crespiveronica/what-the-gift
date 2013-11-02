@@ -15,6 +15,15 @@ class User < GenericUser
 
   validates :birthday, presence: true
 
+def gift_from_product(product)
+	self.gifts.each do |g|
+		if g.product == product
+			return g
+		end
+	end
+	return nil
+end
+
 def full_name
   first_name + ' ' + last_name
 end

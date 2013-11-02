@@ -1,13 +1,48 @@
 <% @products.each do |product| %>
-    <li class="span2">
-      <div class="thumbnail gift" style="margin-bottom: 12px;">
-        <% if signed_in? and current_user._type == 'User' and 
-              not current_user.products_from_gifts.include? product %>
-          <a title="Lo tengo!" href="<%= product_add_to_gifts_path(:id => product.id) %>" class="btn btn-mini pull-left btn-success add-to-gifts"><i class="icon-plus"></i></a>
+    <% gift = current_user.gift_from_product(product) %>
+    <li class="span2" style="margin-left: 12px">
+      <div class="thumbnail gift" style="margin: 12px 0;">
+        <% if signed_in? and current_user._type == 'User' %>
+          <div style="position: absolute; top: 6px;width: 200px">
+            <% if not current_user.products_from_gifts.include? product %>
+              <a title="Lo tengo!" href="<%= product_add_to_gifts_path(:id => product.id) %>" class="btn btn-mini pull-left btn-success add-to-gifts"><i class="icon-gift icon-white"></i></a>
+            <% else %>
+              <a title="Evaluar" href="#" onclick="$('#evaluateModal<%= gift.id %>').modal('toggle');" class="btn btn-mini pull-left btn-success add-to-gifts"><i class="icon-star-empty icon-white"></i></a>
+              <% if gift != nil %>
+                <div id="evaluateModal<%= gift.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Evaluar</h3>
+                  </div>
+                  <form method="post" action="<%= product_rate_path :id => gift.id %>">
+                    <input type="hidden" name="productlist" value="true" />
+                    <div class="modal-body">
+                      <div id="starToRate<%= gift.id %>"></div>
+                      <script>
+                        $('#starToRate<%= gift.id %>').raty({ half: true, score: <%= gift.score != nil and gift.score != '' ? gift.score : 0 %>, cancel: true, width: 300 });
+                      </script>
+                      <p>
+                        Esta puntuación es para mejorar los próximos regalos y NUNCA será mostrada a otros usuarios de What the gift?!
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <input type="submit" class="btn btn-primary" value="Introducir Puntaje" />
+                    </div>
+                  </form>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
         <% end %>
-        <%= image_tag product.photo , size: '100x100', class: 'img-rounded' %>
-		<h5><%= product.name %></h5>
-		<p><small><%= product.description %></small></p>  
+        <%= image_tag product.photo , size: '100x100', class: 'gift img-rounded' %>
+		    <% if gift != nil %>
+          <div id="starToRateSmall<%= gift.id %>"></div>
+          <script>
+            $('#starToRateSmall<%= gift.id %>').raty({ half: true, score: <%= gift.score != nil and gift.score != '' ? gift.score : 0 %>, cancel: true, width: 300, readOnly: true });
+          </script>
+        <% end %>
+        <h5><%= product.name %></h5>
+		    <p><small><%= product.description %></small></p>  
         <p class="bottom">
           <% if signed_in? and current_user._type == 'User'%>
            <% if not current_user.wishlist.include? product and
