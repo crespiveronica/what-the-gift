@@ -3,48 +3,59 @@
         <h2>¡Encuentra tus regalos! <br><small>Aquí podrás buscar regalos por categoría</small></h2>
       </div>
 
-      <button class="btn btn-primary" id="advanced-search">Búsqueda avanzada</button>
       <div id="advanced-search-form" style="display: none;">
-        <br>
-        <div class="search form form-inline" >
+        <div class="search form form-inline span6">
           <%= form_tag(do_advanced_search_product_path, method: "get") do %>
-          <div class="row-fluid" style="margin-bottom: 12px">
-            <%= check_box_tag(:brand_enable,true , @brand_enable) %>
-            <%= label_tag(:brand, "Marca") %>
-            <%= text_field_tag(:brand, @brand) %>
+          <div class="row" style="margin-bottom: 12px">
+            <div class="span6">
+              <%= check_box_tag(:brand_enable,true , @brand_enable) %>
+              <%= label_tag(:brand, "Marca") %>
+              <%= text_field_tag(:brand, @brand) %>
+            </div>
           </div>
-          <div class="row-fluid" style="margin-bottom: 12px">
-            <%= check_box_tag(:seller_enable,true , @seller_enable) %>
-            <%= label_tag(:seller, "Vendedor") %>
-            <%= text_field_tag(:seller, @seller) %>
+          <div class="row" style="margin-bottom: 12px">
+            <div class="span6">
+              <%= check_box_tag(:seller_enable,true , @seller_enable) %>
+              <%= label_tag(:seller, "Vendedor") %>
+              <%= text_field_tag(:seller, @seller) %>
+            </div>
           </div>
-          <div class="row-fluid" style="margin-bottom: 12px">
-            <%= check_box_tag(:category_enable,true , @category_enable) %>
-            <%= label_tag(:category, "Categoría") %>
-            <%= text_field_tag(:category, @category) %>
+          <div class="row" style="margin-bottom: 12px">
+            <div class="span6">
+              <%= check_box_tag(:category_enable,true , @category_enable) %>
+              <%= label_tag(:category, "Categoría") %>
+              <%= text_field_tag(:category, @category) %>
+            </div>
           </div>
-          <div class="row-fluid" style="margin-bottom: 12px">
-            <%= check_box_tag(:price_enable,true , @price_enable) %>
-            <%= label_tag(:price, "Rango de Precios") %>
-            <%= text_field_tag(:price_from, @price_from, placeholder: "desde", class: "input-small") %>
-            <%= text_field_tag(:price_to, @price_to, placeholder:"hasta", class: "input-small") %>
+          <div class="row" style="margin-bottom: 12px">
+            <div class="span6">
+              <%= check_box_tag(:price_enable,true , @price_enable) %>
+              <%= label_tag(:price, "Rango de Precios") %>
+              <%= text_field_tag(:price_from, @price_from, placeholder: "desde", class: "input-small") %>
+              <%= text_field_tag(:price_to, @price_to, placeholder:"hasta", class: "input-small") %>
+            </div>
           </div>
-          <div class="row-fluid" style="margin-bottom: 12px">
-            <%= check_box_tag(:free_text_enable,true , @free_text_enable) %>
-            <%= label_tag(:free_text, "Palabras Claves") %>
-            <%= text_field_tag(:free_text, @free_text) %>
+          <div class="row" style="margin-bottom: 12px">
+            <div class="span6">
+              <%= check_box_tag(:free_text_enable,true , @free_text_enable) %>
+              <%= label_tag(:free_text, "Palabras Claves") %>
+              <%= text_field_tag(:free_text, @free_text) %>
+            </div>
           </div>
-          <div class="row-fluid" style="margin-bottom: 12px">
-            <%= submit_tag("Buscar", onclick: "return validateSearch();") %>
+          <div class="row" style="margin-bottom: 12px">
+            <div class="span6">
+              <%= submit_tag("Buscar", onclick: "return validateSearch();") %>
+            </div>
           </div>
           <input type="hidden" name="query" value="<%=@query%>" >
           <% end %>
         </div>
       </div>
       <div class="row">
-        <div class="span8 offset2">
+        <div class="span8">
           <form class="form-search" action="<%= do_search_product_path %>">
             <div class="input-append">
+              <a class="btn btn-primary" id="advanced-search">Búsqueda avanzada</a>
               <input type="text" class="span8 search-query" name="query" value="<%=@query%>" >
               <button type="submit" class="btn">Buscar</button>
 
@@ -66,8 +77,8 @@
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
+    <div class="container">
+      <div class="row">
         <%= render :template => 'products/categories_sidebar' %>
         <div class="span10">
             <%= render :template => 'products/list' %>

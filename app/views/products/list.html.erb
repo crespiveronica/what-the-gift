@@ -1,9 +1,9 @@
 <% @products.each do |product| %>
     <li class="span2">
-      <div class="thumbnail gift">
+      <div class="thumbnail gift" style="margin-bottom: 12px;">
         <% if signed_in? and current_user._type == 'User' and 
               not current_user.products_from_gifts.include? product %>
-          <a title="Lo tengo!" href="<%= product_add_to_gifts_path(:id => product.id) %>" class="btn btn-mini pull-left btn-success"><i class="icon-plus"></i></a>
+          <a title="Lo tengo!" href="<%= product_add_to_gifts_path(:id => product.id) %>" class="btn btn-mini pull-left btn-success add-to-gifts"><i class="icon-plus"></i></a>
         <% end %>
         <%= image_tag product.photo , size: '100x100', class: 'img-rounded' %>
 		<h5><%= product.name %></h5>
