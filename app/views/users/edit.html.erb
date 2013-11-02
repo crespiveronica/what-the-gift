@@ -39,8 +39,10 @@
         </div>
 
         <div class="row">
-          <div class="span4"><%= f.label :occupation, 'Ocupación', style: 'font-weight:bold' %></div>
-          <div class="span5"><%= f.text_field :occupation %></div>
+          <div class="span4"><%= f.label :genre, 'Sexo', style: 'font-weight:bold' %></div>
+          <div class="span5">
+            <%= f.select(:genre, options_for_select([['Masculino', 'Hombre'], ['Femenino', 'Mujer']], @user.genre)) %>
+          </div>
         </div>
 
           <div id="hobby-boxes">

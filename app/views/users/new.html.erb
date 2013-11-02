@@ -24,8 +24,8 @@
       <%= f.label :password_confirmation, 'Confirmar' %>
       <%= f.password_field :password_confirmation %>
 
-      <%= f.label :occupation, 'Ocupación' %>
-      <%= f.text_field :occupation %>
+      <%= f.label :genre, 'Sexo' %>
+      <%= select_tag(:genre, options_for_select([['Masculino', 'Hombre'], ['Femenino', 'Mujer']])) %>
 
       <div id="hobby-boxes">
       
