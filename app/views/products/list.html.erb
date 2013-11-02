@@ -1,5 +1,5 @@
 <% @products.each do |product| %>
-    <li class="span2">
+    <li class="span2" style="margin-left: 12px">
       <div class="thumbnail gift" style="margin-bottom: 12px;">
         <% if signed_in? and current_user._type == 'User' and 
               not current_user.products_from_gifts.include? product %>
