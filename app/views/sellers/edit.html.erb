@@ -94,4 +94,20 @@
       "seller[web]": { url: true }
     }
   });
+
+  $('#password-modal').validate({
+    rules: {
+      "seller[password]": {required: true, minlength: 8},
+      "seller[password_confirmation]": {required: true, minlength: 8}
+    },
+    onkeyup: false
+  });
+
+  function check_email(input) {
+    if (input.value != document.getElementById('seller_password').value ) {
+      input.setCustomValidity('Las contraseñas no coinciden.');
+    } else {
+      input.setCustomValidity('');
+    }
+  }
 </script>

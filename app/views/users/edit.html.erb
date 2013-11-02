@@ -106,6 +106,20 @@
   </div>
 </fieldset>
 
+<div id="signupModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="changePhotoLabel">Error</h3>
+  </div>
+  <div class="modal-body">
+    <p id="signupError"></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
+  </div>
+</div>
+
+<%= render template: 'shared/modals' %>
 
 <script>
   function validateEdit()
@@ -131,19 +145,20 @@
 
     return true;
   }
+
+  function check_email(input) {
+    if (input.value != document.getElementById('user_password').value ) {
+      input.setCustomValidity('Las contraseñas no coinciden.');
+    } else {
+      input.setCustomValidity('');
+    }
+  }
+
+  $('#password-modal').validate({
+    rules: {
+      "user[password]": {required: true, minlength: 8},
+      "user[password_confirmation]": {required: true, minlength: 8}
+    },
+    onkeyup: false
+  });
 </script>
-
-<div id="signupModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="changePhotoLabel">Error</h3>
-  </div>
-  <div class="modal-body">
-    <p id="signupError"></p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Aceptar</button>
-  </div>
-</div>
-
-<%= render template: 'shared/modals' %>
