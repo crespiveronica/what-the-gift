@@ -1,0 +1,82 @@
+<!-- Contenido principal -->
+<div class="container">
+  <div>
+      <fieldset>
+        <legend><h4>Nuevo Producto</h4></legend>
+        <form action="<%= create_selling_products_path%>" enctype="multipart/form-data" method="post" id="new-product-form">
+          <input type="hidden" name="id_product" value="<%= @product.id %>">
+          <input type="hidden" name="categories" value="<%= @product.categories %>">
+          <div class="row">
+            <div class="span9"><h4><%= @product.name %></h4></div>
+          </div>
+          <div class="row">
+            <div class="span9">
+              <div class="row">
+                <div class="span4"><strong>Nombre del producto</strong></div>
+                <div class="span5"><input type="text" name="name" value="<%= @product.name %>" disabled></div>
+              </div>
+              <div class="row">
+                <div class="span4"><strong>Marca</strong></div>
+                <div class="span5">
+                  <input type="text" name="brand" value="<%= @product.brand %>" disabled>
+                </div>
+              </div>
+              <div class="row">
+                <div class="span4"><strong>Descripción</strong></div>
+                <div class="span5">
+                  <input type="text" name="description" value="<%= @product.description %>" disabled>
+                </div>
+              </div>
+              <div class="row">
+                <div class="span4"><strong>Precio</strong></div>
+                <div class="span5"><input type="text" name="price" id="price"></div>
+              </div>
+              <% if @product.photo_url != nil and @product.photo_url != '' %>
+                <div class="row">
+                  <div class="span4"><strong>Foto (debe ser un URL)</strong></div>
+                  <div class="span5">
+                    <img src="<%= @product.photo_url %>" />
+                </div>
+              <% end %>
+              <div class="row">
+                <div class="span4"><strong>Categorías</strong></div>
+                <div class="span5">
+                  <input type="text" name="categories" value="<%= @product.categories_string  %>" disabled>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="span3"></div>
+                <div class="span2">
+                  <p class="text-center">
+                    <input type="submit" class="btn btn-success btn-block" value="Crear" />
+                  </p>
+                </div>
+                <div class="span2">
+                  <p class="text-center">
+                    <%= link_to 'Cancelar', '/my-products/', :method => :get,  :class => 'btn btn-danger btn-block' %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+         </form>
+      </fieldset>
+  </div>
+</div>
+
+<script>
+  jQuery.validator.addMethod("greaterThanZero", function(value, element) {
+    return this.optional(element) || (parseFloat(value) > 0);
+  }, "El precio debe ser mayor a cero.");
+
+  $('#new-product-form').validate({
+    rules: {
+      "name": {required: true},
+      "brand": {required: true},
+      "description": {required: true},
+      "price": {required: true, number: true, greaterThanZero: true},
+      "photo": {required: true, url: true}
+    }
+  });
+</script>

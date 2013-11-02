@@ -67,6 +67,7 @@ Wtg::Application.routes.draw do
   match '/my-products/new/', to: 'selling_products#new', via: 'get', :as => 'new_selling_products'
   match '/my-products/create/', to: 'selling_products#create', via: 'post', :as => 'create_selling_products'
   match '/my-products/upload/', to: 'selling_products#upload', via: 'post', :as => 'product_file'
+  match '/sell-one/:id/', to: 'selling_products#sellone', via: 'get', :as => 'sell_one'
 
   match '/about/', to: 'static_pages#about', via: 'get'
   match '/contact/', to: 'static_pages#contact', via: 'get'

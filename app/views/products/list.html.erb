@@ -9,7 +9,7 @@
 		<h5><%= product.name %></h5>
 		<p><small><%= product.description %></small></p>  
         <p class="bottom">
-          <% if signed_in? and current_user._type == 'User'%>
+          <% if signed_in? and current_user.class.to_s == 'User'%>
            <% if not current_user.wishlist.include? product and
                  not current_user.products_from_gifts.include? product %>
             <%= link_to "<i class='icon-white icon-heart'></i>".html_safe, product_add_to_wishlist_path(:id => product.id), :method => :post, 
@@ -18,6 +18,8 @@
             <%= link_to "<i class='icon-thumbs-down icon-white'></i>".html_safe, product_remove_from_wishlist_path(:id => product.id), method: 'delete',
               :class => 'btn btn-warning btn-mini btn-primary pull-left' %>
            <% end %>
+          <% elsif signed_in? and current_user.class.to_s == 'Seller' %>
+            <%= link_to 'Vender', sell_one_path(:id => product.id), :class => 'btn btn-mini pull-left' %>
           <% end %>
             <%= link_to 'Ver más', product_path(:id => product.id), :class => 'btn btn-mini btn-primary pull-right' %>
         </p>
