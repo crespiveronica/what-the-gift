@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class ProductsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
@@ -35,6 +37,7 @@ class ProductsController < ApplicationController
 
   def gifts
     @user = current_user
+    @gifts = @user.gifts.paginate(:page => params[:page], :per_page => 10)
   end
 
   def wishlist
