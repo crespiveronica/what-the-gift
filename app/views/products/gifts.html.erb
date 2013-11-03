@@ -1,10 +1,12 @@
+<%= will_paginate @gifts %>
+
 <div class="row">
   <ul class="span12">
-  	<% @user.gifts.each do |gift| %>
+  	<% @gifts.each do |gift| %>
   	<li class="span3" style="margin-left: 10px; height: 230px; position: relative">
   		<%= image_tag gift.product.photo, size: '100x100', class: 'gift img-rounded' %>
   		<h5><%= gift.product.name %></h5>
-  		<p><small><%= gift.product.short_description %></small></p>  
+  		<p><small><%= gift.product.short_description %></small></p>
       <div style="position: absolute;bottom: 0px">
         <div class="star" id="star<%= gift.id %>"></div>
         <% if gift.score != nil and gift.score != ''  %>
@@ -41,3 +43,5 @@
   	<% end %>
   </ul>
 </div>
+
+<%= will_paginate @gifts %>
