@@ -4,12 +4,13 @@ class SellingProduct
   attr_accessible :banned, :banned_reason
   
   field :price, type: Float
-  field :approved, type: Boolean
-  field :banned, type: Boolean, default: true
+  field :banned, type: Boolean, default: false
   field :banned_reason, type: String
 
   belongs_to :seller
   belongs_to :product
+
+  default_scope where(approved: true)
 
   def self.from_json json
     selling_product = SellingProduct.new

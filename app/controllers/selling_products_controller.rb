@@ -63,20 +63,6 @@ class SellingProductsController < ApplicationController
     redirect_to '/my-products/', alert: 'Se ha eliminado el producto satisfactoriamente.'
   end
 
-  def approve
-    @sp = SellingProduct(params[:id])
-    @sp.approved = true
-    @sp.pending = false
-    @sp.save
-  end
-
-  def reject
-    @sp = SellingProduct(params[:id])
-    @sp.pending = false
-    @sp.approved = false
-    @sp.save
-  end
-
   def upload
     begin
       selling_products_json = MultiJson.load(params[:product_file])

@@ -5,11 +5,13 @@ class Product
   field :name, type: String
   field :description, type: String
   field :brand, type: String
-  field :approved, type: Boolean
+  field :approved, type: Boolean, default: true
   field :photo_url, type: String
 
   has_and_belongs_to_many :categories
   has_many :selling_products
+
+  default_scope where(approved: true)
 
   search_in :brand, :name, :descripcion, :categories => :name
 
