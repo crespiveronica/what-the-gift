@@ -22,6 +22,15 @@ class Matcher
   	cant
   end
 
+  def self.matches_any(items, key)
+    items.each do |string_item|
+      if /#{key.downcase}/.match(string_item.downcase)
+        return true
+      end
+    end
+    return false
+  end
+
   def self.float? string
     string.to_i.to_s == string || string.to_f.to_s == string
   end
