@@ -33,7 +33,6 @@ class AdminsController < ApplicationController
 
   def product_edit
     @selling_products = SellingProduct.unscoped.paginate(:page => params[:page], :per_page => 30)
-    binding.pry
   end
 
   def category_edit
