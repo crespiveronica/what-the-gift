@@ -31,13 +31,7 @@ Wtg::Application.routes.draw do
   match '/users/reactivate/:id', to: 'users#reactivatePost', via: 'post', :as => 'reactivate_post'
   match '/banned/:id', to: 'static_pages#banned', via: 'get', :as => 'banned'
 
-  match '/users/:id/enable', to: 'users#enable', via: 'post', :as => 'enable_user'
-  match '/users/:id/disable', to: 'users#disable', via: 'post', :as => 'disable_user'
-  match '/sellers/:id/enable', to: 'sellers#enable', via: 'post', :as => 'enable_seller'
-  match '/sellers/:id/disable', to: 'sellers#disable', via: 'post', :as => 'disable_seller'
   match '/sellers/:id/showroom/', to: 'sellers#showroom', via: 'get', :as => 'showroom'
-  match '/products/:id/disable', to: 'products#disable', via: 'post', :as => 'disable_product'
-  match '/products/:id/enable', to: 'products#enable', via: 'post', :as => 'enable_product'
   match '/users/birthday-notification', to: 'users#birthday_notification', via: 'get', :as => 'birthday_notification'
   match '/users/:id/change-password', to: 'users#update_password', :as => 'user_password_reset'
   match '/sellers/:id/change-password', to: 'sellers#update_password', :as => 'seller_password_reset'
@@ -77,6 +71,14 @@ Wtg::Application.routes.draw do
   match '/admins/seller_edit', to: 'admins#seller_edit', via: 'get', :as => 'admin_seller_edit'
   match '/admins/product_edit', to: 'admins#product_edit', via: 'get', :as => 'admin_product_edit'
   match '/admins/category_edit', to: 'admins#category_edit', via: 'get', :as => 'admin_category_edit'
+  match '/users/:id/enable', to: 'users#enable', via: 'post', :as => 'enable_user'
+  match '/users/:id/disable', to: 'users#disable', via: 'post', :as => 'disable_user'
+  match '/sellers/:id/enable', to: 'sellers#enable', via: 'post', :as => 'enable_seller'
+  match '/sellers/:id/disable', to: 'sellers#disable', via: 'post', :as => 'disable_seller'
+  match '/selling-products/:id/enable', to: 'admins#enable_selling_product', via: 'post', :as => 'enable_selling_product'
+  match '/selling-products/:id/disable', to: 'admins#disable_selling_product', via: 'post', :as => 'disable_selling_product'
+  match '/products/:id/enable', to: 'products#enable', via: 'post', :as => 'enable_product'
+  match '/products/:id/disable', to: 'products#disable', via: 'post', :as => 'disable_product'
 
   resources :users
   resources :sellers

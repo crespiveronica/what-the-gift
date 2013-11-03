@@ -51,4 +51,25 @@ class AdminsController < ApplicationController
   def login
   end
 
+  def disable_selling_product
+    @product = SellingProduct.find(params[:id])
+    @product.banned = true
+    @product.banned_reason = params[:selling_product][:banned_reason]
+    @product.save
+    flash[:info] = "Producto rechazado."
+    ProductMailer.publication_result(@product).deliver
+    redirect_to admin_product_edit_path
+  end
+
+  def enable_selling_product
+    @product = SellingProduct.unscoped.find(params[:id])
+    @product.banned = false
+    @product.banned_reason = nil
+    @product.save
+    flash[:info] = "Producto aprobado."
+    ProductMailer.publication_result(@product).deliver
+    redirect_to admin_product_edit_path
+  end
+
+
 end
