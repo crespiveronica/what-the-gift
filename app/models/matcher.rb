@@ -25,4 +25,9 @@ class Matcher
   def self.float? string
     string.to_i.to_s == string || string.to_f.to_s == string
   end
+
+
+  def self.is_null_or_empty field
+    field.nil? || field.empty?
+  end
 end

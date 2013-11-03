@@ -15,7 +15,7 @@ class User < GenericUser
   field :genre, type: String
 
   validates :birthday, presence: true
-  default_scope order_by :email => :asc
+  scope :for_admin,  unscoped.order_by( :email => :asc )
 
 def gift_from_product(product)
 	self.gifts.each do |g|

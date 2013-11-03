@@ -29,6 +29,8 @@ class GenericUser
   validates :password, presence: true, length: { minimum: 8 }, :on => :create
   validates :password_confirmation, presence: true, :on => :create
 
+  default_scope where(banned: false)
+
   def is_user?
     self._type == 'User'
   end

@@ -10,7 +10,9 @@ class SellingProduct
   belongs_to :seller
   belongs_to :product
 
-  default_scope where(banned: false)
+  default_scope where(banned: false).in(seller_id: Seller.all.map(&:id))
+
+  scope :for_admin, unscoped.in(seller_id: Seller.all.map(&:id))
 
   def self.from_json json
     selling_product = SellingProduct.new

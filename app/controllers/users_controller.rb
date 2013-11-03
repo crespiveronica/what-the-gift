@@ -53,7 +53,6 @@ class UsersController < ApplicationController
 
   def update_mail
     @user = current_user
-    binding.pry
     @user.new_email = params[:user][:email]
     @user.save
     sign_in @user
@@ -177,32 +176,6 @@ class UsersController < ApplicationController
     user.save
     sign_in user
     return redirect_to user
-  end
-
-  def disable
-    @user = User.find(params[:id])
-    @user.banned = true
-    @user.banned_reason = params[:user][:banned_reason]
-    if @user.save
-      flash[:info] = "El usuario ha sido deshabilitado."
-      UserMailer.inform_state(@user).deliver
-    else
-      flash[:info] = "No se ha podido deshabilitar al usuario."
-    end
-    redirect_to admin_user_edit_path
-  end
-
-  def enable
-    @user = User.find(params[:id])
-    @user.banned = false
-    @user.banned_reason = nil
-    if @user.save
-      flash[:info] = "El usuario ha sido habilitado."
-      UserMailer.inform_state(@user).deliver
-    else
-      flash[:info] = "No se ha podido reactivar al usuario."
-    end
-    redirect_to admin_user_edit_path
   end
 
   def birthday_notification

@@ -67,22 +67,6 @@ class SellersController < ApplicationController
     redirect_to edit_seller_path(current_user)
   end
 
-  def disable
-    @user = Seller.find(params[:id])
-    @user.banned = true
-    @user.banned_reason = params[:seller][:banned_reason]
-    @user.save
-    redirect_to admin_seller_edit_path, alert: 'El usuario ha sido deshabilitado.'
-  end
-
-  def enable
-    @user = Seller.find(params[:id])
-    @user.banned = false
-    @user.banned_reason = nil
-    @user.save
-    redirect_to admin_seller_edit_path, alert: 'El usuario ha sido habilitado.'
-  end
-
   def showroom
     @seller = Seller.find(params[:id])
   end

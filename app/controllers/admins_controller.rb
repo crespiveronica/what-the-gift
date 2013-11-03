@@ -32,7 +32,7 @@ class AdminsController < ApplicationController
   end
 
   def selling_product_edit
-    @selling_products = SellingProduct.unscoped.paginate(:page => params[:page], :per_page => 30)
+    @selling_products = SellingProduct.unscoped.for_admin.paginate(:page => params[:page], :per_page => 30)
   end
 
   def category_edit
@@ -41,11 +41,11 @@ class AdminsController < ApplicationController
   end
 
   def user_edit
-    @users = User.paginate(:page => params[:page], :per_page => 30)
+    @users = User.unscoped.for_admin.paginate(:page => params[:page], :per_page => 30)
   end
 
   def seller_edit
-    @sellers = Seller.paginate(:page => params[:page], :per_page => 30)
+    @sellers = Seller.unscoped.for_admin.paginate(:page => params[:page], :per_page => 30)
   end
 
   def login
@@ -69,6 +69,48 @@ class AdminsController < ApplicationController
     flash[:info] = "Producto aprobado."
     ProductMailer.publication_result(@product).deliver
     redirect_to admin_selling_product_edit_path
+  end
+
+  def disable_seller
+    @user = Seller.find(params[:id])
+    @user.banned = true
+    @user.banned_reason = params[:seller][:banned_reason]
+    @user.save
+    redirect_to admin_seller_edit_path, alert: 'El usuario ha sido deshabilitado.'
+  end
+
+  def enable_seller
+    @user = Seller.unscoped.find(params[:id])
+    @user.banned = false
+    @user.banned_reason = nil
+    @user.save
+    redirect_to admin_seller_edit_path, alert: 'El usuario ha sido habilitado.'
+  end
+
+  def disable_user
+    @user = User.find(params[:id])
+    @user.banned = true
+    @user.banned_reason = params[:user][:banned_reason]
+    if @user.save
+      flash[:info] = "El usuario ha sido deshabilitado."
+      UserMailer.inform_state(@user).deliver
+    else
+      flash[:info] = "No se ha podido deshabilitar al usuario."
+    end
+    redirect_to admin_user_edit_path
+  end
+
+  def enable_user
+    @user = User.unscoped.find(params[:id])
+    @user.banned = false
+    @user.banned_reason = nil
+    if @user.save
+      flash[:info] = "El usuario ha sido habilitado."
+      UserMailer.inform_state(@user).deliver
+    else
+      flash[:info] = "No se ha podido reactivar al usuario."
+    end
+    redirect_to admin_user_edit_path
   end
 
 
