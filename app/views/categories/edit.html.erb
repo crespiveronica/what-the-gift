@@ -1,6 +1,7 @@
+<a href="/admins/category_edit">Volver</a>
 <h3>Editar categoría<h3>
 
-<%= form_for @category do |c| %>
+<%= form_for @category, :html => { :id => 'edit-category-val'} do |c| %>
   <%= c.label :name, "Nombre" %>
   <%= c.text_field :name %>
 
@@ -10,3 +11,11 @@
   <%= c.submit "Guardar", class: "btn btn-success btn-small" %>
 
 <% end %>
+
+<script>
+  $('#edit-category-val').validate({
+    rules: {
+      "category[name]": {required: true, minlength: 2}
+    }
+  });
+</script>
