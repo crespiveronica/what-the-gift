@@ -31,7 +31,7 @@ class AdminsController < ApplicationController
     @admin.destroy
   end
 
-  def product_edit
+  def selling_product_edit
     @selling_products = SellingProduct.unscoped.paginate(:page => params[:page], :per_page => 30)
   end
 
@@ -58,7 +58,7 @@ class AdminsController < ApplicationController
     @product.save
     flash[:info] = "Producto rechazado."
     ProductMailer.publication_result(@product).deliver
-    redirect_to admin_product_edit_path
+    redirect_to admin_selling_product_edit_path
   end
 
   def enable_selling_product
@@ -68,7 +68,7 @@ class AdminsController < ApplicationController
     @product.save
     flash[:info] = "Producto aprobado."
     ProductMailer.publication_result(@product).deliver
-    redirect_to admin_product_edit_path
+    redirect_to admin_selling_product_edit_path
   end
 
 
