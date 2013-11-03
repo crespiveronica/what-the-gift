@@ -70,7 +70,6 @@ Wtg::Application.routes.draw do
   match '/sell-one/:id/', to: 'selling_products#sellone', via: 'get', :as => 'sell_one'
 
   match '/about/', to: 'static_pages#about', via: 'get'
-  match '/contact/', to: 'static_pages#contact', via: 'get'
 
   match '/admins/login', to: 'admins#login', via: 'get', :as => 'admin_login'
   match '/admins/user_edit', to: 'admins#user_edit', via: 'get', :as => 'admin_user_edit'

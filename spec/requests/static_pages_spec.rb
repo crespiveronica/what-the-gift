@@ -48,18 +48,4 @@ describe "Static pages" do
                     text: "Your blog name | About")
     end
   end
-
-  describe "Contact page" do
-
-    it "should have the h1 'Contact'" do
-      visit contact_path
-      page.should have_selector('h1', text: 'Contact')
-    end
-
-    it "should have the title 'Contact'" do
-      visit contact_path
-      page.should have_selector('title',
-                    text: "Your blog name | Contact")
-    end
-  end
 end
