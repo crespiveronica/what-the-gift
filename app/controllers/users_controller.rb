@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
@@ -231,14 +232,14 @@ class UsersController < ApplicationController
     predefined_hobbies << PredefinedHobby.new("Basket",  false)
     predefined_hobbies << PredefinedHobby.new("Tenis",  false)
     predefined_hobbies << PredefinedHobby.new("Golf",  false)
-    predefined_hobbies << PredefinedHobby.new("Natacion",  false)
+    predefined_hobbies << PredefinedHobby.new("Natación",  false)
     predefined_hobbies << PredefinedHobby.new("Hockey",  false)
     predefined_hobbies << PredefinedHobby.new("Voley",  false)
     predefined_hobbies << PredefinedHobby.new("Handball",  false)
     predefined_hobbies << PredefinedHobby.new("Gimnasio",  false)
     predefined_hobbies << PredefinedHobby.new("Running",  false)
 
-    predefined_hobbies << PredefinedHobby.new("Musica",  true)
+    predefined_hobbies << PredefinedHobby.new("Música",  true)
     predefined_hobbies << PredefinedHobby.new("Música alernativa",  false)
     predefined_hobbies << PredefinedHobby.new("Música de bandas sonoras",  false)
     predefined_hobbies << PredefinedHobby.new("Blues y jazz",  false)
