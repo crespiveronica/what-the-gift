@@ -78,9 +78,6 @@ Wtg::Application.routes.draw do
   match '/selling-products/:id/enable', to: 'admins#enable_selling_product', via: 'post', :as => 'enable_selling_product'
   match '/selling-products/:id/disable', to: 'admins#disable_selling_product', via: 'post', :as => 'disable_selling_product'
   
-  match '/products/:id/enable', to: 'products#enable', via: 'post', :as => 'enable_product'
-  match '/products/:id/disable', to: 'products#disable', via: 'post', :as => 'disable_product'
-
   resources :users
   resources :sellers
   resources :products

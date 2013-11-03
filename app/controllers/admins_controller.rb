@@ -32,20 +32,20 @@ class AdminsController < ApplicationController
   end
 
   def selling_product_edit
-    @selling_products = SellingProduct.unscoped.for_admin.paginate(:page => params[:page], :per_page => 30)
+    @selling_products = SellingProduct.for_admin.paginate(:page => params[:page], :per_page => 30)
   end
 
   def category_edit
     @new_category = Category.new
-    @categories = Category.paginate(:page => params[:page], :per_page => 30)
+    @categories = Category.for_admin.paginate(:page => params[:page], :per_page => 30)
   end
 
   def user_edit
-    @users = User.unscoped.for_admin.paginate(:page => params[:page], :per_page => 30)
+    @users = User.for_admin.paginate(:page => params[:page], :per_page => 30)
   end
 
   def seller_edit
-    @sellers = Seller.unscoped.for_admin.paginate(:page => params[:page], :per_page => 30)
+    @sellers = Seller.for_admin.paginate(:page => params[:page], :per_page => 30)
   end
 
   def login

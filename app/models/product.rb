@@ -11,8 +11,6 @@ class Product
   has_and_belongs_to_many :categories
   has_many :selling_products
 
-  default_scope where(approved: true)
-
   search_in :brand, :name, :descripcion, :categories => :name
 
   def short_description

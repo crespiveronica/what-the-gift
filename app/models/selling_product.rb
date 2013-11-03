@@ -12,7 +12,9 @@ class SellingProduct
 
   default_scope where(banned: false).in(seller_id: Seller.all.map(&:id))
 
-  scope :for_admin, unscoped.in(seller_id: Seller.all.map(&:id))
+  def self.for_admin
+   unscoped.in(seller_id: Seller.all.map(&:id))
+  end
 
   def self.from_json json
     selling_product = SellingProduct.new

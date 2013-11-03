@@ -9,4 +9,9 @@ class Category
   validates :name, uniqueness: {case_sensitive: false}
 
   default_scope order_by :name => :asc
+
+  def for_admin
+  	unscoped.order_by :name => :asc
+  end
+
 end

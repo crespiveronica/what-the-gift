@@ -10,9 +10,7 @@ class Seller < GenericUser
 
   validates :company_name, presence: true
 
-  scope :for_admin,  unscoped.order_by( :company_name => :asc )
-
-
+  scope :ordered, order_by( :company_name => :asc ) 
   
   def full_name
     company_name

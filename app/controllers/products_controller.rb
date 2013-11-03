@@ -145,12 +145,4 @@ class ProductsController < ApplicationController
     render 'products/search'
   end
 
-  def disable
-    
-  end
-
-  def enable
-
-  end
-
 end

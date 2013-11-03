@@ -31,6 +31,11 @@ class GenericUser
 
   default_scope where(banned: false)
 
+
+  def self.for_admin
+    unscoped.ordered  
+  end 
+
   def is_user?
     self._type == 'User'
   end
