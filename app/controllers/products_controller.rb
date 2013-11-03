@@ -7,7 +7,8 @@ class ProductsController < ApplicationController
   def show
     @product = Product.where(:id => params[:id]).first
     if @product == nil
-      redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
+      flash['alert alert-error'] = 'No se encontr&oacute; el producto'.html_safe
+      redirect_to search_product_path
     end
   end
 
@@ -30,7 +31,6 @@ class ProductsController < ApplicationController
     @products = Product.all[0..50]
     @brand = @seller = @category  =  @price_from = @price_to = @free_text = @query = ""
     @brand_enable = @seller_enable = @category_enable  =  @price_enable = @free_text_enable = true
-
   end
 
   def gifts
@@ -41,9 +41,11 @@ class ProductsController < ApplicationController
     @product = Product.where(:id => params[:id]).first
     if @product
       current_user.wishlist << @product
-      redirect_to product_path, alert: 'El regalo fue agregado a tu Wish List'
+      flash['alert alert-success'] = 'El regalo fue agregado a tu Wish List'
+      redirect_to product_path
     else
-      redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
+      flash['alert alert-error'] = 'No se encontr&oacute; el producto'.html_safe
+      redirect_to search_product_path
     end
   end
 
@@ -51,9 +53,11 @@ class ProductsController < ApplicationController
     @product = Product.where(:id => params[:id]).first
     if @product
       current_user.wishlist.delete @product
-      redirect_to product_path, alert: 'El regalo fue borrado de tu Wish List'
+      flash['alert alert-info'] = 'El regalo fue borrado de tu Wish List'
+      redirect_to product_path
     else
-      redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
+      flash['alert alert-error'] = 'No se encontr&oacute; el producto'.html_safe
+      redirect_to search_product_path
     end
   end
 
@@ -64,9 +68,11 @@ class ProductsController < ApplicationController
       gift.product = product
       current_user.gifts << gift
       current_user.wishlist.delete(product)
-      redirect_to product_path, alert: 'El regalo fue agregado a tu lista de regalos recibidos'
+      flash['alert alert-success'] = 'El regalo fue agregado a tu lista de regalos recibidos'
+      redirect_to product_path
     else
-      redirect_to products_list_path, alert: 'No se encontr&oacute; el producto'.html_safe
+      flash['alert alert-error'] = 'No se encontr&oacute; el producto'.html_safe
+      redirect_to search_product_path
     end
   end
 
@@ -75,10 +81,11 @@ class ProductsController < ApplicationController
     @gift.score = params[:score] != '' ? params[:score] : 0
     @gift.save
     productlist = params[:productlist]
+    flash['alert alert-success'] = 'Se ha calificado su regalo satisfactoriamente'
     if productlist != nil and productlist
-      redirect_to search_product_path, alert: 'Se ha calificado su regalo satisfactoriamente'
+      redirect_to search_product_path
     else
-      redirect_to user_path(current_user.id), alert: 'Se ha calificado su regalo satisfactoriamente'
+      redirect_to user_path(current_user.id)
     end
   end
 
@@ -150,7 +157,7 @@ class ProductsController < ApplicationController
     @product.banned = true
     @product.banned_reason = params[:selling_product][:banned_reason]
     @product.save
-    flash[:info] = "Producto rechazado."
+    flash['alert alert-info'] = "Producto rechazado."
     ProductMailer.publication_result(@product).deliver
     redirect_to admin_product_edit_path
   end
@@ -160,7 +167,7 @@ class ProductsController < ApplicationController
     @product.banned = false
     @product.banned_reason = nil
     @product.save
-    flash[:info] = "Producto aprobado."
+    flash['alert alert-info'] = "Producto aprobado."
     ProductMailer.publication_result(@product).deliver
     redirect_to admin_product_edit_path
   end

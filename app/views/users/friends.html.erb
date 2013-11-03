@@ -4,12 +4,6 @@
 
 <h1>Listado de Amigos</h1>
 
-<% if flash[:success] %>
-	<div class="alert alert-info">
-		<%= flash[:success] %>
-	</div>
-<% end %>
-	
 <ul class="row">
 	<% @friends.each_with_index do |friend, i| %>
 	<li class="span2 text-center">

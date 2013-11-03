@@ -22,11 +22,13 @@ class SessionsController < ApplicationController
             end
           end
         else
-          redirect_to root_url, alert: 'Su cuenta no se encuentra activa'
+          flash['alert alert-error'] = 'Su cuenta no se encuentra activa'
+          redirect_to root_url
           return
         end
       end
-      redirect_to signin_url, alert: 'Email/Contrase&ntilde;a incorrectos'.html_safe
+      flash['alert alert-error'] = 'Email/Contrase&ntilde;a incorrectos'.html_safe
+      redirect_to signin_url
     end
   end
 
@@ -45,7 +47,8 @@ class SessionsController < ApplicationController
         return
       end
     end
-    redirect_to admin_login_path, alert: 'Email/Contrase&ntilde;a incorrectos'.html_safe
+    flash['alert alert-error'] = 'Email/Contrase&ntilde;a incorrectos'.html_safe
+    redirect_to admin_login_path
   end
 
 end

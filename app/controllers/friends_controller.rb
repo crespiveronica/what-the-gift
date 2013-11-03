@@ -11,21 +11,24 @@ class FriendsController < ApplicationController
     friend = User.find_by_id params[:id]
     request.friend = friend
     request.save
-    redirect_to show_friend_path, :id => params[:id], alert: 'La solicitud ha sido enviada con &eacute;xito, aguarde la confirmaci&oacute;n del usuario'.html_safe
+    flash['alert alert-success'] = 'La solicitud ha sido enviada con &eacute;xito, aguarde la confirmaci&oacute;n del usuario'.html_safe
+    redirect_to show_friend_path, :id => params[:id]
   end
 
   def accept
     request = FriendRequest.find(params[:id])
     request.accepted = true
     request.save
-    redirect_to friend_requests_path, alert: 'Has aceptado la solicitud de amistad de ' + request.owner.full_name
+    flash['alert alert-success'] = 'Has aceptado la solicitud de amistad de ' + request.owner.full_name
+    redirect_to friend_requests_path
   end
 
   def unfriend
     request = FriendRequest.find(params[:id])
     friend = request.owner = current_user ? request.owner : request.friend
     request.delete
-    redirect_to friend_requests_path, alert: 'Has rechazado la solicitud de amistad de ' + request.owner.full_name
+    flash['alert alert-info'] = 'Has rechazado la solicitud de amistad de ' + request.owner.full_name
+    redirect_to friend_requests_path
   end
 
   def pending
