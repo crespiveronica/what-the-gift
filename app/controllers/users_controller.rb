@@ -58,7 +58,8 @@ class UsersController < ApplicationController
     @user.save
     sign_in @user
     UserMailer.new_email_email(@user).deliver
-    redirect_to root_path,  alert: 'Se ha enviado un correo electronico a ' + current_user.new_email + ' para la confirmacion de su nuevo mail.'
+    flash['alert alert-success'] = 'Se ha enviado un correo electronico a ' + current_user.new_email + ' para la confirmacion de su nuevo mail.'
+    redirect_to root_path
   end
 
   def create
@@ -72,10 +73,12 @@ class UsersController < ApplicationController
       end
       @user.save
       UserMailer.signup_email(@user).deliver
-      redirect_to root_path,  alert: msj
+      flash['alert alert-success'] = msj
+      redirect_to root_path
     else
       @predefined_hobbies = predefined_hobbies
       @selected_hobbies = params[:selectedHobbies]
+      flash['alert alert-error'] = 'Se ha producido un error, int&eacute;ntelo nuevamente'.html_safe
       render 'new'
     end
   end
@@ -84,7 +87,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.deleted = true
     @user.save
-    redirect_to root_url, alert: "Su cuenta ha sido desactivada, esperamos volverlo a ver pronto!"
+    flash['alert alert-info'] = "Su cuenta ha sido desactivada, esperamos volverlo a ver pronto!"
+    redirect_to root_url
   end
 
   def friends
@@ -134,12 +138,14 @@ class UsersController < ApplicationController
   def forgotten_user_post
     user = User.find_by_email params[:email]
     if user == nil
-      redirect_to root_path, alert: 'No se encontr&oacute; ning&uacute;n usuario con ese email.'.html_safe
+      flash['alert alert-error'] =  'No se encontr&oacute; ning&uacute;n usuario con ese email.'.html_safe
+      redirect_to root_path
     else
       user.password = SecureRandom.urlsafe_base64
       user.save
       UserMailer.forgotten_password(user).deliver
-      redirect_to root_path, alert: 'Se ha reiniciado su password.'
+      flash['alert alert-success'] = 'Se ha reiniciado su password.'
+      redirect_to root_path
     end
   end
 
@@ -149,9 +155,11 @@ class UsersController < ApplicationController
       @user.active = true
       @user.save
       sign_in @user
-      return redirect_to @user, alert: "Felicitaciones, su cuenta ha sido activada!"
+      flash['alert alert-success'] = "Felicitaciones, su cuenta ha sido activada!"
+      return redirect_to @user
     else
-      return redirect_to root_url, alert: "No se encontr&oacute; el usuario".html_safe
+      flash['alert alert-error'] = "No se encontr&oacute; el usuario".html_safe
+      return redirect_to root_url
     end
   end
 
@@ -161,9 +169,11 @@ class UsersController < ApplicationController
       @user.email = @user.new_email
       @user.save
       sign_in @user
-      return redirect_to @user, alert: "Se ha confirmado su nuevo e-mail."
+      flash['alert alert-success'] = "Se ha confirmado su nuevo e-mail."
+      return redirect_to @user
     else
-      return redirect_to root_url, alert: "No se encontr&oacute; el usuario".html_safe
+      flash['alert alert-error'] = "No se encontr&oacute; el usuario".html_safe
+      return redirect_to root_url
     end
   end
 
@@ -184,10 +194,10 @@ class UsersController < ApplicationController
     @user.banned = true
     @user.banned_reason = params[:user][:banned_reason]
     if @user.save
-      flash[:info] = "El usuario ha sido deshabilitado."
+      flash['alert alert-info'] = "El usuario ha sido deshabilitado."
       UserMailer.inform_state(@user).deliver
     else
-      flash[:info] = "No se ha podido deshabilitar al usuario."
+      flash['alert alert-error'] = "No se ha podido deshabilitar al usuario."
     end
     redirect_to admin_user_edit_path
   end
@@ -197,10 +207,10 @@ class UsersController < ApplicationController
     @user.banned = false
     @user.banned_reason = nil
     if @user.save
-      flash[:info] = "El usuario ha sido habilitado."
+      flash['alert alert-success'] = "El usuario ha sido habilitado."
       UserMailer.inform_state(@user).deliver
     else
-      flash[:info] = "No se ha podido reactivar al usuario."
+      flash['alert alert-error'] = "No se ha podido reactivar al usuario."
     end
     redirect_to admin_user_edit_path
   end
@@ -243,10 +253,10 @@ class UsersController < ApplicationController
   def update_password
     @user = User.find params[:id]
     if @user.update_attributes(params[:user])
-      flash[:info] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
+      flash['alert alert-success'] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
       sign_in @user
     else
-      flash[:info] = 'No se ha cambiado la contrase&ntilde;a. Debe tener como m&itildenimo de ocho caracteres.'.html_safe
+      flash['alert alert-error'] = 'No se ha cambiado la contrase&ntilde;a. Debe tener como m&itildenimo de ocho caracteres.'.html_safe
     end
     redirect_to @user
   end
