@@ -1,3 +1,5 @@
+<%= will_paginate @products %>
+
 <% @products.each do |product| %>
     <% gift = current_user.gift_from_product(product) %>
     <li class="span2" style="margin-left: 12px">
@@ -42,12 +44,12 @@
           </script>
         <% end %>
         <h5><%= product.name %></h5>
-		    <p><small><%= product.description %></small></p>  
+		    <p><small><%= product.description %></small></p>
         <p class="bottom">
           <% if signed_in? and current_user.class.to_s == 'User'%>
            <% if not current_user.wishlist.include? product and
                  not current_user.products_from_gifts.include? product %>
-            <%= link_to "<i class='icon-white icon-heart'></i>".html_safe, product_add_to_wishlist_path(:id => product.id), :method => :post, 
+            <%= link_to "<i class='icon-white icon-heart'></i>".html_safe, product_add_to_wishlist_path(:id => product.id), :method => :post,
                 :class => 'btn btn-danger btn-mini btn-primary pull-left' %>
             <% elsif current_user.wishlist.include? product %>
             <%= link_to "<i class='icon-thumbs-down icon-white'></i>".html_safe, product_remove_from_wishlist_path(:id => product.id), method: 'delete',
@@ -61,6 +63,9 @@
       </div>
     </li>
 <% end %>
+<br>
+<%= will_paginate @products%>
+
 <script>
   $('.add-to-gifts').tooltip();
 </script>
