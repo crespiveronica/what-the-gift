@@ -69,6 +69,12 @@ Wtg::Application.routes.draw do
 
   match '/about/', to: 'static_pages#about', via: 'get'
   match '/help/' , to: 'static_pages#help' , via: 'get'
+<<<<<<< HEAD
+=======
+  match '/help_seller/' , to: 'static_pages#help_seller' , via: 'get'
+  match '/help_user/' , to: 'static_pages#help_user' , via: 'get'
+  match '/help_admin/' , to: 'static_pages#help_admin' , via: 'get'
+>>>>>>> help para admin
 
   match '/admins/login', to: 'admins#login', via: 'get', :as => 'admin_login'
   match '/admins/user/edit', to: 'admins#user_edit', via: 'get', :as => 'admin_user_edit'

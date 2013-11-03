@@ -15,12 +15,6 @@ class StaticPagesController < ApplicationController
   def help
   end
 
-  def help_seller
-  end
-
-  def user
-  end
-
   def banned
     @user = GenericUser.unscoped.find(params[:id])
   end
