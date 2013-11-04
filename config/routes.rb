@@ -88,6 +88,11 @@ Wtg::Application.routes.draw do
   resources :admins
   resources :sessions, only: [:new, :create, :destroy, :create_admin]
 
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#error_404'
+    match '*error', to: 'errors#error_500'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
