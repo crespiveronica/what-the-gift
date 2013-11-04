@@ -23,8 +23,8 @@
         <p id="message">¿Estás seguro que deseas elminar el producto?</p>
       </div>
       <div class="modal-footer">
-        <button class="btn pull-left" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-        <%= button_to 'Eliminar', destroy_selling_products_path(:id => selling_product.id), :method => :delete,  :class => 'btn btn-danger btn-primary pull-right' %>
+        <button class="btn btn-warning pull-left" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+        <%= button_to 'Eliminar', destroy_selling_products_path(:id => selling_product.id), :method => :delete,  :class => 'btn btn-danger pull-right' %>
       </div>
     </div>
 
