@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= nested_form_for(@user) do |f| %>
+    <%= nested_form_for @user, :html => { :id => 'new-user' } do |f| %>
       <%= render 'shared/error_messages' %>
 
       <%= f.label :first_name, 'Nombre' %>
@@ -19,7 +19,7 @@
       <%= f.text_field :email %>
 
       <%= f.label :password, 'Contraseña' %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, id: "password" %>
 
       <%= f.label :password_confirmation, 'Confirmar' %>
       <%= f.password_field :password_confirmation %>
@@ -28,9 +28,9 @@
       <%= select_tag(:genre, options_for_select([['Masculino', 'Hombre'], ['Femenino', 'Mujer']])) %>
 
       <div id="hobby-boxes">
-      
+
       <%= f.label :hobbies, 'Pasatiempos y hobbies' %>
-      
+
       <%= render :template => 'users/hobbies-select' %>
 
       <%= f.label :hobbies, 'Otros pasatiempos y hobbies' %>
@@ -72,6 +72,16 @@
 
     return true;
   }
+
+  $('#new-user').validate({
+    rules: {
+      "user[first_name]": {required: true, minlength: 2},
+      "user[last_name]": {required: true, minlength: 2},
+      "user[email]": {required: true, email: true},
+      "user[password]": {required: true},
+      "user[password_confirmation]": {equalTo: "#password"}
+    }
+  });
 </script>
 
 <div id="signupModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
