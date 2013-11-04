@@ -27,6 +27,11 @@ a.profile-mini:hover
 	margin-bottom: 12px;
 }
 
+.thumbnail
+{
+	margin: 0 !important;
+}
+
 .thumbnail.gift
 {
 	height: 250px;
@@ -43,6 +48,11 @@ a.profile-mini:hover
 	position: absolute;
 	bottom: 0;
 	right: 6px;
+}
+
+li.product
+{
+	margin-bottom: 12px;
 }
 
 .navbar-inner

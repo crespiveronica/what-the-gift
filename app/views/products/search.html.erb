@@ -81,7 +81,13 @@
       <div class="row">
         <%= render :template => 'products/categories_sidebar' %>
         <div class="span10">
-            <%= render :template => 'products/list' %>
+            <% if not @products.empty? %>
+              <%= render :template => 'products/list' %>
+            <% elsif %>
+              <div class="alert alert-info">
+                No se han encontrado productos para su búsqueda
+              </div>
+            <% end %>
         </div>
     </div>
 

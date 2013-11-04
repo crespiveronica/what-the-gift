@@ -69,24 +69,26 @@
   </div>
 
   <div class="tab-pane" id="tab2">
-    <form>
-      <fieldset>
-        <legend>Wishlist</legend>
-        <ul class="thumbnails">
-          <% @products = @user.wishlist.paginate(:page => params[:page], :per_page => 12) %>
-          <%= render :template => 'products/list' %>
-        </ul>
-      </fieldset>
-    </form>
+    <fieldset>
+      <legend>Wishlist</legend>
+    </fieldset>
+    <ul class="wishlist">
+      <% @products = @user.wishlist %>
+      <% if not @products.empty? %>
+        <%= render :template => 'products/list' %>
+      <% else %>
+        <div class="alert alert-info">
+          Aún no has guardado ningún regalo en tu wishlist
+        </div>
+      <% end %>
+    </ul>
   </div>
   <div class="tab-pane" id="tab3">
-    <form>
       <fieldset>
         <legend>Regalos recibidos</legend>
       </fieldset>
       <% @gifts = @user.gifts.paginate(:page => params[:page], :per_page => 12) %>
       <%= render :template => 'products/gifts' %>
-    </form>
   </div>
 </div>
 
