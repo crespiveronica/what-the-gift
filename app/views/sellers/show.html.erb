@@ -1,6 +1,5 @@
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#tab1" data-toggle="tab"><i class="icon-user"></i> Perfil</a></li>
-      <li><a href="#tab2" data-toggle="tab"><i class="icon-th-large"></i> Mis Productos</a></li>
+      <li class="active"><a href="#" data-toggle="tab"><i class="icon-user"></i> Perfil</a></li>
     </ul>
     <div class="tab-content">
       <div class="tab-pane active" id="tab1">
@@ -11,8 +10,8 @@
                   <div class="span7">
                   <h3>
                     Perfil
-                    <a class="btn btn-small btn-warning pull-right" href="#deleteProfileModal" role="button" data-toggle="modal">Eliminar cuenta</a>
-                    <%= link_to "Editar perfil", edit_seller_path(current_user), class: "btn btn-success" %>
+                    <%= link_to '<i class="icon-pencil icon-white"></i> Editar perfil'.html_safe, edit_seller_path(current_user), class: "btn btn-primary btn-small" %>
+                    <a class="btn btn-small btn-danger" href="#deleteProfileModal" role="button" data-toggle="modal"><i class="icon-trash icon-white"></i> Eliminar cuenta</a>
                   </h3>
                   </div>
                 </div>
@@ -56,6 +55,7 @@
       </div>
 
       <div class="tab-pane" id="tab2">
+        <% @selling_products = @selling_products.paginate(:page => params[:page], :per_page => 30) %>        
         <%= render template: 'selling_products/mine' %>
       </div> 
     </div>
