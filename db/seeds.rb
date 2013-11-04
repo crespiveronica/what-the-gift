@@ -18,7 +18,9 @@ banned_reason = "none"
 
 
 # Cración de Categorías (Category)
+print "Creating categories..."
 #
+autos_category = Category.new(name: 'Autos', description: 'Automóviles')
 accesorios_vehiculos_category = Category.new(name: 'Accesorios para vehículos', description: 'Accesorios para autos, motos, audio, tuning')
 repuestos_autos_category = Category.new(name: 'Accesorios para autos', description: '')
 accesorios_motos_category = Category.new(name: 'Accesorios para motos', description: 'Indumentaria para motos, Cascos para motos, Lingas y candados para motos, Respuestos para motos')
@@ -86,7 +88,7 @@ instrumentos_musicales_category = Category.new(name: 'Intrumentos musicales', de
 accesorios_musica_category = Category.new(name: 'Accesorios para música', description: 'Amplificadores, consolas de sonido, efectos de sonido, micrófonos, pies, parlantes')
 guitarras_category = Category.new(name: 'Guitarras', description: 'Criollas, eléctricas')
 pianos_category = Category.new(name: 'Pianos', description: 'Teclados y pianos')
-baterías_category = Category.new(name: 'Baterías', description: '')
+baterias_category = Category.new(name: 'Baterías', description: '')
 juguetes_mujer_category = Category.new(name: 'Juguetes para mujer', description: '')
 juguetes_hombre_category = Category.new(name: 'Juguetes para hombre', description: '')
 peliculas_series_category = Category.new(name: 'Películas series', description: 'Merchandising y DVD/Bluray')
@@ -101,9 +103,11 @@ relajacion_category = Category.new(name: 'Relajación', description: 'Spa, masaj
 ropa_mujer_category = Category.new(name: 'Ropa de mujer', description: '')
 ropa_hombre_category = Category.new(name: 'Ropa de hombre', description: '')
 
+puts "done."
 
 #
 # Guardar Categorías
+print "Saving categories..."
 #
 
 accesorios_vehiculos_category.save
@@ -173,7 +177,7 @@ instrumentos_musicales_category.save
 accesorios_musica_category.save
 guitarras_category.save
 pianos_category.save
-baterías_category.save
+baterias_category.save
 juguetes_mujer_category.save
 juguetes_hombre_category.save
 peliculas_series_category.save
@@ -188,8 +192,11 @@ relajacion_category.save
 ropa_mujer_category.save
 ropa_hombre_category.save
 
+puts "done."
+
 #
 # Creación de Productos (Product)
+print "Creating products..."
 #
 pelota_product = Product.new(name: 'Roteiro', description: 'Pelota de Alemania 2006', brand: 'Adidas')
 libro_product = Product.new(name: 'La Piedra Filosofal', description: 'J.K. Rowling', brand: 'Editorial Sudamericana')
@@ -208,8 +215,11 @@ juegos_product = Product.new(name: 'Monopoly', description: 'El juego más aburr
 instrumento_product = Product.new(name: 'Les Paul', description: 'Clásica guitarra', brand: 'Gibson')
 instrumento2_product = Product.new(name: 'Batería eléctrica', description: 'Batería roja', brand: 'Roland')
 
+puts "done."
+
 #
 # Asociación Categoría-Producto
+print "Asociating categories to products..."
 #
 pelota_product.update_attributes({ "category_ids" => deportes_category._id })
 libro_product.update_attributes({ "category_ids" => libros_category._id })
@@ -219,17 +229,20 @@ libro_product4.update_attributes({ "category_ids" => libros_category._id })
 libro_product5.update_attributes({ "category_ids" => libros_category._id })
 libro_product6.update_attributes({ "category_ids" => libros_category._id })
 libro_product7.update_attributes({ "category_ids" => libros_category._id })
-pelicula_product.update_attributes({ "category_ids" => peliculas_category._id})
+pelicula_product.update_attributes({ "category_ids" => peliculas_series_category._id})
 mascota_product.update_attributes({ "category_ids" => mascotas_category._id})
 autos_product.update_attributes({ "category_ids" => autos_category._id  })
-computacion_product.update_attributes({ "category_ids" => computacion_category._id })
+computacion_product.update_attributes({ "category_ids" => pcs_portatiles_category._id })
 celular_product.update_attributes({ "category_ids" => celulares_category._id })
 juegos_product.update_attributes({ "category_ids" => juegos_category._id })
-instrumento_product.update_attributes({ "category_ids" => instrumentos_category._id })
-instrumento2_product.update_attributes({ "category_ids" => instrumentos_category._id })
+instrumento_product.update_attributes({ "category_ids" => guitarras_category._id })
+instrumento2_product.update_attributes({ "category_ids" => baterias_category._id })
+
+puts "done."
 
 #
 # Creación de Vendedores (Seller)
+print "Creating sellers..."
 #
 sellers = []
 
@@ -266,9 +279,11 @@ sellers[4].web = 'www.apioverde.com'
 sellers[4].active = active
 sellers[4].save
 
+puts "done."
 
 #
 # Creación de Productos Vendedor (Selling Product)
+print "Asociating products with sellers..."
 #
 sellers[0].selling_products = []
 libro_yenny = SellingProduct.new
@@ -336,6 +351,8 @@ juego_apioverde.product  = juegos_product
 sellers[4].selling_products << juego_apioverde
 juego_apioverde.price = 132
 juego_apioverde.save
+
+puts "done."
 
 ## Users
 rand = Random.new
