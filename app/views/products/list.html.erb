@@ -1,10 +1,10 @@
 <%= will_paginate @products %>
 
 <% @products.each do |product| %>
-    <% gift = current_user.gift_from_product(product) %>
     <li class="span2" style="margin-left: 12px">
       <div class="thumbnail gift" style="margin: 12px 0;">
         <% if signed_in? and current_user._type == 'User' %>
+          <% gift = current_user.gift_from_product(product) %>
           <div style="position: absolute; top: 6px;width: 200px">
             <% if not current_user.products_from_gifts.include? product %>
               <a title="Lo tengo!" href="<%= product_add_to_gifts_path(:id => product.id) %>" class="btn btn-mini pull-left btn-success add-to-gifts"><i class="icon-gift icon-white"></i></a>
@@ -37,11 +37,14 @@
           </div>
         <% end %>
         <%= image_tag product.photo , size: '100x100', class: 'gift img-rounded' %>
-		    <% if gift != nil %>
-          <div id="starToRateSmall<%= gift.id %>"></div>
-          <script>
-            $('#starToRateSmall<%= gift.id %>').raty({ half: true, score: <%= gift.score != nil and gift.score != '' ? gift.score : 0 %>, cancel: true, width: 300, readOnly: true });
-          </script>
+        <% if signed_in? and current_user._type == 'User' %>
+  		    <% gift = current_user.gift_from_product(product) %>
+          <% if gift != nil %>
+            <div id="starToRateSmall<%= gift.id %>"></div>
+            <script>
+              $('#starToRateSmall<%= gift.id %>').raty({ half: true, score: <%= gift.score != nil and gift.score != '' ? gift.score : 0 %>, cancel: true, width: 300, readOnly: true });
+            </script>
+          <% end %>
         <% end %>
         <h5><%= product.name %></h5>
 		    <p><small><%= product.description %></small></p>
