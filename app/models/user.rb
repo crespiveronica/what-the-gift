@@ -65,7 +65,19 @@ def self.find_by_email email
 end
 
 def asorted_recommended
-	Product.full_text_search( interests, match: :any , relevant_search: true) - products_from_gifts
+	suitable_gifts_from( Product.full_text_search( interests, match: :any , relevant_search: true) - products_from_gifts)
+end
+
+def suitable_gifts_from products
+	products.delete_if { |product| Matcher.matches_any(product.categories_names, oposite_genre) }
+end
+
+def oposite_genre
+	if( genre == 'Mujer')
+		'Hombre'
+	else
+		'Mujer'
+	end
 end
 
 def recommended
@@ -74,7 +86,7 @@ def recommended
 end
 
 def interests
-	(hobbies_names + interests_from_wishList + interests_from_gifts).uniq
+	(hobbies_names + interests_from_wishList + interests_from_gifts).uniq << genre
 end
 
 def interests_from_wishList
@@ -96,7 +108,7 @@ def interests_from_gifts
 end
 
 def how_good_is product
-	product.relevance + points_to(product.name, 10) + points_to(product.description, 4) + points_to_items(product.categories_names, 7)
+	product.relevance + points_to(product.name, 10) + points_to(product.description, 4) + points_to_items(product.categories_names, 3)
 end
 
 def points_to(what, howMany)
@@ -104,7 +116,7 @@ def points_to(what, howMany)
 end
 
 def points_to_items(what, howMany)
-	Matcher.matches_how_many_items(what, interests) ? howMany : 0
+	Matcher.matches_how_many_items(what, interests) * howMany
 end
 
 def products_from_gifts
