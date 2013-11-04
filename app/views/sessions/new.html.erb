@@ -2,17 +2,17 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for :session, url: sessions_path, :html => { :id => 'signin-form' } do |f| %>
+    <%= form_for :session, url: sessions_path, :html => { :id => 'signin-form', :class => 'text-center' } do |f| %>
 
       <%= f.label :email %>
       <%= f.text_field :email %>
 
       <%= f.label :password %>
       <%= f.password_field :password %>
-
+      <br>
       <%= f.submit "Iniciar sesion", class: "btn btn-large btn-primary" %>
     <% end %>
-    <p><%= link_to "Olvidé mi usuario o contraseña", forgotten_user_path %></p>
+    <p class="text-center"><%= link_to "Olvidé mi contraseña", forgotten_user_path %></p>
   </div>
 </div>
 
