@@ -356,6 +356,26 @@ puts "done."
 
 ## Users
 rand = Random.new
+print "Creating 100 users..."
+100.times do
+  u = User.new
+  u.first_name = Faker::Name.first_name
+  u.last_name = Faker::Name.last_name
+  u.email = Faker::Internet.email
+  u.password = password
+  u.password_confirmation = password_confirmation
+  u.active = active
+  u.banned = banned
+  u.wishlist = []
+  u.wishlist << Product.all.entries[rand.rand(10)]
+  u.wishlist << Product.all.entries[rand.rand(10)]
+  gift = Gift.new
+  gift.product = Product.all[rand.rand(10)]
+  gift.score = rand.rand(10)
+  u.gifts = [gift]
+  u.save
+end
+puts "done."
 
 #
 # Creación de Administradores
@@ -462,32 +482,3 @@ gift.score = rand.rand(10)
 vero.gifts = [gift]
 vero.birthday = rand(20.years).ago
 vero.save
-
-print "Creating 100 users..."
-100.times do
-  u = User.new
-  u.first_name = Faker::Name.first_name
-  u.last_name = Faker::Name.last_name
-  u.email = Faker::Internet.email
-  u.password = password
-  u.password_confirmation = password_confirmation
-  u.active = active
-  u.banned = banned
-  u.birthday = rand(25.years).ago
-  u.wishlist = []
-  u.wishlist << Product.all.entries[rand.rand(10)]
-  u.wishlist << Product.all.entries[rand.rand(10)]
-  gift = Gift.new
-  gift.product = Product.all[rand.rand(10)]
-  gift.score = rand.rand(10)
-  u.gifts = [gift]
-  u.save
-  fr = FriendRequest.new
-  fr.owner = fer
-  fr.friend = u
-  fr.accepted = true
-  fr.save
-end
-puts "done."
-
-fer.save
