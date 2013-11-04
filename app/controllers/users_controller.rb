@@ -60,15 +60,15 @@ class UsersController < ApplicationController
     @user.save
     sign_in @user
     UserMailer.new_email_email(@user).deliver
-    flash['alert alert-success'] = 'Se ha enviado un correo electronico a ' + current_user.new_email + ' para la confirmacion de su nuevo mail.'
+    flash['alert alert-success'] = 'Se ha enviado un correo electrónico a ' + current_user.new_email + ' para la confirmación de su nuevo mail.'
     redirect_to root_path
   end
 
   def create
     @user = User.new(params[:user])
     @user.active = false
-    msj =  'Felicitaciones, su cuenta ya est&aacute; casi lista. '.html_safe
-    msj += 'Se ha enviado un correo electr&oacute;nico a ' + @user.email + ' para la confirmaci&oacute;n de su cuenta. Presione el link de confirmaci&oacute;n en el E-Mail para terminar el proceso de registraci&oacute;n.'.html_safe
+    msj =  'Felicitaciones, su cuenta ya está casi lista.'
+    msj += 'Se ha enviado un correo electrónico a ' + @user.email + ' para la confirmación de su cuenta. Presione el link de confirmación en el e-mail para terminar el proceso de registración.'
     if @user.save
       if params[:selectedHobbies]
         @user.hobbies.concat(params[:selectedHobbies].map { |h| Hobby.new(name: h) })
@@ -80,7 +80,7 @@ class UsersController < ApplicationController
     else
       @predefined_hobbies = predefined_hobbies
       @selected_hobbies = params[:selectedHobbies]
-      flash['alert alert-error'] = 'Se ha producido un error, int&eacute;ntelo nuevamente'.html_safe
+      flash['alert alert-error'] = 'Se ha producido un error, inténtelo nuevamente'
       render 'new'
     end
   end
@@ -140,7 +140,7 @@ class UsersController < ApplicationController
   def forgotten_user_post
     user = User.find_by_email params[:email]
     if user == nil
-      flash['alert alert-error'] =  'No se encontr&oacute; ning&uacute;n usuario con ese email.'.html_safe
+      flash['alert alert-error'] =  'No se encontró ningún usuario con ese email.'
       redirect_to root_path
     else
       user.password = SecureRandom.urlsafe_base64
@@ -157,10 +157,10 @@ class UsersController < ApplicationController
       @user.active = true
       @user.save
       sign_in @user
-      flash['alert alert-success'] = "Felicitaciones, su cuenta ha sido activada!"
+      flash['alert alert-success'] = "Felicitaciones, ¡su cuenta ha sido activada!"
       return redirect_to @user
     else
-      flash['alert alert-error'] = "No se encontr&oacute; el usuario".html_safe
+      flash['alert alert-error'] = "¡No se encontró el usuario"
       return redirect_to root_url
     end
   end
@@ -174,7 +174,7 @@ class UsersController < ApplicationController
       flash['alert alert-success'] = "Se ha confirmado su nuevo e-mail."
       return redirect_to @user
     else
-      flash['alert alert-error'] = "No se encontr&oacute; el usuario".html_safe
+      flash['alert alert-error'] = "No se encontró el usuario."
       return redirect_to root_url
     end
   end
@@ -190,7 +190,7 @@ class UsersController < ApplicationController
     sign_in user
     return redirect_to user
   end
-  
+
   def birthday_notification
     birthday_users = User.birthday_users
     birthday_users.each do | user |
@@ -253,10 +253,10 @@ class UsersController < ApplicationController
   def update_password
     @user = User.find params[:id]
     if @user.update_attributes(params[:user])
-      flash['alert alert-success'] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
+      flash['alert alert-success'] = 'La contraseña se ha cambiado satisfactoriamente.'
       sign_in @user
     else
-      flash['alert alert-error'] = 'No se ha cambiado la contrase&ntilde;a. Debe tener como m&itildenimo de ocho caracteres.'.html_safe
+      flash['alert alert-error'] = 'No se ha cambiado la contraseña. Debe tener como mínimo de ocho caracteres.'
     end
     redirect_to @user
   end
