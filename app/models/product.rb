@@ -11,7 +11,7 @@ class Product
   has_and_belongs_to_many :categories
   has_many :selling_products
 
-  search_in :brand, :name, :descripcion, :categories => :name
+  search_in :brand, :name, :description, :categories => :name
 
   def short_description
     self.description.truncate(50, omission: '...')
