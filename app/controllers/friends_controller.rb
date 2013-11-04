@@ -25,7 +25,7 @@ class FriendsController < ApplicationController
 
   def unfriend
     do_unfriend('Ya no eres amigo de ')
-    redirect_to friend_requests_path
+    redirect_to friends_path
   end
 
   def reject
