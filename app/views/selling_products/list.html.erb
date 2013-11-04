@@ -8,8 +8,8 @@
   		<p><small><%= selling_product.product.description %></small></p>
       <p><small><%= selling_product.price %></small></p>
           <p class="bottom">
-              <%= link_to 'Modificar', edit_selling_products_path(:id => selling_product.id), :class => 'btn btn-mini btn-primary pull-right' %>
-              <button class="btn btn-mini btn-warning pull-left" href="#confirmation-modal<%= selling_product.id %>" data-toggle="modal">Eliminar</button>
+              <%= link_to '<i class="icon-pencil icon-white"></i>'.html_safe, edit_selling_products_path(:id => selling_product.id), :class => 'btn btn-mini btn-warning edit', title: 'Modificar' %>
+              <a class="btn btn-mini btn-danger trash" href="#confirmation-modal<%= selling_product.id %>" data-toggle="modal" title="Eliminar"><i class="icon-trash icon-white"></i></a>
           </p>
         </div>
       </div>
@@ -31,3 +31,6 @@
   <% end %>
 
 <%= will_paginate @selling_products %>
+<script>
+  $('.trash, .edit').tooltip();
+</script>
