@@ -2,11 +2,18 @@
   <h1 style="font-family: 'DancingScript', cursive;">What The Gift?!</h1>
 
   <% if current_user == nil %>
-    <p>
-      ¿Necesitas hacer un regalo y no sabes qué elegir? ¿Se viene tu cumpleaños y deseas muchas cosas? En <strong>What the Gift?!</strong> tenemos la solución: busca regalos por afinidad, filtra por tus intereses, y elige por ubicación; puedes también armar un <em>wish-list</em> con lo que deseas para que tus amigos sepan qué regalarte.
+    <p style="font-family: 'OpenSans', cursive;">
+     <em> ¿Necesitas hacer un regalo y no sabes qué elegir? ¿Se viene tu cumpleaños y deseás muchas cosas? </em>
+      </p>
+  <p style="font-family: 'OpenSans', cursive;">
+      En <span style="font-family: 'DancingScript', cursive;font-size: 18px;">What the Gift?!</span> tenemos la solución: 
+      <br/>
+      Buscá regalos por afinidad, filtrá por tus intereses, y elegí dónde comprar
+      <br/>
+      Además podés armar un <em>wish-list</em> con lo que deseás para que tus amigos sepan qué regalarte.
     </p>
-    <p>
-      No pierdas más tiempo, ¡regístrate e invita a tus amigos a participar!
+    <p style="font-family: 'OpenSans', cursive;">
+      <strong>No pierdas más tiempo, ¡registrate e invita a tus amigos a participar!</strong>
     </p>
     <%= link_to "Creá tu cuenta!", '#', class: "btn btn-large btn-primary", onclick: "displayRegisterForm()" %>
   <% elsif current_user.respond_to?('_type') and current_user._type == 'User' %>
