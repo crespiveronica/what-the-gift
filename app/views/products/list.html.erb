@@ -1,7 +1,7 @@
 <%= will_paginate @products %>
 
 <% @products.each do |product| %>
-    <li class="span2 product" style="margin-left: 12px">
+    <li class="span2">
       <div class="thumbnail gift" style="margin: 12px 0;">
         <% if signed_in? and current_user._type == 'User' %>
           <% gift = current_user.gift_from_product(product) %>
@@ -44,7 +44,7 @@
 		    <p><small><%= product.short_description %></small></p>
         <% if not product.selling_products.empty? %>
           <p><small>Desde $<%= product.lowest_price %> </small></p>
-        <% end %>  
+        <% end %>
         <% if signed_in? and current_user._type == 'User' %>
           <% gift = current_user.gift_from_product(product) %>
           <% if gift != nil %>
