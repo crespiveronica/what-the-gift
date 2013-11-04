@@ -3,34 +3,29 @@
 	    <h1><%=@friend.full_name%></h1>
 	    <p class="text-center">Faltan <%= @friend.remaining_days %> días para su cumpleaños</p>
 	</div>
-
-	<div class="row">
-		<div class="span3">
-			<div class="tabbable tabs-left">
-			    <ul class="nav nav-tabs">
-			        <li <%= yield :activefriendprofile %>>
-			        	<a href="/friends/<%=@friend.id%>">
-			        		<i class="icon-user"></i> 
-			        		Perfil
-			        	</a>
-			        </li>
-			        <li <%= yield :activefriendwishlist %>>
-			        	<a href="/friends/<%=@friend.id%>/make-a-gift">
-			        		<i class="icon-star"></i> 
-			        		Hacele un regalo!
-			        	</a>
-			        </li>
-			        <li <%= yield :activefriendgifts %>>
-			        	<a href="/friends/<%=@friend.id%>/gifts">
-			        		<i class="icon-gift"></i>
-			        		Regalos recibidos
-			        	</a>
-			        </li>
-			    </ul>
+		<div class="tabbable">
+		    <ul class="nav nav-tabs">
+		        <li <%= yield :activefriendprofile %>>
+		        	<a href="/friends/<%=@friend.id%>">
+		        		<i class="icon-user"></i> 
+		        		Perfil
+		        	</a>
+		        </li>
+		        <li <%= yield :activefriendwishlist %>>
+		        	<a href="/friends/<%=@friend.id%>/make-a-gift">
+		        		<i class="icon-gift"></i> 
+		        		Hacele un regalo!
+		        	</a>
+		        </li>
+		        <li <%= yield :activefriendgifts %>>
+		        	<a href="/friends/<%=@friend.id%>/gifts">
+		        		<i class="icon-ok"></i>
+		        		Regalos recibidos
+		        	</a>
+		        </li>
+		    </ul>
+		    <div class="span9">
+			    <%= yield %>
 			</div>
 		</div>
-	    <div class="span9">
-		    <%= yield %>
-		</div>
-	</div>
 <% end %>

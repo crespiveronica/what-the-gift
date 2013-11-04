@@ -3,7 +3,7 @@
 <% end %>
 
 <fieldset>
-	<legend>Regalos recibidos</legend>
+	<legend><h4>Regalos recibidos</h4></legend>
 </fieldset>
 <% @gifts = current_user.gifts.paginate(:page => params[:page], :per_page => 12) %>
 <% @user = current_user %>

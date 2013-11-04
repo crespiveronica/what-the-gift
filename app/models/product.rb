@@ -14,7 +14,7 @@ class Product
   search_in :brand, :name, :descripcion, :categories => :name
 
   def short_description
-    self.description.truncate(100, omission: '...')
+    self.description.truncate(50, omission: '...')
   end
 
   def asorted_recommended_for user

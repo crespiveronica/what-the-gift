@@ -2,9 +2,9 @@
 	class="active"
 <% end %>
 <fieldset>
-	<legend>Regalos recibidos</legend>
+	<legend><h4>Regalos recibidos</h4></legend>
 	<ul class="thumbnails">
-		<% @products = @friend.products_from_gifts %>
+		<% @products = @friend.products_from_gifts.paginate(:page => params[:page], :per_page => 30) %>
 		<%= render :template => 'products/list' %>
 	</ul>
 </fieldset>

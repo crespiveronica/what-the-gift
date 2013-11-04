@@ -10,7 +10,7 @@ class Category
 
   default_scope order_by :name => :asc
 
-  def for_admin
+  def self.for_admin
   	unscoped.order_by :name => :asc
   end
 

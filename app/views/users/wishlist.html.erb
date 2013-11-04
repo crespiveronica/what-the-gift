@@ -3,7 +3,7 @@
 <% end %>
 
 <fieldset>
-  <legend>Wishlist</legend>
+  <legend><h4>Wishlist</h4></legend>
 </fieldset>
 <ul class="wishlist">
   <% @products = current_user.wishlist.paginate(:page => params[:page], :per_page => 30) %>

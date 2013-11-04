@@ -1,7 +1,7 @@
 <div class="center hero-unit" style="padding-top: 40px">
-  <h1 style="font-family: 'DancingScript', cursive;">What The Gift?!</h1>
 
   <% if current_user == nil %>
+    <h1 style="font-family: 'DancingScript', cursive; color: #c64012">What The Gift?!</h1>
     <p style="font-family: 'OpenSans', cursive;">
      <em> ¿Necesitas hacer un regalo y no sabes qué elegir? ¿Se viene tu cumpleaños y deseás muchas cosas? </em>
       </p>
@@ -17,9 +17,11 @@
     </p>
     <%= link_to "Creá tu cuenta!", '#', class: "btn btn-large btn-primary", onclick: "displayRegisterForm()" %>
   <% elsif current_user.respond_to?('_type') and current_user._type == 'User' %>
+  <h1 style="font-family: 'DancingScript', cursive; color: #6d264c">What The Gift?!</h1>
     <%= image_tag 'logo-big.png', size: '280x280', style: 'display: block; margin: 0 auto; margin-bottom: 20px;' %>
     <%= link_to "Comenzá a encontrar regalos!", search_product_path, class: "btn btn-large btn-primary" %>
   <% elsif current_user.respond_to?('_type') and current_user._type == 'Seller' %>
+  <h1 style="font-family: 'DancingScript', cursive; color: #6d264c">What The Gift?!</h1>
     <%= image_tag 'logo-big.png', size: '280x280', style: 'display: block; margin: 0 auto; margin-bottom: 20px;' %>
     <%= link_to "Administrá tus productos", my_products_path, class: "btn btn-large btn-primary" %>
   <% end %>

@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.all.paginate(:page => params[:page], :per_page => 10, total_entries: 50)
+    @products = Product.all.paginate(:page => params[:page], :per_page => 30, total_entries: 120)
     @brand = @seller = @category  =  @price_from = @price_to = @free_text = @query = ""
     @brand_enable = @seller_enable = @category_enable  =  @price_enable = @free_text_enable = true
   end

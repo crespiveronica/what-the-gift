@@ -138,7 +138,7 @@ class UsersController < ApplicationController
   def makeAGift
     @friend = User.find_by_id params[:id]
     @products = @friend.wishlist + @friend.recommended
-    @products = @products.uniq
+    @products = @products.uniq.paginate(:page => params[:page], :per_page => 30)
     render 'users/makeagift', layout: 'friend'
   end
 
