@@ -153,6 +153,15 @@ def birthday_this_year
 	date = Date.parse(Date.today.year.to_s + "/" + self.birthday.month.to_s + "/" + self.birthday.day.to_s)
 end
 
+def estimado_a
+	if( genre == 'Mujer')
+		'Estimada'
+	else
+		'Estimado'
+	end
+end
+
+
 private
 
 def hobbies_names
