@@ -49,7 +49,7 @@ class UsersController < ApplicationController
       end
       @user.save
       sign_in @user
-      redirect_to @user
+      redirect_to profile_path
     else
       @predefined_hobbies = predefined_hobbies
       @selected_hobbies = params[:selectedHobbies]
@@ -172,7 +172,11 @@ class UsersController < ApplicationController
       @user.save
       sign_in @user
       flash['alert alert-success'] = "Felicitaciones, ¡su cuenta ha sido activada!"
-      return redirect_to @user
+      if @user.class.to_s == 'User'
+        return redirect_to profile_path
+      else
+        return redirect_to @user
+      end
     else
       flash['alert alert-error'] = "¡No se encontró el usuario"
       return redirect_to root_url
@@ -186,7 +190,11 @@ class UsersController < ApplicationController
       @user.save
       sign_in @user
       flash['alert alert-success'] = "Se ha confirmado su nuevo e-mail."
-      return redirect_to @user
+      if @user.class.to_s == 'User'
+        return redirect_to profile_path
+      else
+        return redirect_to @user
+      end
     else
       flash['alert alert-error'] = "No se encontró el usuario."
       return redirect_to root_url
@@ -272,7 +280,7 @@ class UsersController < ApplicationController
     else
       flash['alert alert-error'] = 'No se ha cambiado la contraseña. Debe tener como mínimo de ocho caracteres.'
     end
-    redirect_to @user
+    redirect_to profile_path
   end
 
 end
