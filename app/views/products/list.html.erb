@@ -56,17 +56,21 @@
            <% if not current_user.wishlist.include? product and
                  not current_user.products_from_gifts.include? product %>
             <%= link_to "<i class='icon-white icon-heart'></i>".html_safe, product_add_to_wishlist_path(:id => product.id), :method => :post,
-                :class => 'btn btn-danger btn-mini pull-left' %>
+                :class => 'btn btn-danger btn-mini btn-primary pull-left add-to-wishlist', title: 'Wishlist',
+                :style => 'width: 30px' %>
             <% elsif current_user.wishlist.include? product %>
             <%= link_to "<i class='icon-thumbs-down icon-white'></i>".html_safe, product_remove_from_wishlist_path(:id => product.id), method: 'delete',
-              :class => 'btn btn-warning btn-mini pull-left' %>
+              :class => 'btn btn-warning btn-mini btn-primary pull-left remove-from-wishlist', title: 'No lo quiero',
+              :style => 'width: 30px' %>
            <% end %>
           <% elsif signed_in? and current_user.class.to_s == 'Seller' %>
             <%= link_to "<i class='icon-briefcase icon-white'></i>".html_safe,
-             sell_one_path(:id => product.id), :class => 'btn btn-mini btn-success pull-left' %>
+             sell_one_path(:id => product.id), :class => 'btn btn-mini btn-success pull-left briefcase',
+             title: 'Vender uno igual' %>
           <% end %>
             <%= link_to "<i class='icon-search icon-white'></i>".html_safe,
-             product_path(:id => product.id), :class => 'btn btn-mini btn-info pull-right' %>
+             product_path(:id => product.id), :class => 'btn btn-mini btn-info pull-right view-more',
+             :style => 'width: 50px', title: 'Ver más' %>
         </p>
       </div>
     </li>
@@ -75,5 +79,9 @@
 <%= will_paginate @products %>
 
 <script>
+  $('.add-to-wishlist').tooltip();
   $('.add-to-gifts').tooltip();
+  $('.remove-from-wishlist').tooltip();
+  $('.view-more').tooltip();
+  $('.briefcase').tooltip();
 </script>
