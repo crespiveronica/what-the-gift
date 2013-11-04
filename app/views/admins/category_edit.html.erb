@@ -11,7 +11,7 @@
       <%= nc.text_field :description %>
 
       <%= nc.submit "Crear", class: "btn btn-small btn-success", style: 'margin-bottom: 10px' %>
-      <a href="javascript: $('#new-category').click()" class="btn btn-danger btn-small" style="margin-bottom: 10px;">Cancelar</a>
+      <a href="javascript: $('#new-category').click()" class="btn btn-warning btn-small" style="margin-bottom: 10px;">Cancelar</a>
     <% end %>
   </div>
 
@@ -34,7 +34,7 @@
           <td><%= cat.name %></td>
           <td><%= cat.description %></td>
           <td><%= link_to "Modificar", edit_category_path(cat), class: "btn btn-info btn-small" %></td>
-          <td><%= link_to "Eliminar", category_path(cat), method: :delete, :confirm=> "Confirmar", class: "btn btn-warning btn-small" %></td>
+          <td><%= link_to "Eliminar", category_path(cat), method: :delete, :confirm=> "Confirmar", class: "btn btn-danger btn-small" %></td>
         <% end %>
       </tr>
     <% end %>
