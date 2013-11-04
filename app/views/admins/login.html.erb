@@ -3,6 +3,8 @@
 
 <div id="adminModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-body">
+    <div class="row">
+      <div class="span4 offset2">
     <%= form_for(:session, url: sessions_path) do |f| %>
 
       <%= f.label :username %>
@@ -10,12 +12,13 @@
 
       <%= f.label :password %>
       <%= f.password_field :password %>
-
+      </div>
+    </div>
   </div>
   <div class="modal-footer">
       <%= f.submit "Iniciar sesion", class: "btn btn-primary" %>
-    <% end %>
   </div>
+  <% end %>
 </div>
 
 <script>
