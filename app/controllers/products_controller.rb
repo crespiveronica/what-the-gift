@@ -88,7 +88,7 @@ class ProductsController < ApplicationController
     if productlist != nil and productlist
       redirect_to search_product_path
     else
-      redirect_to user_path(current_user.id)
+      redirect_to my_gifts_path
     end
   end
 

@@ -5,6 +5,10 @@ Wtg::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
+  match '/profile/', to: 'users#profile', via: 'get', :as => 'profile'
+  match '/wishlist/', to: 'users#wishlist', via: 'get', :as => 'wishlist'
+  match '/my-gifts/', to: 'users#mygifts', via: 'get', :as => 'my_gifts'
+
   match '/friends/requests/', to: 'friends#requests', via: 'get', :as => 'friend_requests'
   match '/friends/pending/', to: 'friends#pending', via: 'get'
   match '/friends/send-request/:id', to: 'friends#send_request', via: 'get', :as => 'send_request'
@@ -42,7 +46,6 @@ Wtg::Application.routes.draw do
   match '/products/do_advanced_search/', to: 'products#do_advanced_search', via: 'get', :as =>'do_advanced_search_product'
   match '/products/do_search/', to: 'products#do_search', via: 'get', :as =>'do_search_product'
   match '/products/search-by-category/:category', to: 'products#do_search_by_category', via: 'get', :as =>'search_by_category_product'
-  match '/gifts/', to: 'products#gifts', via: 'get', :as => 'my_gifts'
   match '/products/new' , to: 'products#new'
   match '/products/edit' , to: 'products#edit'
   match '/products/destroy' , to: 'products#destroy'
@@ -83,7 +86,6 @@ Wtg::Application.routes.draw do
   resources :selling_products
   resources :categories
   resources :admins
-  resources :profile
   resources :sessions, only: [:new, :create, :destroy, :create_admin]
 
   # The priority is based upon order of creation:

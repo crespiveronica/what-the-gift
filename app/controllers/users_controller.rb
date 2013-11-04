@@ -4,6 +4,18 @@ require 'will_paginate/array'
 class UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
+  def profile
+    render 'users/profile', layout: 'user'
+  end
+
+  def wishlist
+    render 'users/wishlist', layout: 'user'
+  end
+
+  def mygifts
+    render 'users/mygifts', layout: 'user'
+  end
+
   def index
     @users = User.all
   end
@@ -190,7 +202,7 @@ class UsersController < ApplicationController
     user.deleted = false
     user.save
     sign_in user
-    return redirect_to user
+    return redirect_to root_path
   end
 
   def birthday_notification

@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
           if (user.authenticate(params[:session][:password]))
             if not user.deleted
               sign_in user
-              return redirect_to user
+              return redirect_to root_path
             else
               return redirect_to reactivate_path user.id
             end
