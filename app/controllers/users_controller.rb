@@ -106,12 +106,14 @@ class UsersController < ApplicationController
   def search
     @friends = Array.new
     @search = ''
+    @do_search = false
   end
 
   def search_post
     @search = params[:search]
     searches = @search.split(' ')
     @friends = []
+    @do_search = true
     for s in searches do
       @friends += User.any_of({email: /.*#{s}.*/i}, {first_name: /.*#{s}.*/i}, {last_name: /.*#{s}.*/i})
     end
