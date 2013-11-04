@@ -25,7 +25,7 @@
             <td>
             	<a class="btn btn-link" href="/friends/<%= f.id %>"><%= f.full_name %></a>
               <% already_sent = FriendRequest.friends_or_pending(current_user, f) %>
-              <% if not already_sent %>
+              <% if not already_sent and f.id != current_user.id %>
                 <a class="add btn btn-primary btn-small" style="display: none" href="/friends/send-request/<%= f.id %>"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i></a>
               <% end %>
             </td>
