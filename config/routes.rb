@@ -10,10 +10,10 @@ Wtg::Application.routes.draw do
   match '/my-gifts/', to: 'users#mygifts', via: 'get', :as => 'my_gifts'
 
   match '/friends/requests/', to: 'friends#requests', via: 'get', :as => 'friend_requests'
-  match '/friends/pending/', to: 'friends#pending', via: 'get'
   match '/friends/send-request/:id', to: 'friends#send_request', via: 'get', :as => 'send_request'
   match '/friends/accept/:id/', to: 'friends#accept', via: 'get', :as => 'accept_friend_request'
   match '/friends/unfriend/:id/', to: 'friends#unfriend', via: 'get'
+  match '/friends/reject/:id/', to: 'friends#reject', via: 'get'
 
   match '/friends/', to: 'users#friends', via: 'get'
 

@@ -5,6 +5,7 @@
 <h1>Listado de Amigos</h1>
 
 <% if not @friends.empty? %>
+	<%= will_paginate @friends %>
 	<ul class="row">
 		<% @friends.each_with_index do |friend, i| %>
 		<li class="span2 text-center">
@@ -12,9 +13,22 @@
 				<%= image_tag friend.avatar, size: "80x80", class: "img-circle" %>
 				<p> <%= friend.full_name %></p>
 				<% req = current_user.friend_request friend %>
-				<a class="btn btn-danger btn-block" href="/friends/unfriend/<%= req.id %>"><i class="icon-ban-circle icon-white"></i> Eliminar amigo</a>
-			</a>
+				<a class="btn btn-danger btn-mini btn-block" href="#unfriendModal<%= friend.id %>" role="button" data-toggle="modal"><i class="icon-ban-circle icon-white"></i> Eliminar </a>
+				</a>
 		</li>
+			<div id="unfriendModal<%= friend.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="deleteProfileModalLabel" aria-hidden="true">
+			  <div class="modal-header">
+			    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			    <h3 id="deleteProfileModalLabel">Eliminar amigo</h3>
+			  </div>
+			  <div class="modal-body">
+			    <p>¿Está seguro de eliminar a <strong><%= friend.full_name %></strong> de sus amigos?</p>
+			  </div>
+			  <div class="modal-footer">
+			    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+		      	<a href="/friends/unfriend/<%= req.id %>" class="btn btn-danger">Aceptar</a>
+			  </div>
+			</div>
 		<% end %>
 	</ul>
 	<%= will_paginate @friends %>

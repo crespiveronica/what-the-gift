@@ -24,11 +24,20 @@ class FriendsController < ApplicationController
   end
 
   def unfriend
+    do_unfriend('Ya no eres amigo de ')
+    redirect_to friend_requests_path
+  end
+
+  def reject
+    do_unfriend('Has rechazado la solicitud de amistad de ')
+    redirect_to friend_requests_path
+  end
+
+  def do_unfriend msg
     request = FriendRequest.find(params[:id])
     friend = request.owner != current_user ? request.owner : request.friend
     request.delete
-    flash['alert alert-error'] = 'No eres amigo de ' + friend.full_name
-    redirect_to friend_requests_path
+    flash['alert alert-error'] = msg + friend.full_name
   end
 
   def pending
