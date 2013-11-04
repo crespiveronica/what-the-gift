@@ -1,40 +1,32 @@
 <div class="container">
+    <h1 rel="tooltip" title="first tooltip" id="example">Sobre Nosotros</h1>
+    <h4 class="text-center">
+        Te contamos quiénes somos los que hacemos <strong>What the Gift!?</strong>
+    </h4>
 
-            <div class="hero-unit">
-                <h1 rel="tooltip" title="first tooltip" id="example">Sobre Nosotros</h1>
-                <p class="text-center">
-                    Te contamos quiénes somos los que hacemos <strong>What the Gift!?</strong>
-                </p>
-            </div>
-
-            <ul class="thumbnails">
-                <li class="span6">
-                    <div class="thumbnail">
-                        <%= image_tag("vero.jpg", alt: "Foto de Veronica",
-                                      height: '278', width: '278') %>
-                        <h3>Verónica Crespi <a href="mailto:crespi.veronica@gmail.com" class="btn btn-success pull-right">Escribir un e-mail</a></h3>
-                    </div>
-                </li>
-                <li class="span6">
-                    <div class="thumbnail">
-                        <%= image_tag("sacha.jpg", alt: "Foto de Sacha",
-                                      height: '278', width: '278') %>
-                        <h3>Sacha Lifszyc <a href="mailto:sacha.lifszyc@gmail.com" class="btn btn-success pull-right">Escribir un e-mail</a></h3>
-                    </div>
-                </li>
-                <li class="span6">
-                    <div class="thumbnail">
-                        <%= image_tag("fer.jpg", alt: "Foto de Fer") %>
-                        <h3 clas="pull-left">Fernando Niño 
-                        <a href="mailto:nino.fernando" class="btn btn-success pull-right">Escribir un e-mail</a></h3>
-                    </div>
-                </li>
-                <li class="span6">
-                    <div class="thumbnail">
-                        <%= image_tag("joaquin.jpg", alt: "Foto de Joaquin",
-                                      height: '278', width: '278') %>
-                        <h3>Joaquín Pérez Bay <a href="mailto:joaquinperezbay@gmail.com" class="btn btn-success pull-right" type="button">Escribir un e-mail</a></h3>
-                    </div>
-                </li>
-            </ul>
-        </div>
+    <ul class="thumbnails">
+        <li class="span6">
+            <%= image_tag("vero.jpg", alt: "Foto de Veronica",
+                          height: '278', width: '278') %>
+            <h3 class="text-left">Verónica Crespi <a title="Enviar un email" href="mailto:crespi.veronica@gmail.com" class="btn btn-primary btn-mini email"><i class="icon-envelope icon-white"></i></a></h3>
+        </li>
+        <li class="span6">
+            <%= image_tag("sacha.jpg", alt: "Foto de Sacha",
+                          height: '278', width: '278') %>
+            <h3 class="text-left">Sacha Lifszyc <a title="Enviar un email" href="mailto:sacha.lifszyc@gmail.com" class="btn btn-primary btn-mini email"><i class="icon-envelope icon-white"></i></a></h3>
+        </li>
+        <li class="span6">
+            <%= image_tag("fer.jpg", alt: "Foto de Fer") %>
+            <h3 class="text-left">Fernando Niño 
+            <a href="mailto:nino.fernando" title="Enviar un email" class="btn btn-primary btn-mini email"><i class="icon-envelope icon-white"></i></a></h3>
+        </li>
+        <li class="span6">
+            <%= image_tag("joaquin.jpg", alt: "Foto de Joaquin",
+                          height: '278', width: '278') %>
+            <h3 class="text-left">Joaquín Pérez Bay <a href="mailto:joaquinperezbay@gmail.com" title="Enviar un email" class="btn btn-primary btn-mini email" type="button"><i class="icon-envelope icon-white"></i></a></h3>
+        </li>
+    </ul>
+</div>
+<script>
+    $('.email').tooltip();
+</script>
