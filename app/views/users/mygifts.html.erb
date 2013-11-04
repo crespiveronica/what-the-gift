@@ -1,0 +1,11 @@
+<% content_for :activegifts do %>
+	class="active"
+<% end %>
+
+<fieldset>
+	<legend>Regalos recibidos</legend>
+</fieldset>
+<% @gifts = current_user.gifts.paginate(:page => params[:page], :per_page => 12) %>
+<% @user = current_user %>
+<%= render :template => 'products/gifts' %>
+<%= render template: 'shared/modals' %>

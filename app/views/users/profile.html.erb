@@ -1,0 +1,67 @@
+<% content_for :activeprofile do %>
+	class="active"
+<% end %>
+
+<fieldset>
+  <legend>
+      <div class="row">
+        <div class="span7">
+        <h3>
+          Perfil
+          <a class="btn btn-small btn-warning pull-right" href="#deleteProfileModal" role="button" data-toggle="modal">Eliminar cuenta</a>
+          <%= link_to "Editar perfil", edit_user_path(current_user), class: "btn btn-success btn-small pull-right" %>
+        </h3>
+        </div>
+      </div>
+  </legend>
+  <div class="row">
+    <div class="span4">
+      <%= image_tag current_user.avatar, size: "200x200", class: "img-polaroid img-rounded" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span9"><h4>Sobre mi</h4></div>
+  </div>
+  <div class="row">
+    <div class="span9">
+      <div class="row">
+        <div class="span4"><strong>Nombre</strong></div>
+        <div class="span5"><%= current_user.first_name %></div>
+      </div>
+      <div class="row">
+        <div class="span4"><strong>Apellido</strong></div>
+        <div class="span5"><%= current_user.last_name %></div>
+      </div>
+      <div class="row">
+        <div class="span4"><strong>Cumpleaños</strong></div>
+        <div class="span5"><%= current_user.birthday %></div>
+      </div>
+      <div class="row">
+        <div class="span4"><strong>Email</strong></div>
+        <div class="span5"><%= current_user.email %></div>
+      </div>
+      <div class="row">
+        <div class="span4"><strong>Sexo</strong></div>
+        <div class="span5"><%= current_user.genre %></div>
+      </div>
+      <div class="row">
+        <div class="span4"><strong>Pasatiempos</strong></div>
+        <% if current_user.hobbies != nil %>
+          <div class="span5">
+            <% current_user.hobbies.entries.each do |h| %>
+              <% if h == current_user.hobbies.entries.last %>
+                <%= h.name %>
+              <% else %>
+                <%= h.name + ', ' %>
+              <% end %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="span5">No has registrado pasatiempos.</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</fieldset>
+<% @user = current_user %>
+<%= render template: 'shared/modals' %>

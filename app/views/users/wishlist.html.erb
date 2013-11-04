@@ -1,0 +1,19 @@
+<% content_for :activewishlist do %>
+  class="active"
+<% end %>
+
+<fieldset>
+  <legend>Wishlist</legend>
+</fieldset>
+<ul class="wishlist">
+  <% @products = current_user.wishlist.paginate(:page => params[:page], :per_page => 30) %>
+  <% if not @products.empty? %>
+    <%= render :template => 'products/list' %>
+  <% else %>
+    <div class="alert alert-info">
+      Aún no has guardado ningún regalo en tu wishlist
+    </div>
+  <% end %>
+</ul>
+<% @user = current_user %>
+<%= render template: 'shared/modals' %>
