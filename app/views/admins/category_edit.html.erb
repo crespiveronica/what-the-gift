@@ -1,8 +1,8 @@
 <div class="container">
   <h3 class="text-center">Administrar Categorías</h3>
 
-  <h5 id="new-category">Nueva categoría</h5>
-  <div id="new-category-form">
+  <button class="btn btn-primary" id="new-category" style="cursor: pointer; margin-bottom: 12px;"><i class="icon-plus-sign icon-white"></i> Nueva</button>
+  <div id="new-category-form" style="display: none;">
     <%= form_for @new_category, :html => { :id => 'new-category-val'} do |nc| %>
       <%= nc.label :name, 'Nombre' %>
       <%= nc.text_field :name %>
@@ -10,7 +10,8 @@
       <%= nc.label :description, 'Descripción' %>
       <%= nc.text_field :description %>
 
-      <%= nc.submit "Crear", class: "btn btn-small btn-success" %>
+      <%= nc.submit "Crear", class: "btn btn-small btn-success", style: 'margin-bottom: 10px' %>
+      <a href="javascript: $('#new-category').click()" class="btn btn-danger btn-small" style="margin-bottom: 10px;">Cancelar</a>
     <% end %>
   </div>
 
@@ -43,6 +44,15 @@
 </div>
 
 <script type="text/javascript">
+  $('#new-category').click(
+    function() {
+      if ($('#new-category-form').css('display') == 'none') {
+        $('#new-category-form').slideDown();
+      } else {
+        $('#new-category-form').slideUp();
+      }
+    }
+  );
 
   $('#new-category-val').validate({
     rules: {
