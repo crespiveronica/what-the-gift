@@ -4,17 +4,22 @@
 
 <h1>Listado de Amigos</h1>
 
-<ul class="row">
-	<% @friends.each_with_index do |friend, i| %>
-	<li class="span2 text-center">
-		<a href="/friends/<%=friend.id%>" class="profile-mini">
-			<%= image_tag friend.avatar, size: "80x80", class: "img-circle" %>
-			<p> <%= friend.full_name %></p>
-			<% req = current_user.friend_request friend %>
-			<a class="btn btn-danger btn-block" href="/friends/unfriend/<%= req.id %>"><i class="icon-ban-circle icon-white"></i> Eliminar amigo</a>
-		</a>
-	</li>
-	<% end %>
-</ul>
-
-
+<% if @friends.count > 0 %>
+	<ul class="row">
+		<% @friends.each_with_index do |friend, i| %>
+		<li class="span2 text-center">
+			<a href="/friends/<%=friend.id%>" class="profile-mini">
+				<%= image_tag friend.avatar, size: "80x80", class: "img-circle" %>
+				<p> <%= friend.full_name %></p>
+				<% req = current_user.friend_request friend %>
+				<a class="btn btn-danger btn-block" href="/friends/unfriend/<%= req.id %>"><i class="icon-ban-circle icon-white"></i> Eliminar amigo</a>
+			</a>
+		</li>
+		<% end %>
+	</ul>
+<% else %>
+	<div class="alert alert-info">
+		<h4>Aún no tienes amigos</h4>
+		No pierdas más tiempo, <a href="<%= friends_search_path %>">¡comienza buscar a tus amigos ahora!</a>
+	</div>
+<% end %>
