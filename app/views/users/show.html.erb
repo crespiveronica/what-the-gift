@@ -73,7 +73,7 @@
       <legend>Wishlist</legend>
     </fieldset>
     <ul class="wishlist">
-      <% @products = @user.wishlist %>
+      <% @products = @user.wishlist.paginate(:page => params[:page], :per_page => 30) %>
       <% if not @products.empty? %>
         <%= render :template => 'products/list' %>
       <% else %>
