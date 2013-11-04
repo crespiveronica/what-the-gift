@@ -56,7 +56,7 @@ class AdminsController < ApplicationController
     @product.banned = true
     @product.banned_reason = params[:selling_product][:banned_reason]
     @product.save
-    flash[:info] = "Producto rechazado."
+    flash['alert alert-info'] = "Producto rechazado."
     ProductMailer.publication_result(@product).deliver
     redirect_to admin_selling_product_edit_path
   end
@@ -66,7 +66,7 @@ class AdminsController < ApplicationController
     @product.banned = false
     @product.banned_reason = nil
     @product.save
-    flash[:info] = "Producto aprobado."
+    flash['alert alert-info'] = "Producto aprobado."
     ProductMailer.publication_result(@product).deliver
     redirect_to admin_selling_product_edit_path
   end
@@ -76,7 +76,8 @@ class AdminsController < ApplicationController
     @user.banned = true
     @user.banned_reason = params[:seller][:banned_reason]
     @user.save
-    redirect_to admin_seller_edit_path, alert: 'El usuario ha sido deshabilitado.'
+    flash['alert alert-info'] = 'El usuario ha sido deshabilitado.'
+    redirect_to admin_seller_edit_path
   end
 
   def enable_seller
@@ -84,7 +85,8 @@ class AdminsController < ApplicationController
     @user.banned = false
     @user.banned_reason = nil
     @user.save
-    redirect_to admin_seller_edit_path, alert: 'El usuario ha sido habilitado.'
+    flash['alert alert-success'] = 'El usuario ha sido habilitado.'
+    redirect_to admin_seller_edit_path
   end
 
   def disable_user
@@ -92,10 +94,10 @@ class AdminsController < ApplicationController
     @user.banned = true
     @user.banned_reason = params[:user][:banned_reason]
     if @user.save
-      flash[:info] = "El usuario ha sido deshabilitado."
+      flash['alert alert-info'] = "El usuario ha sido deshabilitado."
       UserMailer.inform_state(@user).deliver
     else
-      flash[:info] = "No se ha podido deshabilitar al usuario."
+      flash['alert alert-error'] = "No se ha podido deshabilitar al usuario."
     end
     redirect_to admin_user_edit_path
   end
@@ -105,10 +107,10 @@ class AdminsController < ApplicationController
     @user.banned = false
     @user.banned_reason = nil
     if @user.save
-      flash[:info] = "El usuario ha sido habilitado."
+      flash['alert alert-info'] = "El usuario ha sido habilitado."
       UserMailer.inform_state(@user).deliver
     else
-      flash[:info] = "No se ha podido reactivar al usuario."
+      flash['alert alert-info'] = "No se ha podido reactivar al usuario."
     end
     redirect_to admin_user_edit_path
   end
