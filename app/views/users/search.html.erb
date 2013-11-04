@@ -1,7 +1,5 @@
 <div class="row text-center">
-		<fieldset>
-	    	<legend>Buscar amigos</legend>
-	  	</fieldset>
+    <h1>Buscar amigos</h1>
 		<form class="form-search" method="post">
 			<div class="input-append">
 			  <input type="text" class="span8 input-medium search-query" name="search" value="<%= @search %>">
@@ -29,6 +27,8 @@
                 <a class="add btn btn-primary btn-small" style="display: none" href="/friends/send-request/<%= f.id %>"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i></a>
               <% elsif f.id == current_user.id %>
                 <a class="btn btn-link" href="<%= profile_path %>"><%= f.full_name %></a>
+              <% else %>
+                <a class="btn btn-link" href="/friends/<%= f.id %>"><%= f.full_name %></a>
               <% end %>
             </td>
             <td><p class="text-right"><%= image_tag f.avatar, size: "80x80", class: "img-rounded" %></p></td>
