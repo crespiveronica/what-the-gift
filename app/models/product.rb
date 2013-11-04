@@ -39,10 +39,6 @@ class Product
     selling_products.map{|sp| sp.seller.company_name}.join(', ')
   end
 
-  def sellers_list
-    selling_products.map{|sp| sp.seller}
-  end
-
   def lowest_price
     selling_products.sort_by {|sp| sp.price }.first.price 
   end

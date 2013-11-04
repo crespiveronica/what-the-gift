@@ -1,6 +1,6 @@
 <div class="container">
   <div class="page-header">
-    <h2><%= @product.name %></h2>
+    <h1><%= @product.name %></h1>
   </div>
 </div>
 
@@ -11,12 +11,11 @@
       <div class="span6">
         <% if not @product.selling_products.empty? %>
           <h3 class="text-right">Vendido por: </h3>
-          <h4 class="text-right">
-            <% for seller in @product.sellers_list %>
-              <a href="/sellers/<%= seller.id %>/showroom"><%= seller.company_name %></a>
-            <% end %>
-          </h4>
-          <h4 class="text-right">Desde $<%= @product.lowest_price %> </h4>
+          <% for sp in @product.selling_products %>
+            <h4 class="text-right">
+              <a href="/sellers/<%= sp.seller.id %>/showroom"><%= sp.seller.company_name + ' ($'+sp.price.to_s+')' %></a>
+            </h4>
+          <% end %>
         <% else %>
            <h3 class="text-right">No disponible</h3>
         <% end %>
