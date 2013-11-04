@@ -9,7 +9,7 @@
             <% if not current_user.products_from_gifts.include? product %>
               <a title="Lo tengo!" href="<%= product_add_to_gifts_path(:id => product.id) %>" class="btn btn-mini pull-left btn-success add-to-gifts"><i class="icon-gift icon-white"></i></a>
             <% else %>
-              <a title="Evaluar" href="#" onclick="$('#evaluateModal<%= gift.id %>').modal('toggle');" class="btn btn-mini pull-left btn-success add-to-gifts"><i class="icon-star-empty icon-white"></i></a>
+              <a title="Evaluar" href="#" onclick="$('#evaluateModal<%= gift.id %>').modal('toggle');" class="btn btn-mini pull-left btn-primary add-to-gifts"><i class="icon-star-empty icon-white"></i></a>
               <% if gift != nil %>
                 <div id="evaluateModal<%= gift.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-header">
