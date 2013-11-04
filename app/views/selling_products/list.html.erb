@@ -1,4 +1,4 @@
-<%= will_paginate @selling_products.paginate(:page => params[:page], :per_page => 12) %>
+<%= will_paginate @selling_products %>
 
   <% @selling_products.each do |selling_product| %>
       <div class="span2" style="margin-bottom: 12px">
@@ -30,4 +30,4 @@
 
   <% end %>
 
-<%= will_paginate @selling_products.paginate(:page => params[:page], :per_page => 12) %>
+<%= will_paginate @selling_products %>
