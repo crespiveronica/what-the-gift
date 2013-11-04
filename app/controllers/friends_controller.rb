@@ -25,9 +25,9 @@ class FriendsController < ApplicationController
 
   def unfriend
     request = FriendRequest.find(params[:id])
-    friend = request.owner = current_user ? request.owner : request.friend
+    friend = request.owner != current_user ? request.owner : request.friend
     request.delete
-    flash['alert alert-info'] = 'Has rechazado la solicitud de amistad de ' + request.owner.full_name
+    flash['alert alert-error'] = 'No eres amigo de ' + friend.full_name
     redirect_to friend_requests_path
   end
 
