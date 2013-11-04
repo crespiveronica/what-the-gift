@@ -4,6 +4,17 @@
 
 $grayMediumLight: #eaeaea;
 
+/* Typography */
+@font-face {
+  font-family: "DancingScript";
+  src: url("fonts/DancingScript-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("fonts/OpenSans-Regular.ttf");
+}
+
 /* universal */
 
 html {
@@ -64,9 +75,7 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 12px;
   font-weight: bold;
   line-height: 1;
   &:hover {
