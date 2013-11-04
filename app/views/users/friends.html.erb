@@ -4,7 +4,7 @@
 
 <h1>Listado de Amigos</h1>
 
-<% if @friends.count > 0 %>
+<% if not @friends.empty? %>
 	<ul class="row">
 		<% @friends.each_with_index do |friend, i| %>
 		<li class="span2 text-center">
