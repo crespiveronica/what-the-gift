@@ -1,4 +1,4 @@
-<%= will_paginate @products %>
+<%= will_paginate @products.paginate(:page => params[:page], :per_page => 30) %>
 
 <% @products.each do |product| %>
     <% gift = current_user.gift_from_product(product) %>
@@ -68,7 +68,7 @@
     </li>
 <% end %>
 <br>
-<%= will_paginate @products%>
+<%= will_paginate @products.paginate(:page => params[:page], :per_page => 30) %>
 
 <script>
   $('.add-to-gifts').tooltip();
