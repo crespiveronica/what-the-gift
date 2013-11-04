@@ -32,14 +32,9 @@ def full_name
 end
 
 def friends
-	reqs = FriendRequest.where({accepted: true})
-	friends = Array.new
-	reqs.each do |req|
-    if req.owner == self or req.friend == self
-      friends.push(req.owner == self ? req.friend : req.owner)
-		end
-	end
-	friends
+	reqs = FriendRequest.where({accepted: true}).any_of({owner: self}, {friend: self})
+	friends = reqs.map { |req| req.owner == self ? req.friend : req.owner}
+	friends.sort_by &:first_name
 end
 
 def friend_request friend
