@@ -48,6 +48,9 @@
         <% end %>
         <h5><%= product.name %></h5>
 		    <p><small><%= product.short_description %></small></p>
+        <% if not product.selling_products.empty? %>
+          <p><small>Desde $<%= product.lowest_price %> </small></p>
+        <% end %>  
         <p class="bottom">
           <% if signed_in? and current_user.class.to_s == 'User'%>
            <% if not current_user.wishlist.include? product and
