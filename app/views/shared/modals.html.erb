@@ -8,7 +8,7 @@
     <p>Podrá reactivarla en cualquier momento.</p>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-warning pull-left" data-dismiss="modal" aria-hidden="true">Cancelar</button>
     <% if @user._type == 'User' %>
       <%= link_to "Aceptar", user_path(current_user), method: :delete, class: "btn btn-danger" %>
     <% else %>
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+      <button class="btn btn-warning pull-left" data-dismiss="modal" aria-hidden="true">Cancelar</button>
       <%= f.submit "Cambiar", :class => 'btn btn-success' %>
     </div>
   <% end %>
@@ -40,7 +40,7 @@
     <p>¿Está seguro que desea eliminar su foto?</p>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-warning pull-left" data-dismiss="modal" aria-hidden="true">Cancelar</button>
     <a class="btn btn-danger" href="<%= user_change_avatar_path %>">Borrar</a>
   </div>
 </div>
@@ -59,7 +59,7 @@
       <%= u.password_field :password_confirmation, oninput: 'check_email(this)' %>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-warning pull-left" data-dismiss="modal" aria-hidden="true">Cancelar</button>
       <% if @user._type == 'User' %>
         <%= u.submit "Confirmar", class: "btn btn-success" %>
       <% else %>
@@ -84,7 +84,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-warning pull-left" data-dismiss="modal" aria-hidden="true">Cancelar</button>
     <%= f.submit "Confirmar", :class => 'btn btn-success' %>
   </div>
   <% end %>
