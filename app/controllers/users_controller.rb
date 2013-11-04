@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
@@ -57,7 +58,8 @@ class UsersController < ApplicationController
     @user.save
     sign_in @user
     UserMailer.new_email_email(@user).deliver
-    redirect_to root_path,  alert: 'Se ha enviado un correo electronico a ' + current_user.new_email + ' para la confirmacion de su nuevo mail.'
+    flash['alert alert-success'] = 'Se ha enviado un correo electronico a ' + current_user.new_email + ' para la confirmacion de su nuevo mail.'
+    redirect_to root_path
   end
 
   def create
@@ -71,10 +73,12 @@ class UsersController < ApplicationController
       end
       @user.save
       UserMailer.signup_email(@user).deliver
-      redirect_to root_path,  alert: msj
+      flash['alert alert-success'] = msj
+      redirect_to root_path
     else
       @predefined_hobbies = predefined_hobbies
       @selected_hobbies = params[:selectedHobbies]
+      flash['alert alert-error'] = 'Se ha producido un error, int&eacute;ntelo nuevamente'.html_safe
       render 'new'
     end
   end
@@ -83,7 +87,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.deleted = true
     @user.save
-    redirect_to root_url, alert: "Su cuenta ha sido desactivada, esperamos volverlo a ver pronto!"
+    flash['alert alert-info'] = "Su cuenta ha sido desactivada, esperamos volverlo a ver pronto!"
+    redirect_to root_url
   end
 
   def friends
@@ -133,12 +138,14 @@ class UsersController < ApplicationController
   def forgotten_user_post
     user = User.find_by_email params[:email]
     if user == nil
-      redirect_to root_path, alert: 'No se encontr&oacute; ning&uacute;n usuario con ese email.'.html_safe
+      flash['alert alert-error'] =  'No se encontr&oacute; ning&uacute;n usuario con ese email.'.html_safe
+      redirect_to root_path
     else
       user.password = SecureRandom.urlsafe_base64
       user.save
       UserMailer.forgotten_password(user).deliver
-      redirect_to root_path, alert: 'Se ha reiniciado su password.'
+      flash['alert alert-success'] = 'Se ha reiniciado su password.'
+      redirect_to root_path
     end
   end
 
@@ -148,9 +155,11 @@ class UsersController < ApplicationController
       @user.active = true
       @user.save
       sign_in @user
-      return redirect_to @user, alert: "Felicitaciones, su cuenta ha sido activada!"
+      flash['alert alert-success'] = "Felicitaciones, su cuenta ha sido activada!"
+      return redirect_to @user
     else
-      return redirect_to root_url, alert: "No se encontr&oacute; el usuario".html_safe
+      flash['alert alert-error'] = "No se encontr&oacute; el usuario".html_safe
+      return redirect_to root_url
     end
   end
 
@@ -160,9 +169,11 @@ class UsersController < ApplicationController
       @user.email = @user.new_email
       @user.save
       sign_in @user
-      return redirect_to @user, alert: "Se ha confirmado su nuevo e-mail."
+      flash['alert alert-success'] = "Se ha confirmado su nuevo e-mail."
+      return redirect_to @user
     else
-      return redirect_to root_url, alert: "No se encontr&oacute; el usuario".html_safe
+      flash['alert alert-error'] = "No se encontr&oacute; el usuario".html_safe
+      return redirect_to root_url
     end
   end
 
@@ -177,7 +188,7 @@ class UsersController < ApplicationController
     sign_in user
     return redirect_to user
   end
-
+  
   def birthday_notification
     birthday_users = User.birthday_users
     birthday_users.each do | user |
@@ -194,32 +205,56 @@ class UsersController < ApplicationController
     predefined_hobbies << PredefinedHobby.new("Basket",  false)
     predefined_hobbies << PredefinedHobby.new("Tenis",  false)
     predefined_hobbies << PredefinedHobby.new("Golf",  false)
-    predefined_hobbies << PredefinedHobby.new("Natacion",  false)
+    predefined_hobbies << PredefinedHobby.new("Natación",  false)
     predefined_hobbies << PredefinedHobby.new("Hockey",  false)
-    predefined_hobbies << PredefinedHobby.new("Musica",  true)
-    predefined_hobbies << PredefinedHobby.new("Pop",  false)
-    predefined_hobbies << PredefinedHobby.new("Rock",  false)
-    predefined_hobbies << PredefinedHobby.new("Punk",  false)
-    predefined_hobbies << PredefinedHobby.new("Folk",  false)
-    predefined_hobbies << PredefinedHobby.new("Electronica",  false)
+    predefined_hobbies << PredefinedHobby.new("Voley",  false)
+    predefined_hobbies << PredefinedHobby.new("Handball",  false)
+    predefined_hobbies << PredefinedHobby.new("Gimnasio",  false)
+    predefined_hobbies << PredefinedHobby.new("Running",  false)
+
+    predefined_hobbies << PredefinedHobby.new("Música",  true)
+    predefined_hobbies << PredefinedHobby.new("Música alernativa",  false)
+    predefined_hobbies << PredefinedHobby.new("Música de bandas sonoras",  false)
+    predefined_hobbies << PredefinedHobby.new("Blues y jazz",  false)
+    predefined_hobbies << PredefinedHobby.new("Música clásica",  false)
+    predefined_hobbies << PredefinedHobby.new("Cumbia y cuarteto",  false)
+    predefined_hobbies << PredefinedHobby.new("Música dance",  false)
+    predefined_hobbies << PredefinedHobby.new("Música electrónica",  false)
+    predefined_hobbies << PredefinedHobby.new("Folklore",  false)
+    predefined_hobbies << PredefinedHobby.new("Funk",  false)
+    predefined_hobbies << PredefinedHobby.new("Heavy metal",  false)
+    predefined_hobbies << PredefinedHobby.new("Hip hop",  false)
+    predefined_hobbies << PredefinedHobby.new("Música Infantil",  false)
+    predefined_hobbies << PredefinedHobby.new("Música instrumental",  false)
+    predefined_hobbies << PredefinedHobby.new("Karaoke",  false)
+    predefined_hobbies << PredefinedHobby.new("Música pop",  false)
+    predefined_hobbies << PredefinedHobby.new("Ska",  false)
     predefined_hobbies << PredefinedHobby.new("Reggae",  false)
+    predefined_hobbies << PredefinedHobby.new("Rock nacional",  false)
+    predefined_hobbies << PredefinedHobby.new("Rock internacional",  false)
+    predefined_hobbies << PredefinedHobby.new("Tango",  false)
+
     predefined_hobbies << PredefinedHobby.new("Libros",  true)
     predefined_hobbies << PredefinedHobby.new("Novelas",  false)
     predefined_hobbies << PredefinedHobby.new("Suspenso",  false)
-    predefined_hobbies << PredefinedHobby.new("Historia",  false)
     predefined_hobbies << PredefinedHobby.new("Filosofia",  false)
-    predefined_hobbies << PredefinedHobby.new("Infantil",  false)
-    predefined_hobbies << PredefinedHobby.new("Juvenil",  false)
+    predefined_hobbies << PredefinedHobby.new("Libros infantiles",  false)
+    predefined_hobbies << PredefinedHobby.new("Libros juveniles",  false)
+    predefined_hobbies << PredefinedHobby.new("Libros de arquitectura",  false)
+    predefined_hobbies << PredefinedHobby.new("Libros de arte",  false)
+    predefined_hobbies << PredefinedHobby.new("Libros de autoayuda",  false)
+    predefined_hobbies << PredefinedHobby.new("Libros de ciencias exactas",  false)
+    predefined_hobbies << PredefinedHobby.new("Libros de ciencia ficción",  false)
     predefined_hobbies
   end
 
   def update_password
     @user = User.find params[:id]
     if @user.update_attributes(params[:user])
-      flash[:info] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
+      flash['alert alert-success'] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
       sign_in @user
     else
-      flash[:info] = 'No se ha cambiado la contrase&ntilde;a. Debe tener como m&itildenimo de ocho caracteres.'.html_safe
+      flash['alert alert-error'] = 'No se ha cambiado la contrase&ntilde;a. Debe tener como m&itildenimo de ocho caracteres.'.html_safe
     end
     redirect_to @user
   end

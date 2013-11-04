@@ -18,10 +18,10 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(params[:category])
     if category_exists? params[:category][:name]
-      flash[:info] = 'La categor&iacute;a ya existe. No se ha vuelto a crear.'.html_safe
+      flash['alert alert-error'] = 'La categor&iacute;a ya existe. No se ha vuelto a crear.'.html_safe
     else
       @category.save
-      flash[:info] = 'La categor&iacute;a se ha creado correctamente.'.html_safe
+      flash['alert alert-success'] = 'La categor&iacute;a se ha creado correctamente.'.html_safe
     end
     redirect_to admin_category_edit_path
   end
@@ -29,10 +29,10 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update_attributes(params[:category])
-      flash[:info] = 'La categor&iacute;a se ha actualizado satisfactoriamente.'.html_safe
+      flash['alert alert-success'] = 'La categor&iacute;a se ha actualizado satisfactoriamente.'.html_safe
       redirect_to admin_category_edit_path
     else
-      flash[:info] = 'Ha ocurrido un error. Int&eacute;ntelo nuevamente'.html_safe
+      flash['alert alert-error'] = 'Ha ocurrido un error. Int&eacute;ntelo nuevamente'.html_safe
       redirect_to edit
     end
   end
@@ -40,7 +40,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    flash[:info] = 'La categor&iacute;a se ha eliminado correctamente.'.html_safe
+    flash['alert alert-info'] = 'La categor&iacute;a se ha eliminado correctamente.'.html_safe
     redirect_to admin_category_edit_path
   end
 

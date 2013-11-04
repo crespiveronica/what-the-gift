@@ -23,7 +23,7 @@
         <% if current_user._type == 'User'%>
           <% if not current_user.products_from_gifts.include? @product %>
             <p class="text-right">
-              <a href="<%= product_add_to_gifts_path(:id => @product.id) %>" class="btn btn-success"><i class="icon-plus">
+              <a href="<%= product_add_to_gifts_path(:id => @product.id) %>" class="btn btn-success"><i class="icon-gift icon-white">
               </i> Lo tengo!</a>
             </p>
           <% end %>

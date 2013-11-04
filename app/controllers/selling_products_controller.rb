@@ -9,7 +9,8 @@ class SellingProductsController < ApplicationController
  def show
     @selling_product = SellingProduct.where(:id => params[:id]).first
     if @selling_product == nil
-      redirect_to '/my-products/', alert: 'No se encontr&oacute; el producto'.html_safe
+      flash['alert alert-error'] = 'No se encontr&oacute; el producto'.html_safe
+      redirect_to '/my-products/'
     end
   end
 
@@ -26,7 +27,7 @@ class SellingProductsController < ApplicationController
 
   def create
     if params[:categories].nil?
-      message = 'El producto debe tener al menos una categor&iacute;a. Vuelva a ingresar los datos por favor.'.html_safe
+      flash['alert alert-error'] = 'El producto debe tener al menos una categor&iacute;a. Vuelva a ingresar los datos por favor.'.html_safe
     else
       if params[:id_product] == nil
         product  = Product.new
@@ -44,23 +45,25 @@ class SellingProductsController < ApplicationController
       selling_product.seller = current_user
       selling_product.price = params[:price]
       selling_product.save
-      message = 'Se ha creado el nuevo producto satisfactoriamente.'
+      flash['alert alert-success'] = 'Se ha creado el nuevo producto satisfactoriamente.'
     end
 
-    redirect_to '/my-products/', alert: message
+    redirect_to '/my-products/'
   end
 
   def update
     @selling_product = SellingProduct.where(:id => params[:id]).first
     @selling_product.price = params[:price]
     @selling_product.save
-    redirect_to '/my-products/', alert: 'La modificaci&oacute;n se realiz&oacute; con &eacute;xito.'.html_safe
+    flash['alert alert-success'] = 'La modificaci&oacute;n se realiz&oacute; con &eacute;xito.'.html_safe
+    redirect_to '/my-products/'
   end
 
   def destroy
     @selling_product = SellingProduct.where(:id => params[:id]).first
     @selling_product.destroy
-    redirect_to '/my-products/', alert: 'Se ha eliminado el producto satisfactoriamente.'
+    flash['alert alert-info'] = 'Se ha eliminado el producto satisfactoriamente.'
+    redirect_to '/my-products/'
   end
 
   def upload
@@ -70,13 +73,15 @@ class SellingProductsController < ApplicationController
       validate_empty_fields products_list_json
       selling_products = create_selling_products_from_json products_list_json
     rescue ParsingFileError => error
-      redirect_to '/my-products/', alert: error.message
+      flash['alert alert-error'] = error.message
+      redirect_to '/my-products/'
     rescue
-      default_msg = 'El formato del archivo es incorrecto, por favor corr&iacute; y vuelva a cargarlo.'
-      redirect_to '/my-products/', alert: default_msg
+      flash['alert alert-error'] = 'El formato del archivo es incorrecto, por favor corr&iacute; y vuelva a cargarlo.'
+      redirect_to '/my-products/'
     else
       save_selling_products selling_products
-      redirect_to '/my-products/', alert: 'Se han creado los nuevos productos.'
+      flash['alert alert-success'] = 'Se han creado los nuevos productos.'
+      redirect_to '/my-products/'
     end
   end
 

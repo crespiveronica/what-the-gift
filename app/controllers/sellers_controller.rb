@@ -26,7 +26,8 @@ class SellersController < ApplicationController
     msj += 'Se ha enviado un correo electr&oacute;nico a '.html_safe + @user.email + ' para la confirmaci&oacute;n de su cuenta. Presione el link de confirmaci&oacute;n en el e-mail para terminar el proceso de registraci&oacute;n.'.html_safe
     if @user.save
       UserMailer.signup_email(@user).deliver
-      redirect_to root_path,  alert: msj
+      flash['alert alert-success'] = msj
+      redirect_to root_path
     else
       render 'new'
     end
@@ -48,14 +49,15 @@ class SellersController < ApplicationController
     @user.save
     sign_in @user
     UserMailer.new_email_email(@user).deliver
-    redirect_to root_path,  alert: 'Se ha enviado un correo electronico a ' + current_user.new_email + ' para la confirmacion de su nuevo mail.'
+    flash['alert alert-success'] = 'Se ha enviado un correo electronico a ' + current_user.new_email + ' para la confirmacion de su nuevo mail.'
+    redirect_to root_path
   end
 
   def destroy
     @user = Seller.find(params[:id])
     @user.active = false
     @user.save
-    flash[:success] = "Su cuenta ha sido cerrada, esperamos volverlo a ver pronto!"
+    flash['alert alert-info'] = "Su cuenta ha sido cerrada, esperamos volverlo a ver pronto!"
     redirect_to root_url
   end
 
@@ -66,7 +68,7 @@ class SellersController < ApplicationController
     sign_in @user
     redirect_to edit_seller_path(current_user)
   end
-
+  
   def showroom
     @seller = Seller.find(params[:id])
   end
@@ -74,10 +76,10 @@ class SellersController < ApplicationController
   def update_password
     @user = Seller.find params[:id]
     if @user.update_attributes(params[:seller])
-      flash[:info] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
+      flash['alert alert-info'] = 'La contrase&ntilde;a se ha cambiado satisfactoriamente'.html_safe
       sign_in @user
     else
-      flash[:info] = 'No se ha cambiado la contrase&ntilde;a. Debe tener como m&itildenimo de ocho caracteres.'.html_safe
+      flash['alert alert-error'] = 'No se ha cambiado la contrase&ntilde;a. Debe tener como m&itildenimo de ocho caracteres.'.html_safe
     end
     redirect_to @user
   end
