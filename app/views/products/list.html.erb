@@ -1,8 +1,10 @@
+<%= will_paginate @products %>
+
 <% @products.each do |product| %>
-    <% gift = current_user.gift_from_product(product) %>
     <li class="span2" style="margin-left: 12px">
       <div class="thumbnail gift" style="margin: 12px 0;">
         <% if signed_in? and current_user._type == 'User' %>
+          <% gift = current_user.gift_from_product(product) %>
           <div style="position: absolute; top: 6px;width: 200px">
             <% if not current_user.products_from_gifts.include? product %>
               <a title="Lo tengo!" href="<%= product_add_to_gifts_path(:id => product.id) %>" class="btn btn-mini pull-left btn-success add-to-gifts"><i class="icon-gift icon-white"></i></a>
@@ -35,19 +37,22 @@
           </div>
         <% end %>
         <%= image_tag product.photo , size: '100x100', class: 'gift img-rounded' %>
-		    <% if gift != nil %>
-          <div id="starToRateSmall<%= gift.id %>"></div>
-          <script>
-            $('#starToRateSmall<%= gift.id %>').raty({ half: true, score: <%= gift.score != nil and gift.score != '' ? gift.score : 0 %>, cancel: true, width: 300, readOnly: true });
-          </script>
+        <% if signed_in? and current_user._type == 'User' %>
+  		    <% gift = current_user.gift_from_product(product) %>
+          <% if gift != nil %>
+            <div id="starToRateSmall<%= gift.id %>"></div>
+            <script>
+              $('#starToRateSmall<%= gift.id %>').raty({ half: true, score: <%= gift.score != nil and gift.score != '' ? gift.score : 0 %>, cancel: true, width: 300, readOnly: true });
+            </script>
+          <% end %>
         <% end %>
         <h5><%= product.name %></h5>
-		    <p><small><%= product.description %></small></p>  
+		    <p><small><%= product.description %></small></p>
         <p class="bottom">
           <% if signed_in? and current_user.class.to_s == 'User'%>
            <% if not current_user.wishlist.include? product and
                  not current_user.products_from_gifts.include? product %>
-            <%= link_to "<i class='icon-white icon-heart'></i>".html_safe, product_add_to_wishlist_path(:id => product.id), :method => :post, 
+            <%= link_to "<i class='icon-white icon-heart'></i>".html_safe, product_add_to_wishlist_path(:id => product.id), :method => :post,
                 :class => 'btn btn-danger btn-mini btn-primary pull-left' %>
             <% elsif current_user.wishlist.include? product %>
             <%= link_to "<i class='icon-thumbs-down icon-white'></i>".html_safe, product_remove_from_wishlist_path(:id => product.id), method: 'delete',
@@ -61,6 +66,9 @@
       </div>
     </li>
 <% end %>
+<br>
+<%= will_paginate @products%>
+
 <script>
   $('.add-to-gifts').tooltip();
 </script>

@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class ProductsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
@@ -28,13 +30,14 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.all[0..50]
+    @products = Product.all.paginate(:page => params[:page], :per_page => 10, total_entries: 50)
     @brand = @seller = @category  =  @price_from = @price_to = @free_text = @query = ""
     @brand_enable = @seller_enable = @category_enable  =  @price_enable = @free_text_enable = true
   end
 
   def gifts
     @user = current_user
+    @gifts = @user.gifts.paginate(:page => params[:page], :per_page => 10)
   end
 
   def wishlist
@@ -116,7 +119,7 @@ class ProductsController < ApplicationController
       end
       filtered_products = filtered_products & filtered_selling_products.map {|sp| sp.product}
     end
-    @products = filtered_products
+    @products = filtered_products.paginate(:page => params[:page], :per_page => 10)
     render 'products/search'
   end
 
@@ -142,12 +145,12 @@ class ProductsController < ApplicationController
       filtered_products = filtered_products.full_text_search( @query.split , match: :any , relevant_search: true)
       @free_text = @query
     end
-    @products = filtered_products
+    @products = filtered_products.paginate(:page => params[:page], :per_page => 10)
     render 'products/search'
   end
 
   def do_search_by_category
-    @products = Product.any_in(category_ids: params[:category])
+    @products = Product.any_in(category_ids: params[:category]).paginate(:page => params[:page], :per_page => 10)
     @brand_enable = @seller_enable = @category_enable  =  @price_enable = @free_text_enable = true
     render 'products/search'
   end

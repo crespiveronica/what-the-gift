@@ -4,6 +4,14 @@
 
 <h1>Listado de Amigos</h1>
 
+<% if flash[:success] %>
+	<div class="alert alert-info">
+		<%= flash[:success] %>
+	</div>
+<% end %>
+
+<%= will_paginate @friends %>
+
 <ul class="row">
 	<% @friends.each_with_index do |friend, i| %>
 	<li class="span2 text-center">
@@ -11,10 +19,10 @@
 			<%= image_tag friend.avatar, size: "80x80", class: "img-circle" %>
 			<p> <%= friend.full_name %></p>
 			<% req = current_user.friend_request friend %>
-			<a class="btn btn-danger btn-block" href="/friends/unfriend/<%= req.id %>"><i class="icon-ban-circle icon-white"></i> Eliminar amigo</a>
+			<a class="btn btn-danger btn-mini btn-block" href="/friends/unfriend/<%= req.id %>"><i class="icon-ban-circle icon-white"></i> Eliminar </a>
 		</a>
 	</li>
 	<% end %>
 </ul>
 
-
+<%= will_paginate @friends %>

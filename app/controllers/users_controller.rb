@@ -1,4 +1,6 @@
 # encoding: utf-8
+require 'will_paginate/array'
+
 class UsersController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
@@ -92,7 +94,7 @@ class UsersController < ApplicationController
   end
 
   def friends
-    @friends = current_user.friends
+    @friends = current_user.friends.paginate(:page => params[:page], :per_page => 12)
     render 'users/friends', layout: 'myfriends'
   end
 
