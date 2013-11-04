@@ -390,7 +390,7 @@ a.save
 
 puts "Sacha"
 a = Admin.new
-a.username = 's.lifzsyc'
+a.username = 's.lifszyc'
 a.password = 'password'
 a.password_confirmation = 'password'
 a.save
@@ -419,6 +419,7 @@ sach.password = '12345678'
 sach.password_confirmation = '12345678'
 sach.active = active
 sach.banned = banned
+sach.genre = 'Hombre'
 sach.wishlist = []
 sach.wishlist << Product.all.entries[rand.rand(10)]
 sach.wishlist << Product.all.entries[rand.rand(10)]
@@ -437,6 +438,7 @@ fer.password = 'password'
 fer.password_confirmation = 'password'
 fer.active = active
 fer.banned = banned
+fer.genre = 'Hombre'
 fer.wishlist = []
 fer.wishlist << Product.all.entries[rand.rand(10)]
 fer.wishlist << Product.all.entries[rand.rand(10)]
@@ -455,6 +457,7 @@ joaquincito.password = '12345678'
 joaquincito.password_confirmation = '12345678'
 joaquincito.active = active
 joaquincito.banned = banned
+joaquincito.genre = 'Hombre'
 joaquincito.wishlist = []
 joaquincito.wishlist << Product.all.entries[rand.rand(10)]
 joaquincito.wishlist << Product.all.entries[rand.rand(10)]
@@ -473,6 +476,7 @@ vero.password = '12345678'
 vero.password_confirmation = '12345678'
 vero.active = active
 vero.banned = banned
+vero.genre = 'Mujer'
 vero.wishlist = []
 vero.wishlist << Product.all.entries[rand.rand(10)]
 vero.wishlist << Product.all.entries[rand.rand(10)]
