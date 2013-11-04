@@ -72,7 +72,7 @@ def suitable_gifts_from products
 end
 
 def oposite_genre
-	if( genre = 'Mujer')
+	if( genre == 'Mujer')
 		'Hombre'
 	else
 		'Mujer'
