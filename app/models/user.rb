@@ -35,8 +35,8 @@ def friends
 	reqs = FriendRequest.where({accepted: true})
 	friends = Array.new
 	reqs.each do |req|
-		if req.owner == self or req.friend == self
-			friends.push(req.owner == self ? req.friend : req.owner)
+    if req.owner == self or req.friend == self
+      friends.push(req.owner == self ? req.friend : req.owner)
 		end
 	end
 	friends

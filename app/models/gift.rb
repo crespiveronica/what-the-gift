@@ -6,6 +6,6 @@ class Gift
   field :score
 
   def liked
-  	self.score.nil? ? false : self.score > 5
+  	self.score.nil? ? false : self.score > 2.5
   end
 end

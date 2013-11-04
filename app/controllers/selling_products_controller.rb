@@ -3,7 +3,7 @@ class SellingProductsController < ApplicationController
 
 
   def mine
-    @selling_products = current_user.selling_products
+    @selling_products = current_user.selling_products.paginate(:page => params[:page], :per_page => 10)
   end
 
  def show
