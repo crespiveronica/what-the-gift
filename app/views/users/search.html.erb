@@ -23,10 +23,12 @@
           <% @friends.each do |f| %>
           <tr class="friend-row">
             <td>
-            	<a class="btn btn-link" href="/friends/<%= f.id %>"><%= f.full_name %></a>
               <% already_sent = FriendRequest.friends_or_pending(current_user, f) %>
               <% if not already_sent and f.id != current_user.id %>
+                <a class="btn btn-link" href="/friends/<%= f.id %>"><%= f.full_name %></a>
                 <a class="add btn btn-primary btn-small" style="display: none" href="/friends/send-request/<%= f.id %>"><i class="icon-plus icon-white"></i><i class="icon-user icon-white"></i></a>
+              <% elsif f.id == current_user.id %>
+                <a class="btn btn-link" href="<%= profile_path %>"><%= f.full_name %></a>
               <% end %>
             </td>
             <td><p class="text-right"><%= image_tag f.avatar, size: "80x80", class: "img-rounded" %></p></td>
