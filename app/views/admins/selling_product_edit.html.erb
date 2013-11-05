@@ -28,10 +28,10 @@
             <% end %>
           <% if prod.banned %>
             <td><%= link_to "Habilitar", enable_selling_product_path(prod), method: :post, class: "btn btn-info btn-small" %></td>
-            <td><button type="button" class="btn btn-warning btn-small" disabled="disabled">Deshabilitar</button></td>
+            <td><button type="button" class="btn btn-danger btn-small" disabled="disabled">Deshabilitar</button></td>
           <% else %>
             <td><button type="button" class="btn btn-info btn-small" disabled="disabled">Habilitar</button></td>
-            <td><%= p.submit "Deshabilitar", class: "btn btn-warning btn-small", onclick: "return validateReason(this.id);", id: 'ban-reason-btn-' + id_gen.to_s %></td>
+            <td><%= p.submit "Deshabilitar", class: "btn btn-danger btn-small", onclick: "return validateReason(this.id);", id: 'ban-reason-btn-' + id_gen.to_s %></td>
           <% end %>
         <% end %>
       </tr>

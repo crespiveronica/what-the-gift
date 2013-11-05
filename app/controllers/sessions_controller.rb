@@ -7,11 +7,11 @@ class SessionsController < ApplicationController
     if params[:session].has_key?(:username)
       create_admin
     else
-      userSearch = GenericUser.where(email: params[:session][:email].downcase)
+      userSearch = GenericUser.unscoped.where(email: params[:session][:email].downcase)
       if (userSearch.size == 1)
         user = userSearch.first
         if (user.banned)
-          redirect_to banned_path(user) and return
+          return redirect_to banned_path(user)
         elsif (user.active)
           if (user.authenticate(params[:session][:password]))
             if not user.deleted

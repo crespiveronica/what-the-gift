@@ -13,6 +13,6 @@ class StaticPagesController < ApplicationController
   end
 
   def banned
-    @user = GenericUser.find(params[:id])
+    @user = GenericUser.unscoped.find(params[:id])
   end
 end

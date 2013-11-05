@@ -22,8 +22,8 @@ $.rails.showConfirmDialog = (link) ->
              <p>¿Estás seguro que deseas eliminar esta categoría?</p>
            </div>
            <div class="modal-footer">
-             <a data-dismiss="modal" class="btn">Cancelar</a>
-             <a data-dismiss="modal" class="btn btn-primary confirm">Eliminar</a>
+             <a data-dismiss="modal" class="btn btn-warning pull-left">Cancelar</a>
+             <a data-dismiss="modal" class="btn btn-danger confirm">Eliminar</a>
            </div>
          </div>
          """
