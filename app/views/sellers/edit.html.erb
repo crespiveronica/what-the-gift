@@ -19,16 +19,24 @@
     <div class="span9">
       <%= form_for @user, :html =>{:id => "seller_edit_form"} do |s| %>
       <div class="row">
-        <div class="span4"><%= s.label :company_name, "Razón social", style: 'font-weight:bold' %></div>
-        <div class="span5"><%= s.text_field :company_name %></div>
+        <div class="control-group">
+          <div class="span4"><%= s.label :company_name, "Razón social", style: 'font-weight:bold' %></div>
+          <div class="controls">
+            <div class="span5"><%= s.text_field :company_name %></div>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="span4"><%= s.label :location, "Ubicación", style: 'font-weight:bold' %></div>
         <div class="span5"><%= s.text_field :location %></div>
       </div>
       <div class="row">
-        <div class="span4"><%= s.label :web, "Página web", style: 'font-weight:bold' %></div>
-        <div class="span5"><%= s.text_field :web %></div>
+        <div class="control-group">
+          <div class="span4"><%= s.label :web, "Página web", style: 'font-weight:bold' %></div>
+          <div class="controls">
+            <div class="span5"><%= s.text_field :web %></div>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="span4"><%= s.label :phone, "Teléfono", style: 'font-weight:bold' %></div>
@@ -85,6 +93,13 @@
   $('#email-form').validate({
     rules: {
       "seller[email]": {required: true, email: true}
+    },
+    highlight: function(element) {
+      $(element).closest('.control-group').removeClass('success').addClass('error');
+    },
+    success: function(element) {
+      element
+        .closest('.control-group').removeClass('error').addClass('success');
     }
   });
 
@@ -92,6 +107,13 @@
     rules: {
       "seller[company_name]": {required: true, minlength: 2},
       "seller[web]": { url: true }
+    },
+    highlight: function(element) {
+      $(element).closest('.control-group').removeClass('success').addClass('error');
+    },
+    success: function(element) {
+      element
+        .closest('.control-group').removeClass('error').addClass('success');
     }
   });
 
@@ -99,6 +121,13 @@
     rules: {
       "seller[password]": {required: true, minlength: 8},
       "seller[password_confirmation]": {required: true, minlength: 8}
+    },
+    highlight: function(element) {
+      $(element).closest('.control-group').removeClass('success').addClass('error');
+    },
+    success: function(element) {
+      element
+        .closest('.control-group').removeClass('error').addClass('success');
     },
     onkeyup: false
   });
