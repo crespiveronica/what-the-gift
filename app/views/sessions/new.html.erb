@@ -4,14 +4,25 @@
   <div class="span6 offset3">
     <%= form_for :session, url: sessions_path, :html => { :id => 'signin-form', :class => 'text-center' } do |f| %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <div class="control-group">
+        <%= f.label :email %>
+        <div class="controls">
+          <%= f.text_field :email %>
+        </div>
+      </div>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <div class="control-group">
+        <%= f.label :password %>
+        <div class="controls">
+          <%= f.password_field :password %>
+        </div>
+      </div>
+
       <br>
       <%= f.submit "Iniciar sesion", class: "btn btn-large btn-primary" %>
+
     <% end %>
+
     <p class="text-center"><%= link_to "Olvidé mi contraseña", forgotten_user_path %></p>
   </div>
 </div>
@@ -21,6 +32,14 @@
     rules: {
       "session[email]": {required: true, email: true},
       "session[password]": {required: true, minlength: 8}
-    }
-  })
+    },
+    highlight: function(element) {
+      $(element).closest('.control-group').removeClass('success').addClass('error');
+    },
+    success: function(element) {
+      element
+        .closest('.control-group').removeClass('error').addClass('success');
+    },
+    onkeyup: false
+  });
 </script>
