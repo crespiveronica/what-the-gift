@@ -26,9 +26,14 @@ class UserMailer < ActionMailer::Base
   def birthday_notification(user)
     @user = user
     @friends = user.birthday_friends
-    @link_friend = "http://localhost:3000/friends/"
-    @link_gift = "http://localhost:3000/products/"
-    mail(to: user.email, subject: "Se acercan nuevos cumpleaños")
+    url = 'http://localhost:3000'
+    @link_friend = url + "/friends/"
+    @link_gift = url + "/products/"
+    @url = url 
+    @headerImage = url + '/assets/email-header.png'
+    if (user.email == 'sacha.lifszyc@gmail.com')
+      mail(to: user.email, subject: "Se acercan nuevos cumpleaños")
+    end
   end
 
 end

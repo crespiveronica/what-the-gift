@@ -4,25 +4,31 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Se acercan nuevos cumpleaños!</h1>
-    <p>
-      No sabés qué regalarles todavía? Acá te damos unas ideas:
-    </p>
-    <% @friends.each do |f| %>
-      <div>
-        <p>Para <a href="<%= @link_friend + f.id %>" target="_blank"><%= f.full_name %></a> hemos visto los siguientes regalos:</p>
-        <% gifts = f.wishlist + f.recommended %>
-        <% gifts = gifts.uniq %>
-        <ul>
-          <% gifts.each do |g| %>
-            <li><a href="<%= @link_gift + g.id %>" target="_blank"><%= g.name %></a></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <p>
-      Muchas gracias,
-    </p>
-    <p style="padding-left: 20px;">el equipo de What The Gift?!</p>
+    <div style="background: #f5f5f5;padding-bottom: 12px;">
+      <img src="<%= @headerImage %>" />
+      <h1>Se acercan nuevos cumpleaños!</h1>
+      <p>
+        No sabés qué regalarles todavía? Acá te damos unas ideas:
+      </p>
+      <% @friends.each_with_index do |f, i| %>
+        <div>
+          <p>Para <a href="<%= @link_friend + f.id %>" target="_blank"><%= f.full_name %></a> hemos visto los siguientes regalos:</p>
+          <% gifts = f.wishlist + f.recommended %>
+          <% gifts = gifts.uniq %>
+          <ul>
+            <% gifts.each_with_index do |g, j| %>
+              <% if j < 3 %>
+                <li><a href="<%= @link_gift + g.id %>" target="_blank"><%= g.name %></a></li>
+              <% end %>
+            <% end %>
+            <% if gifts.count > 3 %>
+              <li><a href='<%= @url + "/friends/#{f.id}/make-a-gift" %>'>Ver más</a></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <p>Muchas gracias,</p>
+      <p>el equipo de What The Gift?!</p>
+    </div>
   </body>
 </html>
