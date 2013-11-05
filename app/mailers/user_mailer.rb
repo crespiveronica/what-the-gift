@@ -23,14 +23,14 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Se ha cambiado su estado')
   end
 
-  def birthday_notification(user, friend)
+  def birthday_notification(user)
     @user = user
-    @friend = friend
-    @gifts = @user.wishlist + @user.recommended
-    @gifts = @gifts.uniq
-    @link_friend = "http://localhost:3000/friends/" + user.id
+    @friends = user.birthday_friends
+    @link_friend = "http://localhost:3000/friends/"
     @link_gift = "http://localhost:3000/products/"
-    mail(to: @friend.email, subject: "Se acerca el cumplea&ntilde;os de #{@user.full_name}!".html_safe)
+    if (user.email == 'sacha.lifszyc@gmail.com')
+      mail(to: user.email, subject: "Se acercan nuevos cumpleaños")
+    end
   end
 
 end

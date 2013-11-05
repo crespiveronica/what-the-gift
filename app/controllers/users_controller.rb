@@ -214,10 +214,10 @@ class UsersController < ApplicationController
   end
 
   def birthday_notification
-    birthday_users = User.birthday_users
-    birthday_users.each do | user |
-      user.friends.each do |friend|
-        UserMailer.birthday_notification(user, friend).deliver
+    users = User.all
+    users.each do | user |
+      if not user.birthday_friends.empty?
+        UserMailer.birthday_notification(user).deliver
       end
     end
   end
