@@ -4,8 +4,13 @@
   <button class="btn btn-primary" id="new-category" style="cursor: pointer; margin-bottom: 12px;"><i class="icon-plus-sign icon-white"></i> Nueva</button>
   <div id="new-category-form" style="display: none;">
     <%= form_for @new_category, :html => { :id => 'new-category-val'} do |nc| %>
-      <%= nc.label :name, 'Nombre' %>
-      <%= nc.text_field :name %>
+
+      <div class="control-group">
+        <%= nc.label :name, 'Nombre' %>
+        <div class="controls">
+          <%= nc.text_field :name %>
+        </div>
+      </div>
 
       <%= nc.label :description, 'Descripción' %>
       <%= nc.text_field :description %>
@@ -61,6 +66,13 @@
   $('#new-category-val').validate({
     rules: {
       "category[name]": {required: true, minlength: 2}
+    },
+    highlight: function(element) {
+      $(element).closest('.control-group').removeClass('success').addClass('error');
+    },
+    success: function(element) {
+      element
+        .closest('.control-group').removeClass('error').addClass('success');
     }
   });
 
