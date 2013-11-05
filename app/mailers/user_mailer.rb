@@ -28,9 +28,7 @@ class UserMailer < ActionMailer::Base
     @friends = user.birthday_friends
     @link_friend = "http://localhost:3000/friends/"
     @link_gift = "http://localhost:3000/products/"
-    if (user.email == 'sacha.lifszyc@gmail.com')
-      mail(to: user.email, subject: "Se acercan nuevos cumpleaños")
-    end
+    mail(to: user.email, subject: "Se acercan nuevos cumpleaños")
   end
 
 end
