@@ -38,7 +38,7 @@
           </div>
         <% end %>
         <%= image_tag product.photo , size: '100x100', class: 'gift img-rounded' %>
-        <h5><%= product.name %></h5>
+        <h5><%= product.short_name %></h5>
 		    <p><small><%= product.short_description %></small></p>
         <% if not product.selling_products.empty? %>
           <p><small>Desde $<%= product.lowest_price %> </small></p>
