@@ -22,8 +22,13 @@
         <% if current_user._type == 'User'%>
           <% if not current_user.products_from_gifts.include? @product %>
             <p class="text-right">
-              <a href="<%= product_add_to_gifts_path(:id => @product.id) %>" class="btn btn-success"><i class="icon-gift icon-white">
-              </i> Lo tengo!</a>
+              <%= link_to "<i class='icon-gift icon-white'></i> Lo tengo!".html_safe, product_add_to_gifts_path(:id => @product.id),  
+                :method => :post, :class => 'btn btn-success' %>
+            </p>
+          <% else %>
+            <p class="text-right">
+              <%= link_to "<i class='icon-trash icon-white'></i> No lo tengo".html_safe, product_remove_from_gifts_path(:id => @product.id), method: 'delete',
+                :class => 'btn btn-danger' %>
             </p>
           <% end %>
           <% if not current_user.wishlist.include? @product and

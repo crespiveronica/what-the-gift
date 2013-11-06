@@ -2,8 +2,13 @@
 <h3>Editar categoría<h3>
 
 <%= form_for @category, :html => { :id => 'edit-category-val'} do |c| %>
-  <%= c.label :name, "Nombre" %>
-  <%= c.text_field :name %>
+
+  <div class="control-group">
+    <%= c.label :name, "Nombre" %>
+    <div class="controls">
+      <%= c.text_field :name %>
+    </div>
+  </div>
 
   <%= c.label :description, "Descripción" %>
   <%= c.text_field :description %>
@@ -16,6 +21,13 @@
   $('#edit-category-val').validate({
     rules: {
       "category[name]": {required: true, minlength: 2}
+    },
+    highlight: function(element) {
+      $(element).closest('.control-group').removeClass('success').addClass('error');
+    },
+    success: function(element) {
+      element
+        .closest('.control-group').removeClass('error').addClass('success');
     }
   });
 </script>
