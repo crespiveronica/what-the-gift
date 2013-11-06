@@ -1,4 +1,4 @@
-<%= will_paginate @gifts %>
+<%= will_paginate @gifts, class: 'pagination pagination-centered' %>
 
 <div class="row">
   <% if not @gifts.empty? %>
@@ -51,4 +51,4 @@
   <% end %>
 </div>
 
-<%= will_paginate @gifts %>
+<%= will_paginate @gifts, class: 'pagination pagination-centered' %>
