@@ -25,7 +25,7 @@ class GenericUser
   belongs_to :banned_user, class_name: 'Admin'
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-            uniqueness: { case_sensitive: false, :message => 'ya está en uso' }
+            uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 8 }, :on => :create
   validates :password_confirmation, presence: true, :on => :create
 
