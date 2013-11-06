@@ -231,6 +231,7 @@ class UsersController < ApplicationController
   def predefined_hobbies
     predefined_hobbies = []
     predefined_hobbies << PredefinedHobby.new("Deporte",  true)
+    predefined_hobbies << PredefinedHobby.new("Automovilismo",  false)
     predefined_hobbies << PredefinedHobby.new("Futbol",  false)
     predefined_hobbies << PredefinedHobby.new("Basket",  false)
     predefined_hobbies << PredefinedHobby.new("Tenis",  false)
@@ -272,6 +273,47 @@ class UsersController < ApplicationController
     predefined_hobbies << PredefinedHobby.new("Libros de autoayuda",  false)
     predefined_hobbies << PredefinedHobby.new("Libros de ciencias exactas",  false)
     predefined_hobbies << PredefinedHobby.new("Libros de ciencia ficción",  false)
+    predefined_hobbies << PredefinedHobby.new("Libros de arte",  false)
+
+    predefined_hobbies << PredefinedHobby.new("Arte",  true)
+    predefined_hobbies << PredefinedHobby.new("Fotografía",  false)
+    predefined_hobbies << PredefinedHobby.new("Artesanías",  false)
+    predefined_hobbies << PredefinedHobby.new("Antigüedades",  false)
+
+    predefined_hobbies << PredefinedHobby.new("Juegos",  true)
+    predefined_hobbies << PredefinedHobby.new("Videojuegos",  false)
+    predefined_hobbies << PredefinedHobby.new("Juegos de mesa",  false)
+    predefined_hobbies << PredefinedHobby.new("Jueguetes",  false)
+
+
+    predefined_hobbies << PredefinedHobby.new("Mascotas",  true)
+    predefined_hobbies << PredefinedHobby.new("Peros",  false)
+    predefined_hobbies << PredefinedHobby.new("Gatos",  false)
+    predefined_hobbies << PredefinedHobby.new("Aves",  false)
+    predefined_hobbies << PredefinedHobby.new("Conejos",  false)
+    predefined_hobbies << PredefinedHobby.new("Peces",  false)
+    predefined_hobbies << PredefinedHobby.new("Roedores",  false)
+
+    predefined_hobbies << PredefinedHobby.new("Tecnología",  true)
+    predefined_hobbies << PredefinedHobby.new("Celulares",  false)
+    predefined_hobbies << PredefinedHobby.new("PC y Portátilas",  false)
+    predefined_hobbies << PredefinedHobby.new("Video",  false)
+    predefined_hobbies << PredefinedHobby.new("Audio",  false)
+
+    predefined_hobbies << PredefinedHobby.new("Instrumentos dmusicales",  true)
+    predefined_hobbies << PredefinedHobby.new("Guitarra",  false)
+    predefined_hobbies << PredefinedHobby.new("Piano",  false)
+    predefined_hobbies << PredefinedHobby.new("Batería",  false)
+
+    predefined_hobbies << PredefinedHobby.new("Entretenimiento",  true)
+    predefined_hobbies << PredefinedHobby.new("Películas",  false)
+    predefined_hobbies << PredefinedHobby.new("Series",  false)
+
+    predefined_hobbies << PredefinedHobby.new("Otros",  true)
+    predefined_hobbies << PredefinedHobby.new("Cuidado personal",  false)
+    predefined_hobbies << PredefinedHobby.new("Relajación",  false)
+    predefined_hobbies << PredefinedHobby.new("Ropa",  false)
+
     predefined_hobbies
   end
 
