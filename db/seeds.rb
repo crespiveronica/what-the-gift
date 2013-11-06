@@ -21,7 +21,7 @@ banned_reason = "none"
 print "Creating categories..."
 #
 
-autos_category = Category.new(name: 'Autos', description: 'Automóviles', show_in_menu: true)
+autos_category = Category.new(name: 'Automovilismo', description: 'Automóviles', show_in_menu: true)
 accesorios_autos_category = Category.new(name: 'Accesorios para autos', description: 'Accesorios para autos, audio y tuning')
 repuestos_autos_category = Category.new(name: 'Repuestos para autos', description: 'Todos los accesorios para tu Automóvil')
 accesorios_motos_category = Category.new(name: 'Accesorios para motos', description: 'Indumentaria para motos, Cascos para motos, Lingas y candados para motos, Respuestos para motos')
@@ -53,7 +53,7 @@ bebes_category = Category.new(name: 'Bebés', description: 'Alimentos, andadores
 articulos_embarazadas_category = Category.new(name: 'Artículos para embarazadas', description: 'Todo para la mujer embarazada')
 juguetes_bebes_category = Category.new(name: 'Juguetes para bebés', description: 'Cubos, gimnasios, libros didácticos, mantas, mecedoras, hamacas, mesas y sillas, móviles, musicales, muñecos, ositos y peluches, pelotas, sonajeros')
 seguridad_bebes_category = Category.new(name: 'Seguridad para bebés', description: 'Arneses, baby calls, mochilas y porta bebés, mostuiteros, pisos de goma, puertas de seguridad')
-camaras_accesorios_category = Category.new(name: 'Cámaras y accesorios', description: 'Cámaras digitales, polaroid y a rollo, memorias, baterías, pilas y cargadores.', show_in_menu: true)
+camaras_accesorios_category = Category.new(name: 'Fotografía', description: 'Cámaras digitales, polaroid y a rollo, memorias, baterías, pilas y cargadores.', show_in_menu: true)
 accesorios_camaras_category = Category.new(name: 'Accesorios para cámaras', description: 'Accesorios ópticos, bolsos, fundas, correas, cables, controles remotos, displayas, films protectores, filtros flashes e iluminación, toómetros, lectores de tarjetas, rollos, trípodes, monopies')
 laboratorios_category = Category.new(name: 'Laboratorios para revelado', description: 'Kioskos digitales, mini labs, papéles fotográficos')
 portarretratos_albumes_category = Category.new(name: 'Portarretratos y álbumes', description: 'Álbumes, llaveros, portarretratos convecionales y digitales')
@@ -110,7 +110,7 @@ musica_reggae_category = Category.new(name: 'Música reggae', description: '')
 musica_nacional_category = Category.new(name: 'Música nacional', description: '')
 musica_internacional_category = Category.new(name: 'Música internacional', description: '')
 musica_tango_category = Category.new(name: 'Música tango', description: '')
-salud_category = Category.new(name: 'Salud', description: 'Cuidados del cuerpo, dietas')
+salud_category = Category.new(name: 'Cuidado personal', description: 'Cuidados del cuerpo, dietas')
 relajacion_category = Category.new(name: 'Relajación', description: 'Spa, masajes')
 ropa_mujer_category = Category.new(name: 'Ropa de mujer', description: '')
 ropa_hombre_category = Category.new(name: 'Ropa de hombre', description: '')
