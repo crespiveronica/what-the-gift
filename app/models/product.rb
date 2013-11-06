@@ -13,6 +13,10 @@ class Product
 
   search_in :brand, :name, :description, :categories => :name
 
+  def short_name
+    self.name.truncate(40, omission: '...')
+  end
+
   def short_description
     self.description.truncate(50, omission: '...')
   end
