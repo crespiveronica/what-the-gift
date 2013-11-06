@@ -21,23 +21,22 @@ banned_reason = "none"
 print "Creating categories..."
 #
 
-autos_category = Category.new(name: 'Autos', description: 'Automóviles')
+autos_category = Category.new(name: 'Autos', description: 'Automóviles', show_in_menu: true)
 accesorios_autos_category = Category.new(name: 'Accesorios para autos', description: 'Accesorios para autos, audio y tuning')
 repuestos_autos_category = Category.new(name: 'Repuestos para autos', description: 'Todos los accesorios para tu Automóvil')
 accesorios_motos_category = Category.new(name: 'Accesorios para motos', description: 'Indumentaria para motos, Cascos para motos, Lingas y candados para motos, Respuestos para motos')
 indumentaria_motos_category = Category.new(name: 'Indumentaria para motos', description: '')
-repuestos_motos_category = Category.new(name: 'Respuestos para motos', description: '')
 audio_vehiculos_category = Category.new(name: 'Audio para vehículos', description: 'Stereos con CD, Stereos con MP3, Stereos con USB, Subwoofers, Cargadores de MP3, Cargadores de celulares')
 volantes_category = Category.new(name: 'Volantes para autos', description: '')
 polarizado_category = Category.new(name: 'Polarizado para autos', description: '')
-mascotas_category = Category.new(name: 'Mascotas', description: 'Aves, conejos, gatos, peces, perros, roedores')
+mascotas_category = Category.new(name: 'Mascotas', description: 'Aves, conejos, gatos, peces, perros, roedores', show_in_menu: true)
 aves_category = Category.new(name: 'Aves', description: 'Alimento para aves, Jaulas para aves')
 conejos_category = Category.new(name: 'Conejos', description: 'Conejos, Jaulas para conejos')
 gatos_category = Category.new(name: 'Gatos', description: 'Gatos, Accesorios para gatos, Alimento para gatos, Juguetes para gatos, Cuchas y transportadoras para gatos, Piedas sanitarias para gatos')
 peces_category = Category.new(name: 'Peces', description: 'Peces, Accesorios para peceras, Peceras, Alimento para peces')
 perros_category = Category.new(name: 'Perros', description: 'Perros, Alimento para perros, Correas para perros, Juguetes para perros, Adiestramiento para perros, Vestimenta para perros')
 roedores_category = Category.new(name: 'Roedores', description: 'Cobayos, Hámsters')
-antiguedades_category = Category.new(name: 'Antigüedades', description: 'Muebles, ornamentos, cristaleria, cámaras de fotos')
+antiguedades_category = Category.new(name: 'Antigüedades', description: 'Muebles, ornamentos, cristaleria, cámaras de fotos', show_in_menu: true)
 audio_antiguo_category = Category.new(name: 'Audio antiguo', description: 'Discos de pasta, grabadores, radios, tocadiscots, vitrolas')
 cristaleria_antigua_category = Category.new(name: 'Cristaleria antigua', description: 'Botellas, ceniceros, centros de mesa, copas, floreros, fruteras, jarras, vasos')
 camaras_antiguas_category = Category.new(name: 'Cámaras antiguas', description: 'Cámaras de fotos antiguas')
@@ -45,7 +44,7 @@ iluminacion_antigua_category = Category.new(name: 'Iluminación antigua', descri
 juguetes_antiguos_category = Category.new(name: 'Juguetes antiguos', description: 'Animalitos y peluches, armas de juguete, juegos, muebles para muñecas, muñecas de porcelana, robots, soldaditos, trenes, vehículos, yoyos y trompos')
 muebles_antiguos_category = Category.new(name: 'Muebles antiguos', description: 'Aparadores, banquetas, bares, bargueños, baúles, bibliotecas, cómodas, consolas, cristaleros, mesas, percheros, puertas y herrajes, repisas, roperos, sillas, sillones, vitrinas')
 maquinas_de_escribir_antiguas_category = Category.new(name: 'Máquinas de escribir antiguas', description: 'Máquinas de escribir antiguas')
-libros_category = Category.new(name: 'Libros', description: 'Novelas, ciencia, comics')
+libros_category = Category.new(name: 'Libros', description: 'Novelas, ciencia, comics', show_in_menu: true)
 juegos_de_mesa_category = Category.new(name: 'Juegos', description: 'TEG, Juego de la Vida, Monopoly y otros clásicos')
 arte_artesanias_category = Category.new(name: 'Arte y Artesanías', description: 'Artesanías, esculturas, libros, materiales para tatuajes, souvenirs')
 materiales_para_tatuajes_category = Category.new(name: 'Materiales para tatuajes', description: 'Tintas, equipos de tatuaje, Stencils, Kits')
@@ -54,35 +53,35 @@ bebes_category = Category.new(name: 'Bebés', description: 'Alimentos, andadores
 articulos_embarazadas_category = Category.new(name: 'Artículos para embarazadas', description: 'Todo para la mujer embarazada')
 juguetes_bebes_category = Category.new(name: 'Juguetes para bebés', description: 'Cubos, gimnasios, libros didácticos, mantas, mecedoras, hamacas, mesas y sillas, móviles, musicales, muñecos, ositos y peluches, pelotas, sonajeros')
 seguridad_bebes_category = Category.new(name: 'Seguridad para bebés', description: 'Arneses, baby calls, mochilas y porta bebés, mostuiteros, pisos de goma, puertas de seguridad')
-camaras_accesorios_category = Category.new(name: 'Cámaras y accesorios', description: 'Cámaras digitales, polaroid y a rollo, memorias, baterías, pilas y cargadores.')
+camaras_accesorios_category = Category.new(name: 'Cámaras y accesorios', description: 'Cámaras digitales, polaroid y a rollo, memorias, baterías, pilas y cargadores.', show_in_menu: true)
 accesorios_camaras_category = Category.new(name: 'Accesorios para cámaras', description: 'Accesorios ópticos, bolsos, fundas, correas, cables, controles remotos, displayas, films protectores, filtros flashes e iluminación, toómetros, lectores de tarjetas, rollos, trípodes, monopies')
 laboratorios_category = Category.new(name: 'Laboratorios para revelado', description: 'Kioskos digitales, mini labs, papéles fotográficos')
 portarretratos_albumes_category = Category.new(name: 'Portarretratos y álbumes', description: 'Álbumes, llaveros, portarretratos convecionales y digitales')
 videocamaras_category = Category.new(name: 'Videocámaras', description: 'Cámaras filmadoras análogicas y digitales, profesionales y convencionales')
 accesorios_celulares_category = Category.new(name: 'Accesorios para celulares', description: 'Adaptadores, amplificadores, antenas, baterias, cables, carcasas, cargadores, colgantes y correas, holders y fundas, manos libres, memorias, parlantes, protectores de pantallas, soportes para autos')
-celulares_category = Category.new(name: 'Celulares', description: 'Todas las marcas')
+celulares_category = Category.new(name: 'Celulares', description: 'Todas las marcas', show_in_menu: true)
 telefonia_category = Category.new(name: 'Telefonía', description: '')
 tablets_category = Category.new(name: 'Tablets', description: 'MAC, Hacer, Archos, BlackBerry playbook, Kindle, Motorola, Samsung, Titan')
-pcs_portatiles_category = Category.new(name: 'PC y Portátiles', description: 'Con y sin monitor, portátiles notebooks y netbooks')
+pcs_portatiles_category = Category.new(name: 'PC y Portátiles', description: 'Con y sin monitor, portátiles notebooks y netbooks', show_in_menu: true)
 software_category = Category.new(name: 'Software', description: 'Aplicaciones comerciales, juegos, seguridad, antivirus')
 hardware_category = Category.new(name: 'Hardware', description: 'Memorias RAM, procesadores, lectoras (CD/DVD/Bluray), PenDrives, fuentes, UPS, estabilizadores, impresoras')
 consolas_videojuegos_retro_category = Category.new(name: 'Consolas y juegos retro', description: 'Consolas y juegos retro')
-consolas_category = Category.new(name: 'Consolas de videojuegos', description: 'GameCube, Playstation 1 2 y 3, Nintendo 3DS, Nintendo Ds, Xbox y Xbox 360, Wii, GameBoy')
+consolas_category = Category.new(name: 'Consolas de videojuegos', description: 'GameCube, Playstation 1 2 y 3, Nintendo 3DS, Nintendo Ds, Xbox y Xbox 360, Wii, GameBoy', show_in_menu: true)
 joysticks_category = Category.new(name: 'Joysticks', description: '')
 videojuegos_category = Category.new(name: 'Videojuegos', description: 'GameCube, Playstation 1 2 y 3, Nintendo 3DS, Nintendo Ds, Xbox y Xbox 360, Wii')
 bodegas_category = Category.new(name: 'Bodegas', description: 'Muebles, wine sellars')
-bebidas_alcoholicas_category = Category.new(name: 'Bebidas alcoholicas', description: 'Bebidas blancas, vinos, fernets, licores, champagnes, whiskys')
+bebidas_alcoholicas_category = Category.new(name: 'Bebidas alcoholicas', description: 'Bebidas blancas, vinos, fernets, licores, champagnes, whiskys', show_in_menu: true)
 energizantes_category = Category.new(name: 'Energizantes', description: '')
 cigarros_pipas_category = Category.new(name: 'Cigarros y pipas', description: 'Cigarros, habanos, humidores, narguiles, pipas')
 deportes_category = Category.new(name: 'Accesorios para deportes', description: 'Accesorios para aerobics, fitness, artes marciales, básquet, ciclismo, fútbol, fútbol americano, gold, handball, Hockey, tennis, paddle, squash, pulsómetros, cronómetros')
 accesorios_audio_category = Category.new(name: 'Accesorios para audio', description: 'Cables, adaptadores, antenas, conversores')
-equipos_audio_category = Category.new(name: 'Equipos de audio', description: 'Reproductores, equipos para DJ, home theater')
+equipos_audio_category = Category.new(name: 'Equipos de audio', description: 'Reproductores, equipos para DJ, home theater', show_in_menu: true)
 accesorios_video_category = Category.new(name: 'Accesorios para video', description: 'Lentes 3D')
 equipos_video_category = Category.new(name: 'Equipos de video', description: 'Lectograbadores CD, DVD, Bluray, videocaseteras')
-televisores_category = Category.new(name: 'Televisores', description: '')
+televisores_category = Category.new(name: 'Televisores', description: '', show_in_menu: true)
 gps_category = Category.new(name: 'GPS', description: '')
-entradas_eventos_category = Category.new(name: 'Entradas para eventos', description: 'Eventos deportivos, eventos finalizados, recitales, teatro')
-instrumentos_musicales_category = Category.new(name: 'Intrumentos musicales', description: 'Bajos, instrumentos de percusión, instrumentos de cuerdas, instrumentos de viento')
+entradas_eventos_category = Category.new(name: 'Entradas para eventos', description: 'Eventos deportivos, eventos finalizados, recitales, teatro', show_in_menu: true)
+instrumentos_musicales_category = Category.new(name: 'Intrumentos musicales', description: 'Bajos, instrumentos de percusión, instrumentos de cuerdas, instrumentos de viento', show_in_menu: true)
 accesorios_musica_category = Category.new(name: 'Accesorios para música', description: 'Amplificadores, consolas de sonido, efectos de sonido, micrófonos, pies, parlantes')
 guitarras_category = Category.new(name: 'Guitarras', description: 'Criollas, eléctricas')
 pianos_category = Category.new(name: 'Pianos', description: 'Teclados y pianos')
@@ -90,6 +89,7 @@ baterias_category = Category.new(name: 'Baterías', description: '')
 juguetes_mujer_category = Category.new(name: 'Juguetes para mujer', description: '')
 juguetes_hombre_category = Category.new(name: 'Juguetes para hombre', description: '')
 peliculas_series_category = Category.new(name: 'Películas series', description: 'Merchandising y DVD/Bluray')
+musica_category = Category.new(name: 'Música', description: '', show_in_menu: true)
 musica_alternativa_category = Category.new(name: 'Música alternativa', description: '')
 musica_clasica_category = Category.new(name: 'Música de bandas sonoras', description: '')
 musica_bandas_sonoras_category = Category.new(name: 'Música de bandas sonoras', description: '')
@@ -121,10 +121,10 @@ libro_infantiles_category = Category.new(name: 'Libros infantiles', description:
 libro_arte_category = Category.new(name: 'Libros de arte', description: '')
 libro_autoayuda_category = Category.new(name: 'Libros de autoayuda', description: '')
 libro_ficcion_category = Category.new(name: 'Libros de ficción', description: '')
+indumentaria_deportiva_category = Category.new(name: 'Indumentaria Deportiva', description: '', show_in_menu: true)
 indumentaria_futbol_hombre_category = Category.new(name: 'Indumentaria de Fútbol (hombres)', description: '')
 indumentaria_futbol_mujer_category = Category.new(name: 'Indumentaria de Fútbol (mujeres)', description: '')
 indumentaria_basquet_hombre_category = Category.new(name: 'Indumentaria de Básquet (hombres)', description: '')
-indumentaria_basquet_mujer_category = Category.new(name: 'Indumentaria de  Básquet (mujeres)', description: '')
 indumentaria_tenis_hombre_category = Category.new(name: 'Indumentaria de Tenis (hombres)', description: '')
 indumentaria_tenis_mujer_category = Category.new(name: 'Indumentaria de Tenis (mujeres)', description: '')
 indumentaria_golf_hombre_category = Category.new(name: 'Indumentaria de Golf (hombres)', description: '')
@@ -135,26 +135,23 @@ indumentaria_hockey_hombre_category = Category.new(name: 'Indumentaria de Hockey
 indumentaria_hockey_mujer_category = Category.new(name: 'Indumentaria de Hockey (mujeres)', description: '')
 indumentaria_voley_hombre_category = Category.new(name: 'Indumentaria de Voley (hombres)', description: '')
 indumentaria_voley_mujer_category = Category.new(name: 'Indumentaria de Voley (mujeres)', description: '')
-indumentaria_handball_hombre_category = Category.new(name: 'Indumentaria de Handball (hombres)', description: '')
-indumentaria_handball_mujer_category = Category.new(name: 'Indumentaria de Handball (mujeres)', description: '')
-indumentaria_gimnasio_hombre_category = Category.new(name: 'Indumentaria de Gimnasio (hombres)', description: '')
-indumentaria_gimnasio_mujer_category = Category.new(name: 'Indumentaria de Gimnasio (mujeres)', description: '')
-indumentaria_running_hombre_category = Category.new(name: 'Indumentaria de Running (hombres)', description: '')
-indumentaria_running_mujer_category = Category.new(name: 'Indumentaria de Running (mujeres)', description: '')
+juguetes_category =  Category.new(name: 'Juguetes', description: '', show_in_menu: true)
+ropa_category = Category.new(name: 'Ropa', description: '', show_in_menu: true)
+
 
 puts "done."
 
 #
 # Guardar Categorías
-print "Saving categories..."
 #
+
+print "Saving categories..."
 
 autos_category.save
 accesorios_autos_category.save
 repuestos_autos_category.save
 accesorios_motos_category.save
 indumentaria_motos_category.save
-repuestos_motos_category.save
 audio_vehiculos_category.save
 volantes_category.save
 polarizado_category.save
@@ -218,6 +215,7 @@ baterias_category.save
 juguetes_mujer_category.save
 juguetes_hombre_category.save
 peliculas_series_category.save
+musica_category.save
 musica_alternativa_category.save
 musica_clasica_category.save
 musica_bandas_sonoras_category.save
@@ -249,10 +247,10 @@ libro_infantiles_category.save
 libro_arte_category.save
 libro_autoayuda_category.save
 libro_ficcion_category.save
+indumentaria_deportiva_category.save
 indumentaria_futbol_hombre_category.save
 indumentaria_futbol_mujer_category.save
 indumentaria_basquet_hombre_category.save
-indumentaria_basquet_mujer_category.save
 indumentaria_tenis_hombre_category.save
 indumentaria_tenis_mujer_category.save
 indumentaria_golf_hombre_category.save
@@ -263,12 +261,8 @@ indumentaria_hockey_hombre_category.save
 indumentaria_hockey_mujer_category.save
 indumentaria_voley_hombre_category.save
 indumentaria_voley_mujer_category.save
-indumentaria_handball_hombre_category.save
-indumentaria_handball_mujer_category.save
-indumentaria_gimnasio_hombre_category.save
-indumentaria_gimnasio_mujer_category.save
-indumentaria_running_hombre_category.save
-indumentaria_running_mujer_category.save
+juguetes_category.save
+ropa_category.save
 
 puts "done."
 
@@ -311,7 +305,7 @@ telefono2_product = Product.new(name: 'Telefono Inalambrico Panasonic Kx Tc1311'
 telefono_labios_product = Product.new(name: 'Telefono Labios - Boca', description: 'Cable de conexión telefónica. Dispone de tecla redial/pausa/tono y pulso. Teclado digital y cable del mismo color que el teléfono.', brand:'Regalo Original', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/telefono-labios-boca-mejor-precio-regalo-original-4003-MLA106999224_4963-O.jpg', "category_ids" => telefonia_category._id)
 telefono_zapato_product = Product.new(name: 'Telefono Zapato Con Taco', description: 'Cable de conexión telefónica. Dispone de tecla redial/pausa/tono y pulso. Teclado digital y cable del mismo color que el teléfono.', brand:'Regalo Original', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/telefono-zapato-con-taco-importado-grande-6-colores-oferta-4112-MLA2798624916_062012-O.jpg', "category_ids" => telefonia_category._id)
 telefono_kitty_product = Product.new(name: 'Telefono Hello Kitty', description: 'Cable de conexión telefónica. Dispone de tecla redial/pausa/tono y pulso. Teclado digital y cable del mismo color que el teléfono.', brand:'Regalo Original', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/telefono-hello-kitty-exclusivo-oferta-unico-en-mercado-libre-4157-MLA2785414259_062012-F.jpg', "category_ids" => telefonia_category._id)
-galaxy_tab_product = Product.new(name: 'Samsung Galaxy Tab 2 P3110', description: 'Pantalla 7". Comunicación fácil y divertida. Android 4.0 Ice Cream Sandwich. Procesador Dual Core. Conectividad Wi-Fi', brand:'Samsung', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/nueva-samsung-galaxy-tab-2-p3110-8gb-android-40-wifi-7-led-5188-MLA4215591754_042013-F.jpg', "category_ids" => tablets_category._id)
+galaxy_tab_product = Product.new(name: 'Samsung Galaxy Tab 2 P3110', description: 'Pantalla 7 pulgadas. Comunicación fácil y divertida. Android 4.0 Ice Cream Sandwich. Procesador Dual Core. Conectividad Wi-Fi', brand:'Samsung', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/nueva-samsung-galaxy-tab-2-p3110-8gb-android-40-wifi-7-led-5188-MLA4215591754_042013-F.jpg', "category_ids" => tablets_category._id)
 galaxy_tab10_product = Product.new(name: 'Samsung P5210 Galaxy Tab 3', description: 'Pantalla 10.1". Comunicación fácil y divertida. Android 4.0 Ice Cream Sandwich. Procesador Quad Core. Conectividad Wi-Fi', brand:'Samsung', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/samsung-p5210-galaxy-tab-3-de-101-pulgadas-nueva-5529-MLA4973169903_092013-O.jpg', "category_ids" => tablets_category._id)
 ipad_mini_16_product = Product.new(name: 'Ipad Mini 16gb ', description: 'La pantalla mide 7.9 pulgadas de diagonal con una resolución de 1024 x 768 píxeles, la misma que el iPad 2. La tecnología de pantalla no es Retina, un aspecto que decepcionará a más de uno. Del otro lado, la pantalla tiene un 35% más área que la de, por ejemplo, el Google Nexus 7. Tras la estela del iPhone 5 Otro de los cambios externos que se veían venir es la incorporación del conector Lightning del iPhone 5 en el iPad Mini. La batería del dispositivo tiene una autonomía nominal de 10 horas. Internamente, el iPad Mini se mueve gracias al procesador Apple A5 de doble núcleo que también vemos en el iPhone 5.', brand:'Apple', approved: 'true', photo_url:'http://i.ebayimg.com/t/Apple-iPad-mini-16GB-Wi-Fi-4G-Cellular-AT-T-7-9in-Black-Slate-Latest-Model/00/$(KGrHqJHJEkFBjRBmT29BQmUdQ1eMg~~_35.JPG', "category_ids" => tablets_category._id)
 kindle_product = Product.new(name: 'Amazon Kindle 5ta Generacion', description: 'El mejor dispositivo de lectura del mercado. Piérdete dentro de la lectura. Diseño ergonómico. Nunca se calienta', brand:'Amazon', approved: 'true', photo_url:'http://cdn3.pcadvisor.co.uk/cmsdata/reviews/3405763/Kindle_5_2012_store.jpg', "category_ids" => tablets_category._id)
@@ -324,7 +318,7 @@ pc_clon_product = Product.new(name: 'Pc Escritorio Gamer', description: 'MOTHER 
 windows_product = Product.new(name: 'Windows 8 en español', description: 'Licencia original. Versión de 32 o 64 bits. Requisitos mínimos: procesador 1ghz, 1gb RAM, 16gb de espacio libre, tarjeta gráfica con DirectX 9.', brand:'Microsoft', approved: 'true', photo_url:'http://www.antivirussupport.com/Images/819d90a07bf27cb6c850cd18342e54e2.jpg', "category_ids" => software_category._id)
 adobe_product = Product.new(name: 'Adobe CS6 Master Collection', description: 'Funciona en Windows o en Mac. Contiene: Photoshop CS6, Illustrator CS6, InDesign CS6, Acrobat X Pro, Flash Professional CS6, Dreamweaver CS6, Fireworks CS6, Bridge CS6 y más!', brand:'Adobe', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/adobe-cs6-master-collection-windows-mac-osx-full-espanol-563-MLA4690886991_072013-F.jpg', "category_ids" => software_category._id)
 office2013_product = Product.new(name: 'Microsoft Office 2013', description: 'Su office para el hogar y los deberes escolares. Simplifique su manera de compartir. Convierta sus ideas en bellos documentos', brand:'Microsoft', approved: 'true', photo_url:'http://i.ebayimg.com/00/s/NTAwWDM1NA==/z/M5UAAOxyA4ZRJbIp/$(KGrHqZ,!iwFDyvmQfSTBRJbIpMsVw~~60_35.JPG?set_id=8800005007', "category_ids" => software_category._id)
-jaulon_pajaro_loro_product = Product.new(name: 'Jaulón Pájaro Loro', description: '´Jaula con ruedas, 55x55x1.25. Espectacular', brand:'Aerojaula', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/jaulon-pajaro-loro-con-ruedas-55x55x125alto-espectacular-4094-MLA119564909_8410-O.jpg', "category_ids" => mascotas_category._id)
+jaulon_pajaro_loro_product = Product.new(name: 'Jaulón Pájaro Loro', description: 'Jaula con ruedas, 55x55x1.25. Espectacular', brand:'Aerojaula', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/jaulon-pajaro-loro-con-ruedas-55x55x125alto-espectacular-4094-MLA119564909_8410-O.jpg', "category_ids" => mascotas_category._id)
 manta_caballo_product = Product.new(name: 'Manta ecológica para caballos', description: 'Manta ecológica de yute y friselina, apta para presentación y entrada a cancha', brand:'Baticola', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/manta-ecologica-para-caballos-apta-para-cancha-5510-MLA4451880998_062013-F.jpg', "category_ids" => mascotas_category._id)
 comedero_dispenser_gatos_product = Product.new(name: 'Comedero y dispenser para gatos', description: 'El snack box activity es un ingenioso juguete, que entretiene y alimenta a la vez dado que funciona como un juego de ingenio y despensador de alimento al mismo tiempo ', brand:'Cankun', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/comedero-dispenser-comida-para-gatos-jugar-comer-ideal-3892-MLA4868787612_082013-O.jpg', "category_ids" => mascotas_category._id)
 funda_asiento_product = Product.new(name: 'Funda para auto', description: 'Funda para auto para todo animal', brand:'Fundas Nico', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/funda-asiento-auto-mascota-perro-regalo-dia-de-la-madre-mira-6208-MLA59146323_2190-O.jpg', "category_ids" => mascotas_category._id)
@@ -337,7 +331,7 @@ conejos2_product = Product.new(name: 'Conejos Holland Lop', description: 'Coneji
 conejos3_product = Product.new(name: 'Conejos Super enanos', description: 'Super enanos raza Dutch', brand:'', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/conejos-super-enanos-raza-dutch-6174-MLA4619063804_072013-O.jpg', "category_ids" => conejos_category._id)
 gato1_product = Product.new(name: 'Gato persa', description: 'Gato persa Himalayo macho nacido el 12/09/13.', brand:'', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/hermosos-gatitos-persas-himalayos-2-machitos-divinos-7807-MLA5289847859_102013-F.jpg', "category_ids" => gatos_category._id)
 gato2_product = Product.new(name: 'Siames puro', description: 'Siames puro, sano, desaparacitado', brand:'Criadero Siames Tradic', approved: 'true', photo_url:'http://img1.mlstatic.com/siameses-puros-sanitos-desparacitados-criadero-siames-tradic_MLA-O-135070220_4546.jpg', "category_ids" => gatos_category._id)
-gato3_product = Product.new(name: 'Servicio de reproducto Gato Persa Red', description: 'Servicio de reproductor gato persa red, con todas su vacunas al día, análisis VIF y VILEF negativo', brand:'Garfield', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/servicio-de-reproductor-gato-persa-red-2191-MLA4781160199_082013-F.jpg', "category_ids" => gatos_category._id)
+gato3_product = Product.new(name: 'Servicio de reproductor Gato Persa Red', description: 'Servicio de reproductor gato persa red, con todas su vacunas al día, análisis VIF y VILEF negativo', brand:'Garfield', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/servicio-de-reproductor-gato-persa-red-2191-MLA4781160199_082013-F.jpg', "category_ids" => gatos_category._id)
 pez1_product = Product.new(name: 'Carpas Koi', description: 'Importadas de singapur, 18cm', brand:'', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/carpas-koi-importadas-de-singapur-18-cm-3249-MLA4832991062_082013-O.jpg', "category_ids" => peces_category._id)
 pez2_product = Product.new(name: 'Peces tropicales', description: '16 peces tropicales: 3 Platis, 3 neones negros, 4 Levistes, 4 cebras, 2 espadas.', brand:'', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/combo-16-peces-tropicales-planta-4097-MLA101408163_8985-O.jpg', "category_ids" => peces_category._id)
 pez3_product = Product.new(name: 'Peces agua fría', description: '10 peces de agua fría: 2 telecópicos negros, 2 carasius naranjas, 2 carasius cálicos, 2 cometas naranja intenso y 2 otocinclus', brand:'Aquariumba', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/combo-peces-agua-fria-10-peces-4026-MLA117009755_8142-O.jpg', "category_ids" => peces_category._id)
@@ -460,10 +454,10 @@ gps3_product = Product.new(name: 'Gps IMODO Igo9', description: 'Gps IMODO Igo9 
 soportegps_product = Product.new(name: 'Combo Soporte + Cargador GPS', description: 'Combo Soporte Completo + Cargador Auto 12v Garmin Nuvi 200', brand:'Garmin', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/combo-soporte-completo-cargador-auto-12v-garmin-nuvi-200-4105-MLA145677725_5839-O.jpg', "category_ids" => gps_category._id)
 soportegps2_product = Product.new(name: 'Soporte Genérico Auto para GPS o Celular', description: 'Soporte Universal Auto Celular Gps Pda Mp4 Iphone Blackberry', brand:'Genérico', approved: 'true', photo_url:'http://bimg2.mlstatic.com/soporte-universal-auto-celular-gps-pda-mp4-iphone-blackberry_MLA-F-3441803489_112012.jpg', "category_ids" => gps_category._id)
 soportegps3_product = Product.new(name: 'Soporte Gps Garmin Nuvi', description: 'Soporte Gps Garmin Nuvi Para Moto Bicicleta', brand:'Genérico', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/soporte-gps-garmin-nuvi-para-moto-bicicleta-200-205w-255-265-6073-MLA4560627903_062013-O.jpg', "category_ids" => gps_category._id)
-entradas_eventos_product = Product.new(name: 'Sander Van Doorn', description: 'Sander Van Doorn es un DJ y productor musical holandés de música trance y house', brand:'Ticketet', approved: 'true', photo_url:'http://static.ticketek.com.ar/show/images/SANDERMP13_show_img_show__3f1.jpg', "category_ids" => entradas_eventos_category._id)
-entradas_eventos_product = Product.new(name: 'Les Luthiers', description: 'Presentando Chist! Con lo mejor de sus espectáculos -Mastropiero que Nunca-, -Bromato de Armonio- o -Muchas Gracias de Nada-, entre otros, ¡Chist! es uno de los más brillantes shows de la historia de Les Luthiers', brand:'Ticketet', approved: 'true', photo_url:'http://static4.ticketek.com.ar/newsite/sites/default/files/styles/artist/public/lesluthiers_s_1031.jpg', "category_ids" => entradas_eventos_category._id)
-entradas_eventos_product = Product.new(name: 'Partido de tenis', description: 'Venus Williams vs. Serena Williams en el court central del Buenos Aires Lawn Tennis Club', brand:'Ticketet', approved: 'true', photo_url:'http://static4.ticketek.com.ar/newsite/sites/default/files/styles/artist/public/williams_s_1029.jpg', "category_ids" => entradas_eventos_category._id)
-entradas_eventos_product = Product.new(name: 'HOCKEY WORLD LEAGUE 2013', description: ' Del sábado 30 de Noviembre al domingo 8 de Diciembre en el Estadio Natación y Gimnasia.', brand:'Ticketet', approved: 'true', photo_url:'http://static.ticketek.com.ar/show/images/WLEAGUE13_show_img_show_.jpg', "category_ids" => entradas_eventos_category._id)
+entradas_eventos_1_product = Product.new(name: 'Sander Van Doorn', description: 'Sander Van Doorn es un DJ y productor musical holandés de música trance y house', brand:'Ticketet', approved: 'true', photo_url:'http://static.ticketek.com.ar/show/images/SANDERMP13_show_img_show__3f1.jpg', "category_ids" => entradas_eventos_category._id)
+entradas_eventos_2_product = Product.new(name: 'Les Luthiers', description: 'Presentando Chist! Con lo mejor de sus espectáculos -Mastropiero que Nunca-, -Bromato de Armonio- o -Muchas Gracias de Nada-, entre otros, ¡Chist! es uno de los más brillantes shows de la historia de Les Luthiers', brand:'Ticketet', approved: 'true', photo_url:'http://static4.ticketek.com.ar/newsite/sites/default/files/styles/artist/public/lesluthiers_s_1031.jpg', "category_ids" => entradas_eventos_category._id)
+entradas_eventos_3_product = Product.new(name: 'Partido de tenis', description: 'Venus Williams vs. Serena Williams en el court central del Buenos Aires Lawn Tennis Club', brand:'Ticketet', approved: 'true', photo_url:'http://static4.ticketek.com.ar/newsite/sites/default/files/styles/artist/public/williams_s_1029.jpg', "category_ids" => entradas_eventos_category._id)
+entradas_eventos_4_product = Product.new(name: 'HOCKEY WORLD LEAGUE 2013', description: ' Del sábado 30 de Noviembre al domingo 8 de Diciembre en el Estadio Natación y Gimnasia.', brand:'Ticketet', approved: 'true', photo_url:'http://static.ticketek.com.ar/show/images/WLEAGUE13_show_img_show_.jpg', "category_ids" => entradas_eventos_category._id)
 metronomo_product = Product.new(name: 'Metronomo Cherub Wsm001', description: 'Metronomo Cherub Wsm001 Digital Con Audifono', brand:'Genérico', approved: 'true', photo_url:'http://img2.mlstatic.com/metronomo-cherub-wsm001-digital-con-audifono-envios-garantia_MLA-O-118824065_5006.jpg', "category_ids" => accesorios_musica_category._id)
 afinador_product = Product.new(name: 'Afinador cromático', description: 'Afinador digital con metrónomo incluido y generador de tonos', brand:'Musedo', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/afinador-cromatico-metronomo-generador-de-tonos-cclip-4432-MLA3625727268_012013-O.jpg', "category_ids" => accesorios_musica_category._id)
 metronomo2_product = Product.new(name: 'Metronomo Joyo Jm66w', description: 'Metronomo Joyo Jm66w Mecanico Simil Madera', brand:'Joyo', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/metronomo-joyo-jm66w-mecanico-simil-madera-en-palermo-4189-MLA2828892248_062012-O.jpg', "category_ids" => accesorios_musica_category._id)
@@ -492,6 +486,151 @@ patineta_product = Product.new(name: 'Patineta - Skate', description: 'Patineta 
 helicoptero_product = Product.new(name: 'Helicóptero Action Man', description: 'Action Man Set Helicoptero Nuevo En Blister', brand:'Hasbro', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/action-man-set-helicoptero-nuevo-en-blister-hasbro-4792-MLA3884787955_022013-F.jpg', "category_ids" => juguetes_hombre_category._id)
 autito_product = Product.new(name: 'Hot Wheels Lamborghini', description: 'Hot Wheels 2010 Lamborghini Gallardo Lp 560-4 All Stars 121', brand:'Hot Wheels', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/hot-wheels-2010-lamborghini-gallardo-lp-560-4-all-stars-121-5513-MLA4969807882_092013-F.jpg', "category_ids" => juguetes_hombre_category._id)
 autito2_product = Product.new(name: 'Hot Wheels Auto Volver Al Futuro De Lorean', description: 'Hot Wheels Auto Volver Al Futuro De Lorean Juguete Original', brand:'Hot Wheels', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/hot-wheels-auto-volver-al-futuro-de-lorean-juguete-original-4459-MLA3663358460_012013-F.jpg', "category_ids" => juguetes_hombre_category._id)
+peliculas_series_1_product = Product.new(name: 'Iron Man 3', description: 'Iron Man 3 Blu Ray + DVD', brand:'3D Mania', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/iron-man-3-3-d-blu-ray-dvd-somos-3-d-mania-2407-MLA4793987865_082013-O.jpg', "category_ids" => peliculas_series_category._id)
+peliculas_series_2_product = Product.new(name: 'Harry Potter Collection', description: 'Harry Potter Collection 12 Discos', brand:'', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/harry-potter-collection-1-512-discos-edicion-limitada-4113-MLA2560727766_042012-F.jpg', "category_ids" => peliculas_series_category._id)
+peliculas_series_3_product = Product.new(name: 'Trilogía Matrix', description: 'Trilogía Matrix Blu Ray', brand:'', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/trilogia-completa-matrix-blu-ray-sellada-y-region-free-7034-MLA5151401807_102013-O.jpg', "category_ids" => peliculas_series_category._id)
+peliculas_series_4_product = Product.new(name: 'Game Of Thrones', description: 'Game Of Thrones Temporada 1 Completa Blu Ray', brand:'HBO', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/game-of-thrones-temporada-1-completa-blu-ray-no-permut-6919-MLA5135176469_102013-F.jpg', "category_ids" => peliculas_series_category._id)
+peliculas_series_5_product = Product.new(name: 'Friends', description: 'Friends Serie Completa Original', brand:'WB', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/friends-la-serie-completa-original-pal-import-39-dvd-4012-MLA4889399034_082013-F.jpg', "category_ids" => peliculas_series_category._id)
+musica_alternativa_1_product = Product.new(name: 'Artic Monkeys', description: 'Artic Monkeys Whatever People Say I Am, Thats What Im Not', brand:'Domino Records', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/arctic-monkeys-whatever-people-say-i-am-thatsvinilo-nuevo-4406-MLA4910606298_082013-O.jpg', "category_ids" => musica_alternativa_category._id)
+musica_alternativa_2_product = Product.new(name: 'Bauhaus', description: 'Bauhaus In The Flat Field - 2CD', brand:'Omnibus Edition', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/bauhaus-in-the-flat-field-boxset-2-cd-nuevo-cerrado-5562-MLA4970374612_092013-O.jpg', "category_ids" => musica_alternativa_category._id)
+musica_alternativa_3_product = Product.new(name: 'David Bowie', description: 'David Bowie - Zeit! 77-79 Trilogía Berlín + vivo 5CD', brand:'Brian Eno', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/david-bowie-zeit-77-79-trilogia-berlin-eno-vivo-5cd-5447-MLA4406651008_052013-O.jpg', "category_ids" => musica_alternativa_category._id)
+musica_clasica_1_product = Product.new(name: 'Beethoven', description: 'Las 9 Sinfonias De Beethoven - 8 Discos De Vinilo Colección', brand:'Deutsche Grammophen', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/las-9-sinfonias-de-beethoven-8-discos-de-vinilo-coleccion-5020-MLA4063420414_032013-F.jpg', "category_ids" => musica_clasica_category._id)
+musica_clasica_2_product = Product.new(name: 'Mozart: The Complete Piano Concertos', description: 'Mozart: The Complete Piano Concertos - D Barenboim. 10 Cds', brand:'Warner Classics', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/mozart-the-complete-piano-concertos-d-barenboim-10-cds-5609-MLA4980348112_092013-F.jpg', "category_ids" => musica_clasica_category._id)
+musica_bandas_sonoras_1_product = Product.new(name: 'Violetta - Cantar Es Lo Que Soy', description: 'Violetta - Cantar Es Lo Que Soy (CD + DVD)', brand:'Disney', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/violetta-cantar-es-lo-que-soy-cddvd-4266-MLA3472494801_112012-O.jpg', "category_ids" => musica_bandas_sonoras_category._id)
+musica_bandas_sonoras_2_product = Product.new(name: 'Star Wars: El Imperio Contraataca', description: 'Star Wars: El Imerio Contraataca - Importada - 2 Vinilos', brand:'John Williams', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/star-wars-el-imperio-contraataca-importada-2-vinilos-4555-MLA4917546371_082013-F.jpg', "category_ids" => musica_bandas_sonoras_category._id)
+musica_blues_jazz_1_product = Product.new(name: 'Miles Davis Y Kind Of Blue La Creacion De Una Obra Maestra', description: 'Miles Davis Y Kind Of Blue La Creacion De Una Obra Maestra', brand:'Ashley Kahn', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/miles-davis-y-kind-of-blue-la-creacion-de-una-obra-maestra-5430-MLA4398563362_052013-O.jpg', "category_ids" => musica_blues_jazz_category._id)
+musica_blues_jazz_2_product = Product.new(name: 'Miles Davis Bitches Brew', description: 'Miles Davis Bitches Brew Legacy Edition (2 Cd + Dvd)', brand:'Teo Macero', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/miles-davis-bitches-brew-legacy-edition-2-cd-dvd-oferta-6641-MLA5095332912_092013-O.jpg', "category_ids" => musica_blues_jazz_category._id)
+musica_blues_jazz_3_product = Product.new(name: 'Scott Walker - The Collection 1967-1970', description: 'Scott Walker - The Collection 1967-1970 - 5 CDs', brand:'', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/scott-walker-the-collection-1967-1970-5-cds-5564-MLA4485873856_062013-O.jpg', "category_ids" => musica_blues_jazz_category._id)
+musica_cumbia_cuarteto_1_product = Product.new(name: 'Grupo Sombras - Dulce Amor', description: 'Grupo Sombras - Dulce Amor - CD Bajado De Vinilo, Excelente Sonido', brand:'Magenta', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/grupo-sombras-dulce-amor-para-coleccionistas--4149-MLA141975893_9186-F.jpg', "category_ids" => musica_cumbia_cuarteto_category._id)
+musica_cumbia_cuarteto_2_product = Product.new(name: 'Los Wawanco Varios Lps', description: 'Los Wawanco Varios Lps', brand:'Odeon Pops', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/los-wawanco-varios-lps-5480-MLA4409032188_052013-F.jpg', "category_ids" => musica_cumbia_cuarteto_category._id)
+musica_cumbia_cuarteto_3_product = Product.new(name: 'Rodrigo ', description: 'Rodrigo DVD En Vivo + CD - Show A2000', brand:'Magenta', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/rodrigo-dvd-en-vivo-cd-todo-original-7136-MLA5162687111_102013-F.jpg', "category_ids" => musica_cumbia_cuarteto_category._id)
+musica_cumbia_cuarteto_4_product = Product.new(name: 'Riki Maravilla Y Las Primas (Invencibles) 1989', description: 'Riki Maravilla Y Las Primas ( Invencibles) 1989 - Cd Bajado De Vinilo - Exelente Sonido', brand:'CBS', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/riki-maravilla-y-las-primas-invencibles-1989-4160-MLA2625467298_042012-F.jpg', "category_ids" => musica_cumbia_cuarteto_category._id)
+musica_dance_1_product = Product.new(name: 'Madonna - American Pie', description: 'Madonna - American Pie Remixes Vinilo Europeo', brand:'', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/madonna-american-pie-remixes-vinilo-europeo-nuevo-537-MLA4691505988_072013-F.jpg', "category_ids" => musica_dance_category._id)
+musica_dance_2_product = Product.new(name: 'The Smiths Sheila Take A Bow', description: 'The Smiths Sheila Take A Bow Maxi 7 Pulgadas', brand:'', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/the-smiths-sheila-take-a-bow-maxi-7-pulgadas-2531-MLA4804188160_082013-O.jpg', "category_ids" => musica_dance_category._id)
+musica_dance_3_product = Product.new(name: 'Depeche Mode', description: 'Depeche Mode 4 Vinilos Combo', brand:'', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/depeche-mode-4-vinilos-combo-6603-MLA5088596296_092013-O.jpg', "category_ids" => musica_dance_category._id)
+musica_electronica_1_product = Product.new(name: 'Kenix & Bobby Youngblood', description: 'Kenix & Bobby Youngblood Theres Never Been West End Maxi 12', brand:'West End Records', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/kenix-bobby-youngblood-theres-never-been-west-end-maxi-12-7397-MLA5207984234_102013-F.jpg', "category_ids" => musica_electronica_category._id)
+musica_electronica_2_product = Product.new(name: 'Disco Funk Soul Boogie Silvia Striplin Give Me Your Love', description: 'Disco Funk Soul Boogie Silvia Striplin Give Me Your Love - Producido Por Roy Ayers Prensado Inglés 1980', brand:'Champagne Records', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/disco-funk-soul-boogie-silvia-striplin-give-me-maxi-12-7503-MLA5236283815_102013-F.jpg', "category_ids" => musica_electronica_category._id)
+musica_electronica_3_product = Product.new(name: 'Donna Summer Bad Girls (1979)', description: 'Donna Summer Bad Girls CD Original', brand:'Poly Gram Records', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/donna-summer-bad-girls-1979-cd-original-imp-nuevo-sellado-4775-MLA4930897925_082013-F.jpg', "category_ids" => musica_electronica_category._id)
+musica_folklore_1_product = Product.new(name: 'Abel Pintos - Abel', description: 'Abel Pintos - Abel', brand:'The Music Store Compact Disc & DVD', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/abel-pintos-abel-cd-nuevo-cerrado-7697-MLA5259805989_102013-O.jpg', "category_ids" => musica_folklore_category._id)
+musica_folklore_2_product = Product.new(name: 'Chaqueño Palavecino De Pura Cepa', description: 'Chaqueño Palavecino De Pura Cepa', brand:'The Music Store Compact Disc & DVD', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/chaqueno-palavecino-de-pura-cepa-cd-nuevo-cerrado-5833-MLA5003030565_092013-O.jpg', "category_ids" => musica_folklore_category._id)
+musica_funk_1_product = Product.new(name: 'Jamiroquai - Live At Montreux 2003', description: 'Jamiroquai - Live At Montreux 2003', brand:'DVD Video', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/jamiroquai-live-at-montreux-2003-dvd-original-7189-MLA5162438340_102013-F.jpg', "category_ids" => musica_funk_category._id)
+musica_funk_2_product = Product.new(name: 'Gloria Gaynor I Wish You Love', description: 'Gloria Gaynor I Wish You Love - Edicion Especial 2 Cds Originales', brand:'Logic Records', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/gloria-gaynor-i-wish-you-love-edicion-especial-2-cds-orig-7127-MLA5160951645_102013-F.jpg', "category_ids" => musica_funk_category._id)
+musica_heavy_metal_1_product = Product.new(name: 'Pink Floyd Discovery', description: 'Pink Floyd Discovery Box Set 16 Cd + Libro', brand:'', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/pink-floyd-discovery-box-set-16-cd-libro-cerrado-ultimo-6013-MLA4528795793_062013-O.jpg', "category_ids" => musica_heavy_metal_category._id)
+musica_heavy_metal_2_product = Product.new(name: 'Anthrax: Aftershock - The Island Years 1985-1990', description: 'Anthrax: Aftershock - The Island Years 1985-1990 (4CDs)', brand:'Universal', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/anthrax-aftershock-the-island-years-4-cd-7706-MLA5271791275_102013-F.jpg', "category_ids" => musica_heavy_metal_category._id)
+musica_hip_hop_1_product = Product.new(name: 'Eminem All Access Europe', description: 'Eminem All Access Europe DVD', brand:'DVD Video', approved: 'true', photo_url:'http://img2.mlstatic.com/eminem-all-access-europe-dvd_MLA-O-91948213_4214.jpg', "category_ids" => musica_hip_hop_category._id)
+musica_hip_hop_2_product = Product.new(name: 'Eminem - The Marshall Mathers Lp', description: 'Eminem - The Marshall Mathers Lp (2000)', brand:'Universal', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/eminem-the-marshall-mathers-lp-5458-MLA4421019329_062013-F.jpg', "category_ids" => musica_hip_hop_category._id)
+musica_infantil_1_product = Product.new(name: 'Cd Original Violetta Hoy Somos Mas', description: 'Cd Original Violetta Hoy Somos Mas', brand:'Disney', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/cd-original-violetta-hoy-somos-mas-nuevo-a-solo-6490-6153-MLA4597863769_072013-O.jpg', "category_ids" => musica_infantil_category._id)
+musica_infantil_2_product = Product.new(name: 'Panam - Laura Franco - Panam Y Circo', description: 'Panam - Laura Franco - Panam Y Circo - CD + DVD', brand:'El Trece', approved: 'true', photo_url:'http://img1.mlstatic.com/panam-laura-franco-panam-y-circo-cddvd_MLA-O-137540121_3783.jpg', "category_ids" => musica_infantil_category._id)
+musica_instrumental_1_product = Product.new(name: 'Soul Meditation Songs', description: 'Soul Meditation Songs Vol. 1 - TAKESHI SAKATAGI & AKIRA YAKAMOSU', brand:'', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/soul-meditation-songs-cd-nuevo-5126-MLA4213903763_042013-O.jpg', "category_ids" => musica_instrumental_category._id)
+musica_instrumental_2_product = Product.new(name: 'Kenny G - Greatest Hits', description: 'Kenny G - Greatest Hits (2 Cd, Nuevo, Digipack)', brand:'', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/kenny-g-greatest-hits-2-cd-nuevo-digipack-4792-MLA3877032841_022013-O.jpg', "category_ids" => musica_instrumental_category._id)
+musica_karaoke_1_product = Product.new(name: 'Karaoke Para Dvd / Pc - Cumbia Elemental', description: 'Karaoke Para Dvd - Pc - Cumbia Elemental (84 Canciones)', brand:'Canto Manía Argentina', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/karaoke-para-dvd-pc-cumbia-elemental-84-canciones-60-6004-MLA4570041110_062013-O.jpg', "category_ids" => musica_karaoke_category._id)
+musica_karaoke_2_product = Product.new(name: 'Karaoke Para Dvd / Pc', description: 'Karaoke Para Dvd - Pc (10 Volúmenes - 120 Canciones)', brand:'Canto Manía Argentina', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/karaoke-para-dvd-pc-10-volumenes-120-canciones-99-4194-MLA2616188022_042012-O.jpg', "category_ids" => musica_karaoke_category._id)
+musica_pop_1_product = Product.new(name: 'Lady Gaga - Applause', description: 'Lady Gaga - Applause - Alemania (2 Track)', brand:'Streamline Records', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/lady-gaga-applause-alemania-2-track-7601-MLA5258441071_102013-F.jpg', "category_ids" => musica_pop_category._id)
+musica_pop_2_product = Product.new(name: 'Alanis Morissette - Live At Montreux 2012', description: 'Alanis Morissette - Live At Montreux 2012 DVD', brand:'Eagie Vision', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/alanis-morissette-live-at-montreux-dvd-nuevo-importado-5141-MLA4259042283_052013-F.jpg', "category_ids" => musica_pop_category._id)
+musica_pop_3_product = Product.new(name: 'Michael Jackson The Ultimate Collection', description: 'Michael Jackson The Ultimate Collection - 4 CDs + 1 DVD Boxset', brand:'Epic Records', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/michael-jackson-ultimate-collection-4cd1dvd-boxset-6941-MLA5135563243_102013-O.jpg', "category_ids" => musica_pop_category._id)
+musica_pop_4_product = Product.new(name: 'Sting Live In Berlin', description: 'Sting Live In Berlin CD + DVD', brand:'Steven Mercurio', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/sting-live-in-berlin-cd-dvd-6114-MLA4593392857_072013-O.jpg', "category_ids" => musica_pop_category._id)
+musica_ska_1_product = Product.new(name: 'The Clash-London Calling', description: 'The Clash-London Calling Vinilo Doble Nuevo Sellado Usa', brand:'Epic Records', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/the-clash-london-calling-vinilo-doble-nuevo-sellado-usa-4383-MLA3518474955_122012-F.jpg', "category_ids" => musica_ska_category._id)
+musica_ska_2_product = Product.new(name: 'Jauria Cd Libre O Muerto', description: 'Jauria Cd Libre O Muerto Holograma Limitado Ex Attaque 77', brand:'', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/jauria-cd-libre-o-muerto-holograma-limitado-ex-attaque-77-3763-MLA4863342468_082013-O.jpg', "category_ids" => musica_ska_category._id)
+musica_ska_3_product = Product.new(name: 'Ramones Rocket To Russia', description: 'Ramones Rocket To Russia Vinilo Nuevo Sellado Usa 180 Gr.', brand:'Safe Records', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/ramones-rocket-to-russia-vinilo-nuevo-sellado-usa-180-gr-6176-MLA4636270636_072013-F.jpg', "category_ids" => musica_ska_category._id)
+musica_reggae_1_product = Product.new(name: 'Bob Marley Songs Of Freedom', description: 'Bob Marley Songs Of Freedom Reggae 4 CD + DVD + Libro', brand:'', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/bob-marley-songs-of-freedom-reggae-4-cd-dvd-libro-6883-MLA5122113682_092013-O.jpg', "category_ids" => musica_reggae_category._id)
+musica_reggae_2_product = Product.new(name: 'Cd Cultura Profetica Audio Luna Park', description: 'Cd Cultura Profetica - 15 Aniversario En El Luna Park Doble Novedad', brand:'Compact Disc', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/cd-cultura-profetica-audio-luna-park-doble-novedad-oferta-4903-MLA3952628970_032013-O.jpg', "category_ids" => musica_reggae_category._id)
+musica_nacional_1_product = Product.new(name: 'Gustavo Cerati 11 Episodios Sinfónicos', description: 'Gustavo Cerati 11 Episodios Sinfónicos - DVD Excelente', brand:'DVD Video', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/gustavo-cerati-11-episodios-sinfonicos-dvd-excelente-dvd-4162-MLA2576797482_042012-O.jpg', "category_ids" => musica_nacional_category._id)
+musica_nacional_2_product = Product.new(name: 'Andrés Calamaro Bohemio', description: 'Andrés Calamaro Bohemio - CD Nuevo', brand:'The Music Store', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/andres-calamaro-bohemio-cd-nuevo-6671-MLA5088883154_092013-O.jpg', "category_ids" => musica_nacional_category._id)
+musica_nacional_3_product = Product.new(name: 'Soda Stereo 2 Dvds Me Verás Volver Gira', description: 'Soda Stereo 2 Dvds Me Verás Volver Gira 2007', brand:'DVD Video', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/soda-stereo-2-dvds-me-veras-volver-gira-2007-6209-MLA55821710_7491-O.jpg', "category_ids" => musica_nacional_category._id)
+musica_nacional_4_product = Product.new(name: 'No Te Va Gustar Público', description: 'No Te Va Gustar Público Cd + Dvd', brand:'The Music Store', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/no-te-va-gustar-publico-cd-dvd-nuevo-cerrado-4146-MLA2549632704_032012-O.jpg', "category_ids" => musica_nacional_category._id)
+musica_internacional_1_product = Product.new(name: 'Green Day - Bullet In A Bible', description: 'Green Day - Bullet In A Bible - Blu Ray Importado', brand:'DVD Video', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/green-day-bullet-in-a-bible-blu-ray-importado-5082-MLA4136068337_042013-O.jpg', "category_ids" => musica_internacional_category._id)
+musica_internacional_2_product = Product.new(name: 'Eric Clapton & Steve Winwood - Live From Madison Square Garden', description: 'Eric Clapton & Steve Winwood - Live From Madison Square Garden - Blu Ray Importado', brand:'Warner Music Argentina', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/eric-clapton-steve-winwood-live-from-new-york-5024-MLA4135957222_042013-O.jpg', "category_ids" => musica_internacional_category._id)
+musica_internacional_3_product = Product.new(name: 'Jack Johnson From Here To Now To You', description: 'Jack Johnson From Here To Now To You', brand:'Brushfire Records y  Universal Republic', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/jack-johnson-from-here-to-now-to-you-cd-nuevo-cerrado-6873-MLA5122329298_092013-O.jpg', "category_ids" => musica_internacional_category._id)
+musica_internacional_4_product = Product.new(name: 'Led Zeppelin - Celebration Day', description: 'Led Zeppelin - Celebration Day - 2 Cds + Blu Ray Importados', brand:'Warner Music Argentina', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/led-zeppelin-celebration-day-2-cds-blu-ray-importados-5093-MLA4137749306_042013-F.jpg', "category_ids" => musica_internacional_category._id)
+musica_tango_1_product = Product.new(name: 'Carlos Gardel Interpreta A Rafael Rossi', description: 'Carlos Gardel Interpreta A Rafael Rossi', brand:'Odeon', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/gardel-interpreta-a-rafael-rossi--7329-MLA5200840079_102013-F.jpg', "category_ids" => musica_tango_category._id)
+musica_tango_2_product = Product.new(name: 'Astor Piazzolla Y Milva - Live At Bouffes Du Nord', description: 'Astor Piazzolla Y Milva - Live At Bouffes Du Nord - CD Japon', brand:'Compact Disc', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/astor-piazzolla-y-milva-live-at-bouffes-du-nord-cd-japan-66-MLA4641954398_072013-F.jpg', "category_ids" => musica_tango_category._id)
+salud_1_product = Product.new(name: 'Revlon Esmaltes', description: 'Revlon Esmaltes Mas De 40 Tonos Para Elegir Perfumeria C/u', brand:'Revlon', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/revlon-esmaltes-mas-de-40-tonos-para-elegir-perfumeria-cu-8004-MLA5308669882_102013-O.jpg', "category_ids" => salud_category._id)
+salud_2_product = Product.new(name: 'Perfume Polo Blue By Ralph Lauren', description: 'Perfume Polo Blue By Ralph Lauren - 200 ml - Vap. Gigante', brand:'Ralph Lauren', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/promo-enricco-perfume-polo-blue-by-ralph-lauren-gigante-5600-MLA4487839307_062013-O.jpg', "category_ids" => salud_category._id)
+salud_3_product = Product.new(name: 'Perfumes Graines Halloween Jesus Del Pozo', description: 'Perfumes Graines Halloween Jesus Del Pozo - 100 ml', brand:'J. Del Pozo', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/perfumes-graines-halloween-jesus-del-pozo-100-ml-caja-celof-4912-MLA3946556753_032013-O.jpg', "category_ids" => salud_category._id)
+salud_4_product = Product.new(name: 'Jabon Liquido Tododia Natura', description: 'Jabon Liquido Tododia Natura 300 ml - Frutos Rojos, Algodon, Jazmin, Mora y Almendras', brand:'Natura', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/jabon-liquido-tododia-natura-frutos-rojos-algodon-mora-e-7910-MLA5307822848_102013-O.jpg', "category_ids" => salud_category._id)
+salud_5_product = Product.new(name: 'Peeling Mandelico Pieles Jovenes Poros Acne Rosacea Arrugas', description: 'Peeling Mandelico Pieles Jovenes Poros Acne Rosacea Arrugas - 75 ml', brand:'Idraet', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/peeling-mandelico-pieles-jovenes-poros-acne-rosacea-arrugas-7426-MLA5217827896_102013-O.jpg', "category_ids" => salud_category._id)
+relajacion_1_product = Product.new(name: 'Day Spa Platinum All Inclusive En Little Ranch Hotel Spa', description: 'Day Spa Platinum All Inclusive En Little Ranch Hotel Spa - El Hotel Se Encuentra Ubicado En Del Viso, Sobre Panamericana Ramal Pilar', brand:'Little Ranch Hotel Spa', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/day-spa-platinum-all-inclusive-en-little-ranch-hotel-spa-6755-MLA5109228369_092013-O.jpg', "category_ids" => relajacion_category._id)
+relajacion_2_product = Product.new(name: 'Camilla Termo Masajeadora Ceragem', description: 'Camilla Termo Masajeadora Ceragem En Villa Urquiza', brand:'Ceragem', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/camilla-termo-masajeadora-ceragem-en-villa-urquiza-5752-MLA4996156464_092013-O.jpg', "category_ids" => relajacion_category._id)
+relajacion_3_product = Product.new(name: 'Sillon Masajeador 8 Motores Relax Calor Reclinable', description: 'Sillon Masajeador 8 Motores Relax Calor Reclinable', brand:'Insuoffice', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/sillon-masajeador-8-motores-relax-calor-reclinable-garantia-4085-MLA128727871_743-O.jpg', "category_ids" => relajacion_category._id)
+ropa_mujer_1_product = Product.new(name: 'Zuecos Cuero Gamuzado', description: 'Zuecos Cuero Gamuzado - Talles Del 35 Al 40', brand:'Nina Molina', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/zuecos-cuero-gamuzado-regalo-dia-de-la-madre-6735-MLA5107904197_092013-F.jpg', "category_ids" => ropa_mujer_category._id)
+ropa_mujer_2_product = Product.new(name: 'Blazer Importado Entallado Interior Forrado', description: 'Blazer Importado Entallado Interior Forrado Talles Xs - L', brand:'Amora', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/blazer-importado-entallado-interior-forrado-talles-xs-l-7555-MLA5237322541_102013-O.jpg', "category_ids" => ropa_mujer_category._id)
+ropa_mujer_3_product = Product.new(name: 'Camisa Manga Larga Rayada', description: 'Camisa Manga Larga Rayada - Talles S, M y L', brand:'Koxis', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/camisa-manga-larga-rayada-koxis-6803-MLA5120355649_092013-F.jpg', "category_ids" => ropa_mujer_category._id)
+ropa_hombre_1_product = Product.new(name: 'Camisas Abercrombie Leñadoras ', description: 'Camisas Abercrombie Leñadoras Originales Importadas Jmoulet', brand:'Abercrombie & Fitch', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/camisas-abercrombie-lenadoras-originales-importadas-jmoulet-5368-MLA4348894682_052013-O.jpg', "category_ids" => ropa_hombre_category._id)
+ropa_hombre_2_product = Product.new(name: 'Montgomery Zara Para Hombre', description: 'Montgomery Zara Para Hombre', brand:'Zara', approved: 'true', photo_url:'http://img2.mlstatic.com/montgomery-zara-para-hombre-excelente-calidad_MLA-O-2947660518_072012.jpg', "category_ids" => ropa_hombre_category._id)
+ropa_hombre_3_product = Product.new(name: 'Corbatas Finitas Importadas Especiales Las Grandes Marcas', description: 'Corbatas Finitas Importadas Especiales Las Grandes Marcas', brand:'Las Grandes Marcas', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/corbatas-finitas-importadas-especiales-las-grandes-marcas-4208-MLA2890990046_072012-O.jpg', "category_ids" => ropa_hombre_category._id)
+libro_novela_1_product = Product.new(name: 'Cincuenta Sombras De Grey - Saga Completa - L. James', description: 'Cincuenta Sombras De Grey - Saga Completa - L. James', brand:'Editorial Grijalbo', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/cincuenta-sombras-de-grey-saga-completa-l-james-4967-MLA4940814079_082013-O.jpg', "category_ids" => libro_novela_category._id)
+libro_novela_2_product = Product.new(name: 'Infierno - Dan Brown', description: 'Infierno - Dan Brown - 2013 - Idioma Castellano', brand:'Editorial Planeta', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/inferno-dan-brown-6006-MLA4568817571_062013-F.jpg', "category_ids" => libro_novela_category._id)
+libro_novela_3_product = Product.new(name: 'Rayuela - Julio Cortázar', description: 'Rayuela - Julio Cortázar', brand:'Editorial Cátedra', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/julio-cortazar-rayuela-editorial-catedra-5107-MLA4184440215_042013-O.jpg', "category_ids" => libro_novela_category._id)
+libro_suspenso_1_product = Product.new(name: 'Camino Sin Retorno - S. Alfredo Gallone', description: 'Camino Sin Retorno - S. Alfredo Gallone', brand:'Lajouane', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/libro-camino-sin-retorno-1978-MLA4771898443_082013-F.jpg', "category_ids" => libro_suspenso_category._id)
+libro_suspenso_2_product = Product.new(name: 'El Psicoanalísta - John Katzenbach', description: 'El Psicoanalísta - John Katzenbach - Novela Policial Thriller', brand:'Negra Zeta', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/el-psicoanalista-john-katzenbach-novela-policial-thriller-300-MLA4676013568_072013-O.jpg', "category_ids" => libro_suspenso_category._id)
+libro_filosofia_1_product = Product.new(name: 'W.K.C. Guthrie Historia De La Filosofía Griega', description: 'W.K.C. Guthrie Historia De La Filosofía Griega - Obra Completa 3 Tomos Edición 2012', brand:'Editorial Gredos', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/wkc-guthrie-historia-de-la-filosofia-griega-edit-gredos-5815-MLA5007154459_092013-F.jpg', "category_ids" => libro_filosofia_category._id)
+libro_filosofia_2_product = Product.new(name: 'Friedrich Nietzsche Ecce Homo', description: 'Friedrich Nietzsche Ecce Homo - Libros La Abadía', brand:'Alianza Editorial', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/friedrich-nietzsche-ecce-homo-alianza-editorial-4826-MLA3912859459_032013-O.jpg', "category_ids" => libro_filosofia_category._id)
+libro_infantiles_1_product = Product.new(name: 'Caídos Del Mapa - Edición Especial - María Inés Falconi', description: 'Caídos Del Mapa - Edición Especial - María Inés Falconi', brand:'Quipu', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/caidos-del-mapa-edicion-especial-maria-ines-falconi-6466-MLA5065752802_092013-F.jpg', "category_ids" => libro_infantiles_category._id)
+libro_infantiles_2_product = Product.new(name: 'Cuentos Infantiles', description: 'Cuentos Infantiles - Con Actividades Para Niños', brand:'Oceano', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/hermoso-libro-de-cuentos-infantiles-4377-MLA3512867546_122012-O.jpg', "category_ids" => libro_infantiles_category._id)
+libro_infantiles_3_product = Product.new(name: 'Libro Para Niños Dora La Exploradora, Colores De Nickelodeon', description: 'Libro Para Niños Dora La Exploradora, Colores De Nickelodeon', brand:'Distal Libros', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/libro-para-ninos-dora-la-exploradora-colores-de-nickelodeon-6012-MLA4546260946_062013-O.jpg', "category_ids" => libro_infantiles_category._id)
+libro_arte_1_product = Product.new(name: 'Coleccion Completa Grandes Pintores Del Siglo XX', description: 'Coleccion Completa Grandes Pintores Del Siglo XX - Son 48 Tomos De 32 Hojas Aprox. 50 Páginas', brand:'Globus', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/vendo-coleccion-completa-grandes-pintores-del-siglo-xx-6561-MLA5081815464_092013-F.jpg', "category_ids" => libro_arte_category._id)
+libro_arte_2_product = Product.new(name: 'Contactos Americanos - David Santoandré', description: 'Contactos Americanos - David Santoandré - Libro De Fotografía', brand:'', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/libro-de-fotografia-contactos-americanos--6622-MLA5093250878_092013-F.jpg', "category_ids" => libro_arte_category._id)
+libro_arte_3_product = Product.new(name: 'Maestros De La Pintura - 19 Tomos', description: 'Maestros De La Pintura - 19 Tomos', brand:'Editorial Planeta', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/libreriaweb-maestros-de-la-pintura-19-tomos-4780-MLA3839532069_022013-F.jpg', "category_ids" => libro_arte_category._id)
+libro_autoayuda_1_product = Product.new(name: 'Un Curso De Milagros. Foundation For Inner Peace', description: 'Un Curso De Milagros. Foundation For Inner Peace - Espacio Temático Especializado', brand:'Libros Catanael', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/un-curso-de-milagros-foundation-for-inner-peace-1841-MLA4768865320_082013-O.jpg', "category_ids" => libro_autoayuda_category._id)
+libro_autoayuda_2_product = Product.new(name: 'Hay Una Cura Para La Diabetes. Gabriel Cousens', description: 'Hay Una Cura Para La Diabetes - Programa De 21 Días Del Tree Of Life', brand:'Editorial Epidauro', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/libro-hay-una-cura-para-la-diabetes-gabriel-cousens-4890-MLA3935688425_032013-O.jpg', "category_ids" => libro_autoayuda_category._id)
+libro_autoayuda_3_product = Product.new(name: 'Nutricion Depurativa. Naturismo. Nestor Palmetti', description: 'Nutricion Depurativa. Naturismo. Nestor Palmetti', brand:'Espacio Depurativo', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/nutricion-depurativa-naturismo-nestor-palmetti-1863-MLA4768733256_082013-O.jpg', "category_ids" => libro_autoayuda_category._id)
+libro_ficcion_1_product = Product.new(name: 'Arrastrado Por El Mar - Nora Roberts', description: 'Arrastrado Por El Mar - Nora Roberts', brand:'Debolsillo', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/arrastrado-por-el-mar-nora-roberts-en-papel-6540-MLA5078843227_092013-O.jpg', "category_ids" => libro_ficcion_category._id)
+libro_ficcion_2_product = Product.new(name: 'Falsas Apariencias - Noelia Amarillo', description: 'Falsas Apariencias - Noelia Amarillo', brand:'Terciopelo Bolsillo', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/falsas-apariencias-en-papel-noelia-amarillo-6594-MLA5078878760_092013-F.jpg', "category_ids" => libro_ficcion_category._id)
+libro_ficcion_3_product = Product.new(name: 'Luna Comanche - Catherine Anderson', description: 'Luna Comanche - Catherine Anderson', brand:'Terciopelo', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/luna-comanche-corazon-comanche-en-papel--6524-MLA5078900268_092013-O.jpg', "category_ids" => libro_ficcion_category._id)
+indumentaria_futbol_hombre_1_product = Product.new(name: 'Botines Adidas F10 Trx Fg', description: 'Botines Adidas F10 Trx Fg', brand:'Adidas', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/botines-adidas-f10-trx-fg-envio-sin-cargo-7976-MLA5303922312_102013-O.jpg', "category_ids" => indumentaria_futbol_hombre_category._id)
+indumentaria_futbol_hombre_2_product = Product.new(name: 'Short Futbol Hombre Liso ', description: 'Short Futbol Hombre Liso Ideal Para Equipos', brand:'Mix Sport', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/short-futbol-hombre-liso-ideal-para-equipos-packs-camisetas-5543-MLA4452829392_062013-F.jpg', "category_ids" => indumentaria_futbol_hombre_category._id)
+indumentaria_futbol_hombre_3_product = Product.new(name: 'Canilleras SNS Fútbol', description: 'Canilleras SNS Fútbol - Reforzadas, Ultralivianas, Talles S, M, L', brand:'SNS', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/canilleras-sns-futbol-hockey-rugby-ultralivianas-7626-MLA5253180379_102013-F.jpg', "category_ids" => indumentaria_futbol_hombre_category._id)
+indumentaria_futbol_mujer_1_product = Product.new(name: 'Pelota Nº5 Nike Rosa Femenina Original', description: 'Pelota Nº5 Nike Rosa Femenina Original', brand:'Nike', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/pelota-n5-nike-rosa-femenina-originalunicas-en-el-sitio--6143-MLA4629493882_072013-O.jpg', "category_ids" => indumentaria_futbol_mujer_category._id)
+indumentaria_futbol_mujer_2_product = Product.new(name: 'Nike Livestrong Dash Shorts Mujer - Dri Fit', description: 'Nike Livestrong Dash Shorts Mujer - Dri Fit - Talles S, M, L', brand:'Nike', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/nike-livestrong-dash-shorts-mujer-dri-fit-talle-m-5367-MLA4963012522_092013-O.jpg', "category_ids" => indumentaria_futbol_mujer_category._id)
+indumentaria_futbol_mujer_3_product = Product.new(name: 'Top De Training Topper Fitness Mujer', description: 'Top De Training Topper Fitness Mujer - Prenda Sin Costuras - 90% Poliamida, 10% Elastano', brand:'Topper', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/top-de-training-topper-fitness-mujer-156697-7245-MLA5180194025_102013-F.jpg', "category_ids" => indumentaria_futbol_mujer_category._id)
+indumentaria_basquet_hombre_1_product = Product.new(name: 'Camiseta NBA San Antonio', description: 'Camiseta NBA San Antonio', brand:'Adidas', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/camiseta-nba-san-antonio-spurs-lakers-ginobili-bryant-y-mas-6129-MLA4591812485_072013-O.jpg', "category_ids" => indumentaria_basquet_hombre_category._id)
+indumentaria_basquet_hombre_2_product = Product.new(name: 'Zapatillas Basquet Original - Adizero', description: 'Zapatillas Basquet Original - Adizero - Variedad De Colores', brand:'Adidas', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/zapatillas-basquet-original-a-pedido-adidas-adizero-cquick-7070-MLA5145716630_102013-F.jpg', "category_ids" => indumentaria_basquet_hombre_category._id)
+indumentaria_basquet_hombre_3_product = Product.new(name: 'Mascara Protectora Orbitas Pomulos Nariz', description: 'Mascara Protectora Orbitas Pomulos Nariz', brand:'Drial', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/mascara-protectora-orbitas-pomulos-nariz-deportes-varios-5423-MLA4405041599_052013-O.jpg', "category_ids" => indumentaria_basquet_hombre_category._id)
+portarretratos_albumes_1_product = Product.new(name: 'Portarretrato digital', description: 'Portarretrato digital SPF71E. Diseño simple y con estilo. Memoria interna 120MB. Tamaño de pantalla: 7 - 17cm (wide).', brand:'Samsung', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/portraretrato-digital-samsung-spf-71e-nuevos-154-MLA4666798646_072013-O.jpg', "category_ids" => portarretratos_albumes_category._id)
+portarretratos_albumes_2_product = Product.new(name: 'Portarretrato sin marco', description: 'Portarretrato convencional de vidrio sin marco 20x30cm', brand:'MoonGlass', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/portarretrato-de-vidrio-sin-marco-20x30-cm-6290-MLA82011392_9533-O.jpg', "category_ids" => portarretratos_albumes_category._id)
+portarretratos_albumes_3_product = Product.new(name: 'Álbum de fotos', description: 'Álbum de viaje para 200 fotos 13x18cm (ph57200/m-tr)', brand:'Travel', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/album-de-viaje-p200-fotos-13x18-cm-ph57200m-tr-6389-MLA5055448364_092013-F.jpg', "category_ids" => portarretratos_albumes_category._id)
+videocamaras_1_product = Product.new(name: 'Filmadora Digital Full HD', description: 'Filmadora digital full HD 1080p. Zoom óptico 20x. Lente Schneider. Fotos 5Mpx. Pantalla táctil LCD 2.7 pulgadas. Sensor CMOS. Estabilizados OIS Duo y WiFi.', brand:'Samsung', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/filmadora-digital-full-hd-samsung-hmx-q10-zoom-20x-8gb-sd-5447-MLA4387661823_052013-F.jpg', "category_ids" => videocamaras_category._id)
+videocamaras_2_product = Product.new(name: 'Filmadora HD Kodak', description: 'Filmadora Hd Kodak Zx5 Resistente Al Agua Full Hd 1080', brand:'Kodak', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/filmadora-hd-kodak-zx5-resistente-al-agua-full-hd-1080-5692-MLA4977271239_092013-O.jpg', "category_ids" => videocamaras_category._id)
+videocamaras_3_product = Product.new(name: 'Filmadora Panasonic M7', description: 'Cámara filmado M7 con accesorios y manual.', brand:'Panasonic', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/camara-filmadora-panasonic-m7-5250-MLA4282853744_052013-F.jpg', "category_ids" => videocamaras_category._id)
+indumentaria_tenis_hombre_1_product = Product.new(name: 'Shorts Head - 360 ProShop', description: 'Shorts Head - 360 ProShop - Negro, Azul, Blanco', brand:'Head', approved: 'true', photo_url:'http://img2.mlstatic.com/shorts-head-nuevos-negroazulblanco-360proshop_MLA-O-3174368840_092012.jpg', "category_ids" => indumentaria_tenis_hombre_category._id)
+indumentaria_tenis_hombre_2_product = Product.new(name: 'Muñequeras Head X 2 Un. 10 Cms - 360 ProShop', description: 'Muñequeras Head X 2 Un. 10 Cms - Varios Colores - 360 ProShop', brand:'Head', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/munequeras-head-x-2-un-10-cms-varios-colores360proshop-5573-MLA4476166497_062013-O.jpg', "category_ids" => indumentaria_tenis_hombre_category._id)
+indumentaria_tenis_hombre_3_product = Product.new(name: 'Vincha De Tenis Head', description: 'Vincha De Tenis Head - 3 Colores', brand:'Head', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/vincha-y-munequera-de-tenis-head-3-colores-super-oferta-6217-MLA99712443_6665-O.jpg', "category_ids" => indumentaria_tenis_hombre_category._id)
+celulares_1_product = Product.new(name: 'Galaxy S3 Mini', description: 'Samsung Smartphone S3 Mini con Android 4. LIBERADO', brand:'Samsung', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/celular-smartphone-liberado-mini-s3-android-4-dual-sim-wifi-5280-MLA4294996396_052013-F.jpg', "category_ids" => celulares_category._id)
+celulares_2_product = Product.new(name: 'Nokia Asha 311', description: 'Nokia Ashaa 311, nuevo, liberado con 2GB de memoria interna. Con garantía y cámara de 3Mp.', brand:'Nokia', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/nokia-asha-311-nuevos-libres-2gb-gtia-camara-3mp-5117-MLA4217414210_042013-O.jpg', "category_ids" => celulares_category._id)
+celulares_3_product = Product.new(name: 'LG Optimus L5 E620', description: 'LG Optimus L5 E620 con Android 4 nuevo, liberado y con garantía.', brand:'LG', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/lg-optimus-l5-e620-android-nuevos-libres-garantia-6398-MLA5058144119_092013-O.jpg', "category_ids" => celulares_category._id)
+celulares_4_product = Product.new(name: 'iPhone 5', description: 'iPhone 5 16GB. Pantalla de 4 pulgadas, liberado. Con WiFi. Chip A6 iOS6.', brand:'Apple', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/apple-iphone-5-16gb-pantalla-4-wifi-liberado-chip-a6-ios6-5489-MLA4409239472_052013-F.jpg', "category_ids" => celulares_category._id)
+accesorios_celulares_1_product = Product.new(name: 'Funda Galaxy S4', description: 'Funda Flip Cover S-View Original para Samsung Galaxy S4 + Film', brand:'Samsung', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/funda-flip-cover-s-view-original-samsung-galaxy-s4-film-5524-MLA4459130853_062013-O.jpg', "category_ids" => accesorios_celulares_category._id)
+accesorios_celulares_2_product = Product.new(name: 'Memoria Micro SdHc 16GB', description: 'Memoria SdHC 16GB Clase 4 en microcentro. Marca Kingston. Garantía de por vida del fabricante.', brand:'Kingston', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/memoria-micro-sd-hc-16gb-clase-4-mejor-precio-microcentro-4116-MLA2653363288_052012-O.jpg', "category_ids" => accesorios_celulares_category._id)
+accesorios_celulares_3_product = Product.new(name: 'Cargador portátil USB', description: 'Cargador portátil USB Sony. Sirve para celular, tablet, iPad y MP3. ', brand:'Sony', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/cargador-portatil-usb-sony-bateria-pcelulartabletipadmp3-4135-MLA4896419789_082013-O.jpg', "category_ids" => accesorios_celulares_category._id)
+indumentaria_tenis_mujer_1_product = Product.new(name: 'Zapatillas Wilson Trance Impact - 360 ProShop', description: 'Zapatillas Wilson Trance Impact - 360 ProShop', brand:'Wilson', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/zapatillas-wilson-trance-impact-mujeres-360proshop-4907-MLA3975383779_032013-O.jpg', "category_ids" => indumentaria_tenis_mujer_category._id)
+indumentaria_tenis_mujer_2_product = Product.new(name: 'Calza Con Pollera De Tenis Topper Mujer (156484)', description: 'Calza Con Pollera De Tenis Topper Mujer (156484) - Negro, Gris', brand:'Topper', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/calza-con-pollera-de-tenis-topper-mujer-156484-7125-MLA5167775944_102013-F.jpg', "category_ids" => indumentaria_tenis_mujer_category._id)
+indumentaria_tenis_mujer_3_product = Product.new(name: 'Pollera Con Short, Adidas', description: 'Pollera Con Short, Adidas - Talles S, M, L', brand:'Adidas', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/pollera-con-short-adidas-tenisjockey-talle-m-8017-MLA5321477803_112013-F.jpg', "category_ids" => indumentaria_tenis_mujer_category._id)
+indumentaria_golf_hombre_1_product = Product.new(name: 'Zapatilla De Golf Adidas Adicross', description: 'Zapatilla De Golf Adidas Adicross - Color Blanco Y Negro - Incluye 2 Cordones', brand:'Adidas', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/zapatilla-de-golf-adidas-adicross-envios-a-todo-el-pais-5-MLA4654230918_072013-O.jpg', "category_ids" => indumentaria_golf_hombre_category._id)
+indumentaria_golf_hombre_2_product = Product.new(name: 'Kaddygolf - Guante Sintetico Para Golf', description: 'Kaddygolf - Guante Sintetico Para Golf Con Refuerzo De Cabertilla', brand:'Intech', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/kaddygolf-guante-sintetico-para-golf-hombre-y-mujer-6132-MLA4605236861_072013-O.jpg', "category_ids" => indumentaria_golf_hombre_category._id)
+indumentaria_golf_hombre_3_product = Product.new(name: 'Cinturon De La Linea Golf De Adidas', description: 'Cinturon De La Linea Golf De Adidas - Colores Blanco Y Negro', brand:'Adidas', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/exclusivo-cinturon-de-la-linea-golf-de-adidas-importados-5742-MLA4989558817_092013-O.jpg', "category_ids" => indumentaria_golf_hombre_category._id)
+indumentaria_golf_mujer_1_product = Product.new(name: 'Kaddygolf Zapatos Puma Tour Saddle', description: 'Kaddygolf Zapatos Puma Tour Saddle - Impermeables - Tapones Intercambiables', brand:'Puma', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/kaddygolf-zapatos-puma-tour-saddle-dama--4490-MLA4913469670_082013-O.jpg', "category_ids" => indumentaria_golf_mujer_category._id)
+indumentaria_golf_mujer_2_product = Product.new(name: 'Zapatos De Dama Foot Joy Footjoy Lopro', description: 'Zapatos De Dama Foot Joy Footjoy Lopro #97217', brand:'Foot Joy', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/zapatos-de-dama-foot-joy-footjoy-lopro-97217-4922-MLA3937393381_032013-F.jpg', "category_ids" => indumentaria_golf_mujer_category._id)
+indumentaria_golf_mujer_3_product = Product.new(name: 'Campera Buzo Nike Golf Dri Fit', description: 'Campera Buzo Nike Golf Dri Fit - Frizada En El Interior', brand:'Nike', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/campera-buzo-nike-golf-dri-fit-dama-5449-MLA4380152324_052013-O.jpg', "category_ids" => indumentaria_golf_mujer_category._id)
+energizantes_1_product = Product.new(name: 'Red Bull', description: 'Revitalizador de cuerpo y alma', brand:'Red Bull', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/red-bull-4123-MLA2771584970_062012-O.jpg', "category_ids" => energizantes_category._id)
+energizantes_2_product = Product.new(name: 'Speed', description: 'Energizante.', brand:'Speed', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/speed-unlimited-250-ml-consultar-por-envio-sin-cargo-7221-MLA5185131678_102013-O.jpg', "category_ids" => energizantes_category._id)
+indumentaria_natacion_hombre_1_product = Product.new(name: 'Malla Slip Speedo Natacion New Monogram', description: 'Traje De Baño - Malla Slip Speedo Natacion New Monogram', brand:'Speedo', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/traje-de-bano-malla-slip-speedo-natacion-new-monogram-6965-MLA5137435995_102013-O.jpg', "category_ids" => indumentaria_natacion_hombre_category._id)
+indumentaria_natacion_hombre_2_product = Product.new(name: 'Short Aquashort Speedo Lane', description: 'Short Aquashort Speedo Lane - Endurance', brand:'Speedo', approved: 'true', photo_url:'http://bimg1.mlstatic.com/short-aquashort-speedo-lane_MLA-F-3172169171_092012.jpg', "category_ids" => indumentaria_natacion_hombre_category._id)
+indumentaria_natacion_hombre_3_product = Product.new(name: 'Malla Larga Sharkskin Talle 32 Xl Junior Comp. Natación', description: 'Malla Larga Sharkskin Talle 32 Xl Junior Comp. Natación', brand:'Speedo', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/malla-larga-sharkskin-talle-32-xl-junior-comp-natacion-6825-MLA5110837916_092013-O.jpg', "category_ids" => indumentaria_natacion_hombre_category._id)
+indumentaria_natacion_mujer_1_product = Product.new(name: 'Malla de natación ', description: 'Malla Natacion De Dama Konna Deportes Acuaticos Pileta Buceo', brand:'Konna', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/malla-natacion-de-dama-konna-deportes-acuaticos-pileta-buceo-6205-MLA60464180_5711-O.jpg', "category_ids" => indumentaria_natacion_mujer_category._id)
+indumentaria_natacion_mujer_2_product = Product.new(name: 'Malla Para mujer de natación', description: 'Malla P/mujer Natacion Con Piernas Konna Talles:s AL XXL', brand:'Konna', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/malla-pmujer-natacion-con-piernas-konna-talless-al-xxl-5347-MLA4318951266_052013-F.jpg', "category_ids" => indumentaria_natacion_mujer_category._id)
+indumentaria_natacion_mujer_3_product = Product.new(name: 'Show de mujer para natación', description: 'Short De Mujer Para Natacion Malla De Mujer Natacion - Anticloro', brand:'Swimming-Sym', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/short-de-mujer-para-natacion-malla-de-mujer-natacion-7293-MLA5181478808_102013-O.jpg', "category_ids" => indumentaria_natacion_mujer_category._id)
+indumentaria_hockey_hombre_product = Product.new(name: 'Casco de Hockey', description: 'Casco Obo Promite Certificado Arquero Hockey Cesped', brand:'OBO', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/casco-obo-promite-certificado-arquero-hockey-cesped-4112-MLA2841640848_062012-O.jpg', "category_ids" => indumentaria_hockey_hombre_category._id)
+indumentaria_hockey_hombre_product = Product.new(name: 'Fundas para palos de Hockey', description: 'Funda para palo de hockey, lavable y super resistente, con correa graduable, varios colores y motivos para elegir, lisas o estampadas.', brand:'Gellios', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/fundas-para-palos-de-hockey-4140-MLA2662679301_052012-O.jpg', "category_ids" => indumentaria_hockey_hombre_category._id)
+indumentaria_hockey_hombre_product = Product.new(name: 'Pizarra Magnética para Hockey', description: 'Pizarra Magnética Táctica De Dt C/carpeta - Hockey - Permite escribir con fibra sobre la superficie de la cancha y luego borrar. Ideal para marcar posiciones y jugadas     relacionadas al partido.', brand:'Soldaduras y Aluminio', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/pizarra-magnetica-tactica-de-dt-ccarpeta-hockey--4079-MLA114019167_3053-F.jpg', "category_ids" => indumentaria_hockey_hombre_category._id)
+indumentaria_hockey_mujer_1_product = Product.new(name: 'Casco de Hockey', description: 'Casco Obo Promite Certificado Arquero Hockey Cesped', brand:'OBO', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/casco-obo-promite-certificado-arquero-hockey-cesped-4112-MLA2841640848_062012-O.jpg', "category_ids" => indumentaria_hockey_mujer_category._id)
+indumentaria_hockey_mujer_2_product = Product.new(name: 'Fundas para palos de Hockey', description: 'Funda para palo de hockey, lavable y super resistente, con correa graduable, varios colores y motivos para elegir, lisas o estampadas.', brand:'Gellios', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/fundas-para-palos-de-hockey-4140-MLA2662679301_052012-O.jpg', "category_ids" => indumentaria_hockey_mujer_category._id)
+indumentaria_hockey_mujer_3_product = Product.new(name: 'Pizarra Magnética para Hockey', description: 'Pizarra Magnética Táctica De Dt C/carpeta - Hockey - Permite escribir con fibra sobre la superficie de la cancha y luego borrar. Ideal para marcar posiciones y jugadas     relacionadas al partido.', brand:'Soldaduras y Aluminio', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/pizarra-magnetica-tactica-de-dt-ccarpeta-hockey--4079-MLA114019167_3053-F.jpg', "category_ids" => indumentaria_hockey_mujer_category._id)
+indumentaria_voley_hombre_1_product = Product.new(name: 'Zapatillas Olympikus Modelo Voley Golden', description: 'Zapatillas Olympikus Modelo Voley Golden Color Blanco - Azul', brand:'Olympikus', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/zapatillas-olympikus-modelo-voley-golden-color-blancoazul-4948-MLA4008018197_032013-F.jpg', "category_ids" => indumentaria_voley_hombre_category._id)
+indumentaria_voley_hombre_2_product = Product.new(name: 'Rodillera Protectora Drb Profesional Volley', description: 'Rodillera Protectora Drb Profesional Volley - Protecciones', brand:'DBR Dribbling', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/rodillera-protectora-drb-profesional-volley-tenis-global-4191-MLA2788789666_062012-O.jpg', "category_ids" => indumentaria_voley_hombre_category._id)
+indumentaria_voley_hombre_3_product = Product.new(name: 'Pelota De Voley Nº5 Oficial Drial Beach Volley Sintetica', description: 'Pelota De Voley Nº5 Oficial Drial Beach Volley Sintetica', brand:'Drial', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/pelota-de-voley-n5-oficial-drial-beach-volley-sintetica-7203-MLA5184327232_102013-O.jpg', "category_ids" => indumentaria_voley_hombre_category._id)
+indumentaria_voley_mujer_product = Product.new(name: 'Calzas para Voley', description: 'Calzas De Mujer Asics Duotech Voley / Handball /aerobics', brand:'Asics', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/calzas-de-mujer-asics-duotech-voley-handball-aerobics-3903-MLA4886720001_082013-F.jpg', "category_ids" => indumentaria_voley_mujer_category._id)
+indumentaria_voley_mujer_product = Product.new(name: 'Camiseta de Voley', description: 'Camisetas De Voley, Hockey Y Handball Femenino Personalizada', brand:'Kic Out', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/camisetas-de-voley-hockey-y-handball-femenino-personalizada-5533-MLA4467702579_062013-F.jpg', "category_ids" => indumentaria_voley_mujer_category._id)
+indumentaria_voley_mujer_product = Product.new(name: 'Camiseta Cozy de Voley', description: 'Camisetas De Dama Cozy Sport Futbol-voley-hockey-running', brand:'Cozy Sport', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/camisetas-de-dama-cozy-sport-futbol-voley-hockey-running-6123-MLA4611000414_072013-F.jpg', "category_ids" => indumentaria_voley_mujer_category._id)
 
 puts "done."
 
@@ -680,10 +819,10 @@ gps3_product.save
 soportegps_product.save
 soportegps2_product.save
 soportegps3_product.save
-entradas_eventos_product.save
-entradas_eventos_product.save
-entradas_eventos_product.save
-entradas_eventos_product.save
+entradas_eventos_1_product.save
+entradas_eventos_2_product.save
+entradas_eventos_3_product.save
+entradas_eventos_4_product.save
 metronomo_product.save
 afinador_product.save
 metronomo2_product.save
@@ -712,6 +851,151 @@ patineta_product.save
 helicoptero_product.save
 autito_product.save
 autito2_product.save
+peliculas_series_1_product.save
+peliculas_series_2_product.save
+peliculas_series_3_product.save
+peliculas_series_4_product.save
+peliculas_series_5_product.save
+musica_alternativa_1_product.save
+musica_alternativa_2_product.save
+musica_alternativa_3_product.save
+musica_clasica_1_product.save
+musica_clasica_2_product.save
+musica_bandas_sonoras_1_product.save
+musica_bandas_sonoras_2_product.save
+musica_blues_jazz_1_product.save
+musica_blues_jazz_2_product.save
+musica_blues_jazz_3_product.save
+musica_cumbia_cuarteto_1_product.save
+musica_cumbia_cuarteto_2_product.save
+musica_cumbia_cuarteto_3_product.save
+musica_cumbia_cuarteto_4_product.save
+musica_dance_1_product.save
+musica_dance_2_product.save
+musica_dance_3_product.save
+musica_electronica_1_product.save
+musica_electronica_2_product.save
+musica_electronica_3_product.save
+musica_folklore_1_product.save
+musica_folklore_2_product.save
+musica_funk_1_product.save
+musica_funk_2_product.save
+musica_heavy_metal_1_product.save
+musica_heavy_metal_2_product.save
+musica_hip_hop_1_product.save
+musica_hip_hop_2_product.save
+musica_infantil_1_product.save
+musica_infantil_2_product.save
+musica_instrumental_1_product.save
+musica_instrumental_2_product.save
+musica_karaoke_1_product.save
+musica_karaoke_2_product.save
+musica_pop_1_product.save
+musica_pop_2_product.save
+musica_pop_3_product.save
+musica_pop_4_product.save
+musica_ska_1_product.save
+musica_ska_2_product.save
+musica_ska_3_product.save
+musica_reggae_1_product.save
+musica_reggae_2_product.save
+musica_nacional_1_product.save
+musica_nacional_2_product.save
+musica_nacional_3_product.save
+musica_nacional_4_product.save
+musica_internacional_1_product.save
+musica_internacional_2_product.save
+musica_internacional_3_product.save
+musica_internacional_4_product.save
+musica_tango_1_product.save
+musica_tango_2_product.save
+salud_1_product.save
+salud_2_product.save
+salud_3_product.save
+salud_4_product.save
+salud_5_product.save
+relajacion_1_product.save
+relajacion_2_product.save
+relajacion_3_product.save
+ropa_mujer_1_product.save
+ropa_mujer_2_product.save
+ropa_mujer_3_product.save
+ropa_hombre_1_product.save
+ropa_hombre_2_product.save
+ropa_hombre_3_product.save
+libro_novela_1_product.save
+libro_novela_2_product.save
+libro_novela_3_product.save
+libro_suspenso_1_product.save
+libro_suspenso_2_product.save
+libro_filosofia_1_product.save
+libro_filosofia_2_product.save
+libro_infantiles_1_product.save
+libro_infantiles_2_product.save
+libro_infantiles_3_product.save
+libro_arte_1_product.save
+libro_arte_2_product.save
+libro_arte_3_product.save
+libro_autoayuda_1_product.save
+libro_autoayuda_2_product.save
+libro_autoayuda_3_product.save
+libro_ficcion_1_product.save
+libro_ficcion_2_product.save
+libro_ficcion_3_product.save
+indumentaria_futbol_hombre_1_product.save
+indumentaria_futbol_hombre_2_product.save
+indumentaria_futbol_hombre_3_product.save
+indumentaria_futbol_mujer_1_product.save
+indumentaria_futbol_mujer_2_product.save
+indumentaria_futbol_mujer_3_product.save
+indumentaria_basquet_hombre_1_product.save
+indumentaria_basquet_hombre_2_product.save
+indumentaria_basquet_hombre_3_product.save
+portarretratos_albumes_1_product.save
+portarretratos_albumes_2_product.save
+portarretratos_albumes_3_product.save
+videocamaras_1_product.save
+videocamaras_2_product.save
+videocamaras_3_product.save
+indumentaria_tenis_hombre_1_product.save
+indumentaria_tenis_hombre_2_product.save
+indumentaria_tenis_hombre_3_product.save
+celulares_1_product.save
+celulares_2_product.save
+celulares_3_product.save
+celulares_4_product.save
+accesorios_celulares_1_product.save
+accesorios_celulares_2_product.save
+accesorios_celulares_3_product.save
+indumentaria_tenis_mujer_1_product.save
+indumentaria_tenis_mujer_2_product.save
+indumentaria_tenis_mujer_3_product.save
+indumentaria_golf_hombre_1_product.save
+indumentaria_golf_hombre_2_product.save
+indumentaria_golf_hombre_3_product.save
+indumentaria_golf_mujer_1_product.save
+indumentaria_golf_mujer_2_product.save
+indumentaria_golf_mujer_3_product.save
+energizantes_1_product.save
+energizantes_2_product.save
+indumentaria_natacion_hombre_1_product.save
+indumentaria_natacion_hombre_2_product.save
+indumentaria_natacion_hombre_3_product.save
+indumentaria_natacion_mujer_1_product.save
+indumentaria_natacion_mujer_2_product.save
+indumentaria_natacion_mujer_3_product.save
+indumentaria_hockey_hombre_product.save
+indumentaria_hockey_hombre_product.save
+indumentaria_hockey_hombre_product.save
+indumentaria_hockey_mujer_1_product.save
+indumentaria_hockey_mujer_2_product.save
+indumentaria_hockey_mujer_3_product.save
+indumentaria_voley_hombre_1_product.save
+indumentaria_voley_hombre_2_product.save
+indumentaria_voley_hombre_3_product.save
+indumentaria_voley_mujer_product.save
+indumentaria_voley_mujer_product.save
+indumentaria_voley_mujer_product.save
 
 puts "done"
 
@@ -721,35 +1005,529 @@ puts "done"
 
 print "Creating sellers..."
 
-#sellers = []
+sellers = []
 
-#(1..5).each do |s|
-#  s = Seller.new(first_name: Faker::Name.first_name,
-#    last_name: Faker::Name.last_name,
-#    email: Faker::Internet.email,
-#    banned: false,
-#    password: password,
-#    password_confirmation: password_confirmation,
-#    active: true)
-#  sellers.push(s)
-#end
-
-
+#Seller 0
 s = Seller.new(
-	company_name: 'Autopartes warnes'
-	web: 'www.autoparteswarners.com.ar'
-	location: 'Warnes 1354'
-	phone: '4958-9785'
-	email: 'autopartes@warnes.com.ar',
 	banned: false,
 	password: password,
 	password_confirmation: password_confirmation,
-	active: true
 	)
-	sellers.push(s)
-end
+sellers.push(s)
+
+sellers[0].company_name = 'Warnes Car'
+sellers[0].web = 'http://www.warnescar.com/'
+sellers[0].active = active
+sellers[0].email = 'murray@warnescar.com'
+sellers[0].location = 'Warnes 420'
+sellers[0].phone = '47990236'
+sellers[0].save
+
+#Seller 1
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[1].company_name = 'Argentina GSM'
+sellers[1].web = 'http://www.argentinagsm.com/'
+sellers[1].location = 'San Martín 948 3 Piso'
+sellers[1].phone = '43112933'
+sellers[1].email = 'info@argentinagsm.com'
+sellers[1].active = active
+sellers[1].save
+
+#Seller 2
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[2].company_name = 'Compumundo'
+sellers[2].web = 'http://www.compumundo.com.ar/'
+sellers[2].location = 'Av. Rivadavia 5148'
+sellers[2].phone = '08104447025'
+sellers[2].email = 'caballito@compumundo.com.ar'
+sellers[2].active = active
+sellers[2].save
+
+#Seller 3
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[3].company_name = 'San Patricio'
+sellers[3].web = 'https://www.facebook.com/vetsanpatricio'
+sellers[3].location = 'Av. José María Moreno 822'
+sellers[3].phone = '49252333'
+sellers[3].email = 'sanpatriciovet@gmail.com'
+sellers[3].active = active
+sellers[3].save
+
+#Seller 4
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[4].company_name = 'Diseño y Antiguedades'
+sellers[4].web = 'http://www.diseñoyantiguedades.com.ar/'
+sellers[4].location = 'Defensa 4255'
+sellers[4].phone = '45032553'
+sellers[4].email = 'info@diseñoyantiguedades.com.ar'
+sellers[4].active = active
+sellers[4].save
+
+#Seller 5
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[5].company_name = 'Casa Zanzi'
+sellers[5].web = 'http://www.casazanzi.com.ar/'
+sellers[5].location = 'Talcahuano 364'
+sellers[5].phone = '52566260'
+sellers[5].email = 'contacto@casazanzi.com.ar'
+sellers[5].active = active
+sellers[5].save
+
+#Seller 6
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[6].company_name = 'Alimac'
+sellers[6].web = 'http://www.alimac.com.ar/'
+sellers[6].location = 'Avenida Corrientes 3248'
+sellers[6].phone = '08003337529'
+sellers[6].email = 'info@alimac.com.ar'
+sellers[6].active = active
+sellers[6].save
+
+#Seller 7
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[7].company_name = 'American Tattoo'
+sellers[7].web = 'http://www.americantattoo.com/'
+sellers[7].location = 'Av. Santa Fe 7670'
+sellers[7].phone = '47734509'
+sellers[7].email = 'info@americantattoo.com.ar'
+sellers[7].active = active
+sellers[7].save
+
+#Seller 8
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[8].company_name = 'L & L'
+sellers[8].web = 'http://www.fiestasinolvidables.com/'
+sellers[8].location = 'Lavalle 2303'
+sellers[8].phone = '48580008'
+sellers[8].email = 'llsouvenirs@fiestasinolvidables.com',
+sellers[8].active = active
+sellers[8].save
+
+#Seller 9
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[9].company_name = 'VelvetZone'
+sellers[9].web = 'https://www.facebook.com/velvetzonearg/'
+sellers[9].location = 'Tandil 2795'
+sellers[9].phone = '9539999679'
+sellers[9].email = 'info@velvetzone.com'
+sellers[9].active = active
+sellers[9].save
+
+#Seller 10
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[10].company_name = 'Dorothy Jane'
+sellers[10].web = 'http://wwww.dorothyjanebuenosaires.com'
+sellers[10].location = 'Showroom en Callao y Córdoba'
+sellers[10].phone = '4810586910'
+sellers[10].email = 'info@dorothyjanebuenosaires.com'
+sellers[10].active = active
+sellers[10].save
+
+#Seller 11
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[11].company_name = 'Winery'
+sellers[11].web = 'http://www.winery.com.ar/'
+sellers[11].location = 'Av. Belgrano 300'
+sellers[11].phone = '433113277'
+sellers[11].email = 'santelmo@winery.com'
+sellers[11].active = active
+sellers[11].save
+
+#Seller 12
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[12].company_name = 'Mania Electronic'
+sellers[12].web = 'http://maniaelectronic.com.ar/'
+sellers[12].location = 'Gral Gervasio Artigas 121277'
+sellers[12].phone = '3221239412'
+sellers[12].email = 'maniaelectronic@hotmail.com'
+sellers[12].active = active
+sellers[12].save
+
+#Seller 13
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[13].company_name = 'Buenos Aires Pro Audio'
+sellers[13].web = 'http://www.bsasproaudio.com.ar/'
+sellers[13].location = ' Av. Gaona 4463'
+sellers[13].phone = '46716692'
+sellers[13].email = 'contacto@bsasproaudio.com.ar'
+sellers[13].active = active
+sellers[13].save
+
+#Seller 14
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+
+sellers[14].company_name = 'Ticketek'
+sellers[14].web = 'http://www.ticketek.com.ar/'
+sellers[14].location = 'Av Corrientes 3200'
+sellers[14].phone = '52377200'
+sellers[14].email = 'info@ticketek.com.ar'
+sellers[14].active = active
+sellers[14].save
+
+#Seller 15
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[15].company_name = 'Tec Music'
+sellers[15].web = 'http://www.tecmusiconline.com.ar/'
+sellers[15].location = 'Echeverría 2340'
+sellers[15].phone = '478156044'
+sellers[15].email = 'tecmusicdigital@hotmail.com'
+sellers[15].active = active
+sellers[15].save
+
+#Seller 16
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[16].company_name = 'Jugueterías TOM'
+sellers[16].web = 'http://www.jugueteriastom.com/'
+sellers[16].location = 'Hidalgo 945'
+sellers[16].phone = '458160450'
+sellers[16].email = 'info@jugueteriastom.com'
+sellers[16].active = active
+sellers[16].save
+
+#Seller 17
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[17].company_name = 'Tematika'
+sellers[17].web = 'http://www.tematika.com/'
+sellers[17].location = ''
+sellers[17].phone = '081703339872'
+sellers[17].email = 'librerias@tematika.com '
+sellers[17].active = active
+sellers[17].save
+
+#Seller 18
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[18].company_name = 'Musimundo'
+sellers[18].web = 'http://www.musimundo.com/'
+sellers[18].location = 'Rivadavia 4994'
+sellers[18].phone = '49033990'
+sellers[18].email = 'contacto@musimundo.com'
+sellers[18].active = active
+sellers[18].save
+
+#Seller 19
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[19].company_name = 'Artesanías Bengoechea'
+sellers[19].web = 'http://capital-federal.mublet.com/artesanias-bengoechea/6420719'
+sellers[19].location = 'Murillo 19227'
+sellers[19].phone = '48558706'
+sellers[19].email = 'artesaniasbengoechea@hotmail.com.ar'
+sellers[19].active = active
+sellers[19].save
+
+#Seller 20
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[20].company_name = 'Pigmento'
+sellers[20].web = 'http://www.perfumeriaspigmento.com.ar/'
+sellers[20].location = 'Av. Rivadavia 5423'
+sellers[20].phone = '49022400'
+sellers[20].email = 'contacto@pigmento.com'
+sellers[20].active = active
+sellers[20].save
+
+#Seller 21
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[21].company_name = 'Little Ranch Hotel Spa'
+sellers[21].web = 'http://www.littleranch.com.ar/'
+sellers[21].location = 'Las Caléndulas 2592'
+sellers[21].phone = '47870219'
+sellers[21].email = 'info@littleranch.com.ar'
+sellers[21].active = active
+sellers[21].save
+
+#Seller 22
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[22].company_name = 'Pigmento'
+sellers[22].web = 'http://www.perfumeriaspigmento.com.ar/'
+sellers[22].location = 'Av. Rivadavia 5423'
+sellers[22].phone = '49022400'
+sellers[22].email = 'contacto@pigmento.com'
+sellers[22].active = active
+sellers[22].save
+
+#Seller 23
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[23].company_name = 'Falabella'
+sellers[23].web = 'http://www.falabella.com.ar/'
+sellers[23].location = 'Paraná 3745, Martínez'
+sellers[23].phone = '08105556684'
+sellers[23].email = 'rdebonis@falabella.com.ar'
+sellers[23].active = active
+sellers[23].save
+
+#Seller 24
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[24].company_name = 'Equus'
+sellers[24].web = 'http://equus.com.ar/'
+sellers[24].location = 'Av. Corrientes 925'
+sellers[24].phone = '43260884'
+sellers[24].email = 'info@equus.com.ar'
+sellers[24].active = active
+sellers[24].save
+
+#Seller 25
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[25].company_name = 'Distal Libros'
+sellers[25].web = 'http://www.distalnet.com/'
+sellers[25].location = 'Florida 249'
+sellers[25].phone = '52551578'
+sellers[25].email = 'distal249@distalnet.com'
+sellers[25].active = active
+sellers[25].save
+
+#Seller 26
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[26].company_name = 'Yenny - El ateneo'
+sellers[26].web = 'http://www.yenny-elateneo.com/'
+sellers[26].location = 'Av. Acoyte 44'
+sellers[26].phone = '49012932'
+sellers[26].email = 'info@yenny.com'
+sellers[26].active = active
+sellers[26].save
+
+#Seller 27
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[27].company_name = 'Dexter Shop'
+sellers[27].web = 'http://www.dextershops.com/'
+sellers[27].location = 'Rivadavia 5050'
+sellers[27].phone = '49013984'
+sellers[27].email = 'info@shop.dextershops.com'
+sellers[27].active = active
+sellers[27].save
+
+#Seller 28
+
+s = Seller.new(
+	banned: false,
+	password: password,
+	password_confirmation: password_confirmation,
+	)
+sellers.push(s)
+
+sellers[28].company_name = 'On Celular'
+sellers[28].web = 'http://www.oncelular.com.ar/'
+sellers[28].location = 'La Rioja 8'
+sellers[28].phone = '5277 7710'
+sellers[28].email = 'info@oncelular.com.ar'
+sellers[28].active = active
+sellers[28].save
 
 puts "done."
+#
+#Creacion de vector SellingProduct para cada vendedor
+#
+
+print "Creacion de vector SellingProduct para cada vendedor..."
+
+sellers[0].selling_products = []
+sellers[1].selling_products = []
+sellers[2].selling_products = []
+sellers[3].selling_products = []
+sellers[4].selling_products = []
+sellers[5].selling_products = []
+sellers[6].selling_products = []
+sellers[7].selling_products = []
+sellers[8].selling_products = []
+sellers[9].selling_products = []
+sellers[10].selling_products = []
+sellers[11].selling_products = []
+sellers[12].selling_products = []
+sellers[13].selling_products = []
+sellers[14].selling_products = []
+sellers[15].selling_products = []
+sellers[16].selling_products = []
+sellers[17].selling_products = []
+sellers[18].selling_products = []
+sellers[19].selling_products = []
+sellers[20].selling_products = []
+sellers[21].selling_products = []
+sellers[22].selling_products = []
+sellers[23].selling_products = []
+sellers[24].selling_products = []
+sellers[25].selling_products = []
+sellers[26].selling_products = []
+sellers[27].selling_products = []
+sellers[28].selling_products = []
+
+puts "done"
 
 #
 # Creación de Productos Vendedor (Selling Product)
@@ -757,45 +1535,1833 @@ puts "done."
 
 print "Asociating products with sellers..."
 
-#sellers[0].selling_products = []
-#libro_yenny = SellingProduct.new
-#libro_yenny.product  = libro_product
-#sellers[0].selling_products << libro_yenny
-#libro_yenny.price = 65
-#libro_yenny.save
-
-sellers[0].selling_products = []
 sensor_estacionamiento = SellingProduct.new
 sensor_estacionamiento.product = sensor_estacionamiento_product
 sellers[0].selling_products << sensor_estacionamiento
 sensor_estacionamiento.price = 250
 sensor_estacionamiento.save
+apoyabrazo = SellingProduct.new
+apoyabrazo.product = apoyabrazo_product
+sellers[0].selling_products << apoyabrazo
+apoyabrazo.price = 215
+apoyabrazo.save
+kit_emergencia_auto = SellingProduct.new
+kit_emergencia_auto.product = kit_emergencia_auto_product
+sellers[0].selling_products << kit_emergencia_auto
+kit_emergencia_auto.price = 245
+kit_emergencia_auto.save
+llantas = SellingProduct.new
+llantas.product = llantas_product
+sellers[0].selling_products << llantas
+llantas.price = 739
+llantas.save
+enganche_trailer = SellingProduct.new
+enganche_trailer.product = enganche_trailer_product
+sellers[0].selling_products << enganche_trailer
+enganche_trailer.price = 450
+enganche_trailer.save
+espiral_amortiguador = SellingProduct.new
+espiral_amortiguador.product = espiral_amortiguador_product
+sellers[0].selling_products << espiral_amortiguador
+espiral_amortiguador.price = 365
+espiral_amortiguador.save
+cierre_centralizado = SellingProduct.new
+cierre_centralizado.product = cierre_centralizado_product
+sellers[0].selling_products << cierre_centralizado
+cierre_centralizado.price = 310
+cierre_centralizado.save
+kit_amortiguadores = SellingProduct.new
+kit_amortiguadores.product = kit_amortiguadores_product
+sellers[0].selling_products << kit_amortiguadores
+kit_amortiguadores.price = 1650
+kit_amortiguadores.save
+bateria_auto = SellingProduct.new
+bateria_auto.product = bateria_auto_product
+sellers[0].selling_products << bateria_auto
+bateria_auto.price = 429
+bateria_auto.save
+cubiertas_bridgestone = SellingProduct.new
+cubiertas_bridgestone.product = cubiertas_bridgestone_product
+sellers[0].selling_products << cubiertas_bridgestone
+cubiertas_bridgestone.price = 1047
+cubiertas_bridgestone.save
+alarma_moto = SellingProduct.new
+alarma_moto.product = alarma_moto_product
+sellers[0].selling_products << alarma_moto
+alarma_moto.price = 399
+alarma_moto.save
+funda_moto = SellingProduct.new
+funda_moto.product = funda_moto_product
+sellers[0].selling_products << funda_moto
+funda_moto.price = 100
+funda_moto.save
+intercomunicador_moto = SellingProduct.new
+intercomunicador_moto.product = intercomunicador_moto_product
+sellers[0].selling_products << intercomunicador_moto
+intercomunicador_moto.price = 1699
+intercomunicador_moto.save
+amplificador_moto = SellingProduct.new
+amplificador_moto.product = amplificador_moto_product
+sellers[0].selling_products << amplificador_moto
+amplificador_moto.price = 179
+amplificador_moto.save
+arrancador_motos = SellingProduct.new
+arrancador_motos.product = arrancador_motos_product
+sellers[0].selling_products << arrancador_motos
+arrancador_motos.price = 899
+arrancador_motos.save
+botas_moto = SellingProduct.new
+botas_moto.product = botas_moto_product
+sellers[0].selling_products << botas_moto
+botas_moto.price = 2000
+botas_moto.save
+casco_moto = SellingProduct.new
+casco_moto.product = casco_moto_product
+sellers[0].selling_products << casco_moto
+casco_moto.price = 1150
+casco_moto.save
+campera_moto = SellingProduct.new
+campera_moto.product = campera_moto_product
+sellers[0].selling_products << campera_moto
+campera_moto.price = 1899
+campera_moto.save
+conjunto_moto = SellingProduct.new
+conjunto_moto.product = conjunto_moto_product
+sellers[0].selling_products << conjunto_moto
+conjunto_moto.price = 725
+conjunto_moto.save
+equipo_lluvia_moto = SellingProduct.new
+equipo_lluvia_moto.product = equipo_lluvia_moto_product
+sellers[0].selling_products << equipo_lluvia_moto
+equipo_lluvia_moto.price = 400
+equipo_lluvia_moto.save
+stereo_autos = SellingProduct.new
+stereo_autos.product = stereo_autos_product
+sellers[0].selling_products << stereo_autos
+stereo_autos.price = 890
+stereo_autos.save
+subwoofer_auto = SellingProduct.new
+subwoofer_auto.product = subwoofer_auto_product
+sellers[0].selling_products << subwoofer_auto
+subwoofer_auto.price = 2149
+subwoofer_auto.save
+dvd_auto = SellingProduct.new
+dvd_auto.product = dvd_auto_product
+sellers[0].selling_products << dvd_auto
+dvd_auto.price = 2390
+dvd_auto.save
+volante1_auto = SellingProduct.new
+volante1_auto.product = volante1_auto_product
+sellers[0].selling_products << volante1_auto
+volante1_auto.price = 300
+volante1_auto.save
+volante2_auto = SellingProduct.new
+volante2_auto.product = volante2_auto_product
+sellers[0].selling_products << volante2_auto
+volante2_auto.price = 890
+volante2_auto.save
+volante3_auto = SellingProduct.new
+volante3_auto.product = volante3_auto_product
+sellers[0].selling_products << volante3_auto
+volante3_auto.price = 170
+volante3_auto.save
+polarizado1_autos = SellingProduct.new
+polarizado1_autos.product = polarizado1_autos_product
+sellers[0].selling_products << polarizado1_autos
+polarizado1_autos.price = 1399
+polarizado1_autos.save
+polarizado2_autos = SellingProduct.new
+polarizado2_autos.product = polarizado2_autos_product
+sellers[0].selling_products << polarizado2_autos
+polarizado2_autos.price = 189
+polarizado2_autos.save
+telefono_inalambrico = SellingProduct.new
+telefono_inalambrico.product = telefono_inalambrico_product
+sellers[1].selling_products << telefono_inalambrico
+telefono_inalambrico.price = 609
+telefono_inalambrico.save
+telefono = SellingProduct.new
+telefono.product = telefono_product
+sellers[1].selling_products << telefono
+telefono.price = 85
+telefono.save
+telefono2 = SellingProduct.new
+telefono2.product = telefono2_product
+sellers[1].selling_products << telefono2
+telefono2.price = 285
+telefono2.save
+telefono_labios = SellingProduct.new
+telefono_labios.product = telefono_labios_product
+sellers[1].selling_products << telefono_labios
+telefono_labios.price = 225
+telefono_labios.save
+telefono_zapato = SellingProduct.new
+telefono_zapato.product = telefono_zapato_product
+sellers[1].selling_products << telefono_zapato
+telefono_zapato.price = 225
+telefono_zapato.save
+telefono_kitty = SellingProduct.new
+telefono_kitty.product = telefono_kitty_product
+sellers[1].selling_products << telefono_kitty
+telefono_kitty.price = 225
+telefono_kitty.save
+galaxy_tab = SellingProduct.new
+galaxy_tab.product = galaxy_tab_product
+sellers[2].selling_products << galaxy_tab
+galaxy_tab.price = 2199
+galaxy_tab.save
+galaxy_tab10 = SellingProduct.new
+galaxy_tab10.product = galaxy_tab10_product
+sellers[2].selling_products << galaxy_tab10
+galaxy_tab10.price = 4299
+galaxy_tab10.save
+ipad_mini_16 = SellingProduct.new
+ipad_mini_16.product = ipad_mini_16_product
+sellers[2].selling_products << ipad_mini_16
+ipad_mini_16.price = 4199
+ipad_mini_16.save
+kindle = SellingProduct.new
+kindle.product = kindle_product
+sellers[2].selling_products << kindle
+kindle.price = 1025
+kindle.save
+sony_ereader = SellingProduct.new
+sony_ereader.product = sony_ereader_product
+sellers[2].selling_products << sony_ereader
+sony_ereader.price = 1199
+sony_ereader.save
+kindle_fire = SellingProduct.new
+kindle_fire.product = kindle_fire_product
+sellers[2].selling_products << kindle_fire
+kindle_fire.price = 2499
+kindle_fire.save
+notebook_samsung = SellingProduct.new
+notebook_samsung.product = notebook_samsung_product
+sellers[2].selling_products << notebook_samsung
+notebook_samsung.price = 4999
+notebook_samsung.save
+notebok_exo = SellingProduct.new
+notebok_exo.product = notebok_exo_product
+sellers[2].selling_products << notebok_exo
+notebok_exo.price = 4189
+notebok_exo.save
+all_in_one_bgh = SellingProduct.new
+all_in_one_bgh.product = all_in_one_bgh_product
+sellers[2].selling_products << all_in_one_bgh
+all_in_one_bgh.price = 3999
+all_in_one_bgh.save
+pc_clon = SellingProduct.new
+pc_clon.product = pc_clon_product
+sellers[2].selling_products << pc_clon
+pc_clon.price = 5100
+pc_clon.save
+windows = SellingProduct.new
+windows.product = windows_product
+sellers[2].selling_products << windows
+windows.price = 799
+windows.save
+adobe = SellingProduct.new
+adobe.product = adobe_product
+sellers[2].selling_products << adobe
+adobe.price = 200
+adobe.save
+office2013 = SellingProduct.new
+office2013.product = office2013_product
+sellers[2].selling_products << office2013
+office2013.price = 499
+office2013.save
+geforce = SellingProduct.new
+geforce.product = geforce_product
+sellers[2].selling_products << geforce
+geforce.price = 549
+geforce.save
+thermaltake = SellingProduct.new
+thermaltake.product = thermaltake_product
+sellers[2].selling_products << thermaltake
+thermaltake.price = 499
+thermaltake.save
+ssd = SellingProduct.new
+ssd.product = ssd_product
+sellers[2].selling_products << ssd
+ssd.price = 1199
+ssd.save
+grab_bluray = SellingProduct.new
+grab_bluray.product = grab_bluray_product
+sellers[2].selling_products << grab_bluray
+grab_bluray.price = 579
+grab_bluray.save
+jaulon_pajaro_loro = SellingProduct.new
+jaulon_pajaro_loro.product = jaulon_pajaro_loro_product
+sellers[3].selling_products << jaulon_pajaro_loro
+jaulon_pajaro_loro.price = 1500
+jaulon_pajaro_loro.save
+manta_caballo = SellingProduct.new
+manta_caballo.product = manta_caballo_product
+sellers[3].selling_products << manta_caballo
+manta_caballo.price = 190
+manta_caballo.save
+comedero_dispenser_gatos = SellingProduct.new
+comedero_dispenser_gatos.product = comedero_dispenser_gatos_product
+sellers[3].selling_products << comedero_dispenser_gatos
+comedero_dispenser_gatos.price = 95
+comedero_dispenser_gatos.save
+funda_asiento = SellingProduct.new
+funda_asiento.product = funda_asiento_product
+sellers[3].selling_products << funda_asiento
+funda_asiento.price = 124
+funda_asiento.save
+buzos_perro = SellingProduct.new
+buzos_perro.product = buzos_perro_product
+sellers[3].selling_products << buzos_perro
+buzos_perro.price = 80
+buzos_perro.save
+bataraz_pajaro = SellingProduct.new
+bataraz_pajaro.product = bataraz_pajaro_product
+sellers[3].selling_products << bataraz_pajaro
+bataraz_pajaro.price = 30
+bataraz_pajaro.save
+pollitos_pajaro = SellingProduct.new
+pollitos_pajaro.product = pollitos_pajaro_product
+sellers[3].selling_products << pollitos_pajaro
+pollitos_pajaro.price = 15
+pollitos_pajaro.save
+urraca_pajaro = SellingProduct.new
+urraca_pajaro.product = urraca_pajaro_product
+sellers[3].selling_products << urraca_pajaro
+urraca_pajaro.price = 200
+urraca_pajaro.save
+conejos1 = SellingProduct.new
+conejos1.product = conejos1_product
+sellers[3].selling_products << conejos1
+conejos1.price = 350
+conejos1.save
+conejos2 = SellingProduct.new
+conejos2.product = conejos2_product
+sellers[3].selling_products << conejos2
+conejos2.price = 380
+conejos2.save
+conejos3 = SellingProduct.new
+conejos3.product = conejos3_product
+sellers[3].selling_products << conejos3
+conejos3.price = 150
+conejos3.save
+gato1 = SellingProduct.new
+gato1.product = gato1_product
+sellers[3].selling_products << gato1
+gato1.price = 3300
+gato1.save
+gato2 = SellingProduct.new
+gato2.product = gato2_product
+sellers[3].selling_products << gato2
+gato2.price = 1200
+gato2.save
+gato3 = SellingProduct.new
+gato3.product = gato3_product
+sellers[3].selling_products << gato3
+gato3.price = 800
+gato3.save
+pez1 = SellingProduct.new
+pez1.product = pez1_product
+sellers[3].selling_products << pez1
+pez1.price = 250
+pez1.save
+pez2 = SellingProduct.new
+pez2.product = pez2_product
+sellers[3].selling_products << pez2
+pez2.price = 100
+pez2.save
+pez3 = SellingProduct.new
+pez3.product = pez3_product
+sellers[3].selling_products << pez3
+pez3.price = 90
+pez3.save
+perro1 = SellingProduct.new
+perro1.product = perro1_product
+sellers[3].selling_products << perro1
+perro1.price = 1600
+perro1.save
+perro2 = SellingProduct.new
+perro2.product = perro2_product
+sellers[3].selling_products << perro2
+perro2.price = 2500
+perro2.save
+perro3 = SellingProduct.new
+perro3.product = perro3_product
+sellers[3].selling_products << perro3
+perro3.price = 1500
+perro3.save
+perro4 = SellingProduct.new
+perro4.product = perro4_product
+sellers[3].selling_products << perro4
+perro4.price = 1700
+perro4.save
+roedor1 = SellingProduct.new
+roedor1.product = roedor1_product
+sellers[3].selling_products << roedor1
+roedor1.price = 149
+roedor1.save
+roedor2 = SellingProduct.new
+roedor2.product = roedor2_product
+sellers[3].selling_products << roedor2
+roedor2.price = 149
+roedor2.save
+roedor3 = SellingProduct.new
+roedor3.product = roedor3_product
+sellers[3].selling_products << roedor3
+roedor3.price = 190
+roedor3.save
+audio_antiguo_1 = SellingProduct.new
+audio_antiguo_1.product = audio_antiguo_1_product
+sellers[4].selling_products << audio_antiguo_1
+audio_antiguo_1.price = 350
+audio_antiguo_1.save
+audio_antiguo_2 = SellingProduct.new
+audio_antiguo_2.product = audio_antiguo_2_product
+sellers[4].selling_products << audio_antiguo_2
+audio_antiguo_2.price = 560
+audio_antiguo_2.save
+audio_antiguo_3 = SellingProduct.new
+audio_antiguo_3.product = audio_antiguo_3_product
+sellers[4].selling_products << audio_antiguo_3
+audio_antiguo_3.price = 430
+audio_antiguo_3.save
+cristaleria_antigua_1 = SellingProduct.new
+cristaleria_antigua_1.product = cristaleria_antigua_1_product
+sellers[4].selling_products << cristaleria_antigua_1
+cristaleria_antigua_1.price = 500
+cristaleria_antigua_1.save
+cristaleria_antigua_2 = SellingProduct.new
+cristaleria_antigua_2.product = cristaleria_antigua_2_product
+sellers[4].selling_products << cristaleria_antigua_2
+cristaleria_antigua_2.price = 850
+cristaleria_antigua_2.save
+cristaleria_antigua_3 = SellingProduct.new
+cristaleria_antigua_3.product = cristaleria_antigua_3_product
+sellers[4].selling_products << cristaleria_antigua_3
+cristaleria_antigua_3.price = 590
+cristaleria_antigua_3.save
+camaras_antiguas_1 = SellingProduct.new
+camaras_antiguas_1.product = camaras_antiguas_1_product
+sellers[4].selling_products << camaras_antiguas_1
+camaras_antiguas_1.price = 160
+camaras_antiguas_1.save
+camaras_antiguas_2 = SellingProduct.new
+camaras_antiguas_2.product = camaras_antiguas_2_product
+sellers[4].selling_products << camaras_antiguas_2
+camaras_antiguas_2.price = 1800
+camaras_antiguas_2.save
+camaras_antiguas_3 = SellingProduct.new
+camaras_antiguas_3.product = camaras_antiguas_3_product
+sellers[4].selling_products << camaras_antiguas_3
+camaras_antiguas_3.price = 800
+camaras_antiguas_3.save
+iluminacion_antigua_1 = SellingProduct.new
+iluminacion_antigua_1.product = iluminacion_antigua_1_product
+sellers[4].selling_products << iluminacion_antigua_1
+iluminacion_antigua_1.price = 780
+iluminacion_antigua_1.save
+iluminacion_antigua_2 = SellingProduct.new
+iluminacion_antigua_2.product = iluminacion_antigua_2_product
+sellers[4].selling_products << iluminacion_antigua_2
+iluminacion_antigua_2.price = 1300
+iluminacion_antigua_2.save
+iluminacion_antigua_3 = SellingProduct.new
+iluminacion_antigua_3.product = iluminacion_antigua_3_product
+sellers[4].selling_products << iluminacion_antigua_3
+iluminacion_antigua_3.price = 150
+iluminacion_antigua_3.save
+juguetes_antiguos_1 = SellingProduct.new
+juguetes_antiguos_1.product = juguetes_antiguos_1_product
+sellers[4].selling_products << juguetes_antiguos_1
+juguetes_antiguos_1.price = 450
+juguetes_antiguos_1.save
+juguetes_antiguos_2 = SellingProduct.new
+juguetes_antiguos_2.product = juguetes_antiguos_2_product
+sellers[4].selling_products << juguetes_antiguos_2
+juguetes_antiguos_2.price = 550
+juguetes_antiguos_2.save
+juguetes_antiguos_3 = SellingProduct.new
+juguetes_antiguos_3.product = juguetes_antiguos_3_product
+sellers[4].selling_products << juguetes_antiguos_3
+juguetes_antiguos_3.price = 3500
+juguetes_antiguos_3.save
+muebles_antiguos_1 = SellingProduct.new
+muebles_antiguos_1.product = muebles_antiguos_1_product
+sellers[4].selling_products << muebles_antiguos_1
+muebles_antiguos_1.price = 1825
+muebles_antiguos_1.save
+muebles_antiguos_2 = SellingProduct.new
+muebles_antiguos_2.product = muebles_antiguos_2_product
+sellers[4].selling_products << muebles_antiguos_2
+muebles_antiguos_2.price = 4300
+muebles_antiguos_2.save
+muebles_antiguos_3 = SellingProduct.new
+muebles_antiguos_3.product = muebles_antiguos_3_product
+sellers[4].selling_products << muebles_antiguos_3
+muebles_antiguos_3.price = 7000
+muebles_antiguos_3.save
+maquinas_de_escribir_antiguas_1 = SellingProduct.new
+maquinas_de_escribir_antiguas_1.product = maquinas_de_escribir_antiguas_1_product
+sellers[4].selling_products << maquinas_de_escribir_antiguas_1
+maquinas_de_escribir_antiguas_1.price = 550
+maquinas_de_escribir_antiguas_1.save
+maquinas_de_escribir_antiguas_2 = SellingProduct.new
+maquinas_de_escribir_antiguas_2.product = maquinas_de_escribir_antiguas_2_product
+sellers[4].selling_products << maquinas_de_escribir_antiguas_2
+maquinas_de_escribir_antiguas_2.price = 500
+maquinas_de_escribir_antiguas_2.save
+maquinas_de_escribir_antiguas_3 = SellingProduct.new
+maquinas_de_escribir_antiguas_3.product = maquinas_de_escribir_antiguas_3_product
+sellers[4].selling_products << maquinas_de_escribir_antiguas_3
+maquinas_de_escribir_antiguas_3.price = 150
+maquinas_de_escribir_antiguas_3.save
+juegos_de_mesa_1 = SellingProduct.new
+juegos_de_mesa_1.product = juegos_de_mesa_1_product
+sellers[5].selling_products << juegos_de_mesa_1
+juegos_de_mesa_1.price = 299
+juegos_de_mesa_1.save
+juegos_de_mesa_2 = SellingProduct.new
+juegos_de_mesa_2.product = juegos_de_mesa_2_product
+sellers[5].selling_products << juegos_de_mesa_2
+juegos_de_mesa_2.price = 279
+juegos_de_mesa_2.save
+juegos_de_mesa_3 = SellingProduct.new
+juegos_de_mesa_3.product = juegos_de_mesa_3_product
+sellers[5].selling_products << juegos_de_mesa_3
+juegos_de_mesa_3.price = 700
+juegos_de_mesa_3.save
+flipper = SellingProduct.new
+flipper.product = flipper_product
+sellers[6].selling_products << flipper
+flipper.price = 600
+flipper.save
+daytona = SellingProduct.new
+daytona.product = daytona_product
+sellers[6].selling_products << daytona
+daytona.price = 180
+daytona.save
+n3ds = SellingProduct.new
+n3ds.product = n3ds_product
+sellers[6].selling_products << n3ds
+n3ds.price = 2599
+n3ds.save
+ps3 = SellingProduct.new
+ps3.product = ps3_product
+sellers[6].selling_products << ps3
+ps3.price = 3500
+ps3.save
+psvita = SellingProduct.new
+psvita.product = psvita_product
+sellers[6].selling_products << psvita
+psvita.price = 2499
+psvita.save
+wii = SellingProduct.new
+wii.product = wii_product
+sellers[6].selling_products << wii
+wii.price = 2200
+wii.save
+xbox = SellingProduct.new
+xbox.product = xbox_product
+sellers[6].selling_products << xbox
+xbox.price = 3000
+xbox.save
+materiales_para_tatuajes_1 = SellingProduct.new
+materiales_para_tatuajes_1.product = materiales_para_tatuajes_1_product
+sellers[7].selling_products << materiales_para_tatuajes_1
+materiales_para_tatuajes_1.price = 140
+materiales_para_tatuajes_1.save
+materiales_para_tatuajes_2 = SellingProduct.new
+materiales_para_tatuajes_2.product = materiales_para_tatuajes_2_product
+sellers[7].selling_products << materiales_para_tatuajes_2
+materiales_para_tatuajes_2.price = 780
+materiales_para_tatuajes_2.save
+materiales_para_tatuajes_3 = SellingProduct.new
+materiales_para_tatuajes_3.product = materiales_para_tatuajes_3_product
+sellers[7].selling_products << materiales_para_tatuajes_3
+materiales_para_tatuajes_3.price = 530
+materiales_para_tatuajes_3.save
+souvenirs_1 = SellingProduct.new
+souvenirs_1.product = souvenirs_1_product
+sellers[8].selling_products << souvenirs_1
+souvenirs_1.price = 115
+souvenirs_1.save
+souvenirs_2 = SellingProduct.new
+souvenirs_2.product = souvenirs_2_product
+sellers[8].selling_products << souvenirs_2
+souvenirs_2.price = 280
+souvenirs_2.save
+souvenirs_3 = SellingProduct.new
+souvenirs_3.product = souvenirs_3_product
+sellers[8].selling_products << souvenirs_3
+souvenirs_3.price = 33
+souvenirs_3.save
+joystick_ps3 = SellingProduct.new
+joystick_ps3.product = joystick_ps3_product
+sellers[9].selling_products << joystick_ps3
+joystick_ps3.price = 260
+joystick_ps3.save
+joystick_wii = SellingProduct.new
+joystick_wii.product = joystick_wii_product
+sellers[9].selling_products << joystick_wii
+joystick_wii.price = 319
+joystick_wii.save
+joystick_xbox = SellingProduct.new
+joystick_xbox.product = joystick_xbox_product
+sellers[9].selling_products << joystick_xbox
+joystick_xbox.price = 379
+joystick_xbox.save
+videojuego1 = SellingProduct.new
+videojuego1.product = videojuego1_product
+sellers[9].selling_products << videojuego1
+videojuego1.price = 379
+videojuego1.save
+videojuego2 = SellingProduct.new
+videojuego2.product = videojuego2_product
+sellers[9].selling_products << videojuego2
+videojuego2.price = 649
+videojuego2.save
+videojuego3 = SellingProduct.new
+videojuego3.product = videojuego3_product
+sellers[9].selling_products << videojuego3
+videojuego3.price = 399
+videojuego3.save
+videojuego4 = SellingProduct.new
+videojuego4.product = videojuego4_product
+sellers[9].selling_products << videojuego4
+videojuego4.price = 640
+videojuego4.save
+videojuego5 = SellingProduct.new
+videojuego5.product = videojuego5_product
+sellers[9].selling_products << videojuego5
+videojuego5.price = 479
+videojuego5.save
+videojuego6 = SellingProduct.new
+videojuego6.product = videojuego6_product
+sellers[9].selling_products << videojuego6
+videojuego6.price = 350
+videojuego6.save
+articulos_embarazadas_1 = SellingProduct.new
+articulos_embarazadas_1.product = articulos_embarazadas_1_product
+sellers[10].selling_products << articulos_embarazadas_1
+articulos_embarazadas_1.price = 559
+articulos_embarazadas_1.save
+articulos_embarazadas_2 = SellingProduct.new
+articulos_embarazadas_2.product = articulos_embarazadas_2_product
+sellers[10].selling_products << articulos_embarazadas_2
+articulos_embarazadas_2.price = 389
+articulos_embarazadas_2.save
+articulos_embarazadas_3 = SellingProduct.new
+articulos_embarazadas_3.product = articulos_embarazadas_3_product
+sellers[10].selling_products << articulos_embarazadas_3
+articulos_embarazadas_3.price = 110
+articulos_embarazadas_3.save
+juguetes_bebes_1 = SellingProduct.new
+juguetes_bebes_1.product = juguetes_bebes_1_product
+sellers[10].selling_products << juguetes_bebes_1
+juguetes_bebes_1.price = 1499
+juguetes_bebes_1.save
+juguetes_bebes_2 = SellingProduct.new
+juguetes_bebes_2.product = juguetes_bebes_2_product
+sellers[10].selling_products << juguetes_bebes_2
+juguetes_bebes_2.price = 350
+juguetes_bebes_2.save
+juguetes_bebes_3 = SellingProduct.new
+juguetes_bebes_3.product = juguetes_bebes_3_product
+sellers[10].selling_products << juguetes_bebes_3
+juguetes_bebes_3.price = 320
+juguetes_bebes_3.save
+seguridad_bebes_1 = SellingProduct.new
+seguridad_bebes_1.product = seguridad_bebes_1_product
+sellers[10].selling_products << seguridad_bebes_1
+seguridad_bebes_1.price = 315
+seguridad_bebes_1.save
+seguridad_bebes_2 = SellingProduct.new
+seguridad_bebes_2.product = seguridad_bebes_2_product
+sellers[10].selling_products << seguridad_bebes_2
+seguridad_bebes_2.price = 1299
+seguridad_bebes_2.save
+seguridad_bebes_3 = SellingProduct.new
+seguridad_bebes_3.product = seguridad_bebes_3_product
+sellers[10].selling_products << seguridad_bebes_3
+seguridad_bebes_3.price = 477
+seguridad_bebes_3.save
+bodega1 = SellingProduct.new
+bodega1.product = bodega1_product
+sellers[11].selling_products << bodega1
+bodega1.price = 1144
+bodega1.save
+bodega2 = SellingProduct.new
+bodega2.product = bodega2_product
+sellers[11].selling_products << bodega2
+bodega2.price = 130
+bodega2.save
+bodega3 = SellingProduct.new
+bodega3.product = bodega3_product
+sellers[11].selling_products << bodega3
+bodega3.price = 1015
+bodega3.save
+alcohol1 = SellingProduct.new
+alcohol1.product = alcohol1_product
+sellers[11].selling_products << alcohol1
+alcohol1.price = 74
+alcohol1.save
+alcohol2 = SellingProduct.new
+alcohol2.product = alcohol2_product
+sellers[11].selling_products << alcohol2
+alcohol2.price = 78
+alcohol2.save
+alcohol3 = SellingProduct.new
+alcohol3.product = alcohol3_product
+sellers[11].selling_products << alcohol3
+alcohol3.price = 120
+alcohol3.save
+alcohol4 = SellingProduct.new
+alcohol4.product = alcohol4_product
+sellers[11].selling_products << alcohol4
+alcohol4.price = 2880
+alcohol4.save
+alcohol5 = SellingProduct.new
+alcohol5.product = alcohol5_product
+sellers[11].selling_products << alcohol5
+alcohol5.price = 120
+alcohol5.save
+alcohol6 = SellingProduct.new
+alcohol6.product = alcohol6_product
+sellers[11].selling_products << alcohol6
+alcohol6.price = 250
+alcohol6.save
+alcohol7 = SellingProduct.new
+alcohol7.product = alcohol7_product
+sellers[11].selling_products << alcohol7
+alcohol7.price = 1259
+alcohol7.save
+cigarros1 = SellingProduct.new
+cigarros1.product = cigarros1_product
+sellers[11].selling_products << cigarros1
+cigarros1.price = 90
+cigarros1.save
+cigarros2 = SellingProduct.new
+cigarros2.product = cigarros2_product
+sellers[11].selling_products << cigarros2
+cigarros2.price = 950
+cigarros2.save
+cigarros3 = SellingProduct.new
+cigarros3.product = cigarros3_product
+sellers[11].selling_products << cigarros3
+cigarros3.price = 72
+cigarros3.save
+cigarros4 = SellingProduct.new
+cigarros4.product = cigarros4_product
+sellers[11].selling_products << cigarros4
+cigarros4.price = 300
+cigarros4.save
+cigarros5 = SellingProduct.new
+cigarros5.product = cigarros5_product
+sellers[11].selling_products << cigarros5
+cigarros5.price = 30
+cigarros5.save
+energizantes_1 = SellingProduct.new
+energizantes_1.product = energizantes_1_product
+sellers[11].selling_products << energizantes_1
+energizantes_1.price = 11
+energizantes_1.save
+energizantes_2 = SellingProduct.new
+energizantes_2.product = energizantes_2_product
+sellers[11].selling_products << energizantes_2
+energizantes_2.price = 5
+energizantes_2.save
+camaras_accesorios_1 = SellingProduct.new
+camaras_accesorios_1.product = camaras_accesorios_1_product
+sellers[12].selling_products << camaras_accesorios_1
+camaras_accesorios_1.price = 1550
+camaras_accesorios_1.save
+camaras_accesorios_2 = SellingProduct.new
+camaras_accesorios_2.product = camaras_accesorios_2_product
+sellers[12].selling_products << camaras_accesorios_2
+camaras_accesorios_2.price = 170
+camaras_accesorios_2.save
+camaras_accesorios_3 = SellingProduct.new
+camaras_accesorios_3.product = camaras_accesorios_3_product
+sellers[12].selling_products << camaras_accesorios_3
+camaras_accesorios_3.price = 2899
+camaras_accesorios_3.save
+accesorios_camaras_1 = SellingProduct.new
+accesorios_camaras_1.product = accesorios_camaras_1_product
+sellers[12].selling_products << accesorios_camaras_1
+accesorios_camaras_1.price = 1249
+accesorios_camaras_1.save
+accesorios_camaras_2 = SellingProduct.new
+accesorios_camaras_2.product = accesorios_camaras_2_product
+sellers[12].selling_products << accesorios_camaras_2
+accesorios_camaras_2.price = 299
+accesorios_camaras_2.save
+accesorios_camaras_3 = SellingProduct.new
+accesorios_camaras_3.product = accesorios_camaras_3_product
+sellers[12].selling_products << accesorios_camaras_3
+accesorios_camaras_3.price = 1199
+accesorios_camaras_3.save
+laboratorios_1 = SellingProduct.new
+laboratorios_1.product = laboratorios_1_product
+sellers[12].selling_products << laboratorios_1
+laboratorios_1.price = 26
+laboratorios_1.save
+laboratorios_2 = SellingProduct.new
+laboratorios_2.product = laboratorios_2_product
+sellers[12].selling_products << laboratorios_2
+laboratorios_2.price = 600
+laboratorios_2.save
+laboratorios_3 = SellingProduct.new
+laboratorios_3.product = laboratorios_3_product
+sellers[12].selling_products << laboratorios_3
+laboratorios_3.price = 20000
+laboratorios_3.save
+portarretratos_albumes_1 = SellingProduct.new
+portarretratos_albumes_1.product = portarretratos_albumes_1_product
+sellers[12].selling_products << portarretratos_albumes_1
+portarretratos_albumes_1.price = 699
+portarretratos_albumes_1.save
+portarretratos_albumes_2 = SellingProduct.new
+portarretratos_albumes_2.product = portarretratos_albumes_2_product
+sellers[12].selling_products << portarretratos_albumes_2
+portarretratos_albumes_2.price = 45
+portarretratos_albumes_2.save
+portarretratos_albumes_3 = SellingProduct.new
+portarretratos_albumes_3.product = portarretratos_albumes_3_product
+sellers[12].selling_products << portarretratos_albumes_3
+portarretratos_albumes_3.price = 170
+portarretratos_albumes_3.save
+videocamaras_1 = SellingProduct.new
+videocamaras_1.product = videocamaras_1_product
+sellers[12].selling_products << videocamaras_1
+videocamaras_1.price = 2999
+videocamaras_1.save
+videocamaras_2 = SellingProduct.new
+videocamaras_2.product = videocamaras_2_product
+sellers[12].selling_products << videocamaras_2
+videocamaras_2.price = 1199
+videocamaras_2.save
+videocamaras_3 = SellingProduct.new
+videocamaras_3.product = videocamaras_3_product
+sellers[12].selling_products << videocamaras_3
+videocamaras_3.price = 750
+videocamaras_3.save
+auris = SellingProduct.new
+auris.product = auris_product
+sellers[13].selling_products << auris
+auris.price = 169
+auris.save
+auris2 = SellingProduct.new
+auris2.product = auris2_product
+sellers[13].selling_products << auris2
+auris2.price = 239
+auris2.save
+auris3 = SellingProduct.new
+auris3.product = auris3_product
+sellers[13].selling_products << auris3
+auris3.price = 189
+auris3.save
+auris4 = SellingProduct.new
+auris4.product = auris4_product
+sellers[13].selling_products << auris4
+auris4.price = 349
+auris4.save
+mic = SellingProduct.new
+mic.product = mic_product
+sellers[13].selling_products << mic
+mic.price = 170
+mic.save
+minicomponente = SellingProduct.new
+minicomponente.product = minicomponente_product
+sellers[13].selling_products << minicomponente
+minicomponente.price = 1349
+minicomponente.save
+minicomponente2 = SellingProduct.new
+minicomponente2.product = minicomponente2_product
+sellers[13].selling_products << minicomponente2
+minicomponente2.price = 1189
+minicomponente2.save
+parlantes = SellingProduct.new
+parlantes.product = parlantes_product
+sellers[13].selling_products << parlantes
+parlantes.price = 699
+parlantes.save
+parlantes2 = SellingProduct.new
+parlantes2.product = parlantes2_product
+sellers[13].selling_products << parlantes2
+parlantes2.price = 499
+parlantes2.save
+parlantes3 = SellingProduct.new
+parlantes3.product = parlantes3_product
+sellers[13].selling_products << parlantes3
+parlantes3.price = 850
+parlantes3.save
+rep_dvd = SellingProduct.new
+rep_dvd.product = rep_dvd_product
+sellers[13].selling_products << rep_dvd
+rep_dvd.price = 499
+rep_dvd.save
+rep_bluray = SellingProduct.new
+rep_bluray.product = rep_bluray_product
+sellers[13].selling_products << rep_bluray
+rep_bluray.price = 1149
+rep_bluray.save
+anteojos_3d = SellingProduct.new
+anteojos_3d.product = anteojos_3d_product
+sellers[13].selling_products << anteojos_3d
+anteojos_3d.price = 349
+anteojos_3d.save
+anteojos_3d_genericos = SellingProduct.new
+anteojos_3d_genericos.product = anteojos_3d_genericos_product
+sellers[13].selling_products << anteojos_3d_genericos
+anteojos_3d_genericos.price = 25
+anteojos_3d_genericos.save
+tv32 = SellingProduct.new
+tv32.product = tv32_product
+sellers[13].selling_products << tv32
+tv32.price = 2999
+tv32.save
+smart32 = SellingProduct.new
+smart32.product = smart32_product
+sellers[13].selling_products << smart32
+smart32.price = 3999
+smart32.save
+tv22 = SellingProduct.new
+tv22.product = tv22_product
+sellers[13].selling_products << tv22
+tv22.price = 1839
+tv22.save
+soportetv32 = SellingProduct.new
+soportetv32.product = soportetv32_product
+sellers[13].selling_products << soportetv32
+soportetv32.price = 259
+soportetv32.save
+soportetv40 = SellingProduct.new
+soportetv40.product = soportetv40_product
+sellers[13].selling_products << soportetv40
+soportetv40.price = 639
+soportetv40.save
+gps = SellingProduct.new
+gps.product = gps_product
+sellers[13].selling_products << gps
+gps.price = 869
+gps.save
+gps2 = SellingProduct.new
+gps2.product = gps2_product
+sellers[13].selling_products << gps2
+gps2.price = 1499
+gps2.save
+gps3 = SellingProduct.new
+gps3.product = gps3_product
+sellers[13].selling_products << gps3
+gps3.price = 799
+gps3.save
+soportegps = SellingProduct.new
+soportegps.product = soportegps_product
+sellers[13].selling_products << soportegps
+soportegps.price = 175
+soportegps.save
+soportegps2 = SellingProduct.new
+soportegps2.product = soportegps2_product
+sellers[13].selling_products << soportegps2
+soportegps2.price = 89
+soportegps2.save
+soportegps3 = SellingProduct.new
+soportegps3.product = soportegps3_product
+sellers[13].selling_products << soportegps3
+soportegps3.price = 49
+soportegps3.save
+entradas_eventos_1 = SellingProduct.new
+entradas_eventos_1.product = entradas_eventos_1_product
+sellers[14].selling_products << entradas_eventos_1
+entradas_eventos_1.price = 220
+entradas_eventos_1.save
+entradas_eventos_2 = SellingProduct.new
+entradas_eventos_2.product = entradas_eventos_2_product
+sellers[14].selling_products << entradas_eventos_2
+entradas_eventos_2.price = 250
+entradas_eventos_2.save
+entradas_eventos_3 = SellingProduct.new
+entradas_eventos_3.product = entradas_eventos_3_product
+sellers[14].selling_products << entradas_eventos_3
+entradas_eventos_3.price = 400
+entradas_eventos_3.save
+entradas_eventos_4 = SellingProduct.new
+entradas_eventos_4.product = entradas_eventos_4_product
+sellers[14].selling_products << entradas_eventos_4
+entradas_eventos_4.price = 150
+entradas_eventos_4.save
+metronomo = SellingProduct.new
+metronomo.product = metronomo_product
+sellers[15].selling_products << metronomo
+metronomo.price = 99
+metronomo.save
+afinador = SellingProduct.new
+afinador.product = afinador_product
+sellers[15].selling_products << afinador
+afinador.price = 140
+afinador.save
+metronomo2 = SellingProduct.new
+metronomo2.product = metronomo2_product
+sellers[15].selling_products << metronomo2
+metronomo2.price = 390
+metronomo2.save
+criolla = SellingProduct.new
+criolla.product = criolla_product
+sellers[15].selling_products << criolla
+criolla.price = 549
+criolla.save
+acustica = SellingProduct.new
+acustica.product = acustica_product
+sellers[15].selling_products << acustica
+acustica.price = 1049
+acustica.save
+electrica = SellingProduct.new
+electrica.product = electrica_product
+sellers[15].selling_products << electrica
+electrica.price = 2999
+electrica.save
+ampli = SellingProduct.new
+ampli.product = ampli_product
+sellers[15].selling_products << ampli
+ampli.price = 549
+ampli.save
+banqueta = SellingProduct.new
+banqueta.product = banqueta_product
+sellers[15].selling_products << banqueta
+banqueta.price = 699
+banqueta.save
+pianoflexible = SellingProduct.new
+pianoflexible.product = pianoflexible_product
+sellers[15].selling_products << pianoflexible
+pianoflexible.price = 799
+pianoflexible.save
+pianoprincipiantes = SellingProduct.new
+pianoprincipiantes.product = pianoprincipiantes_product
+sellers[15].selling_products << pianoprincipiantes
+pianoprincipiantes.price = 844
+pianoprincipiantes.save
+piano5octavas = SellingProduct.new
+piano5octavas.product = piano5octavas_product
+sellers[15].selling_products << piano5octavas
+piano5octavas.price = 2775
+piano5octavas.save
+platillos = SellingProduct.new
+platillos.product = platillos_product
+sellers[15].selling_products << platillos
+platillos.price = 2999
+platillos.save
+bateria = SellingProduct.new
+bateria.product = bateria_product
+sellers[15].selling_products << bateria
+bateria.price = 3899
+bateria.save
+bateria_ninos = SellingProduct.new
+bateria_ninos.product = bateria_ninos_product
+sellers[15].selling_products << bateria_ninos
+bateria_ninos.price = 2699
+bateria_ninos.save
+bateria_electronica = SellingProduct.new
+bateria_electronica.product = bateria_electronica_product
+sellers[15].selling_products << bateria_electronica
+bateria_electronica.price = 1299
+bateria_electronica.save
+muneco_bebe = SellingProduct.new
+muneco_bebe.product = muneco_bebe_product
+sellers[16].selling_products << muneco_bebe
+muneco_bebe.price = 349
+muneco_bebe.save
+casa_barbie = SellingProduct.new
+casa_barbie.product = casa_barbie_product
+sellers[16].selling_products << casa_barbie
+casa_barbie.price = 899
+casa_barbie.save
+cochecito_munecas = SellingProduct.new
+cochecito_munecas.product = cochecito_munecas_product
+sellers[16].selling_products << cochecito_munecas
+cochecito_munecas.price = 709
+cochecito_munecas.save
+perrito_barbie = SellingProduct.new
+perrito_barbie.product = perrito_barbie_product
+sellers[16].selling_products << perrito_barbie
+perrito_barbie.price = 549
+perrito_barbie.save
+barbie_sirena = SellingProduct.new
+barbie_sirena.product = barbie_sirena_product
+sellers[16].selling_products << barbie_sirena
+barbie_sirena.price = 599
+barbie_sirena.save
+barbie_fiat = SellingProduct.new
+barbie_fiat.product = barbie_fiat_product
+sellers[16].selling_products << barbie_fiat
+barbie_fiat.price = 869
+barbie_fiat.save
+piccolo = SellingProduct.new
+piccolo.product = piccolo_product
+sellers[16].selling_products << piccolo
+piccolo.price = 59
+piccolo.save
+actionman = SellingProduct.new
+actionman.product = actionman_product
+sellers[16].selling_products << actionman
+actionman.price = 159
+actionman.save
+spiderman_mask = SellingProduct.new
+spiderman_mask.product = spiderman_mask_product
+sellers[16].selling_products << spiderman_mask
+spiderman_mask.price = 139
+spiderman_mask.save
+patineta = SellingProduct.new
+patineta.product = patineta_product
+sellers[16].selling_products << patineta
+patineta.price = 165
+patineta.save
+helicoptero = SellingProduct.new
+helicoptero.product = helicoptero_product
+sellers[16].selling_products << helicoptero
+helicoptero.price = 149
+helicoptero.save
+autito = SellingProduct.new
+autito.product = autito_product
+sellers[16].selling_products << autito
+autito.price = 39
+autito.save
+autito2 = SellingProduct.new
+autito2.product = autito2_product
+sellers[16].selling_products << autito2
+autito2.price = 49
+autito2.save
+peliculas_series_1 = SellingProduct.new
+peliculas_series_1.product = peliculas_series_1_product
+sellers[17].selling_products << peliculas_series_1
+peliculas_series_1.price = 380
+peliculas_series_1.save
+peliculas_series_2 = SellingProduct.new
+peliculas_series_2.product = peliculas_series_2_product
+sellers[17].selling_products << peliculas_series_2
+peliculas_series_2.price = 1750
+peliculas_series_2.save
+peliculas_series_3 = SellingProduct.new
+peliculas_series_3.product = peliculas_series_3_product
+sellers[17].selling_products << peliculas_series_3
+peliculas_series_3.price = 225
+peliculas_series_3.save
+peliculas_series_4 = SellingProduct.new
+peliculas_series_4.product = peliculas_series_4_product
+sellers[17].selling_products << peliculas_series_4
+peliculas_series_4.price = 300
+peliculas_series_4.save
+peliculas_series_5 = SellingProduct.new
+peliculas_series_5.product = peliculas_series_5_product
+sellers[17].selling_products << peliculas_series_5
+peliculas_series_5.price = 1800
+peliculas_series_5.save
+musica_alternativa_1 = SellingProduct.new
+musica_alternativa_1.product = musica_alternativa_1_product
+sellers[18].selling_products << musica_alternativa_1
+musica_alternativa_1.price = 329
+musica_alternativa_1.save
+musica_alternativa_2 = SellingProduct.new
+musica_alternativa_2.product = musica_alternativa_2_product
+sellers[18].selling_products << musica_alternativa_2
+musica_alternativa_2.price = 279
+musica_alternativa_2.save
+musica_alternativa_3 = SellingProduct.new
+musica_alternativa_3.product = musica_alternativa_3_product
+sellers[18].selling_products << musica_alternativa_3
+musica_alternativa_3.price = 299
+musica_alternativa_3.save
+musica_clasica_1 = SellingProduct.new
+musica_clasica_1.product = musica_clasica_1_product
+sellers[18].selling_products << musica_clasica_1
+musica_clasica_1.price = 330
+musica_clasica_1.save
+musica_clasica_2 = SellingProduct.new
+musica_clasica_2.product = musica_clasica_2_product
+sellers[18].selling_products << musica_clasica_2
+musica_clasica_2.price = 499
+musica_clasica_2.save
+musica_bandas_sonoras_1 = SellingProduct.new
+musica_bandas_sonoras_1.product = musica_bandas_sonoras_1_product
+sellers[18].selling_products << musica_bandas_sonoras_1
+musica_bandas_sonoras_1.price = 109
+musica_bandas_sonoras_1.save
+musica_bandas_sonoras_2 = SellingProduct.new
+musica_bandas_sonoras_2.product = musica_bandas_sonoras_2_product
+sellers[18].selling_products << musica_bandas_sonoras_2
+musica_bandas_sonoras_2.price = 280
+musica_bandas_sonoras_2.save
+musica_blues_jazz_1 = SellingProduct.new
+musica_blues_jazz_1.product = musica_blues_jazz_1_product
+sellers[18].selling_products << musica_blues_jazz_1
+musica_blues_jazz_1.price = 269
+musica_blues_jazz_1.save
+musica_blues_jazz_2 = SellingProduct.new
+musica_blues_jazz_2.product = musica_blues_jazz_2_product
+sellers[18].selling_products << musica_blues_jazz_2
+musica_blues_jazz_2.price = 140
+musica_blues_jazz_2.save
+musica_blues_jazz_3 = SellingProduct.new
+musica_blues_jazz_3.product = musica_blues_jazz_3_product
+sellers[18].selling_products << musica_blues_jazz_3
+musica_blues_jazz_3.price = 449
+musica_blues_jazz_3.save
+musica_cumbia_cuarteto_1 = SellingProduct.new
+musica_cumbia_cuarteto_1.product = musica_cumbia_cuarteto_1_product
+sellers[18].selling_products << musica_cumbia_cuarteto_1
+musica_cumbia_cuarteto_1.price = 80
+musica_cumbia_cuarteto_1.save
+musica_cumbia_cuarteto_2 = SellingProduct.new
+musica_cumbia_cuarteto_2.product = musica_cumbia_cuarteto_2_product
+sellers[18].selling_products << musica_cumbia_cuarteto_2
+musica_cumbia_cuarteto_2.price = 45
+musica_cumbia_cuarteto_2.save
+musica_cumbia_cuarteto_3 = SellingProduct.new
+musica_cumbia_cuarteto_3.product = musica_cumbia_cuarteto_3_product
+sellers[18].selling_products << musica_cumbia_cuarteto_3
+musica_cumbia_cuarteto_3.price = 55
+musica_cumbia_cuarteto_3.save
+musica_cumbia_cuarteto_4 = SellingProduct.new
+musica_cumbia_cuarteto_4.product = musica_cumbia_cuarteto_4_product
+sellers[18].selling_products << musica_cumbia_cuarteto_4
+musica_cumbia_cuarteto_4.price = 80
+musica_cumbia_cuarteto_4.save
+musica_dance_1 = SellingProduct.new
+musica_dance_1.product = musica_dance_1_product
+sellers[18].selling_products << musica_dance_1
+musica_dance_1.price = 180
+musica_dance_1.save
+musica_dance_2 = SellingProduct.new
+musica_dance_2.product = musica_dance_2_product
+sellers[18].selling_products << musica_dance_2
+musica_dance_2.price = 200
+musica_dance_2.save
+musica_dance_3 = SellingProduct.new
+musica_dance_3.product = musica_dance_3_product
+sellers[18].selling_products << musica_dance_3
+musica_dance_3.price = 650
+musica_dance_3.save
+musica_electronica_1 = SellingProduct.new
+musica_electronica_1.product = musica_electronica_1_product
+sellers[18].selling_products << musica_electronica_1
+musica_electronica_1.price = 700
+musica_electronica_1.save
+musica_electronica_2 = SellingProduct.new
+musica_electronica_2.product = musica_electronica_2_product
+sellers[18].selling_products << musica_electronica_2
+musica_electronica_2.price = 300
+musica_electronica_2.save
+musica_electronica_3 = SellingProduct.new
+musica_electronica_3.product = musica_electronica_3_product
+sellers[18].selling_products << musica_electronica_3
+musica_electronica_3.price = 160
+musica_electronica_3.save
+musica_folklore_1 = SellingProduct.new
+musica_folklore_1.product = musica_folklore_1_product
+sellers[18].selling_products << musica_folklore_1
+musica_folklore_1.price = 78
+musica_folklore_1.save
+musica_folklore_2 = SellingProduct.new
+musica_folklore_2.product = musica_folklore_2_product
+sellers[18].selling_products << musica_folklore_2
+musica_folklore_2.price = 64
+musica_folklore_2.save
+musica_funk_1 = SellingProduct.new
+musica_funk_1.product = musica_funk_1_product
+sellers[18].selling_products << musica_funk_1
+musica_funk_1.price = 50
+musica_funk_1.save
+musica_funk_2 = SellingProduct.new
+musica_funk_2.product = musica_funk_2_product
+sellers[18].selling_products << musica_funk_2
+musica_funk_2.price = 140
+musica_funk_2.save
+musica_heavy_metal_1 = SellingProduct.new
+musica_heavy_metal_1.product = musica_heavy_metal_1_product
+sellers[18].selling_products << musica_heavy_metal_1
+musica_heavy_metal_1.price = 999
+musica_heavy_metal_1.save
+musica_heavy_metal_2 = SellingProduct.new
+musica_heavy_metal_2.product = musica_heavy_metal_2_product
+sellers[18].selling_products << musica_heavy_metal_2
+musica_heavy_metal_2.price = 290
+musica_heavy_metal_2.save
+musica_hip_hop_1 = SellingProduct.new
+musica_hip_hop_1.product = musica_hip_hop_1_product
+sellers[18].selling_products << musica_hip_hop_1
+musica_hip_hop_1.price = 30
+musica_hip_hop_1.save
+musica_hip_hop_2 = SellingProduct.new
+musica_hip_hop_2.product = musica_hip_hop_2_product
+sellers[18].selling_products << musica_hip_hop_2
+musica_hip_hop_2.price = 30
+musica_hip_hop_2.save
+musica_infantil_1 = SellingProduct.new
+musica_infantil_1.product = musica_infantil_1_product
+sellers[18].selling_products << musica_infantil_1
+musica_infantil_1.price = 65
+musica_infantil_1.save
+musica_infantil_2 = SellingProduct.new
+musica_infantil_2.product = musica_infantil_2_product
+sellers[18].selling_products << musica_infantil_2
+musica_infantil_2.price = 115
+musica_infantil_2.save
+musica_instrumental_1 = SellingProduct.new
+musica_instrumental_1.product = musica_instrumental_1_product
+sellers[18].selling_products << musica_instrumental_1
+musica_instrumental_1.price = 36
+musica_instrumental_1.save
+musica_instrumental_2 = SellingProduct.new
+musica_instrumental_2.product = musica_instrumental_2_product
+sellers[18].selling_products << musica_instrumental_2
+musica_instrumental_2.price = 120
+musica_instrumental_2.save
+musica_karaoke_1 = SellingProduct.new
+musica_karaoke_1.product = musica_karaoke_1_product
+sellers[18].selling_products << musica_karaoke_1
+musica_karaoke_1.price = 60
+musica_karaoke_1.save
+musica_karaoke_2 = SellingProduct.new
+musica_karaoke_2.product = musica_karaoke_2_product
+sellers[18].selling_products << musica_karaoke_2
+musica_karaoke_2.price = 99
+musica_karaoke_2.save
+musica_pop_1 = SellingProduct.new
+musica_pop_1.product = musica_pop_1_product
+sellers[18].selling_products << musica_pop_1
+musica_pop_1.price = 140
+musica_pop_1.save
+musica_pop_2 = SellingProduct.new
+musica_pop_2.product = musica_pop_2_product
+sellers[18].selling_products << musica_pop_2
+musica_pop_2.price = 80
+musica_pop_2.save
+musica_pop_3 = SellingProduct.new
+musica_pop_3.product = musica_pop_3_product
+sellers[18].selling_products << musica_pop_3
+musica_pop_3.price = 500
+musica_pop_3.save
+musica_pop_4 = SellingProduct.new
+musica_pop_4.product = musica_pop_4_product
+sellers[18].selling_products << musica_pop_4
+musica_pop_4.price = 100
+musica_pop_4.save
+musica_ska_1 = SellingProduct.new
+musica_ska_1.product = musica_ska_1_product
+sellers[18].selling_products << musica_ska_1
+musica_ska_1.price = 300
+musica_ska_1.save
+musica_ska_2 = SellingProduct.new
+musica_ska_2.product = musica_ska_2_product
+sellers[18].selling_products << musica_ska_2
+musica_ska_2.price = 120
+musica_ska_2.save
+musica_ska_3 = SellingProduct.new
+musica_ska_3.product = musica_ska_3_product
+sellers[18].selling_products << musica_ska_3
+musica_ska_3.price = 220
+musica_ska_3.save
+musica_reggae_1 = SellingProduct.new
+musica_reggae_1.product = musica_reggae_1_product
+sellers[18].selling_products << musica_reggae_1
+musica_reggae_1.price = 430
+musica_reggae_1.save
+musica_reggae_2 = SellingProduct.new
+musica_reggae_2.product = musica_reggae_2_product
+sellers[18].selling_products << musica_reggae_2
+musica_reggae_2.price = 58
+musica_reggae_2.save
+musica_nacional_1 = SellingProduct.new
+musica_nacional_1.product = musica_nacional_1_product
+sellers[18].selling_products << musica_nacional_1
+musica_nacional_1.price = 101
+musica_nacional_1.save
+musica_nacional_2 = SellingProduct.new
+musica_nacional_2.product = musica_nacional_2_product
+sellers[18].selling_products << musica_nacional_2
+musica_nacional_2.price = 86
+musica_nacional_2.save
+musica_nacional_3 = SellingProduct.new
+musica_nacional_3.product = musica_nacional_3_product
+sellers[18].selling_products << musica_nacional_3
+musica_nacional_3.price = 116
+musica_nacional_3.save
+musica_nacional_4 = SellingProduct.new
+musica_nacional_4.product = musica_nacional_4_product
+sellers[18].selling_products << musica_nacional_4
+musica_nacional_4.price = 133
+musica_nacional_4.save
+musica_internacional_1 = SellingProduct.new
+musica_internacional_1.product = musica_internacional_1_product
+sellers[18].selling_products << musica_internacional_1
+musica_internacional_1.price = 120
+musica_internacional_1.save
+musica_internacional_2 = SellingProduct.new
+musica_internacional_2.product = musica_internacional_2_product
+sellers[18].selling_products << musica_internacional_2
+musica_internacional_2.price = 92
+musica_internacional_2.save
+musica_internacional_3 = SellingProduct.new
+musica_internacional_3.product = musica_internacional_3_product
+sellers[18].selling_products << musica_internacional_3
+musica_internacional_3.price = 68
+musica_internacional_3.save
+musica_internacional_4 = SellingProduct.new
+musica_internacional_4.product = musica_internacional_4_product
+sellers[18].selling_products << musica_internacional_4
+musica_internacional_4.price = 250
+musica_internacional_4.save
+musica_tango_1 = SellingProduct.new
+musica_tango_1.product = musica_tango_1_product
+sellers[18].selling_products << musica_tango_1
+musica_tango_1.price = 250
+musica_tango_1.save
+musica_tango_2 = SellingProduct.new
+musica_tango_2.product = musica_tango_2_product
+sellers[18].selling_products << musica_tango_2
+musica_tango_2.price = 300
+musica_tango_2.save
+arte_artesanias_1 = SellingProduct.new
+arte_artesanias_1.product = arte_artesanias_1_product
+sellers[19].selling_products << arte_artesanias_1
+arte_artesanias_1.price = 559
+arte_artesanias_1.save
+arte_artesanias_2 = SellingProduct.new
+arte_artesanias_2.product = arte_artesanias_2_product
+sellers[19].selling_products << arte_artesanias_2
+arte_artesanias_2.price = 53
+arte_artesanias_2.save
+arte_artesanias_3 = SellingProduct.new
+arte_artesanias_3.product = arte_artesanias_3_product
+sellers[19].selling_products << arte_artesanias_3
+arte_artesanias_3.price = 25
+arte_artesanias_3.save
+arte_artesanias_4 = SellingProduct.new
+arte_artesanias_4.product = arte_artesanias_4_product
+sellers[19].selling_products << arte_artesanias_4
+arte_artesanias_4.price = 35
+arte_artesanias_4.save
+salud_1 = SellingProduct.new
+salud_1.product = salud_1_product
+sellers[20].selling_products << salud_1
+salud_1.price = 43
+salud_1.save
+salud_2 = SellingProduct.new
+salud_2.product = salud_2_product
+sellers[20].selling_products << salud_2
+salud_2.price = 820
+salud_2.save
+salud_3 = SellingProduct.new
+salud_3.product = salud_3_product
+sellers[20].selling_products << salud_3
+salud_3.price = 460
+salud_3.save
+salud_4 = SellingProduct.new
+salud_4.product = salud_4_product
+sellers[20].selling_products << salud_4
+salud_4.price = 40
+salud_4.save
+salud_5 = SellingProduct.new
+salud_5.product = salud_5_product
+sellers[20].selling_products << salud_5
+salud_5.price = 150
+salud_5.save
+relajacion_1 = SellingProduct.new
+relajacion_1.product = relajacion_1_product
+sellers[21].selling_products << relajacion_1
+relajacion_1.price = 595
+relajacion_1.save
+relajacion_2 = SellingProduct.new
+relajacion_2.product = relajacion_2_product
+sellers[21].selling_products << relajacion_2
+relajacion_2.price = 50
+relajacion_2.save
+relajacion_3 = SellingProduct.new
+relajacion_3.product = relajacion_3_product
+sellers[21].selling_products << relajacion_3
+relajacion_3.price = 2099
+relajacion_3.save
+ropa_mujer_1 = SellingProduct.new
+ropa_mujer_1.product = ropa_mujer_1_product
+sellers[22].selling_products << ropa_mujer_1
+ropa_mujer_1.price = 460
+ropa_mujer_1.save
+ropa_mujer_2 = SellingProduct.new
+ropa_mujer_2.product = ropa_mujer_2_product
+sellers[22].selling_products << ropa_mujer_2
+ropa_mujer_2.price = 340
+ropa_mujer_2.save
+ropa_mujer_3 = SellingProduct.new
+ropa_mujer_3.product = ropa_mujer_3_product
+sellers[22].selling_products << ropa_mujer_3
+ropa_mujer_3.price = 395
+ropa_mujer_3.save
+ropa_hombre_1 = SellingProduct.new
+ropa_hombre_1.product = ropa_hombre_1_product
+sellers[24].selling_products << ropa_hombre_1
+ropa_hombre_1.price = 400
+ropa_hombre_1.save
+ropa_hombre_2 = SellingProduct.new
+ropa_hombre_2.product = ropa_hombre_2_product
+sellers[24].selling_products << ropa_hombre_2
+ropa_hombre_2.price = 1090
+ropa_hombre_2.save
+ropa_hombre_3 = SellingProduct.new
+ropa_hombre_3.product = ropa_hombre_3_product
+sellers[24].selling_products << ropa_hombre_3
+ropa_hombre_3.price = 85
+ropa_hombre_3.save
+libro_novela_1 = SellingProduct.new
+libro_novela_1.product = libro_novela_1_product
+sellers[25].selling_products << libro_novela_1
+libro_novela_1.price = 390
+libro_novela_1.save
+libro_novela_2 = SellingProduct.new
+libro_novela_2.product = libro_novela_2_product
+sellers[25].selling_products << libro_novela_2
+libro_novela_2.price = 159
+libro_novela_2.save
+libro_novela_3 = SellingProduct.new
+libro_novela_3.product = libro_novela_3_product
+sellers[25].selling_products << libro_novela_3
+libro_novela_3.price = 250
+libro_novela_3.save
+libro_suspenso_1 = SellingProduct.new
+libro_suspenso_1.product = libro_suspenso_1_product
+sellers[25].selling_products << libro_suspenso_1
+libro_suspenso_1.price = 75
+libro_suspenso_1.save
+libro_suspenso_2 = SellingProduct.new
+libro_suspenso_2.product = libro_suspenso_2_product
+sellers[25].selling_products << libro_suspenso_2
+libro_suspenso_2.price = 70
+libro_suspenso_2.save
+libro_filosofia_1 = SellingProduct.new
+libro_filosofia_1.product = libro_filosofia_1_product
+sellers[25].selling_products << libro_filosofia_1
+libro_filosofia_1.price = 2790
+libro_filosofia_1.save
+libro_filosofia_2 = SellingProduct.new
+libro_filosofia_2.product = libro_filosofia_2_product
+sellers[25].selling_products << libro_filosofia_2
+libro_filosofia_2.price = 150
+libro_filosofia_2.save
+libro_infantiles_1 = SellingProduct.new
+libro_infantiles_1.product = libro_infantiles_1_product
+sellers[26].selling_products << libro_infantiles_1
+libro_infantiles_1.price = 80
+libro_infantiles_1.save
+libro_infantiles_2 = SellingProduct.new
+libro_infantiles_2.product = libro_infantiles_2_product
+sellers[26].selling_products << libro_infantiles_2
+libro_infantiles_2.price = 150
+libro_infantiles_2.save
+libro_infantiles_3 = SellingProduct.new
+libro_infantiles_3.product = libro_infantiles_3_product
+sellers[26].selling_products << libro_infantiles_3
+libro_infantiles_3.price = 35
+libro_infantiles_3.save
+libro_arte_1 = SellingProduct.new
+libro_arte_1.product = libro_arte_1_product
+sellers[26].selling_products << libro_arte_1
+libro_arte_1.price = 1200
+libro_arte_1.save
+libro_arte_2 = SellingProduct.new
+libro_arte_2.product = libro_arte_2_product
+sellers[26].selling_products << libro_arte_2
+libro_arte_2.price = 95
+libro_arte_2.save
+libro_arte_3 = SellingProduct.new
+libro_arte_3.product = libro_arte_3_product
+sellers[26].selling_products << libro_arte_3
+libro_arte_3.price = 800
+libro_arte_3.save
+libro_autoayuda_1 = SellingProduct.new
+libro_autoayuda_1.product = libro_autoayuda_1_product
+sellers[26].selling_products << libro_autoayuda_1
+libro_autoayuda_1.price = 220
+libro_autoayuda_1.save
+libro_autoayuda_2 = SellingProduct.new
+libro_autoayuda_2.product = libro_autoayuda_2_product
+sellers[26].selling_products << libro_autoayuda_2
+libro_autoayuda_2.price = 225
+libro_autoayuda_2.save
+libro_autoayuda_3 = SellingProduct.new
+libro_autoayuda_3.product = libro_autoayuda_3_product
+sellers[26].selling_products << libro_autoayuda_3
+libro_autoayuda_3.price = 140
+libro_autoayuda_3.save
+libro_ficcion_1 = SellingProduct.new
+libro_ficcion_1.product = libro_ficcion_1_product
+sellers[26].selling_products << libro_ficcion_1
+libro_ficcion_1.price = 110
+libro_ficcion_1.save
+libro_ficcion_2 = SellingProduct.new
+libro_ficcion_2.product = libro_ficcion_2_product
+sellers[26].selling_products << libro_ficcion_2
+libro_ficcion_2.price = 120
+libro_ficcion_2.save
+libro_ficcion_3 = SellingProduct.new
+libro_ficcion_3.product = libro_ficcion_3_product
+sellers[26].selling_products << libro_ficcion_3
+libro_ficcion_3.price = 125
+libro_ficcion_3.save
+indumentaria_futbol_hombre_1 = SellingProduct.new
+indumentaria_futbol_hombre_1.product = indumentaria_futbol_hombre_1_product
+sellers[27].selling_products << indumentaria_futbol_hombre_1
+indumentaria_futbol_hombre_1.price = 890
+indumentaria_futbol_hombre_1.save
+indumentaria_futbol_hombre_2 = SellingProduct.new
+indumentaria_futbol_hombre_2.product = indumentaria_futbol_hombre_2_product
+sellers[27].selling_products << indumentaria_futbol_hombre_2
+indumentaria_futbol_hombre_2.price = 46
+indumentaria_futbol_hombre_2.save
+indumentaria_futbol_hombre_3 = SellingProduct.new
+indumentaria_futbol_hombre_3.product = indumentaria_futbol_hombre_3_product
+sellers[27].selling_products << indumentaria_futbol_hombre_3
+indumentaria_futbol_hombre_3.price = 65
+indumentaria_futbol_hombre_3.save
+indumentaria_futbol_mujer_1 = SellingProduct.new
+indumentaria_futbol_mujer_1.product = indumentaria_futbol_mujer_1_product
+sellers[27].selling_products << indumentaria_futbol_mujer_1
+indumentaria_futbol_mujer_1.price = 297
+indumentaria_futbol_mujer_1.save
+indumentaria_futbol_mujer_2 = SellingProduct.new
+indumentaria_futbol_mujer_2.product = indumentaria_futbol_mujer_2_product
+sellers[27].selling_products << indumentaria_futbol_mujer_2
+indumentaria_futbol_mujer_2.price = 290
+indumentaria_futbol_mujer_2.save
+indumentaria_futbol_mujer_3 = SellingProduct.new
+indumentaria_futbol_mujer_3.product = indumentaria_futbol_mujer_3_product
+sellers[27].selling_products << indumentaria_futbol_mujer_3
+indumentaria_futbol_mujer_3.price = 128
+indumentaria_futbol_mujer_3.save
+indumentaria_basquet_hombre_1 = SellingProduct.new
+indumentaria_basquet_hombre_1.product = indumentaria_basquet_hombre_1_product
+sellers[27].selling_products << indumentaria_basquet_hombre_1
+indumentaria_basquet_hombre_1.price = 350
+indumentaria_basquet_hombre_1.save
+indumentaria_basquet_hombre_2 = SellingProduct.new
+indumentaria_basquet_hombre_2.product = indumentaria_basquet_hombre_2_product
+sellers[27].selling_products << indumentaria_basquet_hombre_2
+indumentaria_basquet_hombre_2.price = 1350
+indumentaria_basquet_hombre_2.save
+indumentaria_basquet_hombre_3 = SellingProduct.new
+indumentaria_basquet_hombre_3.product = indumentaria_basquet_hombre_3_product
+sellers[27].selling_products << indumentaria_basquet_hombre_3
+indumentaria_basquet_hombre_3.price = 89
+indumentaria_basquet_hombre_3.save
+indumentaria_tenis_hombre_1 = SellingProduct.new
+indumentaria_tenis_hombre_1.product = indumentaria_tenis_hombre_1_product
+sellers[27].selling_products << indumentaria_tenis_hombre_1
+indumentaria_tenis_hombre_1.price = 169
+indumentaria_tenis_hombre_1.save
+indumentaria_tenis_hombre_2 = SellingProduct.new
+indumentaria_tenis_hombre_2.product = indumentaria_tenis_hombre_2_product
+sellers[27].selling_products << indumentaria_tenis_hombre_2
+indumentaria_tenis_hombre_2.price = 95
+indumentaria_tenis_hombre_2.save
+indumentaria_tenis_hombre_3 = SellingProduct.new
+indumentaria_tenis_hombre_3.product = indumentaria_tenis_hombre_3_product
+sellers[27].selling_products << indumentaria_tenis_hombre_3
+indumentaria_tenis_hombre_3.price = 50
+indumentaria_tenis_hombre_3.save
+indumentaria_tenis_mujer_1 = SellingProduct.new
+indumentaria_tenis_mujer_1.product = indumentaria_tenis_mujer_1_product
+sellers[27].selling_products << indumentaria_tenis_mujer_1
+indumentaria_tenis_mujer_1.price = 629
+indumentaria_tenis_mujer_1.save
+indumentaria_tenis_mujer_2 = SellingProduct.new
+indumentaria_tenis_mujer_2.product = indumentaria_tenis_mujer_2_product
+sellers[27].selling_products << indumentaria_tenis_mujer_2
+indumentaria_tenis_mujer_2.price = 343
+indumentaria_tenis_mujer_2.save
+indumentaria_tenis_mujer_3 = SellingProduct.new
+indumentaria_tenis_mujer_3.product = indumentaria_tenis_mujer_3_product
+sellers[27].selling_products << indumentaria_tenis_mujer_3
+indumentaria_tenis_mujer_3.price = 299
+indumentaria_tenis_mujer_3.save
+indumentaria_golf_hombre_1 = SellingProduct.new
+indumentaria_golf_hombre_1.product = indumentaria_golf_hombre_1_product
+sellers[27].selling_products << indumentaria_golf_hombre_1
+indumentaria_golf_hombre_1.price = 680
+indumentaria_golf_hombre_1.save
+indumentaria_golf_hombre_2 = SellingProduct.new
+indumentaria_golf_hombre_2.product = indumentaria_golf_hombre_2_product
+sellers[27].selling_products << indumentaria_golf_hombre_2
+indumentaria_golf_hombre_2.price = 70
+indumentaria_golf_hombre_2.save
+indumentaria_golf_hombre_3 = SellingProduct.new
+indumentaria_golf_hombre_3.product = indumentaria_golf_hombre_3_product
+sellers[27].selling_products << indumentaria_golf_hombre_3
+indumentaria_golf_hombre_3.price = 400
+indumentaria_golf_hombre_3.save
+indumentaria_golf_mujer_1 = SellingProduct.new
+indumentaria_golf_mujer_1.product = indumentaria_golf_mujer_1_product
+sellers[27].selling_products << indumentaria_golf_mujer_1
+indumentaria_golf_mujer_1.price = 440
+indumentaria_golf_mujer_1.save
+indumentaria_golf_mujer_2 = SellingProduct.new
+indumentaria_golf_mujer_2.product = indumentaria_golf_mujer_2_product
+sellers[27].selling_products << indumentaria_golf_mujer_2
+indumentaria_golf_mujer_2.price = 750
+indumentaria_golf_mujer_2.save
+indumentaria_golf_mujer_3 = SellingProduct.new
+indumentaria_golf_mujer_3.product = indumentaria_golf_mujer_3_product
+sellers[27].selling_products << indumentaria_golf_mujer_3
+indumentaria_golf_mujer_3.price = 470
+indumentaria_golf_mujer_3.save
+indumentaria_natacion_hombre_1 = SellingProduct.new
+indumentaria_natacion_hombre_1.product = indumentaria_natacion_hombre_1_product
+sellers[27].selling_products << indumentaria_natacion_hombre_1
+indumentaria_natacion_hombre_1.price = 229
+indumentaria_natacion_hombre_1.save
+indumentaria_natacion_hombre_2 = SellingProduct.new
+indumentaria_natacion_hombre_2.product = indumentaria_natacion_hombre_2_product
+sellers[27].selling_products << indumentaria_natacion_hombre_2
+indumentaria_natacion_hombre_2.price = 280
+indumentaria_natacion_hombre_2.save
+indumentaria_natacion_hombre_3 = SellingProduct.new
+indumentaria_natacion_hombre_3.product = indumentaria_natacion_hombre_3_product
+sellers[27].selling_products << indumentaria_natacion_hombre_3
+indumentaria_natacion_hombre_3.price = 550
+indumentaria_natacion_hombre_3.save
+indumentaria_natacion_mujer_1 = SellingProduct.new
+indumentaria_natacion_mujer_1.product = indumentaria_natacion_mujer_1_product
+sellers[27].selling_products << indumentaria_natacion_mujer_1
+indumentaria_natacion_mujer_1.price = 179
+indumentaria_natacion_mujer_1.save
+indumentaria_natacion_mujer_2 = SellingProduct.new
+indumentaria_natacion_mujer_2.product = indumentaria_natacion_mujer_2_product
+sellers[27].selling_products << indumentaria_natacion_mujer_2
+indumentaria_natacion_mujer_2.price = 269
+indumentaria_natacion_mujer_2.save
+indumentaria_natacion_mujer_3 = SellingProduct.new
+indumentaria_natacion_mujer_3.product = indumentaria_natacion_mujer_3_product
+sellers[27].selling_products << indumentaria_natacion_mujer_3
+indumentaria_natacion_mujer_3.price = 85
+indumentaria_natacion_mujer_3.save
+indumentaria_hockey_hombre = SellingProduct.new
+indumentaria_hockey_hombre.product = indumentaria_hockey_hombre_product
+sellers[27].selling_products << indumentaria_hockey_hombre
+indumentaria_hockey_hombre.price = 599
+indumentaria_hockey_hombre.save
+indumentaria_hockey_hombre = SellingProduct.new
+indumentaria_hockey_hombre.product = indumentaria_hockey_hombre_product
+sellers[27].selling_products << indumentaria_hockey_hombre
+indumentaria_hockey_hombre.price = 190
+indumentaria_hockey_hombre.save
+indumentaria_hockey_hombre = SellingProduct.new
+indumentaria_hockey_hombre.product = indumentaria_hockey_hombre_product
+sellers[27].selling_products << indumentaria_hockey_hombre
+indumentaria_hockey_hombre.price = 135
+indumentaria_hockey_hombre.save
+indumentaria_hockey_mujer_1 = SellingProduct.new
+indumentaria_hockey_mujer_1.product = indumentaria_hockey_mujer_1_product
+sellers[27].selling_products << indumentaria_hockey_mujer_1
+indumentaria_hockey_mujer_1.price = 599
+indumentaria_hockey_mujer_1.save
+indumentaria_hockey_mujer_2 = SellingProduct.new
+indumentaria_hockey_mujer_2.product = indumentaria_hockey_mujer_2_product
+sellers[27].selling_products << indumentaria_hockey_mujer_2
+indumentaria_hockey_mujer_2.price = 190
+indumentaria_hockey_mujer_2.save
+indumentaria_hockey_mujer_3 = SellingProduct.new
+indumentaria_hockey_mujer_3.product = indumentaria_hockey_mujer_3_product
+sellers[27].selling_products << indumentaria_hockey_mujer_3
+indumentaria_hockey_mujer_3.price = 135
+indumentaria_hockey_mujer_3.save
+indumentaria_voley_hombre_1 = SellingProduct.new
+indumentaria_voley_hombre_1.product = indumentaria_voley_hombre_1_product
+sellers[27].selling_products << indumentaria_voley_hombre_1
+indumentaria_voley_hombre_1.price = 589
+indumentaria_voley_hombre_1.save
+indumentaria_voley_hombre_2 = SellingProduct.new
+indumentaria_voley_hombre_2.product = indumentaria_voley_hombre_2_product
+sellers[27].selling_products << indumentaria_voley_hombre_2
+indumentaria_voley_hombre_2.price = 115
+indumentaria_voley_hombre_2.save
+indumentaria_voley_hombre_3 = SellingProduct.new
+indumentaria_voley_hombre_3.product = indumentaria_voley_hombre_3_product
+sellers[27].selling_products << indumentaria_voley_hombre_3
+indumentaria_voley_hombre_3.price = 95
+indumentaria_voley_hombre_3.save
+indumentaria_voley_mujer = SellingProduct.new
+indumentaria_voley_mujer.product = indumentaria_voley_mujer_product
+sellers[27].selling_products << indumentaria_voley_mujer
+indumentaria_voley_mujer.price = 220
+indumentaria_voley_mujer.save
+indumentaria_voley_mujer = SellingProduct.new
+indumentaria_voley_mujer.product = indumentaria_voley_mujer_product
+sellers[27].selling_products << indumentaria_voley_mujer
+indumentaria_voley_mujer.price = 88
+indumentaria_voley_mujer.save
+indumentaria_voley_mujer = SellingProduct.new
+indumentaria_voley_mujer.product = indumentaria_voley_mujer_product
+sellers[27].selling_products << indumentaria_voley_mujer
+indumentaria_voley_mujer.price = 119
+indumentaria_voley_mujer.save
+celulares_1 = SellingProduct.new
+celulares_1.product = celulares_1_product
+sellers[28].selling_products << celulares_1
+celulares_1.price = 1199
+celulares_1.save
+celulares_2 = SellingProduct.new
+celulares_2.product = celulares_2_product
+sellers[28].selling_products << celulares_2
+celulares_2.price = 1049
+celulares_2.save
+celulares_3 = SellingProduct.new
+celulares_3.product = celulares_3_product
+sellers[28].selling_products << celulares_3
+celulares_3.price = 1899
+celulares_3.save
+celulares_4 = SellingProduct.new
+celulares_4.product = celulares_4_product
+sellers[28].selling_products << celulares_4
+celulares_4.price = 8399
+celulares_4.save
+accesorios_celulares_1 = SellingProduct.new
+accesorios_celulares_1.product = accesorios_celulares_1_product
+sellers[28].selling_products << accesorios_celulares_1
+accesorios_celulares_1.price = 199
+accesorios_celulares_1.save
+accesorios_celulares_2 = SellingProduct.new
+accesorios_celulares_2.product = accesorios_celulares_2_product
+sellers[28].selling_products << accesorios_celulares_2
+accesorios_celulares_2.price = 129
+accesorios_celulares_2.save
+accesorios_celulares_3 = SellingProduct.new
+accesorios_celulares_3.product = accesorios_celulares_3_product
+sellers[28].selling_products << accesorios_celulares_3
+accesorios_celulares_3.price = 179
+accesorios_celulares_3.save
+
 
 
 puts "done."
 
 ## Users
 rand = Random.new
-print "Creating 100 users..."
-100.times do
-  u = User.new
-  u.first_name = Faker::Name.first_name
-  u.last_name = Faker::Name.last_name
-  u.email = Faker::Internet.email
-  u.password = password
-  u.password_confirmation = password_confirmation
-  u.active = active
-  u.banned = banned
-  u.wishlist = []
-  u.wishlist << Product.all.entries[rand.rand(10)]
-  u.wishlist << Product.all.entries[rand.rand(10)]
-  gift = Gift.new
-  gift.product = Product.all[rand.rand(10)]
-  gift.score = rand.rand(10)
-  u.gifts = [gift]
-  u.save
-end
-puts "done."
+#print "Creating 100 users..."
+#100.times do
+#  u = User.new
+#  u.first_name = Faker::Name.first_name
+#  u.last_name = Faker::Name.last_name
+#  u.email = Faker::Internet.email
+#  u.password = password
+#  u.password_confirmation = password_confirmation
+#  u.active = active
+#  u.banned = banned
+#  u.wishlist = []
+#  u.wishlist << Product.all.entries[rand.rand(10)]
+#  u.wishlist << Product.all.entries[rand.rand(10)]
+#  gift = Gift.new
+#  gift.product = Product.all[rand.rand(10)]
+#  gift.score = rand.rand(10)
+#  u.gifts = [gift]
+#  u.save
+#end
+#puts "done."
 
 #
 # Creación de Administradores

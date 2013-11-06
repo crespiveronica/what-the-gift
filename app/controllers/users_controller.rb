@@ -232,9 +232,6 @@ class UsersController < ApplicationController
     predefined_hobbies << PredefinedHobby.new("Natación",  false)
     predefined_hobbies << PredefinedHobby.new("Hockey",  false)
     predefined_hobbies << PredefinedHobby.new("Voley",  false)
-    predefined_hobbies << PredefinedHobby.new("Handball",  false)
-    predefined_hobbies << PredefinedHobby.new("Gimnasio",  false)
-    predefined_hobbies << PredefinedHobby.new("Running",  false)
 
     predefined_hobbies << PredefinedHobby.new("Música",  true)
     predefined_hobbies << PredefinedHobby.new("Música alernativa",  false)

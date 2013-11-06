@@ -10,7 +10,7 @@ class SellingProduct
   belongs_to :seller
   belongs_to :product
 
-  default_scope where(banned: false).in(seller_id: Seller.all.map(&:id))
+  default_scope where(banned: false).in(seller_id: Seller.all.map(&:id)) 
 
   def self.for_admin
    unscoped.in(seller_id: Seller.all.map(&:id))
