@@ -771,6 +771,7 @@ sellers[0].selling_products << sensor_estacionamiento
 sensor_estacionamiento.price = 250
 sensor_estacionamiento.save
 
+
 puts "done."
 
 ## Users
