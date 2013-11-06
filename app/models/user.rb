@@ -137,7 +137,7 @@ end
 def birthday_friends
 	bd_friends = []
 	friends.each do | f |
-		if f.birthday_this_year > Date.today - 1000.days and f.birthday_this_year < Date.today + 1000
+		if f.birthday_this_year > Date.today and f.birthday_this_year < Date.today + 10
 			bd_friends.push f
 		end
 	end
@@ -157,10 +157,12 @@ end
 
 def remaining_days
 	diff = (Date.today - birthday_this_year).to_i
-	if diff > 0
-		365 + diff
+	if diff < 0
+		diff * (-1)
+	elsif diff > 0
+		365 - diff
 	else
-		diff
+		0
 	end
 end
 
