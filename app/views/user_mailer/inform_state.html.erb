@@ -4,15 +4,18 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hola <%= @user.full_name %></h1>
-    <% if @user.banned %>
-      <p>Lo contactamos para informarle que su cuenta ha sido desactivada por el administrador del sitio.</p>
-      <p>Sepa entendernos, pero dicha desactivación se debe a el siguiente motivo: <%= @user.banned_reason %>.</p>
-    <% else %>
-      <p>Lo contactamos para informarle que su cuenta ha sido reactivada por el administrador del sitio.</p>
-    <% end %>
-    <p>
-      Muchas gracias, el equipo de What The Gift?!
-    </p>
+    <div style="background: #f5f5f5;padding: 12px;">
+      <img src="<%= @headerImage %>" />
+      <h1>Hola <%= @user.full_name %></h1>
+      <% if @user.banned %>
+        <p>Lo contactamos para informarle que su cuenta ha sido desactivada por el administrador del sitio.</p>
+        <p>Sepa entendernos, pero dicha desactivación se debe a el siguiente motivo: <%= @user.banned_reason %>.</p>
+      <% else %>
+        <p>Lo contactamos para informarle que su cuenta ha sido reactivada por el administrador del sitio.</p>
+      <% end %>
+      <p>
+        Muchas gracias, el equipo de What The Gift?!
+      </p>
+    </div>
   </body>
 </html>
