@@ -1,6 +1,6 @@
 <div class="container">
   <h3 class="text-center">Administrar Vendedores</h3>
-  <%= will_paginate @sellers %>
+  <%= will_paginate @sellers, class: 'pagination pagination-centered' %>
 
   <table class="table table-striped table-hover">
     <thead>
@@ -41,7 +41,7 @@
 
   </table>
 
-  <%= will_paginate @sellers %>
+  <%= will_paginate @sellers, class: 'pagination pagination-centered' %>
 
 </div>
 

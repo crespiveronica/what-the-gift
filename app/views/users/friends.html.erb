@@ -5,7 +5,7 @@
 <h1>Listado de Amigos</h1>
 
 <% if not @friends.empty? %>
-	<%= will_paginate @friends %>
+	<%= will_paginate @friends, class: 'pagination pagination-centered' %>
 	<ul class="row">
 		<% @friends.each_with_index do |friend, i| %>
 		<li class="span2 text-center">
@@ -31,7 +31,7 @@
 			</div>
 		<% end %>
 	</ul>
-	<%= will_paginate @friends %>
+	<%= will_paginate @friends, class: 'pagination pagination-centered' %>
 <% else %>
 	<div class="alert alert-info">
 		<h4>Aún no tienes amigos</h4>
