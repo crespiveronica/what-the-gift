@@ -6,23 +6,43 @@
     <%= nested_form_for @user, :html => { :id => 'new-user' } do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.label :first_name, 'Nombre' %>
-      <%= f.text_field :first_name %>
+      <div class="control-group">
+        <%= f.label :first_name, 'Nombre' %>
+        <div class="controls">
+          <%= f.text_field :first_name %>
+        </div>
+      </div>
 
-      <%= f.label :last_name, 'Apellido' %>
-      <%= f.text_field :last_name %>
+      <div class="control-group">
+        <%= f.label :last_name, 'Apellido' %>
+        <div class="controls">
+          <%= f.text_field :last_name %>
+        </div>
+      </div>
 
       <%= f.label :birthday, 'Fecha de nacimiento' %>
       <%= f.text_field :birthday, :type => :date, :start_year => (Date.current - 5.year).year, :end_year => (Date.current - 120.year).year, "required" => "true", :include_blank => true %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <div class="control-group">
+        <%= f.label :email %>
+        <div class="controls">
+          <%= f.text_field :email %>
+        </div>
+      </div>
 
-      <%= f.label :password, 'Contraseña' %>
-      <%= f.password_field :password, id: "password" %>
+      <div class="control-group">
+        <%= f.label :password, 'Contraseña' %>
+        <div class="controls">
+          <%= f.password_field :password, id: "password" %>
+        </div>
+      </div>
 
-      <%= f.label :password_confirmation, 'Confirmar' %>
-      <%= f.password_field :password_confirmation %>
+      <div class="control-group">
+        <%= f.label :password_confirmation, 'Confirmar' %>
+        <div class="controls">
+          <%= f.password_field :password_confirmation %>
+        </div>
+      </div>
 
       <%= f.label :genre, 'Sexo' %>
       <%= select_tag(:genre, options_for_select([['Masculino', 'Hombre'], ['Femenino', 'Mujer']])) %>
@@ -78,8 +98,15 @@
       "user[first_name]": {required: true, minlength: 2},
       "user[last_name]": {required: true, minlength: 2},
       "user[email]": {required: true, email: true},
-      "user[password]": {required: true},
+      "user[password]": {required: true, minlength: 8},
       "user[password_confirmation]": {equalTo: "#password"}
+    },
+    highlight: function(element) {
+      $(element).closest('.control-group').removeClass('success').addClass('error');
+    },
+    success: function(element) {
+      element
+        .closest('.control-group').removeClass('error').addClass('success');
     }
   });
 </script>
