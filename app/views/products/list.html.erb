@@ -7,7 +7,9 @@
           <% gift = current_user.gift_from_product(product) %>
           <div style="position: absolute; top: 6px;width: 200px">
             <% if not current_user.products_from_gifts.include? product %>
-              <a title="Lo tengo!" href="<%= product_add_to_gifts_path(:id => product.id) %>" class="btn btn-mini pull-left btn-success add-to-gifts"><i class="icon-gift icon-white"></i></a>
+              <%= link_to "<i class='icon-gift icon-white'></i>".html_safe, product_add_to_gifts_path(:id => product.id), method: 'post',
+              :class => 'btn btn-success btn-mini pull-left add-to-gifts', title: 'Lo tengo!',
+              :style => 'width: 30px' %>
             <% else %>
               <a title="Evaluar" href="#" onclick="$('#evaluateModal<%= gift.id %>').modal('toggle');" class="btn btn-mini pull-left btn-primary add-to-gifts"><i class="icon-star-empty icon-white"></i></a>
               <% if gift != nil %>
@@ -57,11 +59,15 @@
            <% if not current_user.wishlist.include? product and
                  not current_user.products_from_gifts.include? product %>
             <%= link_to "<i class='icon-white icon-heart'></i>".html_safe, product_add_to_wishlist_path(:id => product.id), :method => :post,
-                :class => 'btn btn-danger btn-mini btn-primary pull-left add-to-wishlist', title: 'Wishlist',
+                :class => 'btn btn-danger btn-mini pull-left add-to-wishlist', title: 'Wishlist',
                 :style => 'width: 30px' %>
             <% elsif current_user.wishlist.include? product %>
             <%= link_to "<i class='icon-thumbs-down icon-white'></i>".html_safe, product_remove_from_wishlist_path(:id => product.id), method: 'delete',
-              :class => 'btn btn-warning btn-mini btn-primary pull-left remove-from-wishlist', title: 'No lo quiero',
+              :class => 'btn btn-warning btn-mini pull-left remove-from-wishlist', title: 'No lo quiero',
+              :style => 'width: 30px' %>
+            <% else %>
+             <%= link_to "<i class='icon-trash icon-white'></i>".html_safe, product_remove_from_gifts_path(:id => product.id), method: 'delete',
+              :class => 'btn btn-danger btn-mini pull-left remove-from-gifts', title: 'No lo tengo',
               :style => 'width: 30px' %>
            <% end %>
           <% elsif signed_in? and current_user.class.to_s == 'Seller' %>
@@ -85,4 +91,5 @@
   $('.remove-from-wishlist').tooltip();
   $('.view-more').tooltip();
   $('.briefcase').tooltip();
+  $('.remove-from-gifts').tooltip();
 </script>
