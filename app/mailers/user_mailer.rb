@@ -3,13 +3,13 @@ class UserMailer < ActionMailer::Base
 
   def signup_email(user)
     @user = user
-    @link = "http://localhost:3000/confirm/" + @user.id + "/" + @user.signup_token
+    @link = "http://what-the-gift.com/confirm/" + @user.id + "/" + @user.signup_token
     mail(to: @user.email, subject: 'Bienvenido a What the Gift?!')
   end
 
   def new_email_email(user)
     @user = user
-    @link = "http://localhost:3000/confirm-mail/" + @user.id + "/" + @user.signup_token
+    @link = "http://what-the-gift.com/confirm-mail/" + @user.id + "/" + @user.signup_token
     mail(to: @user.new_email, subject: 'Confirme su nuevo mail')
   end
 
@@ -26,14 +26,12 @@ class UserMailer < ActionMailer::Base
   def birthday_notification(user)
     @user = user
     @friends = user.birthday_friends
-    url = 'http://localhost:3000'
+    url = 'http://what-the-gift.com'
     @link_friend = url + "/friends/"
     @link_gift = url + "/products/"
     @url = url 
     @headerImage = url + '/assets/email-header.png'
-    if (user.email == 'sacha.lifszyc@gmail.com')
-      mail(to: user.email, subject: "Se acercan nuevos cumpleaños")
-    end
+    mail(to: user.email, subject: "Se acercan nuevos cumpleaños")
   end
 
 end
