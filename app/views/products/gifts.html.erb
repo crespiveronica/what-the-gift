@@ -1,9 +1,9 @@
 <%= will_paginate @gifts %>
 
 <div class="row">
-  <% if not @user.gifts.empty? %>
+  <% if not @gifts.empty? %>
     <ul class="span12">
-    	<% @user.gifts.each do |gift| %>
+    	<% @gifts.each do |gift| %>
     	<li class="span3 thumbnail" style="margin-left: 10px; height: 270px; position: relative; padding: 0 12px">
     		<%= image_tag gift.product.photo, size: '100x100', class: 'gift img-rounded' %>
     		<h5><%= gift.product.name %></h5>
