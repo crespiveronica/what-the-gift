@@ -134,6 +134,16 @@ def hobbies_list
 	self.hobbies.nil? ? [] : self.hobbies
 end
 
+def birthday_friends
+	bd_friends = []
+	friends.each do | f |
+		if f.birthday_this_year > Date.today and f.birthday_this_year < Date.today + 10
+			bd_friends.push f
+		end
+	end
+	return bd_friends
+end
+
 def self.birthday_users
 	users = User.all
 	birthday_users = Array.new
@@ -146,7 +156,14 @@ def self.birthday_users
 end
 
 def remaining_days
-	diff = (Date.today - birthday_this_year).to_i.abs
+	diff = (Date.today - birthday_this_year).to_i
+	if diff < 0
+		diff * (-1)
+	elsif diff > 0
+		365 - diff
+	else
+		0
+	end
 end
 
 def birthday_this_year

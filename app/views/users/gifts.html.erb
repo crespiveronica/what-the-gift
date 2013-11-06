@@ -1,10 +1,8 @@
 <% content_for :activefriendgifts do %>
-	class="active"
+  class="active"
 <% end %>
 <fieldset>
-	<legend><h4>Regalos recibidos</h4></legend>
-	<ul class="thumbnails">
-		<% @products = @friend.products_from_gifts.paginate(:page => params[:page], :per_page => 30) %>
-		<%= render :template => 'products/list' %>
-	</ul>
+  <legend><h4>Regalos recibidos</h4></legend>
+  <% @products = @friend.products_from_gifts.paginate(:page => params[:page], :per_page => 30) %>
+  <%= render :template => 'products/list' %>
 </fieldset>

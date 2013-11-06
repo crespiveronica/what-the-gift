@@ -79,6 +79,18 @@ class ProductsController < ApplicationController
     end
   end
 
+  def product_remove_from_gifts
+    product = Product.where(:id => params[:id]).first
+    if product
+      current_user.gifts.delete_if {|gift| gift.product == product}
+      flash['alert alert-info'] = 'El regalo fue borrado a tu lista de regalos recibidos'
+      redirect_to product_path
+    else
+      flash['alert alert-error'] = 'No se encontr&oacute; el producto'.html_safe
+      redirect_to search_product_path
+    end
+  end
+
   def rate
     @gift = current_user.gifts.where(:id => params[:id]).first
     @gift.score = params[:score] != '' ? params[:score] : 0

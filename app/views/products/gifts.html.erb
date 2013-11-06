@@ -1,54 +1,58 @@
-<%= will_paginate @gifts %>
+<%= will_paginate @gifts, class: 'pagination pagination-centered' %>
 
 <div class="row">
-  <% if not @user.gifts.empty? %>
-    <ul class="span12">
-    	<% @user.gifts.each do |gift| %>
-    	<li class="span3 thumbnail" style="margin-left: 10px; height: 270px; position: relative; padding: 0 12px">
-    		<%= image_tag gift.product.photo, size: '100x100', class: 'gift img-rounded' %>
-    		<h5><%= gift.product.short_name %></h5>
-    		<p><small><%= gift.product.short_description %></small></p>
-        <div style="position: absolute;bottom: 20px; left: 30%;text-align: center;">
-          <div class="star" id="star<%= gift.id %>"></div>
-          <% if gift.score != nil and gift.score != ''  %>
-            <% score = gift.score %>
-          <% else %>
-            <% score = 0 %>
-          <% end %>
-          <script>
-            $('#star<%= gift.id %>').raty({ readOnly: true, half: true, score: <%= score %> });
-          </script>
-          <a class="btn btn-primary" onclick="$('#evaluateModal<%= gift.id %>').modal('toggle');"><i class="icon-star icon-white"></i> Evaluar</a>
-      	</div>
-        <div id="evaluateModal<%= gift.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">Evaluar</h3>
-          </div>
-          <form method="post" action="<%= product_rate_path :id => gift.id %>">
-            <div class="modal-body">
-              <div id="starToRate<%= gift.id %>"></div>
-              <script>
-                $('#starToRate<%= gift.id %>').raty({ half: true, score: <%= gift.score != nil and gift.score != '' ? gift.score : 0 %>, cancel: true, width: 300 });
-              </script>
-              <p>
-                Esta puntuación es para mejorar los próximos regalos y NUNCA será mostrada a otros usuarios de What the gift?!
-              </p>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-warning pull-left" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-              <input type="submit" class="btn btn-primary" value="Introducir Puntaje" />
-            </div>
-          </form>
+  <div class="span12">
+    <ul class="thumbnails">
+      <% if not @gifts.empty? %>
+        <% @gifts.each do |gift| %>
+          <li class="span3">
+            <div class="thumbnail" style="margin-left: 10px; height: 270px; position: relative; padding: 0 12px">
+              <%= image_tag gift.product.photo, size: '100x100', class: 'gift img-rounded' %>
+              <h5><%= gift.product.short_name %></h5>
+              <p><small><%= gift.product.short_description %></small></p>
+              <div style="position: absolute;bottom: 20px; left: 30%;text-align: center;">
+                <div class="star" id="star<%= gift.id %>"></div>
+                <% if gift.score != nil and gift.score != ''  %>
+                  <% score = gift.score %>
+                <% else %>
+                  <% score = 0 %>
+                <% end %>
+                <script>
+                  $('#star<%= gift.id %>').raty({ readOnly: true, half: true, score: <%= score %> });
+                </script>
+                <a class="btn btn-primary" onclick="$('#evaluateModal<%= gift.id %>').modal('toggle');"><i class="icon-star icon-white"></i> Evaluar</a>
+              </div>
+              <div id="evaluateModal<%= gift.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h3 id="myModalLabel">Evaluar</h3>
+                </div>
+                <form method="post" action="<%= product_rate_path :id => gift.id %>">
+                  <div class="modal-body">
+                    <div id="starToRate<%= gift.id %>"></div>
+                    <script>
+                      $('#starToRate<%= gift.id %>').raty({ half: true, score: <%= gift.score != nil and gift.score != '' ? gift.score : 0 %>, cancel: true, width: 300 });
+                    </script>
+                    <p>
+                      Esta puntuación es para mejorar los próximos regalos y NUNCA será mostrada a otros usuarios de What the gift?!
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-warning pull-left" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+                    <input type="submit" class="btn btn-primary" value="Introducir Puntaje" />
+                  </div>
+                </form>
+              </div>
+            </div> <!-- El li del thumbnail -->
+          </li> <!-- El li del span -->
+        <% end %>
+      <% else %>
+        <div class="alert alert-info" style="margin-left: 20px;">
+          Aún no has marcado ningún regalo como recibido
         </div>
-    	</li>
-    	<% end %>
+      <% end %>
     </ul>
-  <% else %>
-    <div class="alert alert-info">
-      Aún no has marcado ningún regalo como recibido
-    </div>
-  <% end %>
+  </div>
 </div>
 
-<%= will_paginate @gifts %>
+<%= will_paginate @gifts, class: 'pagination pagination-centered' %>

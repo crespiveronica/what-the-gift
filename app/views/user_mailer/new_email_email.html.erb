@@ -4,14 +4,17 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Confirmá tu nuevo mail, <%= @user.full_name %></h1>
-    <p>
-      Cambiaste tu email en WTG?!.<br/>
-      Ahora sólo falta confirmar que el mail que ingresaste (éste) sea el correcto.<br/>
-      Para confirmarlo ingresá a <a href=<%= @link %> target="_blank">este link</a>
-    </p>
-    <p>
-      Muchas gracias, el equipo de What The Gift?!
-    </p>
+    <div style="background: #f5f5f5;padding: 12px;">
+      <img src="<%= @headerImage %>" />
+      <h1>Confirmá tu nuevo mail, <%= @user.full_name %></h1>
+      <p>
+        Cambiaste tu email en WTG?!.<br/>
+        Ahora sólo falta confirmar que el mail que ingresaste (éste) sea el correcto.<br/>
+        Para confirmarlo ingresá a <a href=<%= @link %> target="_blank">este link</a>
+      </p>
+      <p>
+        Muchas gracias, el equipo de What The Gift?!
+      </p>
+    </div>
   </body>
 </html>

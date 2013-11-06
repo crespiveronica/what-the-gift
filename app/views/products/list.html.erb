@@ -1,83 +1,85 @@
-<%= will_paginate @products %>
+<%= will_paginate @products, class: 'pagination pagination-centered' %>
 
-<% @products.each do |product| %>
-    <li class="span2 product" style="margin-left: 12px">
-      <div class="thumbnail gift" style="margin: 12px 0;">
-        <% if signed_in? and current_user._type == 'User' %>
-          <% gift = current_user.gift_from_product(product) %>
-          <div style="position: absolute; top: 6px;width: 200px">
-            <% if not current_user.products_from_gifts.include? product %>
-              <a title="Lo tengo!" href="<%= product_add_to_gifts_path(:id => product.id) %>" class="btn btn-mini pull-left btn-success add-to-gifts"><i class="icon-gift icon-white"></i></a>
-            <% else %>
-              <a title="Evaluar" href="#" onclick="$('#evaluateModal<%= gift.id %>').modal('toggle');" class="btn btn-mini pull-left btn-primary add-to-gifts"><i class="icon-star-empty icon-white"></i></a>
-              <% if gift != nil %>
-                <div id="evaluateModal<%= gift.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 id="myModalLabel">Evaluar</h3>
+<ul class="thumbnails">
+  <% @products.each do |product| %>
+      <li class="span2">
+        <div class="thumbnail gift" style="margin: 12px 0;">
+          <% if signed_in? and current_user._type == 'User' %>
+            <% gift = current_user.gift_from_product(product) %>
+            <div style="position: absolute; top: 6px;width: 200px">
+              <% if not current_user.products_from_gifts.include? product %>
+                <a title="Lo tengo!" href="<%= product_add_to_gifts_path(:id => product.id) %>" class="btn btn-mini pull-left btn-success add-to-gifts"><i class="icon-gift icon-white"></i></a>
+              <% else %>
+                <a title="Evaluar" href="#" onclick="$('#evaluateModal<%= gift.id %>').modal('toggle');" class="btn btn-mini pull-left btn-primary add-to-gifts"><i class="icon-star-empty icon-white"></i></a>
+                <% if gift != nil %>
+                  <div id="evaluateModal<%= gift.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                      <h3 id="myModalLabel">Evaluar</h3>
+                    </div>
+                    <form method="post" action="<%= product_rate_path :id => gift.id %>">
+                      <input type="hidden" name="productlist" value="true" />
+                      <div class="modal-body">
+                        <div id="starToRate<%= gift.id %>"></div>
+                        <script>
+                          $('#starToRate<%= gift.id %>').raty({ half: true, score: <%= gift.score != nil and gift.score != '' ? gift.score : 0 %>, cancel: true, width: 300 });
+                        </script>
+                        <p>
+                          Esta puntuación es para mejorar los próximos regalos y NUNCA será mostrada a otros usuarios de What the gift?!
+                        </p>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-warning pull-left" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+                        <input type="submit" class="btn btn-primary" value="Introducir Puntaje" />
+                      </div>
+                    </form>
                   </div>
-                  <form method="post" action="<%= product_rate_path :id => gift.id %>">
-                    <input type="hidden" name="productlist" value="true" />
-                    <div class="modal-body">
-                      <div id="starToRate<%= gift.id %>"></div>
-                      <script>
-                        $('#starToRate<%= gift.id %>').raty({ half: true, score: <%= gift.score != nil and gift.score != '' ? gift.score : 0 %>, cancel: true, width: 300 });
-                      </script>
-                      <p>
-                        Esta puntuación es para mejorar los próximos regalos y NUNCA será mostrada a otros usuarios de What the gift?!
-                      </p>
-                    </div>
-                    <div class="modal-footer">
-                      <button class="btn btn-warning pull-left" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-                      <input type="submit" class="btn btn-primary" value="Introducir Puntaje" />
-                    </div>
-                  </form>
-                </div>
+                <% end %>
               <% end %>
+            </div>
+          <% end %>
+          <%= image_tag product.photo , size: '100x100', class: 'gift img-rounded' %>
+          <h5><%= product.short_name %></h5>
+  		    <p><small><%= product.short_description %></small></p>
+          <% if not product.selling_products.empty? %>
+            <p><small>Desde $<%= product.lowest_price %> </small></p>
+          <% end %>
+          <% if signed_in? and current_user._type == 'User' %>
+            <% gift = current_user.gift_from_product(product) %>
+            <% if gift != nil %>
+              <div id="starToRateSmall<%= gift.id %>"></div>
+              <script>
+                $('#starToRateSmall<%= gift.id %>').raty({ half: true, score: <%= gift.score != nil and gift.score != '' ? gift.score : 0 %>, cancel: true, width: 300, readOnly: true });
+              </script>
             <% end %>
-          </div>
-        <% end %>
-        <%= image_tag product.photo , size: '100x100', class: 'gift img-rounded' %>
-        <h5><%= product.short_name %></h5>
-		    <p><small><%= product.short_description %></small></p>
-        <% if not product.selling_products.empty? %>
-          <p><small>Desde $<%= product.lowest_price %> </small></p>
-        <% end %>  
-        <% if signed_in? and current_user._type == 'User' %>
-          <% gift = current_user.gift_from_product(product) %>
-          <% if gift != nil %>
-            <div id="starToRateSmall<%= gift.id %>"></div>
-            <script>
-              $('#starToRateSmall<%= gift.id %>').raty({ half: true, score: <%= gift.score != nil and gift.score != '' ? gift.score : 0 %>, cancel: true, width: 300, readOnly: true });
-            </script>
           <% end %>
-        <% end %>
-        <p class="bottom">
-          <% if signed_in? and current_user.class.to_s == 'User'%>
-           <% if not current_user.wishlist.include? product and
-                 not current_user.products_from_gifts.include? product %>
-            <%= link_to "<i class='icon-white icon-heart'></i>".html_safe, product_add_to_wishlist_path(:id => product.id), :method => :post,
-                :class => 'btn btn-danger btn-mini btn-primary pull-left add-to-wishlist', title: 'Wishlist',
+          <p class="bottom">
+            <% if signed_in? and current_user.class.to_s == 'User'%>
+             <% if not current_user.wishlist.include? product and
+                   not current_user.products_from_gifts.include? product %>
+              <%= link_to "<i class='icon-white icon-heart'></i>".html_safe, product_add_to_wishlist_path(:id => product.id), :method => :post,
+                  :class => 'btn btn-danger btn-mini btn-primary pull-left add-to-wishlist', title: 'Wishlist',
+                  :style => 'width: 30px' %>
+              <% elsif current_user.wishlist.include? product %>
+              <%= link_to "<i class='icon-thumbs-down icon-white'></i>".html_safe, product_remove_from_wishlist_path(:id => product.id), method: 'delete',
+                :class => 'btn btn-warning btn-mini btn-primary pull-left remove-from-wishlist', title: 'No lo quiero',
                 :style => 'width: 30px' %>
-            <% elsif current_user.wishlist.include? product %>
-            <%= link_to "<i class='icon-thumbs-down icon-white'></i>".html_safe, product_remove_from_wishlist_path(:id => product.id), method: 'delete',
-              :class => 'btn btn-warning btn-mini btn-primary pull-left remove-from-wishlist', title: 'No lo quiero',
-              :style => 'width: 30px' %>
-           <% end %>
-          <% elsif signed_in? and current_user.class.to_s == 'Seller' %>
-            <%= link_to "<i class='icon-briefcase icon-white'></i>".html_safe,
-             sell_one_path(:id => product.id), :class => 'btn btn-mini btn-success pull-left briefcase',
-             title: 'Vender uno igual' %>
-          <% end %>
-            <%= link_to "<i class='icon-search icon-white'></i>".html_safe,
-             product_path(:id => product.id), :class => 'btn btn-mini btn-info pull-right view-more',
-             :style => 'width: 50px', title: 'Ver más' %>
-        </p>
-      </div>
-    </li>
-<% end %>
-<br>
-<%= will_paginate @products %>
+             <% end %>
+            <% elsif signed_in? and current_user.class.to_s == 'Seller' %>
+              <%= link_to "<i class='icon-briefcase icon-white'></i>".html_safe,
+               sell_one_path(:id => product.id), :class => 'btn btn-mini btn-success pull-left briefcase',
+               title: 'Vender uno igual' %>
+            <% end %>
+              <%= link_to "<i class='icon-search icon-white'></i>".html_safe,
+               product_path(:id => product.id), :class => 'btn btn-mini btn-info pull-right view-more',
+               :style => 'width: 50px', title: 'Ver más' %>
+          </p>
+        </div>
+      </li>
+  <% end %>
+</ul>
+
+<%= will_paginate @products, class: 'pagination pagination-centered' %>
 
 <script>
   $('.add-to-wishlist').tooltip();
@@ -85,4 +87,5 @@
   $('.remove-from-wishlist').tooltip();
   $('.view-more').tooltip();
   $('.briefcase').tooltip();
+  $('.remove-from-gifts').tooltip();
 </script>

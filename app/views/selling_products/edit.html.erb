@@ -23,8 +23,12 @@
   </div>
 
  <div class="row">
-    <div class="span4"><strong>Precio</strong></div>
-    <div class="span5"><input type="text" value="<%=@selling_product.price %>" name="price"></div>
+    <div class="control-group">
+      <div class="span4"><strong>Precio</strong></div>
+      <div class="controls">
+        <div class="span5"><input type="text" value="<%=@selling_product.price %>" name="price"></div>
+      </div>
+    </div>
   </div>
 
   <div class="span2 offset3 text-right">
@@ -45,6 +49,13 @@
   $('#precio-box').validate({
     rules: {
       "price": {required: true, number: true, greaterThanZero: true}
+    },
+    highlight: function(element) {
+      $(element).closest('.control-group').removeClass('success').addClass('error');
+    },
+    success: function(element) {
+      element
+        .closest('.control-group').removeClass('error').addClass('success');
     }
   });
 </script>

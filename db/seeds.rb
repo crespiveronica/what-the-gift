@@ -3460,7 +3460,7 @@ gift = Gift.new
 gift.product = Product.all[rand.rand(10)]
 gift.score = rand.rand(10)
 joaquincito.gifts = [gift]
-joaquincito.birthday = rand(20.years).ago
+joaquincito.birthday = Date.new(1988, 11, 13)
 joaquincito.save
 
 print "Vero..."

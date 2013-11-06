@@ -67,13 +67,19 @@ class UsersController < ApplicationController
   end
 
   def update_mail
-    @user = current_user
-    @user.new_email = params[:user][:email]
-    @user.save
-    sign_in @user
-    UserMailer.new_email_email(@user).deliver
-    flash['alert alert-success'] = 'Se ha enviado un correo electrónico a ' + current_user.new_email + ' para la confirmación de su nuevo mail.'
-    redirect_to root_path
+    existing = GenericUser.where({email: params[:user][:email]}).first
+    if existing != nil
+      flash['alert alert-error'] = 'El email ' + params[:user][:email] + ' ya se encuentra en uso por otra persona.'
+      redirect_to edit_user_path(current_user)
+    else
+      @user = current_user
+      @user.new_email = params[:user][:email]
+      @user.save
+      sign_in @user
+      UserMailer.new_email_email(@user).deliver
+      flash['alert alert-success'] = 'Se ha enviado un correo electrónico a ' + current_user.new_email + ' para la confirmación de su nuevo mail.'
+      redirect_to root_path
+    end
   end
 
   def create
@@ -214,10 +220,10 @@ class UsersController < ApplicationController
   end
 
   def birthday_notification
-    birthday_users = User.birthday_users
-    birthday_users.each do | user |
-      user.friends.each do |friend|
-        UserMailer.birthday_notification(user, friend).deliver
+    users = User.all
+    users.each do | user |
+      if not user.birthday_friends.empty?
+        UserMailer.birthday_notification(user).deliver
       end
     end
   end

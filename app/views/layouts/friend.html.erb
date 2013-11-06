@@ -1,7 +1,13 @@
 <%= inside_layout "application" do %>
 	<div class="page-header">
 	    <h1><%=@friend.full_name%></h1>
-	    <p class="text-center">Faltan <%= @friend.remaining_days %> días para su cumpleaños</p>
+	    <% if @friend.remaining_days > 1 %>
+	    	<p class="text-center">Faltan <%= @friend.remaining_days %> días para su cumpleaños</p>
+	    <% elsif @friend.remaining_days == 1 %>
+	    	<p class="text-center"><strong>Mañana es el cumpleaños!</strong></p>
+	    <% else %>
+	    	<p class="text-center"><strong>Hoy es el cumpleaños!</strong></p>
+	   	<% end %>
 	</div>
 		<div class="tabbable">
 		    <ul class="nav nav-tabs">

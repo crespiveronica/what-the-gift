@@ -1,6 +1,6 @@
 class Gift
   include Mongoid::Document
-  
+
   embedded_in :user
   belongs_to :product
   field :score
