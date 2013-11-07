@@ -225,6 +225,7 @@
         <li style="list-style-type: square;">Los botones Mis productos y Administrá tus productos le permitirá dirigirse a la pantalla donde podrá dar de alta, eliminar o modificar alguno de sus producto existentes</li>
         <li style="list-style-type: square;">Productos le permitirá ver un listado de los productos disponibles (propios o ajenos) y realizar búsquedas simples o avanzadas así como por categorías</li>
       </ol>
+      <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="perfil">Perfil</h2>
       <p>En esta pantalla tendrá la posibilidad de visualizar los datos actuales de su perfil y dispondrá de 3 botones</p>
@@ -234,6 +235,7 @@
         <li style="list-style-type: square;">Cambiar E-Mail le permitirá la posibilidad de editar su cuenta de correo electrónico de su cuenta. Este proceso requerirá un email válido y posterior confirmación del mismo</li>
       </ol>
       <p>La solapa “Mis productos” le permitirá ver un listado de sus productos para dar de alta, eliminar o modificarlos</p>
+      <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="reactivar-perfil">Reactivar perfil</h2>
       <p>Si su perfil ha sido eliminado, podrá ser reactivado ingresando las credenciales correspondientes anteriores a la eliminación. Se le notificará sobre el estado eliminado de su cuenta y se le ofrecerá la posibilidad de reactivarla.</p>
@@ -258,9 +260,11 @@
         <li  style="list-style-type: square;">Cambiar E-Mail(*) le permitirá la posibilidad de editar su cuenta de correo electrónico de su cuenta. Este proceso requerirá un email válido y posterior confirmación del mismo</li>
       </ol>
       <p>(*)Estos botones no requieren presionar en Confirmar cambios para que se reflejen los cambios.</p>
+      <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="mis-productos-gestion-de-productos-propios">Mis productos (Gestión de productos propios)</h2>
       <p>En esta pantalla se verá el listado de productos propios del vendedor. Cada producto listado tendrá la opción de</p>
+
       <ol>
         <li style="list-style-type: square;">Eliminar el producto de la base de datos</li>
         <li style="list-style-type: square;">Modificar(*) los atributos del producto</li>
@@ -271,19 +275,20 @@
         <li style="list-style-type: square;">Cargar producto desde archivo le permitirá cargar varios productos en una única acción subiendo un archivo que los contenga. Ver sección “Cargar productos desde archivo” para más información.</li>
       </ol>
       <p><small>(*)Debido al funcionamiento del sitio, solo se podrá modificar el precio. Ver sección “Agregar producto” para más información.</small></p>
+      <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="agregar-producto">Agregar producto</h2>
       <p>En esta ventana se mostrará el formulario para la creación de un nuevo producto. Los campos son todos obligatorios a excepción de la foto.</p>
       <p>El campo Categorías mostrará un listado de categorías disponibles a seleccionar.</p>
       <p>El producto será confirmado presionando en el botón Crear. Es importante tener en cuenta que no aparecerá en los listados hasta que sea habilitado por un administrador el cual evaluará que el producto cumpla con los requisitos del sitio, requisitos legales y no contradiga la moral y las buenas costumbres.</p>
+      <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="notificacion-de-resultado-de-publicacion">Notificación de resultado de publicación</h2>
-      <p>Todo producto agregado por un vendedor será evaluado por un administrador para su posterior evaluación. Si el producto fuera tanto aprobado como rechazado, llegará a la cuenta de correo registrada un notificación sobre el estado del mismo. </p>
+      <p>Todo producto agregado por un vendedor será evaluado por un administrador para su posterior evaluación. Si el producto fuera tanto aprobado como rechazado, llegará a la cuenta de correo registrada un notificación sobre el estado del mismo.</p>
+      <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="cargar-productos-desde-archivo">Cargar productos desde archivo</h2>
-      <p>(Acá tengo que saber cómo debe ser el archivo para explicar cómo cargarlo).
-       </p>
-      </p>
+      <p>(Acá tengo que saber cómo debe ser el archivo para explicar cómo cargarlo).</p>
     </div>
 
     <div class="tab-pane" id="admin">
@@ -292,11 +297,12 @@
 
       <h3 class="text-left" id="login">Cómo iniciar sesión</h2>
       <p>Para ingresa a la pantalla de login, el administrador debe escribir en la barra de direcciones
-      <%= link_to admin_login_path %>. Esta pantalla mostrará el botón Iniciar sesión que al presionarlo mostrará un Pop-Up solicitando</p>
+      <%= link_to admin_login_path, 'www.what-the-gift.com/admins/login' %>. Esta pantalla mostrará el botón Iniciar sesión que al presionarlo mostrará un Pop-Up solicitando</p>
       <ol>
         <li style="list-style-type: square;">Username: nombre de usuario proporcionado por el administrador de la base de datos</li>
         <li style="list-style-type: square;">Password: contraseña proporcionada por el administrador de la base de datos</li>
       </ol>
+      <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="panel-de-control">Panel de control</h2>
       <p>Los botones mostrados son</p>
@@ -307,18 +313,22 @@
         <li style="list-style-type: square;">Administrar Categorías o Categorías en la barra superior (ver sección Administrar categorías)</li>
       </ol>
       <p>Cada uno de ellos redirigirá a la pantalla correspondiente la posterior administración de cada uno.</p>
+      <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="administrar-usuario">Administrar usuario</h2>
       <p>Esta pantalla mostrará un listado de los usuarios y la posibilidad de habilitarlos y deshabilitarlos. Si el usuario estuviera habilitado, y se lo desea deshabilitar, se mostrará un campo para rellenar un motivo por el cual se lo deshabilita.
       Al cambiar el estado de un usuario, se le enviará un email informándole sobre dicho cambio y se le adjuntará el texto incluido en el motivo previamente ingresado.</p>
+      <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="administrar-vendedores">Administrar Vendedores</h2>
       <p>Esta pantalla mostrará un listado de los vendedores y la posibilidad de habilitarlos y deshabilitarlos. Si el vendedor estuviera habilitado, y se lo desea deshabilitar, se mostrará un campo para rellenar un motivo por el cual se lo deshabilita.
       Al cambiar el estado de un vendedor, se le enviará un email informándole sobre dicho cambio y se le adjuntará el texto incluido en el motivo previamente ingresado.</p>
+      <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="administrar-usuario_1">Administrar usuario</h2>
       <p>Esta pantalla mostrará un listado de los productos y la posibilidad de habilitarlos y deshabilitarlos. Si el producto estuviera habilitado, y se lo desea deshabilitar, se mostrará un campo para rellenar un motivo por el cual se lo deshabilita.
       Al cambiar el estado de un producto, se le enviará un email al vendedor del mismo informándole sobre dicho cambio y se le adjuntará el texto incluido en el motivo previamente ingresado.</p>
+      <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="administrar-categoria">Administrar categoría</h2>
       <p>En esta pantalla el adminitrador podrá</p>
