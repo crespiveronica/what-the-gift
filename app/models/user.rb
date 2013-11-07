@@ -33,8 +33,12 @@ end
 
 def friends
 	reqs = FriendRequest.where({accepted: true}).any_of({owner: self}, {friend: self})
-	friends = reqs.map { |req| req.owner == self ? req.friend : req.owner}
-	friends.sort_by &:first_name
+	if reqs
+		friends = reqs.map { |req| req.owner == self ? req.friend : req.owner}
+		friends.sort_by &:first_name
+	else
+		[]
+	end
 end
 
 def friend_request friend
