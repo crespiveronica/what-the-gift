@@ -28,7 +28,7 @@
         <li style="list-style-type: square;">Pasatiempos y hobbies*, al clickear en el campo, mostrará un listado de hobbies predefinidos por el sitio. Debe seleccionarse al menos 1 (uno).</li>
         <li style="list-style-type: square;">Signo “+” el cual permitirá agregar hobbies que no existan en el listado anterior</li>
       </ol>
-      <p><small>*Campo obligatorio</small></p>
+      <p><small>(*)Campo obligatorio</small></p>
       <p>El botón crear verificará que todos los campos obligatorios estén completos y que cumplan con las condiciones necesarias.</p>
       <p>Creada la cuenta, la misma quedará inactiva hasta que sea activada.</p>
       <hr style="border-top: 1px solid #97310e;">
@@ -49,7 +49,7 @@
         <li style="list-style-type: square;">Ubicación: dirección de la empresa</li>
         <li style="list-style-type: square;">Teléfono: de la empresa</li>
       </ol>
-      <p><small>*Campo obligatorio</small></p>
+      <p><small>(*)Campo obligatorio</small></p>
       <p>El botón crear verificará que todos los campos obligatorios estén completos y que cumplan con las condiciones necesarias.</p>
       <p>Creada la cuenta, la misma quedará inactiva hasta que sea activada.</p>
       <hr style="border-top: 1px solid #97310e;">
@@ -133,7 +133,7 @@
         </li>
         <li style="list-style-type: square;">Cambiar E-Mail(*) le permitirá la posibilidad de editar su cuenta de correo electrónico de su cuenta. Este proceso requerirá un email válido y posterior confirmación del mismo</li>
       </ol>
-      <p>(*)Estos botones no requieren presionar en Confirmar cambios para que se reflejen los cambios.</p>
+      <p><small>(*)Estos botones no requieren presionar en Confirmar cambios para que se reflejen los cambios.</small></p>
 
       <h3 class="text-left" id="administrar-amigos">Administrar amigos</h2>
       <p>En esta pantalla estarán disponibles dos secciones:</p>
@@ -270,7 +270,7 @@
         <li style="list-style-type: square;">Agregar producto el cual lo re-direccionará a la pantalla que le permitirá agregar un nuevo producto propio</li>
         <li style="list-style-type: square;">Cargar producto desde archivo le permitirá cargar varios productos en una única acción subiendo un archivo que los contenga. Ver sección “Cargar productos desde archivo” para más información.</li>
       </ol>
-      <p>(*)Debido al funcionamiento del sitio, solo se podrá modificar el precio. Ver sección “Agregar producto” para más información</p>
+      <p><small>(*)Debido al funcionamiento del sitio, solo se podrá modificar el precio. Ver sección “Agregar producto” para más información.</small></p>
 
       <h3 class="text-left" id="agregar-producto">Agregar producto</h2>
       <p>En esta ventana se mostrará el formulario para la creación de un nuevo producto. Los campos son todos obligatorios a excepción de la foto.</p>
@@ -292,7 +292,7 @@
 
       <h3 class="text-left" id="login">Cómo iniciar sesión</h2>
       <p>Para ingresa a la pantalla de login, el administrador debe escribir en la barra de direcciones
-      www.what-the-gift.com.ar/admins. Esta pantalla mostrará el botón Iniciar sesión que al presionarlo mostrará un Pop-Up solicitando</p>
+      <%= link_to admin_login_path %>. Esta pantalla mostrará el botón Iniciar sesión que al presionarlo mostrará un Pop-Up solicitando</p>
       <ol>
         <li style="list-style-type: square;">Username: nombre de usuario proporcionado por el administrador de la base de datos</li>
         <li style="list-style-type: square;">Password: contraseña proporcionada por el administrador de la base de datos</li>
