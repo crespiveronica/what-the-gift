@@ -288,7 +288,27 @@
       <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="cargar-productos-desde-archivo">Cargar productos desde archivo</h2>
-      <p>(Acá tengo que saber cómo debe ser el archivo para explicar cómo cargarlo).</p>
+      <p>El archivo debe estar en formato <a href="">JSON</a>, y debe tener la siguiente estructura. Le mostramos un ejemplo:</p>
+      <pre>
+        {"productos" : [
+          {"nombre" : "650D",
+          "descripcion" : "Cámara Canon 650D, con lente 18-55mm",
+          "marca" : "Canon",
+          "precio" : "8000",
+          "url_foto" : "http://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/EOS_650D.jpg/800px-EOS_650D.jpg",
+          "categorias" : ["Fotografía"]
+          },
+          {"nombre" : nombre-del-producto,
+          "descripcion" : una-descripcion,
+          "marca" : su-marca,
+          "precio" : pesos,
+          "url_foto" : direccion-de-foto,
+          "categorias" : [una-categoria]
+          },
+          ... etc ...
+        ]}
+      </pre>
+      <p>En este caso, debe reemplazar <em>nombre-delproducto, una-descripcion</em>, etc. por los correspondientes a su producto.</p>
     </div>
 
     <div class="tab-pane" id="admin">
