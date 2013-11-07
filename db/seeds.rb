@@ -3447,14 +3447,16 @@ fer.password_confirmation = 'password'
 fer.active = active
 fer.banned = banned
 fer.genre = 'Hombre'
+fer.hobbies = vero.hobbies = [Hobby.new(name:'Ska'), Hobby.new(name:'Futbol'), Hobby.new(name:'Filosofia'), Hobby.new(name:'Bebidas alcoholicas')]
 fer.wishlist = []
-fer.wishlist << Product.all.entries[rand.rand(10)]
-fer.wishlist << Product.all.entries[rand.rand(10)]
+fer.wishlist << ipad_mini_16_product
+fer.wishlist << celulares_4_product
+fer.wishlist << alcohol7_product
 gift = Gift.new
-gift.product = Product.all[rand.rand(10)]
-gift.score = rand.rand(10)
+gift.product = auris4_product
+gift.score = rand.rand(5)
 fer.gifts = [gift]
-fer.birthday = rand(20.years).ago
+fer.birthday = Date.new(1986, 3, 26)
 fer.save
 
 puts "Joaco"
@@ -3487,7 +3489,7 @@ vero.password_confirmation = '12345678'
 vero.active = active
 vero.banned = banned
 vero.genre = 'Mujer'
-vero.hobbies = [Hobby.new(name:'Ropa'), Hobby.new(name:'Cuidado personal'), Hobby.new(name:'Piano'), Hobby.new(name:'Peros'), Hobby.new(name:'Fotografía'), Hobby.new(name:'Novelas'), Hobby.new(name:'Suspenso'), Hobby.new(name:'Música clásica'), Hobby.new(name:'Rock internacional'),Hobby.new(name:'Natación')]
+vero.hobbies = [Hobby.new(name:'Ropa'), Hobby.new(name:'Cuidado personal'), Hobby.new(name:'Piano'), Hobby.new(name:'Perros'), Hobby.new(name:'Fotografía'), Hobby.new(name:'Novelas'), Hobby.new(name:'Suspenso'), Hobby.new(name:'Música clásica'), Hobby.new(name:'Rock internacional'),Hobby.new(name:'Natación')]
 vero.wishlist = []
 vero.wishlist << kindle_product
 vero.wishlist << peliculas_series_3_product
