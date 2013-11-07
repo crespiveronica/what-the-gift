@@ -20,8 +20,12 @@
         </div>
       </div>
 
-      <%= f.label :birthday, 'Fecha de nacimiento' %>
-      <%= f.text_field :birthday, :type => :date, :start_year => (Date.current - 5.year).year, :end_year => (Date.current - 120.year).year, "required" => "true", :include_blank => true %>
+      <div class="control-group">
+        <%= f.label :birthday, 'Fecha de nacimiento' %>
+        <div class="controls">
+          <%= f.text_field :birthday, :type => :date, :start_year => (Date.current - 5.year).year, :end_year => (Date.current - 120.year).year, "required" => "true", :include_blank => true %>
+        </div>
+      </div>
 
       <div class="control-group">
         <%= f.label :email %>
@@ -44,8 +48,12 @@
         </div>
       </div>
 
-      <%= f.label :genre, 'Sexo' %>
-      <%= select_tag(:genre, options_for_select([['Masculino', 'Hombre'], ['Femenino', 'Mujer']])) %>
+      <div class="control-group">
+        <%= f.label :genre, 'Sexo' %>
+        <div class="controls">
+          <%= select_tag(:genre, options_for_select([['Masculino', 'Hombre'], ['Femenino', 'Mujer']])) %>
+        </div>
+      </div>
 
       <div id="hobby-boxes">
 
@@ -99,7 +107,8 @@
       "user[last_name]": {required: true, minlength: 2},
       "user[email]": {required: true, email: true},
       "user[password]": {required: true, minlength: 8},
-      "user[password_confirmation]": {equalTo: "#password"}
+      "user[password_confirmation]": {equalTo: "#password"},
+      "genre": {required: true}
     },
     highlight: function(element) {
       $(element).closest('.control-group').removeClass('success').addClass('error');

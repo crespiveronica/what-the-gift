@@ -21,20 +21,32 @@
   <div class="row">
     <div class="span9">
 
-      <%= nested_form_for @user do |f| %>
+      <%= nested_form_for @user, :html => { :id => 'edit-user' } do |f| %>
         <div class="row">
-          <div class="span4"><%= f.label :first_name, 'Nombre', style: 'font-weight:bold' %></div>
-          <div class="span5"><%= f.text_field :first_name %></div>
+          <div class="control-group">
+            <div class="span4"><%= f.label :first_name, 'Nombre', style: 'font-weight:bold' %></div>
+            <div class="controls">
+              <div class="span5"><%= f.text_field :first_name %></div>
+            </div>
+          </div>
         </div>
 
         <div class="row">
-          <div class="span4"><%= f.label :last_name, 'Apellido', style: 'font-weight:bold' %></div>
-          <div class="span5"><%= f.text_field :last_name %></div>
+          <div class="control-group">
+            <div class="span4"><%= f.label :last_name, 'Apellido', style: 'font-weight:bold' %></div>
+            <div class="controls">
+              <div class="span5"><%= f.text_field :last_name %></div>
+            </div>
+          </div>
         </div>
 
         <div class="row">
-          <div class="span4"><%= f.label :birthday, 'Cumpleaños', style: 'font-weight:bold' %></div>
-          <div class="span5"><%= f.text_field :birthday, :type => :date, :start_year => (Date.current - 5.year).year, :end_year => (Date.current - 120.year).year, "required" => "true", :include_blank => true %>
+          <div class="control-group">
+            <div class="span4"><%= f.label :birthday, 'Cumpleaños', style: 'font-weight:bold' %></div>
+            <div class="controls">
+              <div class="span5"><%= f.text_field :birthday, :type => :date, :start_year => (Date.current - 5.year).year, :end_year => (Date.current - 120.year).year, :include_blank => true %>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -162,5 +174,19 @@
       "user[password_confirmation]": {required: true, minlength: 8}
     },
     onkeyup: false
+  });
+
+  $('#edit-user').validate({
+    rules: {
+      "user[first_name]": {required: true, minlength: 2},
+      "user[last_name]": {required: true, minlength: 2},
+    },
+    highlight: function(element) {
+      $(element).closest('.control-group').removeClass('success').addClass('error');
+    },
+    success: function(element) {
+      element
+        .closest('.control-group').removeClass('error').addClass('success');
+    }
   });
 </script>
