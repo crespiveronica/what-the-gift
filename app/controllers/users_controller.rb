@@ -287,7 +287,7 @@ class UsersController < ApplicationController
 
 
     predefined_hobbies << PredefinedHobby.new("Mascotas",  true)
-    predefined_hobbies << PredefinedHobby.new("Peros",  false)
+    predefined_hobbies << PredefinedHobby.new("Perros",  false)
     predefined_hobbies << PredefinedHobby.new("Gatos",  false)
     predefined_hobbies << PredefinedHobby.new("Aves",  false)
     predefined_hobbies << PredefinedHobby.new("Conejos",  false)
@@ -300,7 +300,7 @@ class UsersController < ApplicationController
     predefined_hobbies << PredefinedHobby.new("Video",  false)
     predefined_hobbies << PredefinedHobby.new("Audio",  false)
 
-    predefined_hobbies << PredefinedHobby.new("Instrumentos dmusicales",  true)
+    predefined_hobbies << PredefinedHobby.new("Instrumentos musicales",  true)
     predefined_hobbies << PredefinedHobby.new("Guitarra",  false)
     predefined_hobbies << PredefinedHobby.new("Piano",  false)
     predefined_hobbies << PredefinedHobby.new("Batería",  false)
