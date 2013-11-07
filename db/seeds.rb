@@ -3408,19 +3408,33 @@ sach = User.new
 sach.first_name = 'Sacha'
 sach.last_name = 'Lifszyc'
 sach.email = 'sacha.lifszyc@gmail.com'
+sachhobbies = ['Futbol', 'Basket', 'Música', 'Libros de ciencia ficción', 'Videojuegos', 'Tecnología', 'Entretenimiento']
+sachhobbies.each do |h|
+	hobbie = Hobby.new(name: h)
+	sach.hobbies << hobbie
+end
 sach.password = '12345678'
 sach.password_confirmation = '12345678'
 sach.active = active
 sach.banned = banned
 sach.genre = 'Hombre'
 sach.wishlist = []
-sach.wishlist << Product.all.entries[rand.rand(10)]
-sach.wishlist << Product.all.entries[rand.rand(10)]
+sach.wishlist << ipad_mini_16_product
+sach.wishlist << kindle_product
+sach.wishlist << indumentaria_tenis_hombre_3_product
+sach.wishlist << indumentaria_basquet_hombre_1_product
+sach.gifts = []
 gift = Gift.new
-gift.product = Product.all[rand.rand(10)]
-gift.score = rand.rand(10)
-sach.gifts = [gift]
-sach.birthday = rand(20.years).ago
+gift.product = tv32_product
+gift.score = 4
+sach.gifts << gift
+gift.save
+gift = Gift.new
+gift.product = ps3_product
+gift.score = 4
+sach.gifts << gift
+gift.save
+sach.birthday = Date.new(1990, 8, 12)
 sach.save
 
 puts "Fer"
