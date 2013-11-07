@@ -226,7 +226,7 @@ class UsersController < ApplicationController
         UserMailer.birthday_notification(user).deliver
       end
     end
-    render 'birthday_notification_success'
+    render 'birthday_notification'
   end
 
   def predefined_hobbies
