@@ -11,7 +11,7 @@
       <h2 class="text-left" id="usuario-anonimo">Usuario anónimo</h1>
 
       <h3 class="text-left" id="registrar-usuario">Registrar usuario</h2>
-      <p>En la pantalla de inicio, estará disponible el botón Creá tu cuenta! Presionándolo se abrirá una pantalla que permitirá seleccionar que tipo de usuario procederá a registrarse siendo las opciones</p>
+      <p>En la pantalla de inicio, estará disponible el botón <em>Creá tu cuenta!</em>. Presionándolo se abrirá una pantalla que permitirá seleccionar que tipo de usuario procederá a registrarse siendo las opciones</p>
       <ol>
         <li style="list-style-type: square;">Usuario</li>
         <li style="list-style-type: square;">Vendedor</li>
@@ -29,12 +29,12 @@
         <li style="list-style-type: square;">Signo “+” el cual permitirá agregar hobbies que no existan en el listado anterior</li>
       </ol>
       <p><small>(*)Campo obligatorio</small></p>
-      <p>El botón crear verificará que todos los campos obligatorios estén completos y que cumplan con las condiciones necesarias.</p>
+      <p>El botón <em>Crear</em> verificará que todos los campos obligatorios estén completos y que cumplan con las condiciones necesarias.</p>
       <p>Creada la cuenta, la misma quedará inactiva hasta que sea activada.</p>
       <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="registrar-usuario_1">Registrar usuario</h2>
-      <p>En la pantalla de inicio, estará disponible el botón Creá tu cuenta! Presionándolo se abrirá una pantalla que permitirá seleccionar que tipo de usuario procederá a registrarse siendo las opciones:</p>
+      <p>En la pantalla de inicio, estará disponible el botón <em>Creá tu cuenta!</em> Presionándolo se abrirá una pantalla que permitirá seleccionar que tipo de usuario procederá a registrarse siendo las opciones:</p>
       <ol>
         <li style="list-style-type: square;">Usuario</li>
         <li style="list-style-type: square;">Vendedor</li>
@@ -50,7 +50,7 @@
         <li style="list-style-type: square;">Teléfono: de la empresa</li>
       </ol>
       <p><small>(*)Campo obligatorio</small></p>
-      <p>El botón crear verificará que todos los campos obligatorios estén completos y que cumplan con las condiciones necesarias.</p>
+      <p>El botón <em>crear</em> verificará que todos los campos obligatorios estén completos y que cumplan con las condiciones necesarias.</p>
       <p>Creada la cuenta, la misma quedará inactiva hasta que sea activada.</p>
       <hr style="border-top: 1px solid #97310e;">
 
@@ -64,11 +64,11 @@
         <li style="list-style-type: square;">Email que debe ser el mail actual (ya sea el que se usó durante el registro así como un nuevo email si se lo cambió posteriormente)</li>
         <li style="list-style-type: square;">Password que debe ser la contraseña utilizada (ya sea el que se usó durante el registro así como si se la cambió posteriormente)</li>
       </ol>
-      <p>El botón Iniciar sesión logueará la cuenta del usuario si las credenciales ingresadas son correctas.</p>
+      <p>El botón <em>Iniciar sesión</em> logueará la cuenta del usuario si las credenciales ingresadas son correctas.</p>
       <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="recuperar-contrasena">Recuperar contraseña</h2>
-      <p>Si durante el Login el usuario olvidó su contraseña puede presionar sobre <%= link_to @forgotten_user_path, "Olvidé mi usuario o contraseña" %> y puede poner su email y se le enviará un correo electrónico con una nueva contraseña generada para que ingrese con ella.</p>
+      <p>Si durante el Login el usuario olvidó su contraseña puede presionar sobre <%= link_to "Olvidé mi usuario o contraseña", forgotten_user_path %> y puede poner su email y se le enviará un correo electrónico con una nueva contraseña generada para que ingrese con ella.</p>
       <p>Es recomendable que el usuario modifique su contraseña tras haber iniciado sesión.</p>
 
     </div>
@@ -80,8 +80,8 @@
       <h3 class="text-left" id="homescreen">Homescreen</h2>
       <p>En esta pantalla se encontrarán 6 botones</p>
       <ol>
-        <li style="list-style-type: square;">El botón What the gift?! En la parte superior izquierda lo llevará a la página de inicio de su cuenta</li>
-        <li style="list-style-type: square;">El botón con su Nombre y Apellido le permitirá
+        <li style="list-style-type: square;">El botón <em>What The Gift?!</em> En la parte superior izquierda lo llevará a la página de inicio de su cuenta</li>
+        <li style="list-style-type: square;">El botón con su Nombre y Apellido (en la parte superior derecha de la página) le permitirá:
           <ul>
             <li style="list-style-type: disc;">Gestionar su Perfil</li>
             <li style="list-style-type: disc;">Cerrar sesión el cual lo deslogueará de su sesión actual</li>
@@ -121,17 +121,17 @@
       <p>En esta pantalla podrá editar los atributos correspondientes a su perfil. Aparecerán los campos del mismo habilitados para su modificación. </p>
       <p>Los botones disponibles son:</p>
       <ol>
-        <li style="list-style-type: square;">Cambiar foto este botón abrirá una pantalla que le permitirá seleccionar un archivo de su computadora (no serán admitidas fotos en formato URL en esta sección) la cual aparecerá en su perfil.</li>
-        <li style="list-style-type: square;">Confirmar cambios luego de ingresados los cambios en los campos este botón validará que sean correctos y avisará en caso de que sean inválidos no permitiendo la modificación de los mismos. Las validaciones son:
+        <li style="list-style-type: square;"><em>Cambiar foto</em> este botón abrirá una pantalla que le permitirá seleccionar un archivo de su computadora (no serán admitidas fotos en formato URL en esta sección) la cual aparecerá en su perfil.</li>
+        <li style="list-style-type: square;"><em>Confirmar cambios</em> luego de ingresados los cambios en los campos este botón validará que sean correctos y avisará en caso de que sean inválidos no permitiendo la modificación de los mismos. Las validaciones son:
       *La fecha de nacimiento es obligatoria</li>
-        <li style="list-style-type: square;">Cancelar cambios volverá al perfil al último estado guardado (confirmado). </li>
-        <li style="list-style-type: square;">Cambiar contraseña(*) permitirá la modificación de la contraseña actual validando que la nueva contraseña:
+        <li style="list-style-type: square;"><em>Cancelar cambios</em> volverá al perfil al último estado guardado (confirmado). </li>
+        <li style="list-style-type: square;"><em>Cambiar contraseña</em>(*) permitirá la modificación de la contraseña actual validando que la nueva contraseña:
           <ul>
             <li style="list-style-type: circle;">Tenga más de 8 caracteres</li>
             <li style="list-style-type: circle;">Coincida con el campo Confirmar Contraseña</li>
           </ul>
         </li>
-        <li style="list-style-type: square;">Cambiar E-Mail(*) le permitirá la posibilidad de editar su cuenta de correo electrónico de su cuenta. Este proceso requerirá un email válido y posterior confirmación del mismo</li>
+        <li style="list-style-type: square;"><em>Cambiar E-Mail</em>(*) le permitirá la posibilidad de editar su cuenta de correo electrónico de su cuenta. Este proceso requerirá un email válido y posterior confirmación del mismo</li>
       </ol>
       <p><small>(*)Estos botones no requieren presionar en Confirmar cambios para que se reflejen los cambios.</small></p>
 
@@ -141,7 +141,7 @@
         <li style="list-style-type: square;">Mis amigos mostrará un listado de sus amigos.
           Un amigo es una persona a la cual se le ha enviado una solicitud y la ha aceptado por lo que sus perfiles se encuentran vinculador.
           En esta pantalla podrá ingresar a los perfiles de su amigo haciendo click en su nombre o en la foto.
-          Además tendrá el botón Eliminar el cual le permitirá romper con dicho vínculo.</li>
+          Además tendrá el botón <em>Eliminar</em> el cual le permitirá romper con dicho vínculo.</li>
         <li style="list-style-type: square;">Solicitudes de amistad en esta pantalla se mostrarán las solicitudes pendientes de aceptación por otros usuarios para vincular sus cuentas en calidad de amigos. Se dispondrá de los botones:
           <ul>
             <li style="list-style-type: disc;">Confirmar que le permitirá vincular sus cuentas</li>
@@ -161,15 +161,15 @@
         <li style="list-style-type: disc;">Apellido</li>
         <li style="list-style-type: disc;">Dirección de e-mail</li>
       </ul>
-      <p>El botón Buscar filtrará la base de usuarios de acuerdo a los parámetros solicitados</p>
+      <p>El botón <em>Buscar</em> filtrará la base de usuarios de acuerdo a los parámetros solicitados</p>
       <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="productos-disponibles">Productos disponibles</h2>
       <p>En esta pantalla se mostrará listado de los productos disponibles en la base de datos y la posibilidad de realizar búsquedas simples o avanzadas así como por categorías.</p>
       <p>En este listado no habrá ningún tipo de prioridad o categorización asociada a los gustos propios o de otro usuario, simplemente se mostrarán los productos a modo de búsqueda.</p>
       <p>Aquí se presenta un listado a la izquierda de categorías posibles, al presionarlo, se filtrará el listado por dicha categoría seleccionada.</p>
-      <p>En el campo de búsqueda se puede incluir palabras claves que filtrarán el listado al presionar el botón Buscar.</p>
-      <p>El botón Búsqueda avanzada habilitará 5 campos ocultos. Cada cual cuenta con su respectiva casilla de verificación (checkbox). La activación de dicha casilla significará que la búsqueda avanzada incluirá o no incluirá dicho parámetro en el filtro. A continuación se describe cada uno de ellos:</p>
+      <p>En el campo de búsqueda se puede incluir palabras claves que filtrarán el listado al presionar el botón <em>Buscar</em>.</p>
+      <p>El botón <em>Búsqueda avanzada</em> habilitará 5 campos ocultos. Cada cual cuenta con su respectiva casilla de verificación (checkbox). La activación de dicha casilla significará que la búsqueda avanzada incluirá o no incluirá dicho parámetro en el filtro. A continuación se describe cada uno de ellos:</p>
       <ol>
         <li style="list-style-type: square;">Marca filtra los productos por la marca seleccionada</li>
         <li style="list-style-type: square;">Vendedor filtra los productos por un vendedor seleccionado</li>
@@ -203,7 +203,7 @@
       <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="agregar-regalo-a-wish-list">Agregar regalo a Wish-List</h2>
-      <p>En cualquier listado de productos, ya sea por búsqueda simple o avanzada, por ver un listado de productos de otro usuario (de regalos sugeridos o regalos ya recibidos) o por ingresar a la descripción de un producto, se podrá presionar en el botón con forma de corazón el cual agregará el regalo a su wishlist.
+      <p>En cualquier listado de productos, ya sea por búsqueda simple o avanzada, por ver un listado de productos de otro usuario (de regalos sugeridos o regalos ya recibidos) o por ingresar a la descripción de un producto, se podrá presionar en el botón <i class='icon-white icon-heart'></i> el cual agregará el regalo a su wishlist.
       Esto implicará que al momento de sugerir un regalo a sus amigos, dichos regalos se agregarán a la sugerencia.</p>
       </p>
     </div>
@@ -215,7 +215,7 @@
       <h3 class="text-left" id="homescreen">Homescreen</h2>
       <p>En esta pantalla se encontrarán 5 botones</p>
       <ol>
-        <li style="list-style-type: square;">El botón What the gift?! En la parte superior izquierda lo llevará a la página de inicio de su cuenta</li>
+        <li style="list-style-type: square;">El botón <em>What the gift?!</em> En la parte superior izquierda lo llevará a la página de inicio de su cuenta</li>
         <li style="list-style-type: square;">El botón con su Razón Social le permitirá
           <ul>
             <li style="list-style-type: disc;">Gestionar su Perfil</li>
@@ -280,7 +280,7 @@
       <h3 class="text-left" id="agregar-producto">Agregar producto</h2>
       <p>En esta ventana se mostrará el formulario para la creación de un nuevo producto. Los campos son todos obligatorios a excepción de la foto.</p>
       <p>El campo Categorías mostrará un listado de categorías disponibles a seleccionar.</p>
-      <p>El producto será confirmado presionando en el botón Crear. Es importante tener en cuenta que no aparecerá en los listados hasta que sea habilitado por un administrador el cual evaluará que el producto cumpla con los requisitos del sitio, requisitos legales y no contradiga la moral y las buenas costumbres.</p>
+      <p>El producto será confirmado presionando en el botón <em>Crear</em>. Es importante tener en cuenta que no aparecerá en los listados hasta que sea habilitado por un administrador el cual evaluará que el producto cumpla con los requisitos del sitio, requisitos legales y no contradiga la moral y las buenas costumbres.</p>
       <hr style="border-top: 1px solid #97310e;">
 
       <h3 class="text-left" id="notificacion-de-resultado-de-publicacion">Notificación de resultado de publicación</h2>
@@ -297,7 +297,7 @@
 
       <h3 class="text-left" id="login">Cómo iniciar sesión</h2>
       <p>Para ingresa a la pantalla de login, el administrador debe escribir en la barra de direcciones
-      <%= link_to admin_login_path, 'www.what-the-gift.com/admins/login' %>. Esta pantalla mostrará el botón Iniciar sesión que al presionarlo mostrará un Pop-Up solicitando</p>
+      <%= link_to 'www.what-the-gift.com/admins/login', admin_login_path %>. Esta pantalla mostrará el botón <em>Iniciar sesión</em> que al presionarlo mostrará un Pop-Up solicitando</p>
       <ol>
         <li style="list-style-type: square;">Username: nombre de usuario proporcionado por el administrador de la base de datos</li>
         <li style="list-style-type: square;">Password: contraseña proporcionada por el administrador de la base de datos</li>
