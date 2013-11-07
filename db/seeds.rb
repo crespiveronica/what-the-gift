@@ -3447,7 +3447,7 @@ fer.password_confirmation = 'password'
 fer.active = active
 fer.banned = banned
 fer.genre = 'Hombre'
-fer.hobbies = vero.hobbies = [Hobby.new(name:'Ska'), Hobby.new(name:'Futbol'), Hobby.new(name:'Filosofia'), Hobby.new(name:'Bebidas alcoholicas')]
+fer.hobbies = [Hobby.new(name:'Ska'), Hobby.new(name:'Futbol'), Hobby.new(name:'Filosofia'), Hobby.new(name:'Bebidas alcoholicas')]
 fer.wishlist = []
 fer.wishlist << ipad_mini_16_product
 fer.wishlist << celulares_4_product
