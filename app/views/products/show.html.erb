@@ -1,5 +1,15 @@
+<script>
+function back()
+{
+  if (window.location == document.referrer) {
+    window.location = '/products/search';
+  } else {
+    window.location.href = document.referrer;
+  }
+}
+</script>
 <div class="container">
-  <a href="javascript: window.location.href = document.referrer;">&#171; Volver</a>
+  <a href="javascript: back();">&#171; Volver</a>
 </div>
 <div class="container">
   <div class="page-header">
