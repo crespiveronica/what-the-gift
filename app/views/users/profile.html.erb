@@ -48,13 +48,7 @@
         <div class="span4"><strong>Pasatiempos</strong></div>
         <% if current_user.hobbies != nil %>
           <div class="span5">
-            <% current_user.hobbies.entries.each do |h| %>
-              <% if h == current_user.hobbies.entries.last %>
-                <%= h.name %>
-              <% else %>
-                <%= h.name + ', ' %>
-              <% end %>
-            <% end %>
+            <%= current_user.hobbies_string %>
           </div>
         <% else %>
           <div class="span5">No has registrado pasatiempos.</div>
