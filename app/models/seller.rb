@@ -10,10 +10,14 @@ class Seller < GenericUser
 
   validates :company_name, presence: true
 
-  scope :ordered, order_by( :company_name => :asc ) 
-  
+  scope :ordered, order_by( :company_name => :asc )
+
   def full_name
     company_name
+  end
+
+  def estimado_a
+   "Estimado/a"
   end
 
 end

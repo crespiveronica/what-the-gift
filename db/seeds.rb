@@ -588,7 +588,7 @@ videocamaras_3_product = Product.new(name: 'Filmadora Panasonic M7', description
 celulares_1_product = Product.new(name: 'Galaxy S3 Mini', description: 'Samsung Smartphone S3 Mini con Android 4. LIBERADO', brand:'Samsung', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/celular-smartphone-liberado-mini-s3-android-4-dual-sim-wifi-5280-MLA4294996396_052013-F.jpg', "category_ids" => celulares_category._id)
 celulares_2_product = Product.new(name: 'Nokia Asha 311', description: 'Nokia Ashaa 311, nuevo, liberado con 2GB de memoria interna. Con garantía y cámara de 3Mp.', brand:'Nokia', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/nokia-asha-311-nuevos-libres-2gb-gtia-camara-3mp-5117-MLA4217414210_042013-O.jpg', "category_ids" => celulares_category._id)
 celulares_3_product = Product.new(name: 'LG Optimus L5 E620', description: 'LG Optimus L5 E620 con Android 4 nuevo, liberado y con garantía.', brand:'LG', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/lg-optimus-l5-e620-android-nuevos-libres-garantia-6398-MLA5058144119_092013-O.jpg', "category_ids" => celulares_category._id)
-celulares_4_product = Product.new(name: 'iPhone 5', description: 'iPhone 5 16GB. Pantalla de 4 pulgadas, liberado. Con WiFi. Chip A6 iOS6.', brand:'Apple', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/apple-iphone-5-16gb-pantalla-4-wifi-liberado-chip-a6-ios6-5489-MLA4409239472_052013-F.jpg', "category_ids" => celulares_category._id)
+celulares_4_product = Product.new(name: 'iPhone 5', description: 'Celular iPhone 5 16GB. Pantalla de 4 pulgadas, liberado. Con WiFi. Chip A6 iOS6.', brand:'Apple', approved: 'true', photo_url:'http://mla-s1-p.mlstatic.com/apple-iphone-5-16gb-pantalla-4-wifi-liberado-chip-a6-ios6-5489-MLA4409239472_052013-F.jpg', "category_ids" => celulares_category._id)
 accesorios_celulares_1_product = Product.new(name: 'Funda Galaxy S4', description: 'Funda Flip Cover S-View Original para Samsung Galaxy S4 + Film', brand:'Samsung', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/funda-flip-cover-s-view-original-samsung-galaxy-s4-film-5524-MLA4459130853_062013-O.jpg', "category_ids" => [accesorios_celulares_category._id, celulares_category._id])
 accesorios_celulares_2_product = Product.new(name: 'Memoria Micro SdHc 16GB', description: 'Memoria SdHC 16GB Clase 4 en microcentro. Marca Kingston. Garantía de por vida del fabricante.', brand:'Kingston', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/memoria-micro-sd-hc-16gb-clase-4-mejor-precio-microcentro-4116-MLA2653363288_052012-O.jpg', "category_ids" => [accesorios_celulares_category._id, celulares_category._id])
 accesorios_celulares_3_product = Product.new(name: 'Cargador portátil USB', description: 'Cargador portátil USB Sony. Sirve para celular, tablet, iPad y MP3. ', brand:'Sony', approved: 'true', photo_url:'http://mla-s2-p.mlstatic.com/cargador-portatil-usb-sony-bateria-pcelulartabletipadmp3-4135-MLA4896419789_082013-O.jpg', "category_ids" => [accesorios_celulares_category._id, celulares_category._id])
@@ -3447,7 +3447,7 @@ fer.password_confirmation = 'password'
 fer.active = active
 fer.banned = banned
 fer.genre = 'Hombre'
-fer.hobbies = vero.hobbies = [Hobby.new(name:'Ska'), Hobby.new(name:'Futbol'), Hobby.new(name:'Filosofia'), Hobby.new(name:'Bebidas alcoholicas')]
+fer.hobbies = [Hobby.new(name:'Ska'), Hobby.new(name:'Futbol'), Hobby.new(name:'Filosofia'), Hobby.new(name:'Bebidas alcoholicas')]
 fer.wishlist = []
 fer.wishlist << ipad_mini_16_product
 fer.wishlist << celulares_4_product

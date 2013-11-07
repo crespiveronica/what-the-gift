@@ -75,8 +75,12 @@ class AdminsController < ApplicationController
     @user = Seller.find(params[:id])
     @user.banned = true
     @user.banned_reason = params[:seller][:banned_reason]
-    @user.save
-    flash['alert alert-info'] = 'El usuario ha sido deshabilitado.'
+    if @user.save
+      flash['alert alert-info'] = 'El vendedor ha sido deshabilitado.'
+      UserMailer.inform_state(@user).deliver
+    else
+      flash['alert alert-error'] = "No se ha podido deshabilitar al vendedor."
+    end
     redirect_to admin_seller_edit_path
   end
 
@@ -84,8 +88,12 @@ class AdminsController < ApplicationController
     @user = Seller.unscoped.find(params[:id])
     @user.banned = false
     @user.banned_reason = nil
-    @user.save
-    flash['alert alert-success'] = 'El usuario ha sido habilitado.'
+    if @user.save
+      flash['alert alert-success'] = 'El vendedor ha sido habilitado.'
+      UserMailer.inform_state(@user).deliver
+    else
+      flash['alert alert-info'] = "No se ha podido reactivar al vendedor."
+    end
     redirect_to admin_seller_edit_path
   end
 
