@@ -123,8 +123,8 @@ def hobbies_string
 	if(self.hobbies_list.nil?)
 		string = 'No has cargado pasatiempos'
 	else
-		self.hobbies_list.each { |h|
-			string += h.name + ( h==self.hobbies_list.last ? '.' : ', ' )
+		self.hobbies_list.each_with_index { |h, i|
+			string += h.name + ( i==self.hobbies_list.count-1 ? '.' : ', ' )
 		}
 	end
 	string
