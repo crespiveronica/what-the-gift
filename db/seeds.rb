@@ -3473,14 +3473,27 @@ vero.password_confirmation = '12345678'
 vero.active = active
 vero.banned = banned
 vero.genre = 'Mujer'
+vero.hobbies = [Hobby.new(name:'Ropa'), Hobby.new(name:'Cuidado personal'), Hobby.new(name:'Piano'), Hobby.new(name:'Peros'), Hobby.new(name:'Fotografía'), Hobby.new(name:'Novelas'), Hobby.new(name:'Suspenso'), Hobby.new(name:'Música clásica'), Hobby.new(name:'Rock internacional'),Hobby.new(name:'Natación')]
 vero.wishlist = []
-vero.wishlist << Product.all.entries[rand.rand(10)]
-vero.wishlist << Product.all.entries[rand.rand(10)]
-gift = Gift.new
-gift.product = Product.all[rand.rand(10)]
-gift.score = rand.rand(10)
-vero.gifts = [gift]
-vero.birthday = rand(20.years).ago
+vero.wishlist << kindle_product
+vero.wishlist << peliculas_series_3_product
+vero.wishlist << auris2_product
+gift1 = Gift.new
+gift1.product = windows_product
+gift1.score = 1
+gift2 = Gift.new
+gift2.product = notebook_samsung_product
+gift2.score = 5
+gift3 = Gift.new
+gift3.product = juegos_de_mesa_2_product
+gift4 = Gift.new
+gift4.product = musica_heavy_metal_1_product
+gift4.score = 5
+gift5 = Gift.new
+gift5.product = audio_antiguo_1_product
+gift5.score = 5
+vero.gifts = [gift1, gift2, gift3, gift4, gift]
+vero.birthday = Date.new(1991, 2,16)
 vero.save
 
 puts "Done"
