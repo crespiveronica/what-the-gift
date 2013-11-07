@@ -73,7 +73,7 @@ class SellingProductsController < ApplicationController
       flash['alert alert-error'] = error.message
       redirect_to '/my-products/'
     rescue
-      flash['alert alert-error'] = 'El formato del archivo es incorrecto, por favor corr&iacute; y vuelva a cargarlo.'
+      flash['alert alert-error'] = 'El formato del archivo es incorrecto, por favor corr&iacute;jalo y vuelva a cargarlo.'.html_safe
       redirect_to '/my-products/'
     else
       save_selling_products selling_products

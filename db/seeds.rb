@@ -3469,14 +3469,24 @@ joaquincito.password_confirmation = '12345678'
 joaquincito.active = active
 joaquincito.banned = banned
 joaquincito.genre = 'Hombre'
+joaquincito.hobbies = [Hobby.new(name:'Música electrónica'), Hobby.new(name:'Automovilismo'), Hobby.new(name:'Futbol'), Hobby.new(name:'Juegos de mesa'), Hobby.new(name:'Celulares'), Hobby.new(name:'Perros'), Hobby.new(name:'PC y Portátilas'), Hobby.new(name:'Libros de ciencia ficción'), Hobby.new(name:'Rock internacional'), Hobby.new(name:'Bebidas alcoholicas'), Hobby.new(name:'Películas series')]
 joaquincito.wishlist = []
-joaquincito.wishlist << Product.all.entries[rand.rand(10)]
-joaquincito.wishlist << Product.all.entries[rand.rand(10)]
-gift = Gift.new
-gift.product = Product.all[rand.rand(10)]
-gift.score = rand.rand(10)
-joaquincito.gifts = [gift]
-joaquincito.birthday = Date.new(1988, 11, 13)
+joaquincito.wishlist << apoyabrazo_product
+joaquincito.wishlist << pc_clon_product
+gift1 = Gift.new
+gift1.product = galaxy_tab10_product
+gift1.score = 4
+gift2 = Gift.new
+gift2.product = celulares_1_product
+gift2.score = 2
+gift3 = Gift.new
+gift3.product = peliculas_series_5_product
+gift3.score = 5
+gift4 = Gift.new
+gift4.product = juegos_de_mesa_3_product
+gift4.score = 5
+joaquincito.gifts = [gift1, gift2, gift3, gift4]
+joaquincito.birthday = Date.new(1988, 07, 15)
 joaquincito.save
 
 print "Vero..."
@@ -3508,7 +3518,7 @@ gift4.score = 5
 gift5 = Gift.new
 gift5.product = audio_antiguo_1_product
 gift5.score = 5
-vero.gifts = [gift1, gift2, gift3, gift4, gift]
+vero.gifts = [gift1, gift2, gift3, gift4, gift5]
 vero.birthday = Date.new(1991, 2,16)
 vero.save
 
