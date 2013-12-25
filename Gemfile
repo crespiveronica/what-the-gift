@@ -15,6 +15,7 @@ gem 'aws-sdk', '~> 1.3.4'
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem 'will_paginate_mongoid'
 gem 'bootstrap-will_paginate'
+gem 'rails-i18n', '~> 3.0.0'
 
 group :development, :test do
 #  gem 'rspec-rails', '2.11.0'
