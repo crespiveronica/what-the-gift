@@ -5,8 +5,6 @@ class FriendRequest
   belongs_to :friend, :class_name => "User"
   field :accepted, :type => Boolean, :default => false
 
-  default_scope all.in(owner_id: User.all.map(&:id)).in(friend_id: User.all.map(&:id))  
-
   def self.find_by_friends(user, friend)
     requests = FriendRequest.where({ owner: user, friend: friend })
     requests += FriendRequest.where({ owner: friend, friend: user })
